@@ -1,7 +1,7 @@
 baseURL = "https://rats-make-robot.github.io"
 title = "My New Hugo Site"
 languageCode = "en-us"
-theme = ["ananke"]
+theme = "ananke"
 resourceDir = "../resources"
 
 DefaultContentLanguage = "en"
