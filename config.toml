@@ -1,6 +1,5 @@
 baseURL = "https://rats-make-robot.github.io"
 title = "My New Hugo Site"
-languageCode = "en-us"
 theme = "ananke"
 resourceDir = "../resources"
 
@@ -10,15 +9,6 @@ Paginate = 3 # this is set low for demonstrating with dummy content. Set to a hi
 googleAnalytics = ""
 enableRobotsTXT = true
 
-[languages]
-  [languages.en]
-    title = "Ananke"
-    weight = 1
-    contentDir = "content/en"
-  [languages.fr]
-    title = "Ananke Fr"
-    weight = 2
-    contentDir = "content/fr"
 
 [sitemap]
   changefreq = "monthly"
