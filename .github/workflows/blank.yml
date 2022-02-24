@@ -50,8 +50,3 @@ jobs:
         github_token: ${{ secrets.HUGO_BLOG_TOKEN }}
         publish_branch: gh-pages
         publish_dir: ./public
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
