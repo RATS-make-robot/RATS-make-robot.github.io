@@ -2,6 +2,9 @@
 title: "history"
 date: 2022-02-24T20:12:15+09:00
 draft: false
+menue:
+    main:
+       weight: 1
 ---
 
 
