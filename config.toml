@@ -27,26 +27,6 @@ enableRobotsTXT = true
   background_color_class = "bg-black"
   recent_posts_number = 3
 
-[[menu.main]]
-name = "Archive"
-url = "archives/"
-weight = 5
-
-[[menu.main]]
-name = "Search"
-url = "search/"
-weight = 10
-
-[[menu.main]]
-name = "Tags"
-url = "tags/"
-weight = 10
-
-[[menu.main]]
-name = "Categories"
-url = "categories/"
-weight = 10
-
 
 [[params.ananke_socials]]
 name = "github"
