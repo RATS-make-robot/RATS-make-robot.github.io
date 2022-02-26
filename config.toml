@@ -9,6 +9,9 @@ Paginate = 5 # this is set low for demonstrating with dummy content. Set to a hi
 googleAnalytics = ""
 enableRobotsTXT = true
 
+[params]
+  site_logo = "img/logo.svg"
+
 [sitemap]
   changefreq = "monthly"
   priority = 0.5
