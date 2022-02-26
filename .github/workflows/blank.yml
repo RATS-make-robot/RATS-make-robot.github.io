@@ -1,0 +1,52 @@
+# action 이름. 원하는대로 정하면 된다. 
+name: deploy ghpage
+
+# on: 뒤에오는 event가 발생하면 action이 실행된다. 아래는 master branch에 push 나 pull request가 발생하면 action이 실행되는 코드이다. 보통 그냥 두면 된다. 
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+# jobs은 실행될 action을 포함하고 있다.  
+jobs:
+  
+  build:
+    runs-on: ubuntu-20.04
+    #steps는 명령어 들이다. 
+    # uses는 이미 만들어진 action을 사용하는 것, run은 명령어를 실행하는 것이다. 
+    steps: 
+    
+    #1. 가상머신으로 checkout
+    - uses: actions/checkout@v2
+    
+    #2. theme를 submodule로 등록했는데 그것도 checkout
+    - name: Checkout submodules
+      shell: bash
+      run: |
+        auth_header="$(git config --local --get http.https://github.com/.extraheader)"
+        git submodule sync --recursive
+        git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
+        # run 다음 내용들은 submodule을 최신으로 udapte한것을 가져오는 내용 + a이다.
+    
+    #4. Hugo 설치 
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: 'latest'
+
+        
+    #5. build (public 폴더에 저장 된다.)
+    - name: Build Hugo Site
+      run: |
+        hugo --minify
+       # minify는 압축시키는 것을 의미한다. 
+    
+    #6.Deploy 배포: git token이 필요하다. gh-pages로 publish하는 것 잊지 말자 
+    #public 폴더를 github page의 gh-pages 브챈치에 배포한다는 의미이다. 
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.mabangkey }}
+        publish_branch: gh-pages
+        publish_dir: ./public

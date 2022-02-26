@@ -145,8 +145,8 @@ paginate = 10
     enableRecaptchaInContactForm = false
     googleRecaptchaKey = "site_key_for_google_recaptcha"
 
-    about_us = "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>"
-    copyright = "Copyright (c) 2015 - 2016, YourCompany; all rights reserved."
+    about_us = "<p>명지대학교 로봇 동아리 RATS</p>"
+    copyright = "Copyright (c) 2022, YourCompany; all rights reserved."
 
     # Format dates with Go's time formatting
     date_format = "January 2, 2006"
@@ -157,13 +157,13 @@ paginate = 10
     logo = "img/logo.png"
     logo_small = "img/logo_small.png"
     contact_url = "/contact"
-    address = """<p class="text-uppercase"><strong>Universal Ltd.</strong>
-        <br>13/25 New Avenue
-        <br>Newtown upon River
-        <br>45Y 73J
-        <br>England
+    address = """<p class="text-uppercase"><strong>명지대학교 RATS</strong>
+        <br>13/25 용인시 처인구
+        <br>명지 대학교 1234
+        <br>5층 2호
+        <br>RATS 동아리방 주소
         <br>
-        <strong>Great Britain</strong>
+        <strong>대한 민국</strong>
       </p>
       """
 
@@ -173,11 +173,6 @@ paginate = 10
 # Enable or disable top bar with social icons
 [params.topbar]
     enable = false
-    text = """<p class="hidden-sm hidden-xs">Contact us on +420 777 555 333 or hello@universal.com.</p>
-      <p class="hidden-md hidden-lg"><a href="tel:+420 777 555 333" data-animate-hover="pulse"><i class="fas fa-phone"></i></a>
-      <a href="mailto:hello@universal.com" data-animate-hover="pulse"><i class="fas fa-envelope"></i></a>
-      </p>
-      """
 
 # Enable and disable widgets for the right sidebar
 [params.widgets]
