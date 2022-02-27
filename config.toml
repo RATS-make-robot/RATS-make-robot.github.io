@@ -46,7 +46,7 @@ paginate = 10
 
 [[menu.main]]
     name       = "project"
-    identifier = "project"
+    identifier = "menu.project"
     url        = "/project/"
     weight     = 5
     post       = 4
