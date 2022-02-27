@@ -46,7 +46,7 @@ paginate = 10
 
 [[menu.main]]
     name       = "project"
-    identifier = "menu.project"
+    identifier = "project"
     url        = "/project/"
     weight     = 5
     post       = 4
@@ -65,6 +65,7 @@ paginate = 10
     url        = "/sites/"
     weight     = 7
 
+
 [[menu.main]]
     name       = "Community"
     url        = "https://community.mju-rats.com/"
@@ -73,7 +74,8 @@ paginate = 10
     
 [[menu.main]]
     name       = "Cloud"
-    url        = "https://cloud.mju-rats.com/"
+    url        = "
+    https://cloud.mju-rats.com/"
     weight     = 2
     parent     = "menu.sites"
 
