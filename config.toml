@@ -74,8 +74,7 @@ paginate = 10
     
 [[menu.main]]
     name       = "Cloud"
-    url        = "
-    https://cloud.mju-rats.com/"
+    url        = "https://cloud.mju-rats.com/"
     weight     = 2
     parent     = "menu.sites"
 
