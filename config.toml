@@ -49,6 +49,7 @@ paginate = 10
     identifier = "menu.project"
     url        = "/project/"
     weight     = 5
+    post       = 4
 
 
 [[menu.main]]
@@ -90,11 +91,11 @@ paginate = 10
 
 
 [params]
-    viewMorePostLink = "/blog/"
-    author = "DevCows"
-    defaultKeywords = ["devcows", "hugo", "go"]
-    mainSections = ["blog"]
-    defaultDescription = "Site template made by devcows using hugo"
+    viewMorePostLink = "/project/"
+    author = "RATS"
+    defaultKeywords = ["RATS", "robot", "coding"]
+    mainSections = ["project"]
+    defaultDescription = "명지대학교 로봇동아리 레츠"
 
     # Social media
     facebook_site = "" # the Facebook handle of your site ('https://www.facebook.com/HANDLE')
@@ -189,7 +190,7 @@ paginate = 10
     # For more information take a look at the README.
 
 [params.testimonials]
-    enable = true
+    enable = false
     # All testimonials are defined in their own files. You can find example items
     # at 'exampleSite/data/testimonials'.
     # For more information take a look at the README.
@@ -216,10 +217,10 @@ paginate = 10
     enable = true
     title = "우리 동아리에서는"
     subtitle = "모든종류의 개발 모든 종류의 제작을 합니다."
-    hide_summary = false
+    hide_summary = true
 
 [params.footer.recent_posts]
-    enable = true
+    enable = false
 
 [taxonomies]
   category = "categories"
