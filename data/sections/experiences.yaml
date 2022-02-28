@@ -12,13 +12,13 @@ section:
 experiences:
 - company:
     name: 2021년
-    url: "https://www.example.com"
+    #url: "https://www.example.com"
    # location: Dhaka Branch
     # company overview
    # overview: Example Co. is a widely recognized company for cloud-native development. It builds tools for Kubernetes.
   positions:
   - designation: Senior Software Engineer
-    #start: 
+    start: 
    
     responsibilities:
     - 한이음 공모대전 입선
