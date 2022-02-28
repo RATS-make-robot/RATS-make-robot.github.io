@@ -22,7 +22,7 @@ buttons:
 # your projects
 projects:
 - name: drone_with_gyroscopic_guard
-  logo: /images/sections/projects/kubernetes.png
+ # logo: /images/sections/projects/kubernetes.png
   role: Contributor
   timeline: "March 2018 - Present"
   repo: https://github.com/mokhwasomssi/drone_with_gyroscopic_guard # If your project is a public repo on GitHub, then provide this link. it will show star count.
@@ -31,7 +31,7 @@ projects:
   tags: ["embede", "robot", "cloud"]
 
 - name: stm32_hal_dshot
-  logo: /images/sections/projects/tensorflow.png
+ # logo: /images/sections/projects/tensorflow.png
   role: Developer
   timeline: "Jun 2018 - Present"
   repo: https://github.com/mokhwasomssi/stm32_hal_dshot
@@ -47,7 +47,7 @@ projects:
   tags: ["academic","iot"]
 
 - name: Nocode
-  logo: /images/sections/projects/no-code.png
+ # logo: /images/sections/projects/no-code.png
   role: Nothing
   timeline: "Oct 2019 - Dec 2019"
   repo: https://github.com/RATS-make-robot/2022-freshman-linetracer
@@ -56,7 +56,7 @@ projects:
   tags: ["hobby", "교육"]
 
 - name: 2DOF_Ball_Plate_System
-  logo: /images/sections/projects/toha.png
+ # logo: /images/sections/projects/toha.png
   role: Owner
   timeline: "Jun 2019 - Present"
   repo: https://github.com/Topasm/2DOF_Ball_Plate_System
