@@ -16,33 +16,32 @@ buttons:
   filter: "embede"
 - name: 교육
   filter: "교육"
-- name: robot
-  filter: "robot"
+- name: 로봇
+  filter: "로봇"
 
 # your projects
 projects:
 - name: drone_with_gyroscopic_guard
-  role: 제작자
+  role: 석은혜 회원
   timeline: "2020년 ~ 2022년"
-  repo: https://github.com/mokhwasomssi/drone_with_gyroscopic_guard # If your project is a public repo on GitHub, then provide this link. it will show star count.
-  #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
+  repo: https://github.com/mokhwasomssi/drone_with_gyroscopic_guard 
   summary: 자이로스코프형 가드가 달린 드론
   tags: ["embeded", "robot", "cloud"]
 
 - name: stm32_hal_dshot
-  role: Developer
+  role: 석은혜 회원
   timeline: "Jun 2018 - Present"
   repo: https://github.com/mokhwasomssi/stm32_hal_dshot
-  #url: ""
   summary: An Open Source Machine Learning Framework for Everyone.
-  tags: ["professional", "machine-learning"]
+  tags: ["로봇", "machine-learning"]
 
 - name: 6족 보행 로봇(깃헙 링크 없는경우)
-  role: Team Lead
+  role: 김태수 회원
   timeline: "Jan 2017 - Nov 2017"
+  #커뮤니티 링크
   url: "https://community.mju-rats.com/t/hexapod/68"
-  summary: "커뮤니티로 링크 걸 예정"
-  tags: ["academic","iot"]
+  summary: "6족 보행로봇"
+  tags: ["로봇","iot"]
 
 - name: Nocode
   role: Nothing
@@ -53,7 +52,7 @@ projects:
   tags: ["hobby", "교육"]
 
 - name: 2DOF_Ball_Plate_System
-  role: 제작자
+  role: 김성현 회원
   timeline: "2019년 3월 ~ 2019년 7월"
   repo: https://github.com/Topasm/2DOF_Ball_Plate_System
   summary: 터치스크린 센서를 이용한 pid 균형제어 로봇
