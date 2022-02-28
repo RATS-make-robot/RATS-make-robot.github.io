@@ -1,6 +1,6 @@
 # section information
 section:
-  name: Skills
+  name: 동아리에서는..
   id: skills
   enable: true
   weight: 2
@@ -44,6 +44,6 @@ skills:
   summary: "Experienced with git-based development. Mostly, use Github. Also, have experience in working with GitLab."
   url: "https://git-scm.com/"
 
-- name: C++
+- name: C
   logo: /images/sections/skills/c++.png
-  summary: "Know basic C/C++ programming. Used for contest programming and problem solving."
+  summary: "c 언어 교육을 합니다"

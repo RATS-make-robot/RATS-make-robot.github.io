@@ -1,6 +1,6 @@
 # section information
 section:
-  name: Experiences
+  name: 연혁
   id: experiences
   enable: true
   weight: 3
@@ -11,21 +11,22 @@ section:
 # Your experiences
 experiences:
 - company:
-    name: Example Co.
+    name: 2021년
     url: "https://www.example.com"
-    location: Dhaka Branch
+   # location: Dhaka Branch
     # company overview
-    overview: Example Co. is a widely recognized company for cloud-native development. It builds tools for Kubernetes.
+   # overview: Example Co. is a widely recognized company for cloud-native development. It builds tools for Kubernetes.
   positions:
   - designation: Senior Software Engineer
-    start: Nov 2019
-    # don't provide end date if you are currently working there. It will be replaced by "Present"
-    # end: Dec 2020
-    # give some points about what was your responsibilities at the company.
+    #start: 
+   
     responsibilities:
-    - Design and develop XYZ tool for ABC task
-    - Design, develop and manage disaster recovery tool [Xtool](https://www.example.com) that backup Kubernetes volumes, databases, and cluster's resource definition.
-    - Lead backend team.
+    - 한이음 공모대전 입선
+    - 서울과학기술대학교 창의적 종합설계 경진대회 장려상
+    - 다학제 캡스톤디자인 프로젝트 경진대회 대상
+    - 캡스톤디자인 프로젝트 경진대회 동상 2팀
+    - 융합프로젝트 은상 수상
+
 
   - designation: Junior Software Engineer
     start: Nov 2017

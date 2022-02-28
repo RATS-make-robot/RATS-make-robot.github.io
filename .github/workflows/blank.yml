@@ -4,9 +4,9 @@ name: deploy ghpage
 # on: 뒤에오는 event가 발생하면 action이 실행된다. 아래는 master branch에 push 나 pull request가 발생하면 action이 실행되는 코드이다. 보통 그냥 두면 된다. 
 on:
   push:
-    branches: [ master ]
+    branches: [ toha ]
   pull_request:
-    branches: [ master ]
+    branches: [ toha ]
 
 # jobs은 실행될 action을 포함하고 있다.  
 jobs:
@@ -21,13 +21,12 @@ jobs:
     - uses: actions/checkout@v2
     
     #2. theme를 submodule로 등록했는데 그것도 checkout
-#    - name: Checkout submodules
- #     shell: bash
-  #    run: |
-   #     auth_header="$(git config --local --get http.https://github.com/.extraheader)"
-    
-#    git submodule sync --recursive
- #       git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
+  - name: Checkout submodules
+      shell: bash
+     run: |
+      auth_header="$(git config --local --get http.https://github.com/.extraheader)"
+        git submodule sync --recursive
+       git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
         # run 다음 내용들은 submodule을 최신으로 udapte한것을 가져오는 내용 + a이다.
     
     #4. Hugo 설치 
