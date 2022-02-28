@@ -23,7 +23,6 @@ markup:
 outputs:
   home:
     - HTML
-    - RSS
     - JSON
 
 # Enable Google Analytics
