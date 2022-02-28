@@ -44,6 +44,6 @@ skills:
   summary: "깃 사용법을 배웁니다"
   url: "https://git-scm.com/"
 
-- name: C
+- name: C/C++
   logo: /images/sections/skills/c++.png
-  summary: "c 언어 교육을 합니다"
+  summary: "기본적인 임베디드 사용을 위한 c 언어 교육을 합니다"
