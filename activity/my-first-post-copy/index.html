@@ -4,7 +4,7 @@
 <meta name=robots content="all,follow">
 <meta name=googlebot content="index,follow,snippet,archive">
 <meta name=viewport content="width=device-width,initial-scale=1">
-<title>신입생 라인트레이서 교육</title>
+<title>재학생 세미나</title>
 <meta name=author content="RATS">
 <meta name=keywords content="RATS,robot,coding">
 <meta name=description content="명지대학교 로봇동아리 레츠">
@@ -24,7 +24,7 @@
 <meta property="og:updated_time" content="2022-02-24T20:12:15+0900">
 <meta name=twitter:card content="summary">
 <meta name=twitter:site content="@GoHugoIO">
-<meta name=twitter:title content="신입생 라인트레이서 교육">
+<meta name=twitter:title content="재학생 세미나">
 <meta name=twitter:description content="명지대학교 로봇동아리 레츠">
 </head>
 <body>
@@ -34,9 +34,9 @@
 <div class=container>
 <div class=navbar-header>
 <a class="navbar-brand home" href=/>
-<img src=/img/logo.png alt="신입생 라인트레이서 교육 logo" class="hidden-xs hidden-sm">
-<img src=/img/logo_small.png alt="신입생 라인트레이서 교육 logo" class="visible-xs visible-sm">
-<span class=sr-only>신입생 라인트레이서 교육 - go to homepage</span>
+<img src=/img/logo.png alt="재학생 세미나 logo" class="hidden-xs hidden-sm">
+<img src=/img/logo_small.png alt="재학생 세미나 logo" class="visible-xs visible-sm">
+<span class=sr-only>재학생 세미나 - go to homepage</span>
 </a>
 <div class=navbar-buttons>
 <button type=button class="navbar-toggle btn-template-main" data-toggle=collapse data-target=#navigation>
@@ -90,7 +90,7 @@
 <div class=container>
 <div class=row>
 <div class=col-md-12>
-<h1>신입생 라인트레이서 교육</h1>
+<h1>재학생 세미나</h1>
 </div>
 </div>
 </div>
@@ -103,277 +103,15 @@
 February 24, 2022
 </p>
 <div id=post-content>
-<h1 id=2022-freshman-linetracer>2022-freshman-linetracer</h1>
-<p>2022 신입생 라인트레이서</p>
-<h2 id=intro>INTRO</h2>
-<ul>
-<li>신입회원은 가입 후 신입생 세미나(C언어, 라인트레이서 제작)을 거치게 됩니다.</li>
-<li>세미나에 적극적으로 참여하고 라인트레이서 완성시, 준회원에서 정회원으로 승격됩니다.</li>
-<li>정회원이 되어야 RATS에서 계속 활동할 수 있습니다.</li>
-</ul>
-<h2 id=작동-영상>작동 영상</h2>
-<p><img src=https://user-images.githubusercontent.com/48342925/154978977-8f19ad4f-a6c3-4c2f-a03c-1b29bf391769.gif alt=ezgif-1-091fc016d1></p>
-<h2 id=arduino>Arduino</h2>
-<ul>
-<li>아두이노 나노 사용</li>
-<li>예제 파일 올려둠
-<ul>
-<li>LED</li>
-<li>MOTOR</li>
-<li>SENSOR</li>
-</ul>
-</li>
-</ul>
-<h2 id=modeling>Modeling</h2>
-<ul>
-<li><code>Solidworks 2020</code>으로 설계</li>
-<li><code>몸체</code>와 <code>몸체2</code>를 3D 프린터로 출력 후 조립</li>
-</ul>
-<h2 id=reference>Reference</h2>
-<ul>
-<li>사용 부품의 데이터 시트 모음</li>
-</ul>
-<h2 id=schematic>Schematic</h2>
-<ul>
-<li><code>KiCAD</code>로 회로도 작성</li>
-</ul>
-<h2 id=부품리스트>부품리스트</h2>
-<ul>
-<li>
-<p>소자</p>
-<table>
-<thead>
-<tr>
-<th>부품</th>
-<th>종류</th>
-<th>용도</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>아두이노 나노 호환보드</td>
-<td>MCU</td>
-<td>라트 개발보드</td>
-</tr>
-<tr>
-<td>스위치</td>
-<td>스위치</td>
-<td>라트 전원 스위치</td>
-</tr>
-<tr>
-<td>7805</td>
-<td>레귤레이터</td>
-<td>전원부 레귤레이터</td>
-</tr>
-<tr>
-<td>캐패시터 0.33uF</td>
-<td>캐패시터</td>
-<td>전원부 캐패시터</td>
-</tr>
-<tr>
-<td>캐패시터 0.1uF</td>
-<td>캐패시터</td>
-<td>전원부 캐패시터</td>
-</tr>
-<tr>
-<td>저항 330Ω</td>
-<td>저항</td>
-<td>LED 저항</td>
-</tr>
-<tr>
-<td>저항 1MΩ</td>
-<td>저항</td>
-<td>수광 소자 저항</td>
-</tr>
-<tr>
-<td>저항 220Ω</td>
-<td>저항</td>
-<td>발광 소자 저항</td>
-</tr>
-<tr>
-<td>LED</td>
-<td>LED</td>
-<td>전원부 출력 확인, 센서 값 확인</td>
-</tr>
-<tr>
-<td>ST5811</td>
-<td>발광 소자</td>
-<td>주행선 감지</td>
-</tr>
-<tr>
-<td>SI5312-H</td>
-<td>수광 소자</td>
-<td>주행선 감지</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>모터, 배터리</p>
-<table>
-<thead>
-<tr>
-<th>부품</th>
-<th>종류</th>
-<th>용도</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>아두이노 RC카 모터</td>
-<td>모터</td>
-<td>모터</td>
-</tr>
-<tr>
-<td>아두이노 RC카 바퀴</td>
-<td>바퀴</td>
-<td>바퀴</td>
-</tr>
-<tr>
-<td>배터리 18650 1200mAh</td>
-<td>배터리</td>
-<td>리튬 이온 배터리, 충전 가능</td>
-</tr>
-<tr>
-<td>배터리 홀더</td>
-<td>배터리</td>
-<td>18650x2 홀더</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>소켓, 커넥터, 점퍼</p>
-<table>
-<thead>
-<tr>
-<th>부품</th>
-<th>종류</th>
-<th>용도</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>핀헤더</td>
-<td>소켓</td>
-<td>12핀 : 센서 전원, 신호 8핀 : 모터 전원, 신호</td>
-</tr>
-<tr>
-<td>핀헤더소켓</td>
-<td>소켓</td>
-<td>30핀 : 아두이노3핀 : 레귤레이터</td>
-</tr>
-<tr>
-<td>몰렉스 커넥터 - M</td>
-<td>커넥터</td>
-<td>전원 커넥터</td>
-</tr>
-<tr>
-<td>몰렉스 커넥터 - F</td>
-<td>커넥터</td>
-<td>전원 커넥터</td>
-</tr>
-<tr>
-<td>소켓 점퍼 케이블 - F/F</td>
-<td>점퍼</td>
-<td>센서 전원 및 신호모터드라이버 신호</td>
-</tr>
-<tr>
-<td>소켓 점퍼 케이블 - M/F</td>
-<td>점퍼</td>
-<td>모터드라이버 전원모터 전선</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>조립</p>
-<table>
-<thead>
-<tr>
-<th>부품</th>
-<th>종류</th>
-<th>용도</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>부품 수납 케이스</td>
-<td>공구함</td>
-<td>개인 부품 보관</td>
-</tr>
-<tr>
-<td>만능기판 100X100</td>
-<td>만능기판</td>
-<td>메인보드 납땜</td>
-</tr>
-<tr>
-<td>만능기판 100X50</td>
-<td>만능기판</td>
-<td>센서보드 납땜</td>
-</tr>
-<tr>
-<td>서포트 40mm</td>
-<td>서포트</td>
-<td>메인보드 서포트</td>
-</tr>
-<tr>
-<td>서포트 10mm</td>
-<td>서포트</td>
-<td>모터드라이버 서포트</td>
-</tr>
-<tr>
-<td>볼트 M3x10</td>
-<td>볼트</td>
-<td>메인보드 서포트 고정모터드라이버 서포트 고정볼캐스터 고정센서보드 고정</td>
-</tr>
-<tr>
-<td>볼트 M3x16</td>
-<td>볼트</td>
-<td>몸체-몸체2 조립</td>
-</tr>
-<tr>
-<td>볼트 M3x30</td>
-<td>볼트</td>
-<td>모터 고정</td>
-</tr>
-<tr>
-<td>너트 M3</td>
-<td>너트</td>
-<td>너트</td>
-</tr>
-<tr>
-<td>볼캐스터 5/8</td>
-<td>볼캐스터</td>
-<td>마찰 방지</td>
-</tr>
-<tr>
-<td>십자 드라이버 3mm</td>
-<td>드라이버</td>
-<td>라트 조립</td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<h2 id=note>NOTE</h2>
-<ul>
-<li>배터리 전선에 몰렉스 커넥터 달아야 함
-<ul>
-<li>클램프 필수</li>
-</ul>
-</li>
-<li>배터리 홀더에 18650 잘 안들어감
-<ul>
-<li>꾸겨넣으세요</li>
-</ul>
-</li>
-<li>5V랑 ADC 출력 부분이 플럭스로 이어져있으면 ADC 값이 잘 안 받아짐
-<ul>
-<li>이유는 잘 모르겠고 경험적으로</li>
-</ul>
-</li>
-</ul>
+<h1 id=2022-winter-seminar>2022-winter-seminar</h1>
+<p>2022 겨울방학 재학생 세미나</p>
+<ol>
+<li>3D 모델링 + 3D 프린터</li>
+<li>Git/Github (by <a href=https://github.com/BEMELON>BEMELON</a>)</li>
+<li>OpenCV</li>
+<li>KiCAD+PCB (by <a href=https://github.com/js4ngu>js4ngu</a>)</li>
+<li>시스템파워 설계</li>
+</ol>
 </div>
 </div>
 <div class=col-md-3>
