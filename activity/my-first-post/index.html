@@ -1,0 +1,485 @@
+<!doctype html><html>
+<head>
+<title>신입생 라인트레이서 교육</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link rel=stylesheet href=/css/katex.min.css>
+<link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600">
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<link rel=icon type=image/png href=/images/site/favicon_hu55748a7623b9bd3c997868c947e7a445_2720_42x0_resize_box_3.png>
+<meta property="og:title" content="신입생 라인트레이서 교육">
+<meta property="og:description" content="2022-freshman-linetracer 2022 신입생 라인트레이서
+회칙  신입회원은 가입 후 신입생 세미나(C언어, 라인트레이서 제작)을 거치게 됩니다. 세미나에 적극적으로 참여하고 라인트레이서 완성시, 준회원에서 정회원으로 승격됩니다. 정회원이 되어야 RATS에서 계속 활동할 수 있습니다.  작동 영상 Arduino  아두이노 나노 사용 예제 파일 올려둠  LED MOTOR SENSOR    Modeling  Solidworks 2020으로 설계 몸체와 몸체2를 3D 프린터로 출력 후 조립  Reference  사용 부품의 데이터 시트 모음  Schematic  KiCAD로 회로도 작성  부품리스트   소자">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rats-make-robot.github.io/activity/my-first-post/"><meta property="article:section" content="activity">
+<meta property="article:published_time" content="2022-02-24T20:12:15+09:00">
+<meta property="article:modified_time" content="2022-02-24T20:12:15+09:00">
+<meta name=description content="신입생 라인트레이서 교육">
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
+<link rel=stylesheet href=/css/layouts/single.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-122321624-2','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+<img src=/images/site/main-logo_hu55748a7623b9bd3c997868c947e7a445_2720_42x0_resize_box_3.png alt=Logo>
+RATS</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+<img src=/images/site/main-logo_hu55748a7623b9bd3c997868c947e7a445_2720_42x0_resize_box_3.png class=d-none id=main-logo alt=Logo>
+<img src=/images/site/inverted-logo_hu55748a7623b9bd3c997868c947e7a445_2720_42x0_resize_box_3.png class=d-none id=inverted-logo alt="Inverted Logo">
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/posts data-filter=all>Posts</a></li>
+<div class=subtree>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class=content>
+<div class="container p-0 read-area">
+<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://rats-make-robot.github.io/images/default-hero.jpg)>
+</div>
+<div class=page-content>
+<div class="author-profile ml-auto align-self-lg-center">
+<img class=rounded-circle src=/images/author/john_hu55748a7623b9bd3c997868c947e7a445_2720_120x120_fit_box_3.png alt="Author Image">
+<h5 class=author-name></h5>
+<p>Thursday, February 24, 2022</p>
+</div>
+<div class=title>
+<h1>신입생 라인트레이서 교육</h1>
+</div>
+<div class=taxonomy-terms>
+<ul>
+</ul>
+</div>
+<div class=post-content id=post-content>
+<h1 id=2022-freshman-linetracer>2022-freshman-linetracer</h1>
+<p>2022 신입생 라인트레이서</p>
+<h2 id=회칙>회칙</h2>
+<ul>
+<li>신입회원은 가입 후 신입생 세미나(C언어, 라인트레이서 제작)을 거치게 됩니다.</li>
+<li>세미나에 적극적으로 참여하고 라인트레이서 완성시, 준회원에서 정회원으로 승격됩니다.</li>
+<li>정회원이 되어야 RATS에서 계속 활동할 수 있습니다.</li>
+</ul>
+<h2 id=작동-영상>작동 영상</h2>
+<p><img src=https://user-images.githubusercontent.com/48342925/154978977-8f19ad4f-a6c3-4c2f-a03c-1b29bf391769.gif alt=ezgif-1-091fc016d1></p>
+<h2 id=arduino>Arduino</h2>
+<ul>
+<li>아두이노 나노 사용</li>
+<li>예제 파일 올려둠
+<ul>
+<li>LED</li>
+<li>MOTOR</li>
+<li>SENSOR</li>
+</ul>
+</li>
+</ul>
+<h2 id=modeling>Modeling</h2>
+<ul>
+<li><code>Solidworks 2020</code>으로 설계</li>
+<li><code>몸체</code>와 <code>몸체2</code>를 3D 프린터로 출력 후 조립</li>
+</ul>
+<h2 id=reference>Reference</h2>
+<ul>
+<li>사용 부품의 데이터 시트 모음</li>
+</ul>
+<h2 id=schematic>Schematic</h2>
+<ul>
+<li><code>KiCAD</code>로 회로도 작성</li>
+</ul>
+<h2 id=부품리스트>부품리스트</h2>
+<ul>
+<li>
+<p>소자</p>
+<table>
+<thead>
+<tr>
+<th>부품</th>
+<th>종류</th>
+<th>용도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>아두이노 나노 호환보드</td>
+<td>MCU</td>
+<td>라트 개발보드</td>
+</tr>
+<tr>
+<td>스위치</td>
+<td>스위치</td>
+<td>라트 전원 스위치</td>
+</tr>
+<tr>
+<td>7805</td>
+<td>레귤레이터</td>
+<td>전원부 레귤레이터</td>
+</tr>
+<tr>
+<td>캐패시터 0.33uF</td>
+<td>캐패시터</td>
+<td>전원부 캐패시터</td>
+</tr>
+<tr>
+<td>캐패시터 0.1uF</td>
+<td>캐패시터</td>
+<td>전원부 캐패시터</td>
+</tr>
+<tr>
+<td>저항 330Ω</td>
+<td>저항</td>
+<td>LED 저항</td>
+</tr>
+<tr>
+<td>저항 1MΩ</td>
+<td>저항</td>
+<td>수광 소자 저항</td>
+</tr>
+<tr>
+<td>저항 220Ω</td>
+<td>저항</td>
+<td>발광 소자 저항</td>
+</tr>
+<tr>
+<td>LED</td>
+<td>LED</td>
+<td>전원부 출력 확인, 센서 값 확인</td>
+</tr>
+<tr>
+<td>ST5811</td>
+<td>발광 소자</td>
+<td>주행선 감지</td>
+</tr>
+<tr>
+<td>SI5312-H</td>
+<td>수광 소자</td>
+<td>주행선 감지</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>모터, 배터리</p>
+<table>
+<thead>
+<tr>
+<th>부품</th>
+<th>종류</th>
+<th>용도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>아두이노 RC카 모터</td>
+<td>모터</td>
+<td>모터</td>
+</tr>
+<tr>
+<td>아두이노 RC카 바퀴</td>
+<td>바퀴</td>
+<td>바퀴</td>
+</tr>
+<tr>
+<td>배터리 18650 1200mAh</td>
+<td>배터리</td>
+<td>리튬 이온 배터리, 충전 가능</td>
+</tr>
+<tr>
+<td>배터리 홀더</td>
+<td>배터리</td>
+<td>18650x2 홀더</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>소켓, 커넥터, 점퍼</p>
+<table>
+<thead>
+<tr>
+<th>부품</th>
+<th>종류</th>
+<th>용도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>핀헤더</td>
+<td>소켓</td>
+<td>12핀 : 센서 전원, 신호 </br> 8핀 : 모터 전원, 신호</td>
+</tr>
+<tr>
+<td>핀헤더소켓</td>
+<td>소켓</td>
+<td>30핀 : 아두이노</br>3핀 : 레귤레이터</td>
+</tr>
+<tr>
+<td>몰렉스 커넥터 - M</td>
+<td>커넥터</td>
+<td>전원 커넥터</td>
+</tr>
+<tr>
+<td>몰렉스 커넥터 - F</td>
+<td>커넥터</td>
+<td>전원 커넥터</td>
+</tr>
+<tr>
+<td>소켓 점퍼 케이블 - F/F</td>
+<td>점퍼</td>
+<td>센서 전원 및 신호</br>모터드라이버 신호</td>
+</tr>
+<tr>
+<td>소켓 점퍼 케이블 - M/F</td>
+<td>점퍼</td>
+<td>모터드라이버 전원</br>모터 전선</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>조립</p>
+<table>
+<thead>
+<tr>
+<th>부품</th>
+<th>종류</th>
+<th>용도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>부품 수납 케이스</td>
+<td>공구함</td>
+<td>개인 부품 보관</td>
+</tr>
+<tr>
+<td>만능기판 100X100</td>
+<td>만능기판</td>
+<td>메인보드 납땜</td>
+</tr>
+<tr>
+<td>만능기판 100X50</td>
+<td>만능기판</td>
+<td>센서보드 납땜</td>
+</tr>
+<tr>
+<td>서포트 40mm</td>
+<td>서포트</td>
+<td>메인보드 서포트</td>
+</tr>
+<tr>
+<td>서포트 10mm</td>
+<td>서포트</td>
+<td>모터드라이버 서포트</td>
+</tr>
+<tr>
+<td>볼트 M3x10</td>
+<td>볼트</td>
+<td>메인보드 서포트 고정</br>모터드라이버 서포트 고정</br>볼캐스터 고정</br>센서보드 고정</td>
+</tr>
+<tr>
+<td>볼트 M3x16</td>
+<td>볼트</td>
+<td>몸체-몸체2 조립</td>
+</tr>
+<tr>
+<td>볼트 M3x30</td>
+<td>볼트</td>
+<td>모터 고정</td>
+</tr>
+<tr>
+<td>너트 M3</td>
+<td>너트</td>
+<td>너트</td>
+</tr>
+<tr>
+<td>볼캐스터 5/8</td>
+<td>볼캐스터</td>
+<td>마찰 방지</td>
+</tr>
+<tr>
+<td>십자 드라이버 3mm</td>
+<td>드라이버</td>
+<td>라트 조립</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h2 id=note>NOTE</h2>
+<ul>
+<li>배터리 전선에 몰렉스 커넥터 달아야 함
+<ul>
+<li>클램프 필수</li>
+</ul>
+</li>
+<li>배터리 홀더에 18650 잘 안들어감
+<ul>
+<li>꾸겨넣으세요</li>
+</ul>
+</li>
+<li>5V랑 ADC 출력 부분이 플럭스로 이어져있으면 ADC 값이 잘 안 받아짐
+<ul>
+<li>이유는 잘 모르겠고 경험적으로</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="row pl-3 pr-3">
+<div class="col-md-6 share-buttons">
+<strong>Share on:</strong>
+<a class="btn btn-sm facebook-btn" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2frats-make-robot.github.io%2factivity%2fmy-first-post%2f" target=_blank>
+<i class="fab fa-facebook"></i>
+</a>
+<a class="btn btn-sm twitter-btn" href="https://twitter.com/share?url=https%3a%2f%2frats-make-robot.github.io%2factivity%2fmy-first-post%2f&text=%ec%8b%a0%ec%9e%85%ec%83%9d%20%eb%9d%bc%ec%9d%b8%ed%8a%b8%eb%a0%88%ec%9d%b4%ec%84%9c%20%ea%b5%90%ec%9c%a1&via=RATS" target=_blank>
+<i class="fab fa-twitter"></i>
+</a>
+<a class="btn btn-sm reddit-btn" href="https://reddit.com/submit?url=https%3a%2f%2frats-make-robot.github.io%2factivity%2fmy-first-post%2f&title=%ec%8b%a0%ec%9e%85%ec%83%9d%20%eb%9d%bc%ec%9d%b8%ed%8a%b8%eb%a0%88%ec%9d%b4%ec%84%9c%20%ea%b5%90%ec%9c%a1" target=_blank>
+<i class="fab fa-reddit"></i>
+</a>
+<a class="btn btn-sm linkedin-btn" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2frats-make-robot.github.io%2factivity%2fmy-first-post%2f&title=%ec%8b%a0%ec%9e%85%ec%83%9d%20%eb%9d%bc%ec%9d%b8%ed%8a%b8%eb%a0%88%ec%9d%b4%ec%84%9c%20%ea%b5%90%ec%9c%a1" target=_blank>
+<i class="fab fa-linkedin"></i>
+</a>
+<a class="btn btn-sm whatsapp-btn" href="https://api.whatsapp.com/send?text=%ec%8b%a0%ec%9e%85%ec%83%9d%20%eb%9d%bc%ec%9d%b8%ed%8a%b8%eb%a0%88%ec%9d%b4%ec%84%9c%20%ea%b5%90%ec%9c%a1 https%3a%2f%2frats-make-robot.github.io%2factivity%2fmy-first-post%2f" target=_blank>
+<i class="fab fa-whatsapp"></i>
+</a>
+<a class="btn btn-sm email-btn" href="mailto:?subject=%ec%8b%a0%ec%9e%85%ec%83%9d%20%eb%9d%bc%ec%9d%b8%ed%8a%b8%eb%a0%88%ec%9d%b4%ec%84%9c%20%ea%b5%90%ec%9c%a1&body=https%3a%2f%2frats-make-robot.github.io%2factivity%2fmy-first-post%2f" target=_blank>
+<i class="fas fa-envelope-open-text"></i>
+</a>
+</div>
+<div class="col-md-6 btn-improve-page">
+<a href=https://github.com/RATS-make-robot/RATS-make-robot.github.io/edit/toha/content/activity/my-first-post.md title="Improve this page" target=_blank rel=noopener>
+<i class="fas fa-code-branch"></i>
+Improve this page
+</a>
+</div>
+</div>
+<hr>
+<div class="row next-prev-navigator">
+</div>
+<hr>
+</div>
+</div>
+</div>
+<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
+</section>
+<section class=toc-section id=toc-section>
+<div class=toc-holder>
+<h5 class="text-center pl-3">Table of Contents</h5>
+<hr>
+<div class=toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#회칙>회칙</a></li>
+<li><a href=#작동-영상>작동 영상</a></li>
+<li><a href=#arduino>Arduino</a></li>
+<li><a href=#modeling>Modeling</a></li>
+<li><a href=#reference>Reference</a></li>
+<li><a href=#schematic>Schematic</a></li>
+<li><a href=#부품리스트>부품리스트</a></li>
+<li><a href=#note>NOTE</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</section>
+</div>
+<footer id=footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>Navigation</h5>
+<ul>
+<li class=nav-item>
+<a class=smooth-scroll href=https://rats-make-robot.github.io#skills>동아리에서는..</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://rats-make-robot.github.io#experiences>연혁</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://rats-make-robot.github.io#projects>프로젝트</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://rats-make-robot.github.io#achievements>활동사진</a>
+</li>
+</ul>
+</div>
+<div class="col-md-4 col-sm-12">
+<h5>Contact me:</h5>
+<ul>
+<li><a href=mailto:johndoe@example.com target=_blank rel=noopener>
+<span><i class="fas fa-envelope"></i></span> <span>johndoe@example.com</span>
+</a></li>
+<li><a href=https://github.com/johndoe target=_blank rel=noopener>
+<span><i class="fab fa-github"></i></span> <span>johndoe</span>
+</a></li>
+<li><a href=https://www.linkedin.com/in/johndoe target=_blank rel=noopener>
+<span><i class="fab fa-linkedin"></i></span> <span>John Doe</span>
+</a></li>
+<li><span><i class="fas fa-phone-alt"></i></span> <span>+0123456789</span></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+<div class=container>
+<div class="row text-left">
+<div class=col-md-4>
+<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
+<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha
+</a>
+</div>
+<div class="col-md-4 text-center">© 2022 Copyright.</div>
+<div class="col-md-4 text-right">
+<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script type=text/javascript defer src=/js/katex.min.js></script>
+<script type=text/javascript defer src=/js/auto-render.min.js onload=renderMathInElement(document.body)></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
+<script src=/js/single.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>
