@@ -1,6 +1,6 @@
 # section information
 section:
-  name: 동아리에서는..
+  name: 어떤걸 하나요
   id: skills
   enable: true
   weight: 2
@@ -11,7 +11,7 @@ section:
 # Your Skills.
 # Give a summary of you each skill in the summary section.
 skills:
-- name: Kubernetes
+- name: 캐드
   logo: /images/sections/skills/kubernetes.png
   summary: "Capable of deploying, managing application on Kubernetes. Experienced in writing Kubernetes controllers for CRDs."
   url: "https://kubernetes.io/"
@@ -21,11 +21,11 @@ skills:
 #   summary: "Using as the main language for professional development. Capable of writing scalable, testable, and maintainable program."
 #   url: "https://golang.org/"
 
-- name: Cloud Computing
+- name: PCB
   logo: /images/sections/skills/cloud.png
   summary: "Worked with most of the major clouds such as GCP, AWS, Azure etc."
 
-- name: Docker
+- name: 아두이노
   logo: /images/sections/skills/docker.svg
   summary: "Write most of the programs as dockerized container. Experienced with multi-stage, multi-arch build process."
   url: "https://www.docker.com/"

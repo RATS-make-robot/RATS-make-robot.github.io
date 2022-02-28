@@ -55,10 +55,10 @@ projects:
   summary: 교육 자료들.
   tags: ["hobby", "교육"]
 
-- name: Toha
+- name: 2DOF_Ball_Plate_System
   logo: /images/sections/projects/toha.png
   role: Owner
   timeline: "Jun 2019 - Present"
-  repo: https://github.com/hossainemruz/toha
+  repo: https://github.com/Topasm/2DOF_Ball_Plate_System
   summary: A Hugo theme for personal portfolio.
-  tags: ["hobby","hugo","theme","professional"]
+  tags: ["hobby","theme","robot"]
