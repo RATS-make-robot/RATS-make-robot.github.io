@@ -1,6 +1,6 @@
 # section information
 section:
-  name: 프로젝트
+  name: 프로젝트와 교육
   id: projects
   enable: true
   weight: 5
@@ -14,8 +14,8 @@ buttons:
   filter: "all"
 - name: embeded
   filter: "embede"
-- name: app
-  filter: "app"
+- name: 교육
+  filter: "교육"
 - name: robot
   filter: "robot"
 
@@ -30,30 +30,30 @@ projects:
   summary: Production-Grade Container Scheduling and Management.
   tags: ["embede", "robot", "cloud"]
 
-- name: Tensorflow
+- name: stm32_hal_dshot
   logo: /images/sections/projects/tensorflow.png
   role: Developer
   timeline: "Jun 2018 - Present"
-  repo: https://github.com/tensorflow/tensorflow
+  repo: https://github.com/mokhwasomssi/stm32_hal_dshot
   #url: ""
   summary: An Open Source Machine Learning Framework for Everyone.
   tags: ["professional", "machine-learning"]
 
-- name: A sample academic paper
+- name: 깃허브에 링크가 없다면?
   role: Team Lead
   timeline: "Jan 2017 - Nov 2017"
-  url: "https://www.example.com"
-  summary: Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente eius reprehenderit animi suscipit autem eligendi esse amet aliquid error eum. Accusantium distinctio soluta aliquid quas placeat modi suscipit eligendi nisi.
+  url: "https://community.mju-rats.com/"
+  summary: "커뮤니티로 링크 걸 예정"
   tags: ["academic","iot"]
 
 - name: Nocode
   logo: /images/sections/projects/no-code.png
   role: Nothing
   timeline: "Oct 2019 - Dec 2019"
-  repo: https://github.com/kelseyhightower/nocode
+  repo: https://github.com/RATS-make-robot/2022-freshman-linetracer
   #url: ""
-  summary: The best way to write secure and reliable applications. Write nothing; deploy nowhere.
-  tags: ["hobby", "fun"]
+  summary: 교육 자료들.
+  tags: ["hobby", "교육"]
 
 - name: Toha
   logo: /images/sections/projects/toha.png
