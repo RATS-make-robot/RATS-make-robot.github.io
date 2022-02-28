@@ -12,38 +12,48 @@ section:
 buttons:
 - name: All
   filter: "all"
-- name: embeded
-  filter: "embede"
-- name: 교육
-  filter: "교육"
-- name: 로봇
-  filter: "로봇"
+- name: project
+  filter: "project"
+- name: education
+  filter: "education"
+- name: 2022
+  filter: "2022"
+- name: 2021
+  filter: "2021"
+- name: 2020
+  filter: "2020"
+- name: 2019
+  filter: "2019"
+- name: 2018
+  filter: "2018"
+
+
 
 # your projects
 projects:
 - name: drone_with_gyroscopic_guard
-  role: 석은혜 회원
-  timeline: "2020년 ~ 2022년"
+  role: 석은혜
+  timeline: "2020년 ~ 2021년"
   repo: https://github.com/mokhwasomssi/drone_with_gyroscopic_guard 
-  summary: 자이로스코프형 가드가 달린 드론
-  tags: ["embeded", "robot", "cloud"]
+  summary: 드론 펌웨어 개발과 자이로스코프 형태의 드론 가드 설계
+  tags: ["stm32 mcu", "no-os", "quadcopter", "imu", "2020"]
 
 - name: stm32_hal_dshot
-  role: 석은혜 회원
+  role: 석은혜
   timeline: "Jun 2018 - Present"
   repo: https://github.com/mokhwasomssi/stm32_hal_dshot
   summary: An Open Source Machine Learning Framework for Everyone.
   tags: ["로봇", "machine-learning"]
 
 - name: 6족 보행 로봇(깃헙 링크 없는경우)
-  role: 김태수 회원
+  role: 김태수
   timeline: "Jan 2017 - Nov 2017"
   #커뮤니티 링크
   url: "https://community.mju-rats.com/t/hexapod/68"
   summary: "6족 보행로봇"
   tags: ["로봇","iot"]
 
-- name: Nocode
+- name: 예시입니다
   role: Nothing
   timeline: "Oct 2019 - Dec 2019"
   repo: https://github.com/RATS-make-robot/2022-freshman-linetracer
@@ -52,8 +62,9 @@ projects:
   tags: ["hobby", "교육"]
 
 - name: 2DOF_Ball_Plate_System
-  role: 김성현 회원
+  role: 김성현
   timeline: "2019년 3월 ~ 2019년 7월"
   repo: https://github.com/Topasm/2DOF_Ball_Plate_System
   summary: 터치스크린 센서를 이용한 pid 균형제어 로봇
-  tags: ["hobby","theme","robot"]
+  tags: ["hobby","theme","robot", "2019"]
+
