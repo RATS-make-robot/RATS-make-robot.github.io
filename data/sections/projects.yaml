@@ -71,8 +71,8 @@ projects:
   tags: ["project", "2022"]
 
 - name: 씨름 로봇
-  role: 김지호
-  timeline: "2021년도"
+  role: 김지호, 이한얼, 전성배
+  timeline: "2021년 9월 ~ 2021년 10월"
   repo: https://github.com/Kestrel-omega/2021_Wrestling
-  summary: 5등함 
+  summary: 카메라를 통해 상대 로봇을 탐지하고 컬러센서와 초음파센서를 통해 지형을 파악하여 상대 로봇을 밀어내거나 행동 불능으로 만드는 로봇 
   tags: ["project", "2021"]
