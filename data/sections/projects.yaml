@@ -39,13 +39,13 @@ projects:
   tags: ["project", "2020"]
 
 
-- name: 6족 보행 로봇(깃헙 링크 없는경우)
+- name: 6족 보행 로봇
   role: 김태수
-  timeline: "Jan 2017 - Nov 2017"
+  timeline: "Jan 2018 - Nov 2018"
   #커뮤니티 링크
   url: "https://community.mju-rats.com/t/hexapod/68"
   summary: "6족 보행로봇"
-  tags: ["로봇","iot"]
+  tags: ["project","2018"]
 
 - name: 신입생 라인트레이서 가이드
   role: RATS
@@ -62,3 +62,10 @@ projects:
   summary: 터치스크린 센서를 이용한 pid 균형제어 로봇
   tags: ["project", "2019"]
 
+
+- name: 동아리 웹사이트
+  role: 김성현, 황규도
+  timeline: "2022년 ~"
+  repo: https://github.com/RATS-make-robot/RATS-make-robot.github.io
+  summary: 동아리 홍보를 위한 정적 페이지, 커뮤니티, 클라우드 개발
+  tags: ["project", "2022"]
