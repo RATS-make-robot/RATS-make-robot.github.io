@@ -11,13 +11,13 @@ section:
 # Your experiences
 experiences:
 - company:
-    name: 2021년
-    #url: "https://www.example.com"
+    name: 수상실적 전체보기
+    url: "https://community.mju-rats.com/t/topic/198"
    # location: Dhaka Branch
     # company overview
    # overview: Example Co. is a widely recognized company for cloud-native development. It builds tools for Kubernetes.
   positions:
-  - designation: Senior Software Engineer
+  - designation: 수상 실적
     start: 
    
     responsibilities:
@@ -26,40 +26,12 @@ experiences:
     - 다학제 캡스톤디자인 프로젝트 경진대회 대상
     - 캡스톤디자인 프로젝트 경진대회 동상 2팀
     - 융합프로젝트 은상 수상
+    - 서울과학기술대학교 창의적 종합설계 경진대회 장려상 
+    - 제 20회 CDE경진대회 은상   
+    - 임베디드 소프트웨어 경진대회 전자부품연구원장상  
+    - 서울과학기술대학교 창의적 종합설계 경진대회 장려상  
+    - 캡스톤디자인 프로젝트 경진대회 대상, 금상, 은상, 동상, 장려상  
+    - SEP 융합 Festival 동상  
+    - 제19회 CDE경진대회 과학기술정보통신부장관상  
+    - 한이음엑스포 SW인재페스티벌 한국공학교육인증원장상  
 
-
-  - designation: Junior Software Engineer
-    start: Nov 2017
-    end: Oct 2019
-    responsibilities:
-    - Implement and test xyz feature for abc tool.
-    - Support client for abc tool.
-    - Learn k,d,w technology for xyz.
-
-- company:
-    name: PreExample Co.
-    url: "https://www.example.com"
-    location: Nowhere
-    overview: PreExample Co. is a gateway company to enter into Example co. So, nothing special here.
-  positions:
-  - designation: Software Engineer
-    start: March 2016
-    end: May 2017
-    responsibilities:
-    - Write lots of example codes.
-    - Read lots of examples.
-    - See lots of example videos.
-
-- company:
-    name: Intern Counting Company (ICC).
-    url: "https://www.example.com"
-    location: Intern Land
-    overview: Intern counting Company (ICC) is responsible for counting worldwide intern Engineers.
-  positions:
-  - designation: Intern
-    start: Jun 2015
-    end: Jan 2016
-    responsibilities:
-    - Count lost of interns.
-    - Count more interns.
-    - Count me as an intern.

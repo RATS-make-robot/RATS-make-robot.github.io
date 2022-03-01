@@ -11,9 +11,9 @@ section:
 # Your Skills.
 # Give a summary of you each skill in the summary section.
 skills:
-- name: 캐드
+- name: CAD/기구 설계
   logo: /images/sections/skills/kubernetes.png
-  summary: "Capable of deploying, managing application on Kubernetes. Experienced in writing Kubernetes controllers for CRDs."
+  summary: "CAD 사용법과 보유하고 있는 3D 프린터로 제작까지 할 수 있습니다"
   url: "https://kubernetes.io/"
 
 # - name: Go Development
@@ -21,29 +21,16 @@ skills:
 #   summary: "Using as the main language for professional development. Capable of writing scalable, testable, and maintainable program."
 #   url: "https://golang.org/"
 
-- name: PCB
+- name: 회로/소자
   logo: /images/sections/skills/cloud.png
-  summary: "Worked with most of the major clouds such as GCP, AWS, Azure etc."
-
-- name: 아두이노
-  logo: /images/sections/skills/docker.svg
-  summary: "Write most of the programs as dockerized container. Experienced with multi-stage, multi-arch build process."
-  url: "https://www.docker.com/"
+  summary: "다양한 소자의 역할을 알고, 이를 이용한 회로를 읽고 만들 수 있습니다"
 
 # - name: Prometheus
 #   logo: /images/sections/skills/prometheus.png
 #   summary: "Capable of setup, configure Prometheus metrics. Experienced with PromQL, AlertManager. Also, experienced with writing metric exporters."
 #   url: "https://prometheus.io/"
 
-- name: Linux
-  logo: /images/sections/skills/linux.png
-  summary: "리눅스도 배우면 좋겠죠?"
-
-- name: Git
-  logo: /images/sections/skills/git.png
-  summary: "깃 사용법을 배웁니다"
-  url: "https://git-scm.com/"
 
 - name: C/C++
   logo: /images/sections/skills/c++.png
-  summary: "기본적인 임베디드 사용을 위한 c 언어 교육을 합니다"
+  summary: "C언어를 기초적으로 배우고 이후 임베디드, 앱, 웹, 게임 등 다양한 프로젝트를 합니다"
