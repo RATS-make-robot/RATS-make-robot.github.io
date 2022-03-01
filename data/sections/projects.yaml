@@ -69,3 +69,10 @@ projects:
   repo: https://github.com/RATS-make-robot/RATS-make-robot.github.io
   summary: 동아리 홍보를 위한 정적 페이지, 커뮤니티, 클라우드 개발
   tags: ["project", "2022"]
+
+- name: 씨름 로봇
+  role: 김지호
+  timeline: "2022년 ~"
+  repo: https://github.com/Kestrel-omega/2021_Wrestling
+  summary: 5등함 
+  tags: ["project", "2021"]
