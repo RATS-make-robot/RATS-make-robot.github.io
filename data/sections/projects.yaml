@@ -72,7 +72,7 @@ projects:
 
 - name: 씨름 로봇
   role: 김지호
-  timeline: "2022년 ~"
+  timeline: "2021년도"
   repo: https://github.com/Kestrel-omega/2021_Wrestling
   summary: 5등함 
   tags: ["project", "2021"]
