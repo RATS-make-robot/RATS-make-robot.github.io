@@ -11,18 +11,19 @@ section:
 # Your Skills.
 # Give a summary of you each skill in the summary section.
 skills:
-- name: CAD/기구 설계
-  logo: /images/sections/skills/kubernetes.png
-  summary: "CAD 사용법과 보유하고 있는 3D 프린터로 제작까지 할 수 있습니다"
-  url: "https://kubernetes.io/"
 
-# - name: Go Development
-#   logo: /images/sections/skills/go.png
-#   summary: "Using as the main language for professional development. Capable of writing scalable, testable, and maintainable program."
-#   url: "https://golang.org/"
+- name: 코딩/프로그래밍
+  logo: /images/sections/skills/c++.png
+  summary: "C언어를 기초적으로 배우고 이후 임베디드, 앱, 웹, 게임 등 다양한 프로젝트를 합니다"
+
+- name: CAD/기구 설계
+  logo: /images/sections/skills/cad.png
+  summary: "CAD 사용법과 보유하고 있는 3D 프린터로 제작까지 할 수 있습니다"
+ # url: "https://kubernetes.io/"
+
 
 - name: 회로/소자
-  logo: /images/sections/skills/cloud.png
+  logo: /images/sections/skills/pcb.png
   summary: "다양한 소자의 역할을 알고, 이를 이용한 회로를 읽고 만들 수 있습니다"
 
 # - name: Prometheus
@@ -31,6 +32,3 @@ skills:
 #   url: "https://prometheus.io/"
 
 
-- name: C/C++
-  logo: /images/sections/skills/c++.png
-  summary: "C언어를 기초적으로 배우고 이후 임베디드, 앱, 웹, 게임 등 다양한 프로젝트를 합니다"
