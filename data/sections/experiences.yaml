@@ -1,6 +1,6 @@
 # section information
 section:
-  name: 연혁
+  name: 최근 수상 실적
   id: experiences
   enable: true
   weight: 3
@@ -17,8 +17,8 @@ experiences:
     # company overview
    # overview: Example Co. is a widely recognized company for cloud-native development. It builds tools for Kubernetes.
   positions:
-  - designation: 수상 실적
-    start: 
+  - designation: 최근 수상 실적
+    start: 2019
    
     responsibilities:
     - 한이음 공모대전 입선

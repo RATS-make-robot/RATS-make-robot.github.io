@@ -1,8 +1,8 @@
 # some information about you
-name: "명지대 RATS"
-nickname: "RATS"
+name: "RATS"
+nickname: ""
 # greeting message before your name. it will default to "Hi! I am" if not provided
-greeting: "명지대 로봇동아리 레츠입니다"
+greeting: "명지대학교 로봇동아리"
 image: "images/author/john.png"
 # give your some contact information. they will be used in the footer
 contactInfo:

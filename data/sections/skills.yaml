@@ -1,6 +1,6 @@
 # section information
 section:
-  name: 어떤걸 하나요
+  name: About RATS
   id: skills
   enable: true
   weight: 2
@@ -12,19 +12,19 @@ section:
 # Give a summary of you each skill in the summary section.
 skills:
 
-- name: 코딩/프로그래밍
+- name: 프로그래밍
   logo: /images/sections/skills/c++.png
-  summary: "C언어를 기초적으로 배우고 이후 임베디드, 앱, 웹, 게임 등 다양한 프로젝트를 합니다"
+  summary: "C/C++/Java/Python/Go 등 다양한 언어에 대한 스터디/세미나가 진행되고 있습니다. 단, 신입생은 C언어 프로그래밍을 필수적으로 학습하여야 합니다."
 
 - name: CAD/기구 설계
   logo: /images/sections/skills/cad.png
-  summary: "CAD 사용법과 보유하고 있는 3D 프린터로 제작까지 할 수 있습니다"
+  summary: "CAD를 이용한 기구 설계를 동아리 원끼리 스터디 및 세미나를 통하여 학습합니다. 또한 동아리 자체적으로 보유하고 있는 3D 프린터로 제작을 할 수 있습니다."
  # url: "https://kubernetes.io/"
 
 
-- name: 회로/소자
+- name: 전자 회로/소자
   logo: /images/sections/skills/pcb.png
-  summary: "다양한 소자의 역할을 알고, 이를 이용한 회로를 읽고 만들 수 있습니다"
+  summary: "다양한 소자의 역할을 알고, 이를 이용한 회로를 해석하고 설계할 수 있도록 스터디와 세미나가 진행되고 있습니다."
 
 # - name: Prometheus
 #   logo: /images/sections/skills/prometheus.png
