@@ -6,7 +6,7 @@ languageCode : en-us
 # Control TOC depth
 
 # Force a locale to be use, really useful to develop the application ! Should be commented in production, the "weight" should rocks.
-# DefaultContentLanguage: bn
+DefaultContentLanguage: en
 
 # Allow raw html in markdown file
 markup:
@@ -72,6 +72,7 @@ params:
         # pocket: true
         # diaspora: true
         # mastodon: true
+  
 
     # Enable & configure "Notes" features
     notes:
