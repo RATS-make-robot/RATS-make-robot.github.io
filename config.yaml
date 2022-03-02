@@ -74,7 +74,7 @@ params:
         # mastodon: true
   customMenus:
   - name: 가입하기
-    url: https://community.mju-rats.com/
+    url: https://docs.google.com/forms/d/e/1FAIpQLSeyMwtWRaYNFu6eMYke-BVtMx2iXC9KkAOuE_3owOMDtuiorg/viewform
 
 
     # Enable & configure "Notes" features
