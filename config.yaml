@@ -72,7 +72,10 @@ params:
         # pocket: true
         # diaspora: true
         # mastodon: true
-  
+  customMenus:
+  - name: 가입하기
+    url: https://community.mju-rats.com/
+
 
     # Enable & configure "Notes" features
     notes:

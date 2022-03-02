@@ -10,15 +10,15 @@ section:
 
 # Your achievements achievements
 achievements:
-- title: Best Presenter
+- title: 동아리 겨울 세미나
   image: /images/sections/achievements/presenter.jpg
-  summary: Best presenter in the 2020 XYZ conference.
-- title: Champion
+  summary: 재학생 회원의 자유 주제 세미나입니다
+- title: 신입생 세미나
   image: /images/sections/achievements/sport.jpg
-  summary: Champion in cycling inter-city cycling championship 2020.
-- title: Graduation
+  summary: 신입생을 위해 코딩, 기본 회로 지식을 가르칩니다.
+- title: 동아리 총회
   image: /images/sections/achievements/graduation-cap.jpg
-  summary: Received Bachelor of Science (B.Sc.) in Computer Science and Engineer from XYZ University.
-- title: Award Winner
+  summary: 매년 연말 동아리 총회를 합니다
+- title: 동아리 MT
   image: /images/sections/achievements/woman-winner.jpg
-  summary: Wined best paper award at IEE Conference 2020.
+  summary: 동아리 하계 MT 사진
