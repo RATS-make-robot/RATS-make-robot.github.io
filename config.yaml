@@ -75,6 +75,11 @@ params:
   customMenus:
   - name: 가입하기
     url: https://docs.google.com/forms/d/e/1FAIpQLSeyMwtWRaYNFu6eMYke-BVtMx2iXC9KkAOuE_3owOMDtuiorg/viewform
+    hideFromNavbar: false
+  # specify whether to show the menu item in footer or not.
+  # if you set it to true, make sure you have set `footer.navigation.customMenus: true` in your config.yaml
+    showOnFooter: true
+
 
 
     # Enable & configure "Notes" features
@@ -113,7 +118,7 @@ params:
 
   # Provide footer configuration.
   footer:
-    enable: false
+    enable: true
     # You can provide your custom footer template using this option.
     # Put your template in "layouts/partials" folder of your repo.
     template: footer.html
@@ -124,7 +129,7 @@ params:
       customMenus: true
     # Show/hide "Contact Me" section in the footer. Default is "true".
     contactMe:
-      enable: true
+      enable: false
     # Show/hide credentials section in the footer. Default is "true".
     credentials:
       enable: false
@@ -138,4 +143,4 @@ params:
 
     # Show/hide disclaimer notice in the footer. Default is "false".
     disclaimer:
-      enable: true
+      enable: false
