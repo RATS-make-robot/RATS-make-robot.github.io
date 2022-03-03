@@ -72,13 +72,13 @@ params:
         # pocket: true
         # diaspora: true
         # mastodon: true
-  customMenus:
-  - name: 가입하기
-    url: https://forms.gle/Kd38dx2yqGVBzx3v5
-    hideFromNavbar: false
-  # specify whether to show the menu item in footer or not.
-  # if you set it to true, make sure you have set `footer.navigation.customMenus: true` in your config.yaml
-    showOnFooter: true
+  # customMenus:
+  # - name: 가입하기
+  #   url: https://forms.gle/Kd38dx2yqGVBzx3v5
+  #   hideFromNavbar: false
+  # # specify whether to show the menu item in footer or not.
+  # # if you set it to true, make sure you have set `footer.navigation.customMenus: true` in your config.yaml
+  #   showOnFooter: true
 
 
 
