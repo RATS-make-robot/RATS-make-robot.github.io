@@ -74,7 +74,7 @@ params:
         # mastodon: true
   customMenus:
   - name: 가입하기
-    url: https://docs.google.com/forms/d/e/1FAIpQLSeyMwtWRaYNFu6eMYke-BVtMx2iXC9KkAOuE_3owOMDtuiorg/viewform
+    url: https://forms.gle/Kd38dx2yqGVBzx3v5
     hideFromNavbar: false
   # specify whether to show the menu item in footer or not.
   # if you set it to true, make sure you have set `footer.navigation.customMenus: true` in your config.yaml
@@ -118,7 +118,7 @@ params:
 
   # Provide footer configuration.
   footer:
-    enable: true
+    enable: false
     # You can provide your custom footer template using this option.
     # Put your template in "layouts/partials" folder of your repo.
     template: footer.html
