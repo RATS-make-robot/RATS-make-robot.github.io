@@ -38,7 +38,6 @@ projects:
   summary: 드론 펌웨어 개발과 자이로스코프 형태의 드론 가드 설계
   tags: ["Project", "2020"]
 
-
 - name: 6족 보행 로봇
   role: 김태수, 이인영, 유성환, 유종상
   timeline: "Jan 2018 - Nov 2021"
@@ -60,7 +59,6 @@ projects:
   repo: https://github.com/Topasm/2DOF_Ball_Plate_System
   summary: 터치스크린 센서를 이용한 pid 균형제어 로봇
   tags: ["Project", "2019"]
-
 
 - name: 동아리 웹사이트
   role: 김성현, 황규도
@@ -90,7 +88,7 @@ projects:
   summary: Git/Github , Solidworks, OpenCV 기초, KiCAD 도면 작성 및 발주, 시스템 파워 설계 내용으로 진행 하였습니다.
   tags: ["Education", "2022"]
   
-  - name: Valve 인덱스 컨트롤러를 이용한 UR3 매니퓰레이터 제어 
+- name: Valve 인덱스 컨트롤러를 이용한 UR3 매니퓰레이터 제어 
   role: 김성현
   timeline: "2022년 7월 ~ 2022년 9월"
   url: https://community.mju-rats.com/t/valve-ur3/278
