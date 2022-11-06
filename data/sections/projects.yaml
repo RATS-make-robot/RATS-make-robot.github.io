@@ -80,8 +80,8 @@ projects:
 - name: 명지대 셔틀버스 어플
   role: 황규도
   timeline: "2021년 9월 ~ 2022년 2월"
-  repo: https://github.com/JiSeungEon/MBA
-  summary: 명지대 셔틀버스를 간접적으로 예측하여, 어플리케이션 형태로 배포하였습니다. 예측된 결과 또한 어느정도 정확합니다.
+  url: https://play.google.com/store/apps/details?id=com.mba.busapp
+  summary: 명지대 셔틀버스를 시간을 알려주는 어플리케이션. 안드로이드/아이폰 스토어에서 "명지대 셔틀버스" 로 검색 할 수 있습니다.
   tags: ["Project", "2021"]
 
 - name: Git/Github 세미나
