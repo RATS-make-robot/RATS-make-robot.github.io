@@ -40,18 +40,17 @@ projects:
 
 
 - name: 6족 보행 로봇
-  role: 김태수
-  timeline: "Jan 2018 - Nov 2018"
+  role: 김태수, 이인영, 유성환,상유종상
+  timeline: "Jan 2018 - Nov 2021"
   #커뮤니티 링크
-  url: "https://community.mju-rats.com/t/hexapod/68"
+  url: https://www.youtube.com/watch?v=2bNe_N_TTak
   summary: "6족 보행로봇"
-  tags: ["Project","2018"]
+  tags: ["Project","2021"]
 
 - name: 신입생 라인트레이서 가이드
   role: RATS
   timeline: "2022년 ~"
   repo: https://github.com/RATS-make-robot/2022-freshman-linetracer
-  #url: ""
   summary: 라인트레이서 로봇을 제작하며 임베디드 기초를 다집니다
   tags: ["Education"]
 
@@ -84,38 +83,9 @@ projects:
   summary: 명지대 셔틀버스를 시간을 알려주는 어플리케이션. 안드로이드/아이폰 스토어에서 "명지대 셔틀버스" 로 검색 할 수 있습니다.
   tags: ["Project", "2021"]
 
-- name: Git/Github 세미나
-  role: 황규도
+- name: 동아리 겨울 세미나
+  role: 황규도, 유성환, 김지호, 유종상, 박규용
   timeline: "2022년 2월"
   repo: https://github.com/RATS-make-robot/2022-winter-seminar
-  summary: Git의 구조와 명령어에 대해서 알아보고 개인프로젝트부터 팀프로젝트까지 Git/Github가 어떻게 사용되는 지 설명합니다.
+  summary: Git/Github , Solidworks, OpenCV 기초, KiCAD 도면 작성 및 발주, 시스템 파워 설계 내용으로 진행 하였습니다.
   tags: ["Education", "2022"]
-
-- name: 3D CAD 모델링 세미나
-  role: 유성환
-  timeline: "2022년 2월"
-  repo: https://github.com/RATS-make-robot/2022-winter-seminar
-  summary: Solidworks를 활용한 간단한 3d 모델링 방법을 설명하고 설계한 작품을 3d 프린터로 출력시켜 봅니다.
-  tags: ["Education", "2022"]
-
-- name: OpenCV 기초 세미나
-  role: 김지호
-  timeline: "2022년 2월"
-  repo: https://github.com/RATS-make-robot/2022-winter-seminar
-  summary: OpenCV 개발환경을 구축하고, 샘플 비디오에서 물체를 탐지하고 추적하는 프로그램을 설명합니다.
-  tags: ["Education", "2022"]
-
-- name: KiCAD 도면 작성 및 발주 세미나
-  role: 유종상
-  timeline: "2022년 2월"
-  repo: https://github.com/RATS-make-robot/2022-winter-seminar
-  summary: 만능 기판으로 제작한 라인트레이서 보드를 아누이도 쉴드 형태의 PCB 아트윅으로 제작하는 법과 이를 통하여 발주하는 방법까지 설명합니다.
-  tags: ["Education", "2022"]
-
-- name: 시스템 파워 설계
-  role: 박규용
-  timeline: "2022년 2월"
-  repo: https://github.com/RATS-make-robot/2022-winter-seminar
-  summary: 회로 시스템 설계시 전원 설계에 대한 내용을 상세하게 설명합니다.
-  tags: ["Education", "2022"]
-
