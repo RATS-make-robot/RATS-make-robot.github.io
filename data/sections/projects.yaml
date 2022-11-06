@@ -89,3 +89,12 @@ projects:
   repo: https://github.com/RATS-make-robot/2022-winter-seminar
   summary: Git/Github , Solidworks, OpenCV 기초, KiCAD 도면 작성 및 발주, 시스템 파워 설계 내용으로 진행 하였습니다.
   tags: ["Education", "2022"]
+  
+  - name: Valve 인덱스 컨트롤러를 이용한 UR3 매니퓰레이터 제어 
+  role: 김성현
+  timeline: "2022년 7월 ~ 2022년 9월"
+  repo: https://github.com/Topasm/ur_control_server
+  url: https://community.mju-rats.com/t/valve-ur3/278
+  summary: 밸브사의 index VR 을 이용한 UR3 로봇암 원격 조종
+  tags: ["Project", "2022"]
+
