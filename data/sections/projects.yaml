@@ -31,6 +31,13 @@ buttons:
 
 # your projects
 projects:
+- name: 드론을 이용한 잔불진화시스템
+  role: 유종상, 유성환, 김지호, 이한얼, 김예
+  timeline: "2022년"
+  repo: https://github.com/js4ngu/22_HanEum_Forest-Fire-Extinguishing-Assistance-System
+  summary: 화재지시기를 통한 잔불 식별/좌표추정 및 드론을 이용한 자율진화
+  tags: ["Project", "2022"]
+  
 - name: 자이로스코프 드론
   role: 석은혜
   timeline: "2020년 ~ 2021년"
@@ -46,7 +53,14 @@ projects:
   summary: "6족 보행로봇"
   tags: ["Project","2021"]
 
-- name: 신입생 라인트레이서 가이드
+- name: 신입생 MCU 세미나
+  role: RATS
+  timeline: "2022년 ~"
+  repo: https://github.com/RATS-make-robot/2022-Freshman-MCUseminar
+  summary: ATmega328를 이용한 MCU (ATmega328) 레지스터 제어
+  tags: ["Education"]
+  
+  - name: 신입생 라인트레이서 가이드
   role: RATS
   timeline: "2022년 ~"
   repo: https://github.com/RATS-make-robot/2022-freshman-linetracer
