@@ -32,7 +32,7 @@ buttons:
 # your projects
 projects:
 - name: 드론을 이용한 잔불진화시스템
-  role: 유종상, 유성환, 김지호, 이한얼, 김예
+  role: 유종상, 유성환, 김지호, 이한얼, 김예지
   timeline: "2022년"
   repo: https://github.com/js4ngu/22_HanEum_Forest-Fire-Extinguishing-Assistance-System
   summary: 화재지시기를 통한 잔불 식별/좌표추정 및 드론을 이용한 자율진화
