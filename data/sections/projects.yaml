@@ -60,7 +60,7 @@ projects:
   summary: ATmega328를 이용한 MCU (ATmega328) 레지스터 제어
   tags: ["Education"]
   
-  - name: 신입생 라인트레이서 가이드
+- name: 신입생 라인트레이서 가이드
   role: RATS
   timeline: "2022년 ~"
   repo: https://github.com/RATS-make-robot/2022-freshman-linetracer
