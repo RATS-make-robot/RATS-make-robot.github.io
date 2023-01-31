@@ -17,18 +17,19 @@ experiences:
     # company overview
    # overview: Example Co. is a widely recognized company for cloud-native development. It builds tools for Kubernetes.
   positions:
-  - designation: 2022년도 수상 실적
-    start: 2022년
+  - designation: 2022-2023년도 수상 실적
+    start: 2023년
    
     responsibilities:
+      - Ne(o)rdinary Hackathon - 대상
       - 융합캡스톤 성과발표회/경진대회 - 장려상
       - 강소기업탐방공모전 - 우수상
       - Campus Convergence 공모전 - 최우수, 우수
       - SEP 융합 Festival - 금상, 은상(2명), 동상
-      - 캡스톤디자인 경진대회 - 대상
+      - 캡스톤디자인 경진대회 - 대상, 금상(2명)
       - 창의융합대회 - 최우수
-      - 캡스톤디자인 경진대회 - 금상
       - 한이음 ICT멘토링 공모전 - 입선
       - 한이음 ICT멘토링 공모전 - 장려상
       - 창의적 종합설계 경진대회 - 우수
+      - 창의 융합캠프 - 우수
 
