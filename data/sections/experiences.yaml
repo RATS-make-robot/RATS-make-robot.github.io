@@ -11,24 +11,34 @@ section:
 # Your experiences
 experiences:
 - company:
-    name: 수상실적 전체보기
+    name: 수상실적 전체보기2
     #url: "https://community.mju-rats.com/t/topic/198"
    # location: Dhaka Branch
     # company overview
    # overview: Example Co. is a widely recognized company for cloud-native development. It builds tools for Kubernetes.
   positions:
-  - part: 1
-    year: 2023
-    designation: 2023년도 수상 실적
+  - designation: 2023년도 수상 실적
     start: 2023년
     end: 2023년
    
     responsibilities:
     
       - test
-  - part: 2
-    year: 2022
-    designation: 2022년도 수상 실적
+- company:
+    name: 수상실적 전체보기
+    #url: "https://community.mju-rats.com/t/topic/198"
+   # location: Dhaka Branch
+    # company overview
+   # overview: Example Co. is a widely recognized company for cloud-native development. It builds tools for Kubernetes.
+  positions:
+  - designation: 2023년도 수상 실적
+    start: 2023년
+    end: 2023년
+   
+    responsibilities:
+    
+      - test
+  - designation: 2022년도 수상 실적
     start: 2022년
     end: 2022년
    
