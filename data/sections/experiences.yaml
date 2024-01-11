@@ -18,6 +18,7 @@ experiences:
    # overview: Example Co. is a widely recognized company for cloud-native development. It builds tools for Kubernetes.
   positions:
   - part: 1
+    year: 2023
     designation: 2023년도 수상 실적
     start: 2023년
     end: 2023년
@@ -26,6 +27,7 @@ experiences:
     
       - test
   - part: 2
+    year: 2022
     designation: 2022년도 수상 실적
     start: 2022년
     end: 2022년
@@ -44,7 +46,9 @@ experiences:
       - 창의적 종합설계 경진대회 - 우수
       - 창의 융합캠프 - 우수
 
-  - designation: 2019-2020년도 수상 실적
+  - part: 3
+    year: 2019
+    designation: 2019-2020년도 수상 실적
     start: 2019년
     end: 2020년
    
