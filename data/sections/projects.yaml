@@ -16,6 +16,8 @@ buttons:
   filter: "Project"
 - name: Education
   filter: "Education"
+- name: 2023
+  filter: "2023"
 - name: 2022
   filter: "2022"
 - name: 2021
@@ -31,6 +33,13 @@ buttons:
 
 # your projects
 projects:
+- name: 초호화 도마뱀 호텔
+  role: 탁지훈, 방승재, 서호준
+  timeline: "2023년"
+  repo: https://github.com/SeungJae928/2023ESWContest_free_1012
+  summary: 도마뱀 사육장 환경 자동 관리 및 커스텀 환경
+  tags: ["Project", "2023"]
+  
 - name: 드론을 이용한 잔불진화시스템
   role: 유종상, 유성환, 김지호, 이한얼, 김예지
   timeline: "2022년"
