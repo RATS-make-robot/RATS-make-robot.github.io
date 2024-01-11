@@ -17,21 +17,20 @@ experiences:
    
     responsibilities:
       - test
-- company:
-    name: 2022
+#- company:
+#    name: 2022
     #name: 수상실적 전체보기
     #url: "https://community.mju-rats.com/t/topic/198"
    # location: Dhaka Branch
     # company overview
    # overview: Example Co. is a widely recognized company for cloud-native development. It builds tools for Kubernetes.
-  positions:
+- positions:
   - designation: 2022년도 수상 실적
     name: 2022
     start: 2022년
     end: 2022년
    
     responsibilities:
-    
       - Ne(o)rdinary Hackathon - 대상
       - 융합캡스톤 성과발표회/경진대회 - 장려상
       - 강소기업탐방공모전 - 우수상
@@ -43,15 +42,12 @@ experiences:
       - 한이음 ICT멘토링 공모전 - 장려상
       - 창의적 종합설계 경진대회 - 우수
       - 창의 융합캠프 - 우수
-- company:
-    name: 2019-2020
-  positions:
+- positions:
   - designation: 2019-2020년도 수상 실적
     start: 2019년
     end: 2020년
    
     responsibilities:
-    
       - 2019 임베디드 소프트웨어 경진대회 - 우수상 
       - 제20회 CDE 경진대회 - 은상
       - 2019 서울과학기술대학교 공학교육거점센터 창의적 종합설계 경진대회 - 장려상
