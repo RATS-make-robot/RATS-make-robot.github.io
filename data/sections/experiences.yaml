@@ -11,6 +11,7 @@ section:
 # Your experiences
 experiences:
 - company:
+    name: 2023
   positions:
   - designation: 2023년도 수상 실적
     start: 2023년
@@ -19,6 +20,7 @@ experiences:
     responsibilities:
       - test
 - company:
+    name: 2022
     #name: 수상실적 전체보기
     #url: "https://community.mju-rats.com/t/topic/198"
    # location: Dhaka Branch
@@ -43,6 +45,7 @@ experiences:
       - 창의적 종합설계 경진대회 - 우수
       - 창의 융합캠프 - 우수
 - company:
+    name: 2019-2020
   positions:
   - designation: 2019-2020년도 수상 실적
     start: 2019년
