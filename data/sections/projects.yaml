@@ -33,6 +33,20 @@ buttons:
 
 # your projects
 projects:
+- name: 2023 동아리 여름 세미나
+  role: 김영찬
+  timeline: "2023년 8월"
+  #repo: 
+  summary: Atmega128A - 지능형센서응용
+  tags: ["Education", "2023"]
+  
+- name: 2023 동아리 겨울 세미나
+  role: 서호준, 안재원
+  timeline: "2023년 2월"
+  #repo: 
+  summary: C++, 회로이론, KiCAD
+  tags: ["Education", "2023"]
+  
 - name: 초호화 도마뱀 호텔
   role: 탁지훈, 방승재, 서호준
   timeline: "2023년"
@@ -62,19 +76,19 @@ projects:
   summary: "6족 보행로봇"
   tags: ["Project","2021"]
 
-- name: 신입생 MCU 세미나
+- name: 2022 신입생 MCU 세미나
   role: RATS
   timeline: "2022년 ~"
   repo: https://github.com/RATS-make-robot/2022-Freshman-MCUseminar
   summary: ATmega328를 이용한 MCU (ATmega328) 레지스터 제어
-  tags: ["Education"]
+  tags: ["Education", "2022"]
   
-- name: 신입생 라인트레이서 가이드
+- name: 2022 신입생 라인트레이서 가이드
   role: RATS
   timeline: "2022년 ~"
   repo: https://github.com/RATS-make-robot/2022-freshman-linetracer
   summary: 라인트레이서 로봇을 제작하며 임베디드 기초를 다집니다
-  tags: ["Education"]
+  tags: ["Education", "2022"]
 
 - name: 2자유도 공 균형 제어 시스템
   role: 김성현
@@ -104,7 +118,7 @@ projects:
   summary: 명지대 셔틀버스를 시간을 알려주는 어플리케이션. 안드로이드/아이폰 스토어에서 "명지대 셔틀버스" 로 검색 할 수 있습니다.
   tags: ["Project", "2021"]
 
-- name: 동아리 겨울 세미나
+- name: 2022 동아리 겨울 세미나
   role: 황규도, 유성환, 김지호, 유종상, 박규용
   timeline: "2022년 2월"
   repo: https://github.com/RATS-make-robot/2022-winter-seminar
