@@ -28,8 +28,8 @@ buttons:
   filter: "2020"
 - name: 2019
   filter: "2019"
-#- name: 2018
- # filter: "2018"
+- name: 2018
+  filter: "2018"
 
 
 
@@ -155,14 +155,14 @@ projects:
   timeline: "2021년 9월 ~ 2022년 2월"
   url: https://play.google.com/store/apps/details?id=com.mba.busapp
   summary: 명지대 셔틀버스를 시간을 알려주는 어플리케이션. 안드로이드/아이폰 스토어에서 "명지대 셔틀버스" 로 검색 할 수 있습니다.
-  tags: ["Project", "2021"]
+  tags: ["Project", "2021","2022"]
   
 - name: 자이로스코프 드론
   role: 석은혜
   timeline: "2020년 ~ 2021년"
   repo: https://github.com/mokhwasomssi/drone_with_gyroscopic_guard 
   summary: 드론 펌웨어 개발과 자이로스코프 형태의 드론 가드 설계
-  tags: ["Project", "2020"]
+  tags: ["Project", "2020","2021"]
 
 - name: 2자유도 공 균형 제어 시스템
   role: 김성현
@@ -177,4 +177,4 @@ projects:
   #커뮤니티 링크
   url: https://www.youtube.com/watch?v=2bNe_N_TTak
   summary: "6족 보행로봇"
-  tags: ["Project","2021"]
+  tags: ["Project","2018","2019","2020","2021"]
