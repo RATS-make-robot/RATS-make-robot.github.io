@@ -65,7 +65,7 @@ projects:
 - name: 족발2
   role: 이상수, 김영찬, 안재영, 권인아, 오은지, 이준영
   timeline: "2023년"
-  repo: https://github.com/lLoststarl/2023Contest_free
+  #repo: https://github.com/lLoststarl/2023Contest_free
   url: https://youtu.be/tqQg0wU-9ns?si=lssECIQScBdo7ebp
   summary: 후지 마비 동물을 위한 웨어러블 로봇 | 한이음 ICT멘토링 학술대회-최우수상, 캡스톤디자인 경진대회(2,3학년 부문)-은상, CDE학회(대학 연구소 부문)-장려상 등
   tags: ["Project", "2023"]
