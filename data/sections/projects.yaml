@@ -16,6 +16,8 @@ buttons:
   filter: "Project"
 - name: Education
   filter: "Education"
+- name: 2024
+  filter: "2024"
 - name: 2023
   filter: "2023"
 - name: 2022
