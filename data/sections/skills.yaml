@@ -14,7 +14,7 @@ skills:
 
 - name: 프로그래밍
   logo: /images/sections/skills/c++.png
-  summary: "C/C++/Java/Python/Go 등 다양한 언어에 대한 스터디/세미나가 진행되고 있습니다. 단, 신입생은 C언어 프로그래밍을 필수적으로 학습하여야 합니다."
+  summary: "C/C++/Java/Python 등 다양한 언어에 대한 스터디/세미나가 진행되고 있습니다. 단, 신입생은 C언어 프로그래밍을 필수적으로 학습하여야 합니다."
 
 - name: CAD/기구 설계
   logo: /images/sections/skills/cad.png
