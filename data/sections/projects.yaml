@@ -50,7 +50,7 @@ projects:
 - name: COMPANION ROBOT
   role: 김성현, 김규목
   timeline: "2023년"
-  #url: https://youtu.be/FfN0cjAcmhg?si=-8G0qztu7-34Uc_3
+  url: https://youtu.be/FfN0cjAcmhg?si=-8G0qztu7-34Uc_3
   summary: 노인 1인 가구를 위해, 사용자의 안전과 (정신, 신체)건강, 생활에 도움을 줄 수 있는 반려 로봇 개발 / 2023 SEP 융합 페스티벌-은상
   tags: ["Project", "2023"]
   
@@ -58,40 +58,21 @@ projects:
   role: 이상수, 김영찬, 안재영, 권인아, 오은지, 이준영
   timeline: "2023년"
   repo: https://github.com/lLoststarl/2023Contest_free
-  #url: https://youtu.be/tqQg0wU-9ns?si=lssECIQScBdo7ebp
+  url: https://youtu.be/tqQg0wU-9ns?si=lssECIQScBdo7ebp
   summary: 후지 마비 동물을 위한 웨어러블 로봇
   tags: ["Project", "2023"]
 
 - name: 반도체 공정장비용 Remote Plasma Source를 위한 RF 전원회로 설계
   role: 신희성
-  timeline: "2023년"
+  timeline: "2023년 9월 ~ 2024년 6월"
   summary: 반도체 공정장비용 Remote Plasma Source를 위한 RF 전원회로 설계
-  tags: ["Project", "2023"]
+  tags: ["Project", "2023", "2024"]
 
 - name: Smart Clock
   role: 석은혜, 김준재, 이승석
-  timeline: "2023년"
+  timeline: "2023년 9월 ~ 12월"
   summary: 편리하고 효율적인 일상 생활을 위한 스마트 클락 제품 개발
   tags: ["Project", "2023"]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 - name: 2023 RATS 여름 세미나
   role: 김영찬
@@ -106,7 +87,7 @@ projects:
   #repo: 
   summary: 고급C언어, C++, 회로이론, PCB 설계(KiCAD)
   tags: ["Education", "2023"]
-  
+  ###################################################################################
 - name: 드론을 이용한 잔불진화시스템
   role: 유종상, 유성환, 김지호, 이한얼, 김예지
   timeline: "2022년"
