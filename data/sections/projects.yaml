@@ -35,6 +35,12 @@ buttons:
 
 # your projects
 projects:
+- name: 2024 RATS 겨울 세미나
+  role: 김영찬
+  timeline: "2024년 1월"
+  summary: 리눅스 - 명령어, 컴파일, 디버깅 등
+  tags: ["Education", "2024"]
+  
 - name: MJU ACI(새로운 형태의 자동충전시스템)
   role: 탁지훈(총 5명)
   timeline: "2023년"
@@ -85,7 +91,7 @@ projects:
 - name: 2023 RATS 여름 세미나
   role: 김영찬
   timeline: "2023년 8월"
-  summary: Atmega128A - 지능형센서응용
+  summary: ATmega128A - 지능형센서응용
   tags: ["Education", "2023"]
   
 - name: 2023 RATS 겨울 세미나
