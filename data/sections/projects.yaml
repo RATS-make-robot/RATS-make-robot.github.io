@@ -78,13 +78,13 @@ projects:
 
 - name: 반도체 공정장비용 Remote Plasma Source를 위한 RF 전원회로 설계
   role: 신희성
-  timeline: "2023년 2학기 ~ 2024년 1학기"
+  timeline: "2023년"
   summary: 반도체 공정장비용 Remote Plasma Source를 위한 RF 전원회로 설계
   tags: ["Project", "2023"]
 
 - name: Smart Clock
   role: 석은혜, 김준재, 이승석
-  timeline: "2023년 2학기"
+  timeline: "2023년"
   summary: 편리하고 효율적인 일상 생활을 위한 스마트 클락 제품 개발
   tags: ["Project", "2023"]
 
