@@ -12,9 +12,12 @@ contactInfo:
   #instagram: "@mjurats"
   fa-instagram:
     icon: fa-instagram
-    url: "https://www.instagram.com/mjurats/"
+    url: "https://www.instagram.com/mjurats"
     text: "@mjurats"
-
+  stack-overflow:
+    icon: stack-overflow
+    url: "https://stackoverflow.com/users/1/exampleUser"
+    text: "ExampleUser"
 # some summary about what you do
 summary:
   - 로봇을 개발합니다
