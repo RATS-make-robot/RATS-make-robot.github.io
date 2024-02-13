@@ -36,6 +36,7 @@ buttons:
 # your projects
 projects:
 - name: 2024 RATS 겨울 세미나
+  logo: assets/images/site/logo.png
   role: 김영찬
   timeline: "2024년 1월"
   summary: 리눅스 - 명령어, 컴파일, 디버깅 등
