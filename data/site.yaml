@@ -1,5 +1,5 @@
 # Copyright Notice
-copyright: "© 2023. RATS all rights reserved."
+copyright: © 2023 Copyright.  #© 2023. RATS all rights reserved.
 
 # A disclaimer notice for the footer. Make sure you have set "params.footer.disclaimer.enable: true" in your `config.yaml` file.
 disclaimer: "동아리 홍보용 사이트입니다 무단 도용 금지"
