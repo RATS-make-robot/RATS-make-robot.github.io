@@ -9,9 +9,9 @@ contactInfo:
   email: "mjurats.official@gmail.com"
   github: RATS-make-robot
   instagram:
-    icon: instagram
+    # icon: instagram
     url: "https://www.instagram.com/mjurats"
-    text: @mjurats
+    text: "@mjurats"
   # instagram: "@mjurats"
   # phone: "+0123456789"
 
