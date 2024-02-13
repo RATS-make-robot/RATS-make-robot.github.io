@@ -46,7 +46,7 @@ projects:
   role: 탁지훈(총 5명)
   timeline: "2023년"
   url: https://youtu.be/LbtAhwIs7Gw?si=Ekr9utt-6iYukdWk
-  summary: 대규모 충전 인프라 확장이 가능한 전기자동차 자동 충전 시스템(EV Automatic Charging Infrastructure)<p>  - 교내 캡스톤디자인 프로젝트 경진대회-대상, SEP 융합 페스티벌-금상 등
+  summary: ["대규모 충전 인프라 확장이 가능한 전기자동차 자동 충전 시스템(EV Automatic Charging Infrastructure)", "- 교내 캡스톤디자인 프로젝트 경진대회-대상, SEP 융합 페스티벌-금상 등"]
   tags: ["Project", "2023"]
   
 - name: LH(Land & Housing for Reptiles & Amphibians)
