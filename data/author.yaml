@@ -9,8 +9,11 @@ contactInfo:
   email: "mjurats.official@gmail.com"
   # phone: "+0123456789"
   github: RATS-make-robot
-  instagram: "@mjurats"
-
+  #instagram: "@mjurats"
+  instagram:
+    icon: instagram
+    url: "https://www.instagram.com/mjurats/"
+    text: "@mjurats"
 
 # some summary about what you do
 summary:
