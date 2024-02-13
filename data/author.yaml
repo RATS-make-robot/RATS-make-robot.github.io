@@ -10,7 +10,7 @@ contactInfo:
   # phone: "+0123456789"
   github: RATS-make-robot
   #instagram: "@mjurats"
-  instagram:
+  fa-instagram:
     icon: fa-instagram
     url: "https://www.instagram.com/mjurats/"
     text: "@mjurats"
