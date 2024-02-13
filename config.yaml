@@ -135,7 +135,7 @@ params:
       enable: true
     # Show/hide credentials section in the footer. Default is "true".
     credentials:
-      enable: false
+      enable: true
 
     # Show/hide newsletter section in the footer. Default is "true".
     # Currently, it supports "mailchimp".
