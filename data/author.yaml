@@ -11,7 +11,7 @@ contactInfo:
   github: RATS-make-robot
   #instagram: "@mjurats"
   instagram:
-    icon: instagram
+    icon: fa-instagram
     url: "https://www.instagram.com/mjurats/"
     text: "@mjurats"
 
