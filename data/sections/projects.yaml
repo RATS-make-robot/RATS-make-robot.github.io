@@ -57,7 +57,7 @@ projects:
   tags: ["Project", "2023"]
 
 - name: COMPANION ROBOT(독거노인을 위한 반려로봇)
-  role: 김성현, 석은혜(총 7명)
+  role: 김성현, 석은혜, 김규목, 이승석(총 7명)
   timeline: "2023년"
   url: https://youtu.be/FfN0cjAcmhg?si=-8G0qztu7-34Uc_3
   summary: 노인 1인 가구를 위해, 사용자의 안전과 (정신, 신체)건강, 생활에 도움을 줄 수 있는 반려 로봇 개발<br><ul><li>SEP 융합 페스티벌-은상</li><li>프로보노 ICT멘토링 공모전-동상 등</li></ul>
