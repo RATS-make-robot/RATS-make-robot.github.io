@@ -79,10 +79,10 @@ params:
   # specify whether to show the menu item in footer or not.
   # if you set it to true, make sure you have set `footer.navigation.customMenus: true` in your config.yaml
     showOnFooter: true
-  - name: 2024 신입 부원 신청(사전 모집 진행중)
-    url: https://forms.gle/S7hWkCaxsYgQtZVi8
-    hideFromNavbar: false
-    showOnFooter: true
+#  - name: 2024 신입 부원 신청(사전 모집 진행중)
+#    url: https://forms.gle/S7hWkCaxsYgQtZVi8
+#    hideFromNavbar: false
+#    showOnFooter: true
 
 
     # Enable & configure "Notes" features
