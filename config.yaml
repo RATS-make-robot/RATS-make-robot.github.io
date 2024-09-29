@@ -1,7 +1,23 @@
 baseURL : https://join.mju-rats.com/
 title : "RATS 홍보페이지"
 
-theme : "toha"
+module:
+  imports:
+  - path: github.com/hugo-toha/toha/v4
+  mounts:
+  - source: static/files
+    target: static/files
+  - source: ./node_modules/flag-icon-css/flags
+    target: static/flags
+  - source: ./node_modules/@fontsource/mulish/files
+    target: static/files
+  - source: ./node_modules/katex/dist/fonts
+    target: static/fonts
+  - source: static
+    target: static
+
+
+# theme : "toha"
 languageCode : en-us
 # Control TOC depth
 
