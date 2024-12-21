@@ -25,10 +25,13 @@ outputs:
     - HTML
     - JSON
 
-# # Enable Google Analytics
-# googleAnalytics: 
-#   id: UA-122321624-2
-  
+analytics:
+  enable: true
+  services:
+    google:
+      id: UA-122321624-2
+
+
 
 # Enable global emoji support
 enableEmoji: true
