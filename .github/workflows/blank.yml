@@ -12,13 +12,13 @@ on:
 jobs:
   
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     #steps는 명령어 들이다. 
     # uses는 이미 만들어진 action을 사용하는 것, run은 명령어를 실행하는 것이다. 
     steps: 
     
     #1. 가상머신으로 checkout
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     
     #2. theme를 submodule로 등록했는데 그것도 checkout
     - name: Checkout submodules
@@ -31,7 +31,7 @@ jobs:
     
     #4. Hugo 설치 
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2
+      uses: peaceiris/actions-hugo@v3
       with:
         hugo-version: 'latest'
 
