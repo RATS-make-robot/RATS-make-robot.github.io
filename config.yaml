@@ -25,9 +25,9 @@ outputs:
     - HTML
     - JSON
 
-# Enable Google Analytics
-googleAnalytics: 
-  id: UA-122321624-2
+# # Enable Google Analytics
+# googleAnalytics: 
+#   id: UA-122321624-2
   
 
 # Enable global emoji support
