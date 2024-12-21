@@ -19,16 +19,11 @@ jobs:
     
     #1. 가상머신으로 checkout
     - uses: actions/checkout@v4
-    
-    #2. theme를 submodule로 등록했는데 그것도 checkout
-    # - name: Checkout submodules
-    #   shell: bash
-    #   run: |
-    #     auth_header="$(git config --local --get http.https://github.com/.extraheader)"
-    #     git submodule sync --recursive
-    #     git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
-    #     # run 다음 내용들은 submodule을 최신으로 udapte한것을 가져오는 내용 + a이다.
-    
+      with:
+        submodules: true  # Fetch Hugo themes (true OR recursive)
+        fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+
     #4. Hugo 설치 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v3
@@ -45,8 +40,9 @@ jobs:
     #6.Deploy 배포: git token이 필요하다. gh-pages로 publish하는 것 잊지 말자 
     #public 폴더를 github page의 gh-pages 브챈치에 배포한다는 의미이다. 
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.mabangkey }}
         publish_branch: gh-pages
         publish_dir: ./public
+        cname: join.mju-rats.com
