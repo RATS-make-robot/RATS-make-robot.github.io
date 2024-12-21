@@ -15,7 +15,6 @@ module:
 
 baseURL: https://join.mju-rats.com/
 title: "RATS 홍보페이지"
-theme: "toha"
 languageCode: en-us
 
 # Control TOC depth
