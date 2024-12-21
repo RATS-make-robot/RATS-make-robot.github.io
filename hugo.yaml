@@ -46,6 +46,9 @@ analytics:
 
 # Enable global emoji support
 enableEmoji: true
+darkMode:
+  enable: true
+
 
 # Site parameters
 params:
