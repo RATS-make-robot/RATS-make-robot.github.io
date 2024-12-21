@@ -13,7 +13,7 @@ module:
 
 
 
-baseURL: https://join.mju-rats.com/
+baseURL: /
 title: "RATS 홍보페이지"
 languageCode: en-us
 
