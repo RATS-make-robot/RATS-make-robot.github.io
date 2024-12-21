@@ -34,7 +34,7 @@ jobs:
     #5. build (public 폴더에 저장 된다.)
     - name: Build Hugo Site
       run: |
-        hugo --minify
+        hugo -D
        # minify는 압축시키는 것을 의미한다. 
     
     #6.Deploy 배포: git token이 필요하다. gh-pages로 publish하는 것 잊지 말자 
