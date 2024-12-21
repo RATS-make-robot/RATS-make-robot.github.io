@@ -49,3 +49,4 @@ jobs:
       with:
         github_token: ${{ secrets.mabangkey }}
         publish_branch: gh-pages
+        cname: join.mju-rats.com
