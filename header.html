@@ -1,11 +1,10 @@
-<!-- header.html -->
 <header class="site-header">
     <div class="logo-container">
         <a href="index.html">
             <img src="assets/images/site/logo.png" alt="RATS Logo">
         </a>
     </div>
-    <h1>RATS - 명지대학교 로봇, 임베디드 중앙동아리</h1>
+    <h1>RATS</h1>
 </header>
 
 <!-- CSS -->
@@ -23,15 +22,12 @@
         position: absolute;
         top: 10px;
         left: 20px;
-    }
-
-    .logo-container a {
-        text-decoration: none;
+        height: 50px; /* Adjust this height as needed */
     }
 
     .logo-container img {
-        width: 50px;
-        height: auto; /* Keep aspect ratio */
+        height: 100%; /* Match the height of the container */
+        object-fit: contain; /* Maintain aspect ratio */
     }
 
     .site-header h1 {
