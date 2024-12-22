@@ -40,8 +40,8 @@ jobs:
           HUGO_ENVIRONMENT: production
         run: |
           hugo --gc --minify --baseURL "https://join.mju-rats.com/"
-      - name: Check Build Output
-        run: ls -R ./public || echo "Public directory not found"
+      - name: Debug Build Output
+        run: ls -R ./public || echo "Public directory is empty"
 
   deploy:
     needs: build
