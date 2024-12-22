@@ -36,7 +36,7 @@ jobs:
     - name: Build Hugo Site
       run: |
         hugo --minify --destination ./public
-       # minify는 압축시키는 것을 의미한다. 
+      # minify는 압축시키는 것을 의미한다. 
 #    - name: Upload Artifact
 #      uses: actions/upload-artifact@v4
 #      with:
@@ -51,4 +51,4 @@ jobs:
         github_token: ${{ secrets.MABANGKEY }}
         publish_branch: gh-pages
         publish_dir: ./public
-        cname: join.mju-rats.com
+        #cname: join.mju-rats.com
