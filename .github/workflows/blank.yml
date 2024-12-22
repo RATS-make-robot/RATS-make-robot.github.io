@@ -36,6 +36,10 @@ jobs:
     - name: Build Hugo Site
       run: |
         hugo --minify --destination ./public
+
+    - name: Check Public Folder
+      run: |
+        ls -R ./public || echo "Public folder is empty or not created"
       # minify는 압축시키는 것을 의미한다. 
 #    - name: Upload Artifact
 #      uses: actions/upload-artifact@v4
