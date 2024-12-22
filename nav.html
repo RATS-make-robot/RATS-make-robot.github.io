@@ -9,3 +9,17 @@
         <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
+
+<!-- JavaScript for Smooth Scrolling -->
+<script>
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').slice(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
