@@ -1,35 +1,53 @@
 // YAML 파싱 라이브러리 사용 (js-yaml)
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('assets/data/projects.yaml')
-        .then(response => response.text())
-        .then(yamlText => {
-            const projectsData = jsyaml.load(yamlText); // YAML 파싱
-            const projectContainer = document.querySelector('.project-container');
+    const loadYamlData = () => {
+        return fetch('assets/data/projects.yaml')
+            .then(response => response.text())
+            .then(yamlText => jsyaml.load(yamlText)) // YAML 파싱
+            .catch(error => {
+                console.error('Error loading YAML:', error);
+                return null;
+            });
+    };
 
-            if (projectsData.projects) {
-                projectsData.projects.forEach(project => {
-                    const projectCard = document.createElement('div');
-                    projectCard.className = 'project-card';
-                    projectCard.setAttribute('data-year', project.year);
+    const renderProjects = (projectsData) => {
+        const projectContainer = document.querySelector('.project-container');
+        if (!projectContainer) {
+            console.error('Project container not found.');
+            return;
+        }
 
-                    // Determine link type and corresponding icon
-                    let linkIcon = '';
-                    if (project.link.includes('youtube.com')) {
-                        linkIcon = '</assets/images/icons/youtubelogo.svg" alt="YouTube Link" style="width:24px;height:24px;">';
-                    } else if (project.link.includes('github.com')) {
-                        linkIcon = '/assets/images/icons/githublogo.svg" alt="GitHub Link" style="width:24px;height:24px;">';
-                    }
+        // Clear existing projects
+        projectContainer.innerHTML = '';
 
-                    projectCard.innerHTML = `
-                        <h3>${project.title}</h3>
-                        <p>${project.description}</p>
-                        <p><strong>[팀원]</strong> ${project.team}</p>
-                        <a href="${project.link}" target="_blank">${linkIcon}</a>
-                    `;
+        // Generate project cards
+        projectsData.projects.forEach(project => {
+            const projectCard = document.createElement('div');
+            projectCard.className = 'project-card';
+            projectCard.setAttribute('data-year', project.year);
 
-                    projectContainer.appendChild(projectCard);
-                });
-            }
-        })
-        .catch(error => console.error('Error loading YAML:', error));
+            projectCard.innerHTML = `
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                <p><strong>[팀원]</strong> ${project.team}</p>
+                ${project.link ? `<a href="${project.link}" target="_blank">
+                    <img src="${project.link.includes('youtube.com') 
+                        ? 'assets/images/icons/youtubelogo.svg' 
+                        : 'assets/images/icons/githublogo.svg'}" 
+                        alt="Link" style="width:24px;height:24px;">
+                </a>` : ''}
+            `;
+
+            projectContainer.appendChild(projectCard);
+        });
+
+        // Trigger filter initialization
+        initializeFilters(); // Call filter initialization after rendering
+    };
+
+    loadYamlData().then(projectsData => {
+        if (projectsData) {
+            renderProjects(projectsData);
+        }
+    });
 });
