@@ -1,0 +1,77 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="명지대학교 동아리 RATS">
+    <meta property="og:title" content="RATS website">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Portfolio and personal blog of John Doe.">
+    <meta property="og:image" content="images/author/john.png">
+    <meta property="og:url" content="https://hugo-toha.github.io">
+    <title>RATS Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Include header -->
+    <div id="header">
+        <!-- Content will be dynamically included -->
+    </div>
+
+    <!-- Include navigation -->
+    <div id="navigation">
+        <!-- Content will be dynamically included -->
+    </div>
+
+    <main>
+        <!-- Include about -->
+        <div id="about">
+            <!-- Content will be dynamically included -->
+        </div>
+
+        <!-- Include projects -->
+        <div id="projects">
+            <!-- Content will be dynamically included -->
+        </div>
+
+        <!-- Include experiences -->
+        <div id="experiences">
+            <!-- Content will be dynamically included -->
+        </div>
+
+        <!-- Include skills -->
+        <div id="skills">
+            <!-- Content will be dynamically included -->
+        </div>
+
+        <!-- Include contact -->
+        <div id="contact">
+            <!-- Content will be dynamically included -->
+        </div>
+    </main>
+
+    <!-- Include footer -->
+    <div id="footer">
+        <!-- Content will be dynamically included -->
+    </div>
+
+    <script>
+        // Example JavaScript code to load sections dynamically
+        function loadSection(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(html => document.getElementById(id).innerHTML = html);
+        }
+
+        loadSection("header", "header.html");
+        loadSection("navigation", "nav.html");
+        loadSection("about", "about.html");
+        loadSection("projects", "projects.html");
+        loadSection("experiences", "experiences.html");
+        loadSection("skills", "skills.html");
+        loadSection("contact", "contact.html");
+        loadSection("footer", "footer.html");
+    </script>
+</body>
+</html>
