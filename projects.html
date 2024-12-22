@@ -23,19 +23,25 @@
             <h3>MJU ACI</h3>
             <p>대규모 충전 인프라 확장이 가능한 전기자동차 자동 충전 시스템.</p>
             <p><strong>[팀원]</strong> 탁지훈(총 5명)</p>
-            <a href="https://youtu.be/LbtAhwIs7Gw?si=Ekr9utt-6iYukdWk" target="_blank">More Info</a>
+            <a href="https://youtu.be/LbtAhwIs7Gw?si=Ekr9utt-6iYukdWk" target="_blank">
+                <img src="assets/images/icons/youtubelogo.svg" alt="YouTube Link">
+            </a>
         </div>
         <div class="project-card" data-year="2023">
             <h3>COMPANION ROBOT</h3>
             <p>독거노인을 위한 반려로봇으로 안전과 건강을 지원.</p>
             <p><strong>[팀원]</strong> 김성현, 석은혜, 김규목, 이승석(총 7명)</p>
-            <a href="https://youtu.be/FfN0cjAcmhg?si=-8G0qztu7-34Uc_3" target="_blank">More Info</a>
+            <a href="https://youtu.be/FfN0cjAcmhg?si=-8G0qztu7-34Uc_3" target="_blank">
+                <img src="assets/images/icons/youtubelogo.svg" alt="YouTube Link">
+            </a>
         </div>
         <div class="project-card" data-year="2023">
             <h3>계단 극복 핸드 카트</h3>
             <p>계단 극복이 가능한 핸드 카트 설계.</p>
             <p><strong>[팀원]</strong> 김규목(총 7명)</p>
-            <a href="https://www.youtube.com/watch?v=JsHVhtD6RIo" target="_blank">More Info</a>
+            <a href="https://www.youtube.com/watch?v=JsHVhtD6RIo" target="_blank">
+                <img src="assets/images/icons/youtubelogo.svg" alt="YouTube Link">
+            </a>
         </div>
         <!-- 2022 Projects -->
         <div class="project-card" data-year="2022">
@@ -127,6 +133,11 @@
         font-weight: bold;
     }
 
+    .project-card a img {
+        width: 24px;
+        height: 24px;
+    }
+
     .project-card a:hover {
         text-decoration: underline;
     }
@@ -140,18 +151,27 @@
 
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
+                const isActive = button.classList.contains('active');
 
-                const filter = button.getAttribute('data-filter');
-                projectCards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-year') === filter) {
+                // Remove active class from all buttons if toggling off
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+
+                if (!isActive) {
+                    button.classList.add('active');
+                    const filter = button.getAttribute('data-filter');
+                    projectCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-year') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                } else {
+                    // Show all cards when toggled off
+                    projectCards.forEach(card => {
                         card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
+                    });
+                }
             });
         });
     });
