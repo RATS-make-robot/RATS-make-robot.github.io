@@ -9,24 +9,6 @@ body {
     color: #333;
 }
 
-/* Header styles */
-header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2rem;
-}
-
-header img {
-    max-width: 100px;
-    margin-top: 0.5rem;
-}
-
 /* Navigation styles */
 nav {
     background: #444;
