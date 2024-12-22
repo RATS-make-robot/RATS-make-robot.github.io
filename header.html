@@ -1,5 +1,41 @@
 <!-- header.html -->
-<header>
-    <h1>RATS - 명지대학교 로봇동아리</h1>
-    <img src="assets/images/main/logo.png" alt="RATS Logo">
+<header class="site-header">
+    <div class="logo-container">
+        <a href="index.html">
+            <img src="assets/images/site/logo.png" alt="RATS Logo">
+        </a>
+        <h1>RATS - 명지대학교 로봇, 임베디드 중앙동아리</h1>
+    </div>
 </header>
+
+<!-- CSS -->
+<style>
+    .site-header {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .logo-container a {
+        text-decoration: none;
+    }
+
+    .logo-container img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .logo-container h1 {
+        font-size: 1.5rem;
+        color: #333;
+        margin: 0;
+    }
+</style>
