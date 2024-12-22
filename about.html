@@ -6,18 +6,21 @@
 </section>
 
 <!-- CSS -->
-<style>
-    .typing-container {
-        font-size: 1.2rem;
-        color: #333;
-        font-family: 'Arial', sans-serif; /* Improved font style */
-        margin-bottom: 1rem;
-        height: auto; /* Height adjusted to fit text */
-        overflow: visible; /* Allow text to be fully visible */
-        border-right: 2px solid #333;
-        white-space: nowrap;
-    }
-</style>
+.typing-container {
+    font-size: 1.2rem;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 1rem;
+    height: 1.5em; /* 고정 높이 설정 */
+    overflow: hidden;
+    border-right: 2px solid #333;
+    white-space: nowrap;
+}
+
+#typing-text {
+    display: inline-block;
+    min-height: 1.5em; /* 최소 높이를 지정하여 칸이 줄어들지 않도록 설정 */
+}
 
 <!-- JavaScript -->
 <script>
