@@ -38,12 +38,10 @@ jobs:
         hugo-version: 'latest'
         extended: true
 
-        
     #5. build (public 폴더에 저장 된다.)
     - name: Build Hugo Site
       run: |
         hugo --minify
-
 #    - name: Check Public Folder
 #      run: |
 #        ls -R ./public || echo "Public folder is empty or not created"
