@@ -9,30 +9,23 @@ const initializeFilters = () => {
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            const isActive = button.classList.contains('active');
-
             // Remove active class from all buttons
             filterButtons.forEach(btn => btn.classList.remove('active'));
 
-            if (!isActive) {
-                button.classList.add('active');
-                const filter = button.getAttribute('data-filter');
+            // Add active class to the clicked button
+            button.classList.add('active');
 
-                const projectCards = projectContainer.querySelectorAll('.project-card');
-                projectCards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-year') === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            } else {
-                // Show all cards if the active filter is toggled off
-                const projectCards = projectContainer.querySelectorAll('.project-card');
-                projectCards.forEach(card => {
+            const filter = button.getAttribute('data-filter');
+            const projectCards = projectContainer.querySelectorAll('.project-card');
+
+            // Show or hide project cards based on the filter
+            projectCards.forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-year') === filter) {
                     card.style.display = 'block';
-                });
-            }
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         });
     });
 };
