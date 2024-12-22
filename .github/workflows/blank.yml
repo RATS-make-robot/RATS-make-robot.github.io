@@ -42,7 +42,7 @@ jobs:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v4
       with:
-        github_token: ${{ secrets.mabangkey }}
+        github_token: ${{ secrets.MABANGKEY }}
         publish_branch: gh-pages
         publish_dir: ./public
         cname: join.mju-rats.com
