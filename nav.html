@@ -15,7 +15,6 @@ nav {
     display: flex;
     justify-content: center; /* 가운데 정렬 */
     align-items: center;    /* 세로 정렬 */
-    gap: 20px;             /* 메뉴 간 간격 조정 */
     background-color: #333;
     padding: 10px 20px;
 }
@@ -26,6 +25,8 @@ nav ul {
     margin: 0;
     display: flex; /* 가로 배열 */
     gap: 20px; /* 메뉴 간 간격 추가 */
+    flex-wrap: wrap; /* 작은 화면에서 줄바꿈 */
+    justify-content: center; /* 중앙 정렬 유지 */
 }
 
 nav li {
@@ -42,5 +43,20 @@ nav a {
 
 nav a:hover {
     color: #007bff; /* 링크 호버 시 색상 변경 */
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* 작은 화면에서 세로 정렬 */
+        gap: 10px; /* 간격 조정 */
+    }
+
+    nav {
+        padding: 10px;
+    }
+
+    nav a {
+        font-size: 0.9rem; /* 작은 화면에서 글자 크기 축소 */
+    }
 }
 </style>
