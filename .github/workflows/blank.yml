@@ -35,8 +35,7 @@ jobs:
     #5. build (public 폴더에 저장 된다.)
     - name: Build Hugo Site
       run: |
-        hugo --destination ./public
-      # hugo --minify --destination ./public
+        hugo --minify --destination ./public
 
     - name: Check Public Folder
       run: |
