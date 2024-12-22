@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Determine link type and corresponding icon
                     let linkIcon = '';
                     if (project.link.includes('youtube.com')) {
-                        linkIcon = '<img src="C:/github/RATS-make-robot.github.io/assets/images/icons/youtubelogo.svg" alt="YouTube Link" style="width:24px;height:24px;">';
+                        linkIcon = '</assets/images/icons/youtubelogo.svg" alt="YouTube Link" style="width:24px;height:24px;">';
                     } else if (project.link.includes('github.com')) {
-                        linkIcon = '<img src="C:/github/RATS-make-robot.github.io/assets/images/icons/githublogo.svg" alt="GitHub Link" style="width:24px;height:24px;">';
+                        linkIcon = '/assets/images/icons/githublogo.svg" alt="GitHub Link" style="width:24px;height:24px;">';
                     }
 
                     projectCard.innerHTML = `
