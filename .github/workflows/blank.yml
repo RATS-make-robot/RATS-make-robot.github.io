@@ -34,13 +34,14 @@ jobs:
         
     #5. build (public 폴더에 저장 된다.)
     - name: Build Hugo Site
-      run: hugo --minify --destination ./public
+      run: |
+        hugo --minify --destination ./public
        # minify는 압축시키는 것을 의미한다. 
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: hugo-site
-        path: ./public
+#    - name: Upload Artifact
+#      uses: actions/upload-artifact@v4
+#      with:
+#        name: hugo-site
+#        path: ./public
 
     #6.Deploy 배포: git token이 필요하다. gh-pages로 publish하는 것 잊지 말자 
     #public 폴더를 github page의 gh-pages 브챈치에 배포한다는 의미이다. 
