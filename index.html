@@ -7,71 +7,85 @@
     <meta name="description" content="명지대학교 동아리 RATS">
     <meta property="og:title" content="RATS website">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Portfolio and personal blog of John Doe.">
-    <meta property="og:image" content="images/author/john.png">
-    <meta property="og:url" content="https://hugo-toha.github.io">
+    <meta property="og:description" content="명지대학교 동아리 RATS">
+    <meta property="og:image" content="images/author/logo.png">
+    <meta property="og:url" content="https://join.mju-rats.com/">
     <title>RATS Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
     <!-- Include header -->
     <div id="header">
-        <!-- Content will be dynamically included -->
+        <!-- Header content will be dynamically included -->
+        <script>
+            fetch('header.html').then(res => res.text()).then(data => document.getElementById('header').innerHTML = data);
+        </script>
     </div>
 
     <!-- Include navigation -->
     <div id="navigation">
-        <!-- Content will be dynamically included -->
+        <!-- Navigation content will be dynamically included -->
+        <script>
+            fetch('nav.html').then(res => res.text()).then(data => document.getElementById('navigation').innerHTML = data);
+        </script>
     </div>
 
     <main>
         <!-- Include about -->
         <div id="about">
-            <!-- Content will be dynamically included -->
+            <!-- About content will be dynamically included -->
+            <script>
+                fetch('about.html').then(res => res.text()).then(data => document.getElementById('about').innerHTML = data);
+            </script>
         </div>
 
         <!-- Include projects -->
         <div id="projects">
-            <!-- Content will be dynamically included -->
+            <!-- Projects content will be dynamically included -->
+            <script>
+                fetch('projects.html').then(res => res.text()).then(data => document.getElementById('projects').innerHTML = data);
+            </script>
         </div>
 
         <!-- Include experiences -->
         <div id="experiences">
-            <!-- Content will be dynamically included -->
+            <!-- Experiences content will be dynamically included -->
+            <script>
+                fetch('experiences.html').then(res => res.text()).then(data => document.getElementById('experiences').innerHTML = data);
+            </script>
         </div>
 
         <!-- Include skills -->
         <div id="skills">
-            <!-- Content will be dynamically included -->
+            <!-- Skills content will be dynamically included -->
+            <script>
+                fetch('skills.html').then(res => res.text()).then(data => document.getElementById('skills').innerHTML = data);
+            </script>
+        </div>
+
+        <!-- Include seminars -->
+        <div id="seminars">
+            <!-- Seminars content will be dynamically included -->
+            <script>
+                fetch('seminar.html').then(res => res.text()).then(data => document.getElementById('seminars').innerHTML = data);
+            </script>
         </div>
 
         <!-- Include contact -->
         <div id="contact">
-            <!-- Content will be dynamically included -->
+            <!-- Contact content will be dynamically included -->
+            <script>
+                fetch('contact.html').then(res => res.text()).then(data => document.getElementById('contact').innerHTML = data);
+            </script>
         </div>
     </main>
 
     <!-- Include footer -->
     <div id="footer">
-        <!-- Content will be dynamically included -->
+        <!-- Footer content will be dynamically included -->
+        <script>
+            fetch('footer.html').then(res => res.text()).then(data => document.getElementById('footer').innerHTML = data);
+        </script>
     </div>
-
-    <script>
-        // Example JavaScript code to load sections dynamically
-        function loadSection(id, file) {
-            fetch(file)
-                .then(response => response.text())
-                .then(html => document.getElementById(id).innerHTML = html);
-        }
-
-        loadSection("header", "header.html");
-        loadSection("navigation", "nav.html");
-        loadSection("about", "about.html");
-        loadSection("projects", "projects.html");
-        loadSection("experiences", "experiences.html");
-        loadSection("skills", "skills.html");
-        loadSection("contact", "contact.html");
-        loadSection("footer", "footer.html");
-    </script>
 </body>
 </html>
