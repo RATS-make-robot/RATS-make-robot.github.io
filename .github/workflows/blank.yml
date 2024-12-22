@@ -7,6 +7,7 @@ on:
     branches: [ toha ]
   pull_request:
     branches: [ toha ]
+  workflow_dispatch:
 
 # jobs은 실행될 action을 포함하고 있다.  
 jobs:
