@@ -1,100 +1,158 @@
 <!-- projects.html -->
 <section id="projects">
     <h2>Projects</h2>
-    <div class="card-container">
-        <div class="card">
-            <img src="assets/images/project1.jpg" alt="Project 1">
-            <div class="card-content">
-                <h3>MJU ACI</h3>
-                <p>대규모 충전 인프라 확장이 가능한 전기자동차 자동 충전 시스템.</p>
-                <a href="https://youtu.be/LbtAhwIs7Gw?si=Ekr9utt-6iYukdWk" target="_blank">View More</a>
-            </div>
+    <div class="filter-buttons">
+        <button data-filter="all" class="filter-btn active">All</button>
+        <button data-filter="2024" class="filter-btn">2024</button>
+        <button data-filter="2023" class="filter-btn">2023</button>
+        <button data-filter="2022" class="filter-btn">2022</button>
+        <button data-filter="2021" class="filter-btn">2021</button>
+        <button data-filter="2020" class="filter-btn">2020</button>
+        <button data-filter="2019" class="filter-btn">2019</button>
+    </div>
+    <div class="project-container">
+        <!-- 2024 Projects -->
+        <div class="project-card" data-year="2024">
+            <h3>2024 RATS 겨울 세미나</h3>
+            <p>리눅스 - 명령어, 컴파일, 디버깅 등</p>
+            <p><strong>[팀원]</strong> 김영찬</p>
+            <a href="#" target="_blank">More Info</a>
         </div>
-        <div class="card">
-            <img src="assets/images/project2.jpg" alt="Project 2">
-            <div class="card-content">
-                <h3>COMPANION ROBOT</h3>
-                <p>독거노인을 위한 반려로봇으로 안전과 건강을 지원.</p>
-                <a href="https://youtu.be/FfN0cjAcmhg?si=-8G0qztu7-34Uc_3" target="_blank">View More</a>
-            </div>
+        <!-- 2023 Projects -->
+        <div class="project-card" data-year="2023">
+            <h3>MJU ACI</h3>
+            <p>대규모 충전 인프라 확장이 가능한 전기자동차 자동 충전 시스템.</p>
+            <p><strong>[팀원]</strong> 탁지훈(총 5명)</p>
+            <a href="https://youtu.be/LbtAhwIs7Gw?si=Ekr9utt-6iYukdWk" target="_blank">More Info</a>
         </div>
-        <div class="card">
-            <img src="assets/images/project3.jpg" alt="Project 3">
-            <div class="card-content">
-                <h3>계단 극복 핸드 카트</h3>
-                <p>계단 극복이 가능한 핸드 카트 설계.</p>
-                <a href="https://www.youtube.com/watch?v=JsHVhtD6RIo" target="_blank">View More</a>
-            </div>
+        <div class="project-card" data-year="2023">
+            <h3>COMPANION ROBOT</h3>
+            <p>독거노인을 위한 반려로봇으로 안전과 건강을 지원.</p>
+            <p><strong>[팀원]</strong> 김성현, 석은혜, 김규목, 이승석(총 7명)</p>
+            <a href="https://youtu.be/FfN0cjAcmhg?si=-8G0qztu7-34Uc_3" target="_blank">More Info</a>
+        </div>
+        <div class="project-card" data-year="2023">
+            <h3>계단 극복 핸드 카트</h3>
+            <p>계단 극복이 가능한 핸드 카트 설계.</p>
+            <p><strong>[팀원]</strong> 김규목(총 7명)</p>
+            <a href="https://www.youtube.com/watch?v=JsHVhtD6RIo" target="_blank">More Info</a>
+        </div>
+        <!-- 2022 Projects -->
+        <div class="project-card" data-year="2022">
+            <h3>드론을 이용한 잔불진화 시스템</h3>
+            <p>화재지시기를 통한 잔불 식별 및 자율 진화.</p>
+            <p><strong>[팀원]</strong> 유종상, 유성환, 김지호, 이한얼, 김예지</p>
+            <a href="https://github.com/js4ngu/22_HanEum_Forest-Fire-Extinguishing-Assistance-System" target="_blank">More Info</a>
+        </div>
+        <div class="project-card" data-year="2022">
+            <h3>Valve 인덱스 컨트롤러</h3>
+            <p>UR3 로봇암을 원격 조종하는 시스템.</p>
+            <p><strong>[팀원]</strong> 김성현</p>
+            <a href="https://community.mju-rats.com/t/valve-ur3/278" target="_blank">More Info</a>
+        </div>
+        <!-- 2021 Projects -->
+        <div class="project-card" data-year="2021">
+            <h3>씨름 로봇</h3>
+            <p>상대 로봇 탐지 및 밀어내기 기능 구현.</p>
+            <p><strong>[팀원]</strong> 김지호, 이한얼, 전성배</p>
+            <a href="https://github.com/Kestrel-omega/2021_Wrestling" target="_blank">More Info</a>
+        </div>
+        <!-- 2020 Projects -->
+        <div class="project-card" data-year="2020">
+            <h3>자이로스코프 드론</h3>
+            <p>자이로스코프 형태의 드론 가드 설계.</p>
+            <p><strong>[팀원]</strong> 석은혜</p>
+            <a href="https://github.com/mokhwasomssi/drone_with_gyroscopic_guard" target="_blank">More Info</a>
+        </div>
+        <!-- 2019 Projects -->
+        <div class="project-card" data-year="2019">
+            <h3>2자유도 공 균형 제어 시스템</h3>
+            <p>터치스크린 센서를 이용한 PID 균형 제어 로봇.</p>
+            <p><strong>[팀원]</strong> 김성현</p>
+            <a href="https://github.com/Topasm/2DOF_Ball_Plate_System" target="_blank">More Info</a>
         </div>
     </div>
 </section>
 
-<!-- CSS: styles.css -->
+<!-- CSS -->
 <style>
-    .card-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
+    .filter-buttons {
+        text-align: center;
+        margin-bottom: 20px;
     }
 
-    .card {
+    .filter-btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .filter-btn.active {
+        background-color: #0056b3;
+    }
+
+    .filter-btn:hover {
+        background-color: #0056b3;
+    }
+
+    .project-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .project-card {
         background: #fff;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        max-width: 300px;
-        text-align: center;
-        transition: transform 0.2s ease-in-out;
+        padding: 20px;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     }
 
-    .card:hover {
-        transform: scale(1.05);
+    .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
-    .card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
-
-    .card-content {
-        padding: 1rem;
-    }
-
-    .card-content h3 {
-        margin: 0 0 0.5rem;
-    }
-
-    .card-content p {
-        font-size: 0.9rem;
-        color: #555;
-        margin: 0 0 1rem;
-    }
-
-    .card-content a {
+    .project-card a {
         display: inline-block;
+        margin-top: 10px;
         text-decoration: none;
-        color: #fff;
-        background: #007bff;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        transition: background 0.2s ease-in-out;
+        color: #007bff;
+        font-weight: bold;
     }
 
-    .card-content a:hover {
-        background: #0056b3;
+    .project-card a:hover {
+        text-decoration: underline;
     }
 </style>
 
-<!-- Optional JavaScript for Animation -->
+<!-- JavaScript -->
 <script>
-    document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
-        });
-        card.addEventListener('mouseleave', () => {
-            card.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+    document.addEventListener('DOMContentLoaded', () => {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filter = button.getAttribute('data-filter');
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-year') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
         });
     });
 </script>
