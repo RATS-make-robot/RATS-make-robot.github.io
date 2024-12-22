@@ -1,0 +1,24 @@
+# section information
+section:
+  name: 활동사진
+  id: achievements
+  enable: true
+  weight: 8
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# Your achievements achievements
+achievements:
+- title: 동아리 겨울 세미나
+  image: /images/sections/achievements/presenter.jpg
+  summary: 재학생 회원의 자유 주제 세미나입니다
+- title: 신입생 세미나
+  image: /images/sections/achievements/sport.jpg
+  summary: 신입생을 위해 코딩, 기본 회로 지식을 가르칩니다.
+- title: 동아리 총회
+  image: /images/sections/achievements/graduation-cap.jpg
+  summary: 매년 연말 동아리 총회를 합니다
+- title: 동아리 MT
+  image: /images/sections/achievements/woman-winner.jpg
+  summary: 동아리 하계 MT 사진

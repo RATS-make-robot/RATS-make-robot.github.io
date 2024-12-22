@@ -1,0 +1,188 @@
+# section information
+section:
+  name: 프로젝트 / 교육
+  id: projects
+  enable: true
+  weight: 5
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# filter buttons
+buttons:
+- name: All
+  filter: "all"
+- name: Project
+  filter: "Project"
+- name: Education
+  filter: "Education"
+- name: 2024
+  filter: "2024"
+- name: 2023
+  filter: "2023"
+- name: 2022
+  filter: "2022"
+- name: 2021
+  filter: "2021"
+- name: 2020
+  filter: "2020"
+- name: 2019
+  filter: "2019"
+- name: 2018
+  filter: "2018"
+
+
+
+# your projects
+projects:
+- name: 2024 RATS 겨울 세미나
+  logo: assets/images/site/logo.png
+  role: 김영찬
+  timeline: "2024년 1월"
+  summary: 리눅스 - 명령어, 컴파일, 디버깅 등
+  tags: ["Education", "2024"]
+  
+- name: MJU ACI(새로운 형태의 자동충전시스템)
+  role: 탁지훈(총 5명)
+  timeline: "2023년"
+  url: https://youtu.be/LbtAhwIs7Gw?si=Ekr9utt-6iYukdWk
+  summary: 대규모 충전 인프라 확장이 가능한 전기자동차 자동 충전 시스템(EV Automatic Charging Infrastructure)<br><ul><li>교내 캡스톤디자인 프로젝트 경진대회-대상</li><li>SEP 융합 페스티벌-금상 등</li></ul>
+  tags: ["Project", "2023"]
+  
+- name: LH(Land & Housing for Reptiles & Amphibians)
+  role: 탁지훈, 방승재, 서호준
+  timeline: "2023년"
+  repo: https://github.com/SeungJae928/2023ESWContest_free_1012
+  summary: 도마뱀 사육장 환경 자동 관리 및 커스텀 환경
+  tags: ["Project", "2023"]
+
+- name: COMPANION ROBOT(독거노인을 위한 반려로봇)
+  role: 김성현, 석은혜, 김규목, 이승석(총 7명)
+  timeline: "2023년"
+  url: https://youtu.be/FfN0cjAcmhg?si=-8G0qztu7-34Uc_3
+  summary: 노인 1인 가구를 위해, 사용자의 안전과 (정신, 신체)건강, 생활에 도움을 줄 수 있는 반려 로봇 개발<br><ul><li>SEP 융합 페스티벌-은상</li><li>프로보노 ICT멘토링 공모전-동상 등</li></ul>
+  tags: ["Project", "2023"]
+
+- name: 계단 극복 핸드 카트
+  role: 김규목(총 7명)
+  timeline: "2023년"
+  url: https://www.youtube.com/watch?v=JsHVhtD6RIo
+  summary: 계단 극복 핸드 카트<br><ul><li>캡스톤디자인 경진대회(기계공학과)-금상</li></ul>
+  tags: ["Project", "2023"]
+  
+- name: 족발2
+  role: 이상수, 김영찬, 안재영, 권인아, 오은지, 이준영
+  timeline: "2023년"
+  #repo: https://github.com/lLoststarl/2023Contest_free
+  url: https://youtu.be/tqQg0wU-9ns?si=lssECIQScBdo7ebp
+  summary: 후지 마비 동물을 위한 웨어러블 로봇<br><ul><li>한이음 ICT멘토링 학술대회-최우수상</li><li>캡스톤디자인 경진대회(2,3학년 부문)-은상</li><li>CDE학회(대학 연구소 부문)-장려상 등</li></ul>
+  tags: ["Project", "2023"]
+
+- name: 반도체 공정장비용 Remote Plasma Source를 위한 RF 전원회로 설계
+  role: 신희성(총 4명)
+  timeline: "2023년 9월 ~ 2024년 6월"
+  summary: 반도체 공정장비용 Remote Plasma Source를 위한 RF 전원회로 설계
+  tags: ["Project", "2023", "2024"]
+
+- name: Smart Clock
+  role: 석은혜, 김준재, 이승석
+  timeline: "2023년 9월 ~ 12월"
+  summary: 편리하고 효율적인 일상 생활을 위한 스마트 클락 제품 개발<br><ul><li>SEP 융합 페스티벌-동상</li></ul>
+  tags: ["Project", "2023"]
+
+- name: 2023 RATS 여름 세미나
+  role: 김영찬
+  timeline: "2023년 8월"
+  summary: ATmega128A - 지능형센서응용
+  tags: ["Education", "2023"]
+  
+- name: 2023 RATS 겨울 세미나
+  role: 정승주, 서호준, 안재원
+  timeline: "2023년 2월"
+  summary: 고급C언어 | C++ | 회로이론, PCB 설계(KiCAD)
+  tags: ["Education", "2023"]
+  ###################################################################################
+- name: 드론을 이용한 잔불진화시스템
+  role: 유종상, 유성환, 김지호, 이한얼, 김예지
+  timeline: "2022년"
+  repo: https://github.com/js4ngu/22_HanEum_Forest-Fire-Extinguishing-Assistance-System
+  summary: 화재지시기를 통한 잔불 식별/좌표추정 및 드론을 이용한 자율진화
+  tags: ["Project", "2022"]
+
+- name: 족발
+  role: 이상수, 김영찬, 신희성, 정승주
+  timeline: "2022년"
+  summary: 강아지 의족(ver 1)
+  tags: ["Project","2022"]
+  
+- name: Valve 인덱스 컨트롤러를 이용한 UR3 매니퓰레이터 제어 
+  role: 김성현
+  timeline: "2022년 7월 ~ 2022년 9월"
+  url: https://community.mju-rats.com/t/valve-ur3/278
+  summary: 밸브사의 index VR 을 이용한 UR3 로봇암 원격 조종
+  tags: ["Project", "2022"]
+
+- name: 2022 동아리 겨울 세미나
+  role: 황규도, 유성환, 김지호, 유종상, 박규용
+  timeline: "2022년 2월"
+  repo: https://github.com/RATS-make-robot/2022-winter-seminar
+  summary: Git/Github , Solidworks, OpenCV 기초, KiCAD 도면 작성 및 발주, 시스템 파워 설계 내용으로 진행 하였습니다.
+  tags: ["Education", "2022"]
+
+- name: 2022 신입생 MCU 세미나
+  role: RATS
+  timeline: "2022년"
+  repo: https://github.com/RATS-make-robot/2022-Freshman-MCUseminar
+  summary: ATmega328를 이용한 MCU (ATmega328) 레지스터 제어
+  tags: ["Education", "2022"]
+  
+- name: 2022 신입생 라인트레이서 가이드
+  role: RATS
+  timeline: "2022년"
+  repo: https://github.com/RATS-make-robot/2022-freshman-linetracer
+  summary: 라인트레이서 로봇을 제작하며 임베디드 기초를 다집니다
+  tags: ["Education", "2022"]
+
+- name: 동아리 웹사이트
+  role: 김성현, 황규도
+  timeline: "2022년 ~"
+  repo: https://github.com/RATS-make-robot/RATS-make-robot.github.io
+  summary: 동아리 홍보를 위한 정적 페이지, 커뮤니티, 클라우드 개발 | (이후 RATS회장단에서 관리)
+  tags: ["Project", "2022"]
+
+  ###################################################################################
+- name: 씨름 로봇
+  role: 김지호, 이한얼, 전성배
+  timeline: "2021년 9월 ~ 2021년 10월"
+  repo: https://github.com/Kestrel-omega/2021_Wrestling
+  summary: 카메라를 통해 상대 로봇을 탐지하고 컬러센서와 초음파센서를 통해 지형을 파악하여 상대 로봇을 밀어내거나 행동 불능으로 만드는 로봇 
+  tags: ["Project", "2021"]
+
+- name: 명지대 셔틀버스 어플
+  role: 황규도
+  timeline: "2021년 9월 ~ 2022년 2월"
+  url: https://play.google.com/store/apps/details?id=com.mba.busapp
+  summary: 명지대 셔틀버스를 시간을 알려주는 어플리케이션. 안드로이드/아이폰 스토어에서 "명지대 셔틀버스" 로 검색 할 수 있습니다.
+  tags: ["Project", "2021","2022"]
+  
+- name: 자이로스코프 드론
+  role: 석은혜
+  timeline: "2020년 ~ 2021년"
+  repo: https://github.com/mokhwasomssi/drone_with_gyroscopic_guard 
+  summary: 드론 펌웨어 개발과 자이로스코프 형태의 드론 가드 설계
+  tags: ["Project", "2020","2021"]
+
+- name: 2자유도 공 균형 제어 시스템
+  role: 김성현
+  timeline: "2019년 3월 ~ 2019년 7월"
+  repo: https://github.com/Topasm/2DOF_Ball_Plate_System
+  summary: 터치스크린 센서를 이용한 pid 균형제어 로봇
+  tags: ["Project", "2019"]
+
+- name: 6족 보행 로봇
+  role: 김태수, 이인영, 유성환, 유종상
+  timeline: "2018년 1월 ~ 2021년 11월"
+  #커뮤니티 링크
+  url: https://www.youtube.com/watch?v=2bNe_N_TTak
+  summary: "6족 보행로봇"
+  tags: ["Project","2018","2019","2020","2021"]
