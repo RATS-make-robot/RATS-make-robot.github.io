@@ -1,7 +1,8 @@
-<!-- about.html -->
 <section id="about">
     <h2>About RATS</h2>
-    <p>명지대학교 로봇동아리 RATS의 홍보 사이트입니다. 동아리에 대한 자세한 정보를 확인하세요!</p>
+    <div class="typing-container">
+        <p id="typing-text"></p>
+    </div>
     <ul>
         <li>로봇을 개발합니다</li>
         <li>임베디드 설계도 합니다.</li>
@@ -10,3 +11,36 @@
         <li>세미나도 합니다</li>
     </ul>
 </section>
+
+<!-- CSS -->
+<style>
+    .typing-container {
+        font-size: 1.2rem;
+        color: #333;
+        font-family: 'Courier New', Courier, monospace;
+        margin-bottom: 1rem;
+        height: 1.5rem; /* Adjust based on the font size */
+        overflow: hidden;
+        border-right: 2px solid #333;
+        white-space: nowrap;
+    }
+</style>
+
+<!-- JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const text = "명지대학교 로봇동아리 RATS의 홍보 사이트입니다. 동아리에 대한 자세한 정보를 확인하세요!";
+        const typingElement = document.getElementById('typing-text');
+        let index = 0;
+
+        function typeEffect() {
+            if (index < text.length) {
+                typingElement.textContent += text[index];
+                index++;
+                setTimeout(typeEffect, 50); // Typing speed
+            }
+        }
+
+        typeEffect();
+    });
+</script>
