@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+const initializeFilters = () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectContainer = document.querySelector('.project-container');
 
@@ -35,4 +35,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-});
+};
