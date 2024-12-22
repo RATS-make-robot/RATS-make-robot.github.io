@@ -46,3 +46,15 @@ jobs:
         publish_branch: gh-pages
         publish_dir: ./public
         cname: join.mju-rats.com
+        
+  download:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Download the artifact
+      - name: Download Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: hugo-site
+          path: ./downloaded-site
