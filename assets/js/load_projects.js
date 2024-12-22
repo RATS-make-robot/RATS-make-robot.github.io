@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             : 'assets/images/icons/githublogo.svg';
                         linkIcon.alt = project.link.includes('youtube.com') ? 'YouTube Link' : 'GitHub Link';
                         linkIcon.style.width = '50px';
-                        linkIcon.style.height = '24px';
+                        linkIcon.style.height = 'auto';
 
                         linkWrapper.appendChild(linkIcon);
                     }
