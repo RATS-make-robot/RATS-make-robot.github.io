@@ -41,17 +41,26 @@ jobs:
           --baseURL "${{ steps.pages.outputs.base_url }}/"  
           
     # minify는 압축시키는 것을 의미한다. 
-    - name: Upload Artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: ./public
+ #   - name: Upload Artifact
+ #     uses: actions/upload-pages-artifact@v3
+ #     with:
+ #       path: ./public
     #6.Deploy 배포: git token이 필요하다. gh-pages로 publish하는 것 잊지 말자 
     #public 폴더를 github page의 gh-pages 브챈치에 배포한다는 의미이다. 
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        github_token: ${{ secrets.MABANGKEY }}
-        publish_branch: gh-pages
-        publish_dir: ./public
-        cname: join.mju-rats.com
-
+#    - name: Deploy
+#      uses: peaceiris/actions-gh-pages@v4
+#      with:
+#        github_token: ${{ secrets.MABANGKEY }}
+#        publish_branch: gh-pages
+#        publish_dir: ./public
+#        cname: join.mju-rats.com
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-22.04
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
