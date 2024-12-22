@@ -3,13 +3,6 @@
     <div class="typing-container">
         <p id="typing-text"></p>
     </div>
-    <ul>
-        <li>로봇을 개발합니다</li>
-        <li>임베디드 설계도 합니다.</li>
-        <li>앱도 개발합니다</li>
-        <li>게임도 합니다</li>
-        <li>세미나도 합니다</li>
-    </ul>
 </section>
 
 <!-- CSS -->
@@ -19,7 +12,7 @@
         color: #333;
         font-family: 'Courier New', Courier, monospace;
         margin-bottom: 1rem;
-        height: 1.5rem; /* Adjust based on the font size */
+        height: 1.5rem;
         overflow: hidden;
         border-right: 2px solid #333;
         white-space: nowrap;
@@ -28,17 +21,39 @@
 
 <!-- JavaScript -->
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const text = "명지대학교 로봇동아리 RATS의 홍보 사이트입니다. 동아리에 대한 자세한 정보를 확인하세요!";
+    document.addEventListener('DOMContentLoaded', function () {
+        const sentences = [
+            "로봇을 개발합니다.",
+            "임베디드 설계도 합니다.",
+            "앱도 개발합니다.",
+            "게임도 합니다.",
+            "세미나도 합니다."
+        ];
+
         const typingElement = document.getElementById('typing-text');
-        let index = 0;
+        let sentenceIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
 
         function typeEffect() {
-            if (index < text.length) {
-                typingElement.textContent += text[index];
-                index++;
-                setTimeout(typeEffect, 50); // Typing speed
+            const currentSentence = sentences[sentenceIndex];
+            if (!isDeleting) {
+                typingElement.textContent += currentSentence[charIndex];
+                charIndex++;
+                if (charIndex === currentSentence.length) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, 1000); // Pause before deleting
+                    return;
+                }
+            } else {
+                typingElement.textContent = currentSentence.substring(0, charIndex - 1);
+                charIndex--;
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    sentenceIndex = (sentenceIndex + 1) % sentences.length; // Move to next sentence
+                }
             }
+            setTimeout(typeEffect, isDeleting ? 50 : 100); // Typing speed
         }
 
         typeEffect();

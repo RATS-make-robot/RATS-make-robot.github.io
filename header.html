@@ -4,14 +4,15 @@
         <a href="index.html">
             <img src="assets/images/site/logo.png" alt="RATS Logo">
         </a>
-        <h1>RATS - 명지대학교 로봇, 임베디드 중앙동아리</h1>
     </div>
+    <h1>RATS - 명지대학교 로봇, 임베디드 중앙동아리</h1>
 </header>
 
 <!-- CSS -->
 <style>
     .site-header {
         display: flex;
+        flex-direction: column;
         align-items: center;
         padding: 10px 20px;
         background-color: #f8f9fa;
@@ -19,9 +20,9 @@
     }
 
     .logo-container {
-        display: flex;
-        align-items: center;
-        gap: 15px;
+        position: absolute;
+        top: 10px;
+        left: 20px;
     }
 
     .logo-container a {
@@ -33,9 +34,10 @@
         height: 50px;
     }
 
-    .logo-container h1 {
+    .site-header h1 {
         font-size: 1.5rem;
         color: #333;
         margin: 0;
+        text-align: center;
     }
 </style>

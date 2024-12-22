@@ -10,16 +10,35 @@
     </ul>
 </nav>
 
-<!-- JavaScript for Smooth Scrolling -->
-<script>
-    document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href').slice(1);
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-</script>
+nav {
+    display: flex;
+    justify-content: center; /* 가운데 정렬 */
+    align-items: center;    /* 세로 정렬 */
+    gap: 20px;             /* 메뉴 간 간격 조정 */
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+nav ul {
+    list-style: none; /* 기본 리스트 스타일 제거 */
+    padding: 0;
+    margin: 0;
+    display: flex; /* 가로 배열 */
+    gap: 20px; /* 메뉴 간 간격 추가 */
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #007bff; /* 링크 호버 시 색상 변경 */
+}
