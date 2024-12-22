@@ -49,8 +49,8 @@
                         initializeTypingAnimation();
                     });
             </script>
+            <script src="assets/js/about-animation.js"></script>
         </div>
-        
         <!-- Include skills -->
         <div id="skills">
             <!-- Skills content will be dynamically included -->
@@ -92,10 +92,6 @@
             </script>
         </div>
     </main>
-    <!-- Include external script -->
-    <script src="assets/js/about-animation.js"></script>
-    <script src="assets/js/filter_projects.js"></script>
-
     <!-- Include footer -->
     <div id="footer">
         <!-- Footer content will be dynamically included -->
@@ -103,5 +99,12 @@
             fetch('footer.html').then(res => res.text()).then(data => document.getElementById('footer').innerHTML = data);
         </script>
     </div>
+
+    <!-- Include external script -->
+    <script src="assets/js/filter_projects.js"></script>
+    <!-- Include the JS-YAML library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <!-- Include the script -->
+    <script src="assets/js/load_projects.js"></script>
 </body>
 </html>
