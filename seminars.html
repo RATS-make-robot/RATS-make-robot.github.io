@@ -1,0 +1,94 @@
+<!-- seminar.html -->
+<section id="seminar>
+    <h2>Seminars</h2>
+    <p>동아리 활동 중 진행된 세미나를 확인하세요.</p>
+    <div class="seminar-container">
+        <div class="seminar-card">
+            <h3>2024 RATS 겨울 세미나</h3>
+            <p>리눅스 - 명령어, 컴파일, 디버깅 등</p>
+            <p><strong>담당자:</strong> 김영찬</p>
+            <p><strong>기간:</strong> 2024년 1월</p>
+        </div>
+        <div class="seminar-card">
+            <h3>2023 RATS 여름 세미나</h3>
+            <p>ATmega128A - 지능형 센서 응용</p>
+            <p><strong>담당자:</strong> 김영찬</p>
+            <p><strong>기간:</strong> 2023년 8월</p>
+        </div>
+        <div class="seminar-card">
+            <h3>2023 RATS 겨울 세미나</h3>
+            <p>고급C언어, C++, 회로이론, PCB 설계(KiCAD)</p>
+            <p><strong>담당자:</strong> 정승주, 서호준, 안재원</p>
+            <p><strong>기간:</strong> 2023년 2월</p>
+        </div>
+        <div class="seminar-card">
+            <h3>2022 동아리 겨울 세미나</h3>
+            <p>Git/Github, Solidworks, OpenCV 기초, KiCAD 도면 작성 및 발주, 시스템 파워 설계</p>
+            <p><strong>담당자:</strong> 황규도, 유성환, 김지호, 유종상, 박규용</p>
+            <p><strong>기간:</strong> 2022년 2월</p>
+        </div>
+        <div class="seminar-card">
+            <h3>2022 신입생 MCU 세미나</h3>
+            <p>ATmega328를 이용한 MCU 레지스터 제어</p>
+            <p><strong>담당자:</strong> RATS</p>
+            <p><strong>기간:</strong> 2022년</p>
+            <a href="https://github.com/RATS-make-robot/2022-Freshman-MCUseminar" target="_blank">GitHub 리포지토리</a>
+        </div>
+        <div class="seminar-card">
+            <h3>2022 신입생 라인트레이서 가이드</h3>
+            <p>라인트레이서 로봇을 제작하며 임베디드 기초를 다집니다</p>
+            <p><strong>담당자:</strong> RATS</p>
+            <p><strong>기간:</strong> 2022년</p>
+            <a href="https://github.com/RATS-make-robot/2022-freshman-linetracer" target="_blank">GitHub 리포지토리</a>
+        </div>
+    </div>
+</section>
+
+<!-- CSS -->
+<style>
+    .seminar-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .seminar-card {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 300px;
+        text-align: center;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .seminar-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .seminar-card h3 {
+        font-size: 1.2rem;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .seminar-card p {
+        font-size: 0.9rem;
+        color: #555;
+        margin: 5px 0;
+    }
+
+    .seminar-card a {
+        display: inline-block;
+        margin-top: 10px;
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    .seminar-card a:hover {
+        text-decoration: underline;
+    }
+</style>
