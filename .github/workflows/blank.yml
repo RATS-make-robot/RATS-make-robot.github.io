@@ -42,7 +42,7 @@ jobs:
           
     # minify는 압축시키는 것을 의미한다. 
     - name: Upload Artifact
-      uses: actions/upload-pages-artifact@v4
+      uses: actions/upload-pages-artifact@v3
       with:
         path: ./public
     #6.Deploy 배포: git token이 필요하다. gh-pages로 publish하는 것 잊지 말자 
