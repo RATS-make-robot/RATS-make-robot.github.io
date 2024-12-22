@@ -36,7 +36,11 @@ jobs:
     - name: Build Hugo Site
       run: hugo --minify && cd public && pwd
        # minify는 압축시키는 것을 의미한다. 
-    
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: hugo-site
+        path: ./public
     #6.Deploy 배포: git token이 필요하다. gh-pages로 publish하는 것 잊지 말자 
     #public 폴더를 github page의 gh-pages 브챈치에 배포한다는 의미이다. 
     - name: Deploy
@@ -46,21 +50,4 @@ jobs:
         publish_branch: gh-pages
         publish_dir: ./public
         cname: join.mju-rats.com
-        
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: hugo-site
-        path: ./public
-        
-  download:
-    needs: build
-    runs-on: ubuntu-latest
 
-    steps:
-      # 1. Download the artifact
-      - name: Download Artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: hugo-site
-          path: ./downloaded-site
