@@ -35,11 +35,11 @@ jobs:
     #5. build (public 폴더에 저장 된다.)
     - name: Build Hugo Site
       run: |
-        hugo --minify --destination ./public
+        hugo --minify
 
-    - name: Check Public Folder
-      run: |
-        ls -R ./public || echo "Public folder is empty or not created"
+#    - name: Check Public Folder
+#      run: |
+#        ls -R ./public || echo "Public folder is empty or not created"
       # minify는 압축시키는 것을 의미한다. 
 #    - name: Upload Artifact
 #      uses: actions/upload-artifact@v4
@@ -55,4 +55,4 @@ jobs:
         github_token: ${{ secrets.MABANGKEY }}
         publish_branch: gh-pages
         publish_dir: ./public
-        #cname: join.mju-rats.com
+        cname: join.mju-rats.com
