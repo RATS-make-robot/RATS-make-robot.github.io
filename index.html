@@ -36,7 +36,6 @@
 
     <main>
         <!-- Include about -->
-    <!-- Include about -->
         <div id="about">
             <!-- About content will be dynamically included -->
             <script>
@@ -51,12 +50,12 @@
                     });
             </script>
         </div>
-
-        <!-- Include projects -->
-        <div id="projects">
-            <!-- Projects content will be dynamically included -->
+        
+        <!-- Include skills -->
+        <div id="skills">
+            <!-- Skills content will be dynamically included -->
             <script>
-                fetch('projects.html').then(res => res.text()).then(data => document.getElementById('projects').innerHTML = data);
+                fetch('skills.html').then(res => res.text()).then(data => document.getElementById('skills').innerHTML = data);
             </script>
         </div>
 
@@ -68,13 +67,14 @@
             </script>
         </div>
 
-        <!-- Include skills -->
-        <div id="skills">
-            <!-- Skills content will be dynamically included -->
+        <!-- Include projects -->
+        <div id="projects">
+            <!-- Projects content will be dynamically included -->
             <script>
-                fetch('skills.html').then(res => res.text()).then(data => document.getElementById('skills').innerHTML = data);
+                fetch('projects.html').then(res => res.text()).then(data => document.getElementById('projects').innerHTML = data);
             </script>
         </div>
+
 
         <!-- Include seminars -->
         <div id="seminars">
