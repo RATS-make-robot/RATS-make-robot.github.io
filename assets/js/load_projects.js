@@ -1,53 +1,53 @@
-// YAML 파싱 라이브러리 사용 (js-yaml)
 document.addEventListener('DOMContentLoaded', () => {
-    const loadYamlData = () => {
-        return fetch('assets/data/projects.yaml')
-            .then(response => response.text())
-            .then(yamlText => jsyaml.load(yamlText)) // YAML 파싱
-            .catch(error => {
-                console.error('Error loading YAML:', error);
-                return null;
-            });
-    };
+    fetch('assets/data/projects.yaml')
+        .then(response => response.text())
+        .then(yamlText => {
+            const projectsData = jsyaml.load(yamlText); // YAML 파싱
+            const projectContainer = document.querySelector('.project-container');
 
-    const renderProjects = (projectsData) => {
-        const projectContainer = document.querySelector('.project-container');
-        if (!projectContainer) {
-            console.error('Project container not found.');
-            return;
-        }
+            if (projectsData.projects) {
+                projectsData.projects.forEach(project => {
+                    const projectCard = document.createElement('div');
+                    projectCard.className = 'project-card';
+                    projectCard.setAttribute('data-year', project.year);
 
-        // Clear existing projects
-        projectContainer.innerHTML = '';
+                    // Create HTML elements for project card
+                    const title = document.createElement('h3');
+                    title.textContent = project.title;
 
-        // Generate project cards
-        projectsData.projects.forEach(project => {
-            const projectCard = document.createElement('div');
-            projectCard.className = 'project-card';
-            projectCard.setAttribute('data-year', project.year);
+                    const description = document.createElement('p');
+                    description.textContent = project.description;
 
-            projectCard.innerHTML = `
-                <h3>${project.title}</h3>
-                <p>${project.description}</p>
-                <p><strong>[팀원]</strong> ${project.team}</p>
-                ${project.link ? `<a href="${project.link}" target="_blank">
-                    <img src="${project.link.includes('youtube.com') 
-                        ? 'assets/images/icons/youtubelogo.svg' 
-                        : 'assets/images/icons/githublogo.svg'}" 
-                        alt="Link" style="width:24px;height:24px;">
-                </a>` : ''}
-            `;
+                    const team = document.createElement('p');
+                    team.innerHTML = `<strong>[팀원]</strong> ${project.team}`;
 
-            projectContainer.appendChild(projectCard);
-        });
+                    const linkWrapper = document.createElement('a');
+                    if (project.link) {
+                        linkWrapper.href = project.link;
+                        linkWrapper.target = '_blank';
 
-        // Trigger filter initialization
-        initializeFilters(); // Call filter initialization after rendering
-    };
+                        const linkIcon = document.createElement('img');
+                        linkIcon.src = project.link.includes('youtube.com')
+                            ? 'assets/images/icons/youtubelogo.svg'
+                            : 'assets/images/icons/githublogo.svg';
+                        linkIcon.alt = project.link.includes('youtube.com') ? 'YouTube Link' : 'GitHub Link';
+                        linkIcon.style.width = '24px';
+                        linkIcon.style.height = '24px';
 
-    loadYamlData().then(projectsData => {
-        if (projectsData) {
-            renderProjects(projectsData);
-        }
-    });
+                        linkWrapper.appendChild(linkIcon);
+                    }
+
+                    // Append elements to project card
+                    projectCard.appendChild(title);
+                    projectCard.appendChild(description);
+                    projectCard.appendChild(team);
+                    if (project.link) {
+                        projectCard.appendChild(linkWrapper);
+                    }
+
+                    projectContainer.appendChild(projectCard);
+                });
+            }
+        })
+        .catch(error => console.error('Error loading YAML:', error));
 });
