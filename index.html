@@ -36,10 +36,19 @@
 
     <main>
         <!-- Include about -->
+    <!-- Include about -->
         <div id="about">
             <!-- About content will be dynamically included -->
             <script>
-                fetch('about.html').then(res => res.text()).then(data => document.getElementById('about').innerHTML = data);
+                fetch('about.html')
+                    .then(res => res.text())
+                    .then(data => {
+                        // About content 삽입
+                        document.getElementById('about').innerHTML = data;
+    
+                        // Animation 초기화 함수 실행
+                        initializeTypingAnimation();
+                    });
             </script>
         </div>
 
@@ -83,7 +92,8 @@
             </script>
         </div>
     </main>
-
+    <!-- Include external script -->
+    <script src="assets/js/about-animation.js"></script>
     <!-- Include footer -->
     <div id="footer">
         <!-- Footer content will be dynamically included -->
