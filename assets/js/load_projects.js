@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     linksContainer.className = 'links-container';
 
                     if (project.links) {
+                        // YouTube Link
                         if (project.links.youtube) {
                             const youtubeLink = document.createElement('a');
                             youtubeLink.href = project.links.youtube;
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             linksContainer.appendChild(youtubeLink);
                         }
 
+                        // GitHub Link
                         if (project.links.github) {
                             const githubLink = document.createElement('a');
                             githubLink.href = project.links.github;
@@ -41,11 +43,27 @@ document.addEventListener('DOMContentLoaded', () => {
                             linksContainer.appendChild(githubLink);
                         }
 
+                        // Other Link
                         if (project.links.other) {
                             const otherLink = document.createElement('a');
                             otherLink.href = project.links.other;
                             otherLink.target = '_blank';
-                            otherLink.innerHTML = `<img src="assets/images/icons/linklogo.svg" alt="Other Link" style="width: 50px; height: auto;">`;
+
+                            if (project.links.other_logo) {
+                                // Use custom logo if provided
+                                otherLink.innerHTML = `<img src="${project.links.other_logo}" alt="Custom Link" style="width: 50px; height: auto;">`;
+                            } else {
+                                // Default to "링크" button if no logo
+                                otherLink.textContent = "링크";
+                                otherLink.style.display = "inline-block";
+                                otherLink.style.padding = "10px 15px";
+                                otherLink.style.backgroundColor = "#007bff";
+                                otherLink.style.color = "#fff";
+                                otherLink.style.borderRadius = "5px";
+                                otherLink.style.textAlign = "center";
+                                otherLink.style.fontWeight = "bold";
+                                otherLink.style.textDecoration = "none";
+                            }
                             linksContainer.appendChild(otherLink);
                         }
                     }
