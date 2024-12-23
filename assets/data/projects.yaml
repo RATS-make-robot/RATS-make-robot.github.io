@@ -141,7 +141,7 @@ projects:
   - title: "드론을 이용한 잔불진화 시스템"
     description: "화재지시기를 통한 잔불 식별 및 자율 진화."
     team: "유종상, 유성환, 김지호, 이한얼, 김예지"
-    image: "https://eciems.mju.a
+    image: ""
     tags: ["2022"]
     duration: "2022년 3월 ~ 2022년 12월"
     links:
