@@ -71,7 +71,7 @@ function initializeTypingAnimation(typingElement) {
         { language: "C", comment: "//", output: `<span class='keyword'>printf</span>(<span class='string'>\"{sentence}\\n\"</span>);` },
         { language: "Python", comment: "#", output: `<span class='keyword'>print</span>(<span class='string'>\"{sentence}\"</span>)` },
         { language: "Java", comment: "//", output: `<span class='keyword'>System.out.println</span>(<span class='string'>\"{sentence}\"</span>);` },
-        { language: "HTML--<span class='language-comment'>&gt;</span>", comment: "&lt;!--", outputs: [
+        { language: "HTML<span class='language-comment'>--&gt;</span>", comment: "&lt;!--", outputs: [
             "<span class='tag'>&lt;h1&gt;</span>{sentence}<span class='tag'>&lt;/h1&gt;</span>",
             "<span class='tag'>&lt;h2&gt;</span>{sentence}<span class='tag'>&lt;/h2&gt;</span> <span class='language-comment'>--&gt;</span>",
             "<span class='tag'>&lt;h3&gt;</span>{sentence}<span class='tag'>&lt;/h3&gt;</span> <span class='language-comment'>--&gt;</span>",
@@ -93,7 +93,7 @@ function initializeTypingAnimation(typingElement) {
         typingElement.innerHTML = typingElement.innerHTML.replace(cursor, "");
 
         const currentSentence = sentences[currentSentenceIndex];
-        if (currentLanguage.language === "HTML") {
+        if (currentLanguage.language === "HTML<span class='language-comment'>--&gt;</span>") {
             const randomOutput = currentLanguage.outputs[Math.floor(Math.random() * currentLanguage.outputs.length)];
             currentOutput = randomOutput.replace("{sentence}", currentSentence);
         } else {
