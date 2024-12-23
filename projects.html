@@ -48,11 +48,15 @@
     }
 
     .project-card {
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    max-width: 400px; /* 카드 폭 제한 */
     }
 
     .project-card:hover {
@@ -60,28 +64,32 @@
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
-    .project-card a {
-        display: inline-block;
-        margin-top: 10px;
-        text-decoration: none;
-        color: #007bff;
-        font-weight: bold;
+    .project-card h3 {
+        text-align: center; /* 제목 가운데 정렬 */
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        color: #333;
     }
 
-    .project-card a img {
-        width: 50px;
-        height: auto;
-    }
-
-    .project-card a:hover {
-        text-decoration: underline;
+    .content-container {
+        display: flex;
+        align-items: flex-start; /* 상단 정렬 */
+        gap: 15px; /* 이미지와 내용 간격 */
     }
 
     .project-image {
-    width: 50%; /* 카드 폭에 맞게 조정 */
-    max-width: 300px; /* 최대 폭 제한 */
-    height: auto; /* 비율 유지 */
-    margin-bottom: 15px;
-    border-radius: 5px; /* 이미지 모서리 둥글게 */
-}
+        width: 80px; /* 이미지 크기 */
+        height: auto; /* 비율 유지 */
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .links-container img {
+        margin-right: 10px;
+        transition: transform 0.3s;
+    }
+
+    .links-container img:hover {
+        transform: scale(1.2); /* 링크 아이콘 확대 효과 */
+    }
 </style>
