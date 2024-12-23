@@ -25,29 +25,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     // 연도 추가
                     const year = document.createElement('h3');
                     year.textContent = experience.year;
-
                     experienceCard.appendChild(year);
 
                     // 대회 및 수상 내역 처리
                     if (experience.competitions) {
                         experience.competitions.forEach(comp => {
                             const compTitle = document.createElement('h4');
-                            compTitle.textContent = comp.competition;
+                            compTitle.textContent = comp.name;
                             experienceCard.appendChild(compTitle);
 
-                            const awardList = document.createElement('ul');
+                            const awardList = document.createElement('p');
+                            let awardText = '';
+
                             comp.awards.forEach(award => {
-                                const listItem = document.createElement('li');
+                                const icon = awardIcons[award.type] || "✨"; // 기본 이모티콘 설정
 
-                                // 이모티콘과 텍스트 처리
-                                const icon = awardIcons[award.type.replace(/[^가-힣a-zA-Z]/g, "")] || "✨";
-                                icon.classname = 'emoji-sparkle';
-                                
-                                listItem.innerHTML = `${icon} ${award.type} (${award.count || 1})`;
-
-                                awardList.appendChild(listItem);
+                                if (award.count && award.count > 1) {
+                                    awardText += `<code>${icon}${award.type}(${award.count})</code> `;
+                                } else {
+                                    awardText += `<code>${icon}${award.type}</code> `;
+                                }
                             });
 
+                            awardList.innerHTML = awardText.trim();
                             experienceCard.appendChild(awardList);
                         });
                     }
@@ -58,5 +58,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('No experiences found in YAML data.');
             }
         })
-    .catch(error => console.error('Error loading YAML:', error));
+        .catch(error => console.error('Error loading YAML:', error));
 });
