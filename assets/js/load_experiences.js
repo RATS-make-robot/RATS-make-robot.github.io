@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const awardIcons = {
                 "대상": "🏆",
                 "최우수상": "🏆",
+                "우수상": "🏅",
                 "금상": "🥇",
                 "은상": "🥈",
                 "동상": "🥉",
