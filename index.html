@@ -54,9 +54,9 @@
 
                         // Animation 초기화 함수가 존재할 경우 실행
                         if (typeof initializeTypingAnimation === 'function') {
-                            initializeTypingAnimation();
+                            typeEffect();
                         } else {
-                            console.warn('initializeTypingAnimation 함수가 정의되어 있지 않습니다.');
+                            console.warn('typeEffect 함수가 정의되어 있지 않습니다.');
                         }
                     })
                     .catch(error => {
