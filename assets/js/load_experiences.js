@@ -20,14 +20,17 @@ document.addEventListener('DOMContentLoaded', () => {
                             const listItem = document.createElement('li');
 
                             // 수상 내역 중 강조 부분만 <code>로 감싸기
-                            const match = responsibility.match(/(.*? - )(.*)/);
+                            const match = responsibility.match(/(.*? - )(.*?)(🏆|🥇|🥈|🥉|🎖️|✨)(.*)/);
                             if (match) {
-                                const textPart = document.createTextNode(match[1]);
-                                const codeElement = document.createElement('code');
-                                codeElement.textContent = match[2];
-                                
-                                listItem.appendChild(textPart);
-                                listItem.appendChild(codeElement);
+                                const textPart1 = document.createTextNode(match[1]);
+                                const emoji = document.createElement('span');
+                                emoji.textContent = match[3];
+                                emoji.className = 'emoji-sparkle'; // 반짝임 효과 클래스
+                                const textPart2 = document.createTextNode(match[2] + match[4]);
+
+                                listItem.appendChild(textPart1);
+                                listItem.appendChild(emoji);
+                                listItem.appendChild(textPart2);
                             } else {
                                 listItem.textContent = responsibility; // 매칭 실패 시 전체 텍스트 출력
                             }

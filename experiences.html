@@ -18,6 +18,20 @@
         font-size: 0.9rem; /* 적당한 크기 */
         border: 1px solid #ddd; /* 외곽선 */
     }
+    @keyframes sparkle {
+        0%, 100% {
+            filter: brightness(1);
+        }
+        50% {
+            filter: brightness(2.5);
+        }
+    }
+
+    .emoji-sparkle {
+        display: inline-block;
+        animation: sparkle 1.5s infinite;
+    }
+    
     .experience-container {
         display: grid;
         flex-direction: column;
