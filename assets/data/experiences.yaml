@@ -153,17 +153,22 @@ experiences:
         awards:
           - type: "장려상"
             count: 1
+          - type: "대상(캡스톤)"
       - name: "2019 교내 캡스톤디자인 프로젝트 경진대회"
         awards:
-          - type: "대상(캡스톤)"
+          - type: "대상"
             count: 1
-          - type: "금상(다학제)"
+          - type: "은상"
             count: 1
-          - type: "은상(캡스톤)"
+      - name: "2019 교내 캡스톤디자인 프로젝트 경진대회(다학제)"
+        awards:
+          - type: "금상"
             count: 1
-          - type: "동상(다학제)"
+          - type: "동상"
             count: 1
-          - type: "장려상(융합과제)"
+      - name: "2019 교내 캡스톤디자인 프로젝트 경진대회(융합과제)"
+        awards:
+          - type: "장려상"
             count: 1
       - name: "2020 서울과학기술대학교 공학교육 거점센터 창의적 종합설계 경진대회"
         awards:
