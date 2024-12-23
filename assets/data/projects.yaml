@@ -41,68 +41,139 @@
 # ==============================================================================
 
 projects:
+projects:
   - title: "2024_A.RM.I"
     description: "ARM과 AI 모델을 활용한 분산형 저전력 객체인식 군용 경계 감시 시스템"
     team: "김영찬(총 5명)"
-    image: "/assets/images/site/inverted-logo.png"
-    year: "2024"
+    image: "https://eciems.mju.ac.kr/sites/eciems/atchmnfl/bbs/1430/thumbnail/thumb_temp_1732861778109100.jpg"
+    tags: ["2024"]
+    duration: "2024년 3월 ~ 2024년 12월"
     links:
       github: "https://github.com/KimTeddy/2024_A.RM.I_Public"
       youtube: "https://youtu.be/RNpNJ6A_28k?si=IeHd7aC45Z5TKPu1"
-
+############################################################################################
   - title: "MJU ACI"
     description: "대규모 충전 인프라 확장이 가능한 전기자동차 자동 충전 시스템."
     team: "탁지훈(총 5명)"
     image: "https://eciems.mju.ac.kr/sites/eciems/atchmnfl/bbs/1389/thumbnail/thumb_temp_1701320911635100.jpg"
-    year: "2023"
+    tags: ["2023"]
+    duration: "2023년"
     links:
       youtube: "https://youtu.be/LbtAhwIs7Gw?si=Ekr9utt-6iYukdWk"
 
   - title: "COMPANION ROBOT"
     description: "독거노인을 위한 반려로봇으로 안전과 건강을 지원."
-    team: "김성현, 석은혜, 김규목, 이승석(총 7명)"
-    year: "2023"
+    team: "김성현, 석은혜(총 7명)"
+    image: "https://eciems.mju.ac.kr/sites/eciems/atchmnfl/bbs/1389/thumbnail/thumb_temp_1701220046572100.jpg"
+    tags: ["2023"]
+    duration: "2023년 3월 ~ 2023년 12월"
     links:
       youtube: "https://youtu.be/FfN0cjAcmhg?si=-8G0qztu7-34Uc_3"
 
   - title: "계단 극복 핸드 카트"
     description: "계단 극복이 가능한 핸드 카트 설계."
     team: "김규목(총 7명)"
-    year: "2023"
+    tags: ["2023"]
+    duration: "2023년 3월 ~ 2023년 12월"
     links:
       youtube: "https://www.youtube.com/watch?v=JsHVhtD6RIo"
+  
+  - title: "LH(Land & Housing for Reptiles & Amphibians)"
+    description: "도마뱀 사육장 환경 자동 관리 및 커스텀 환경"
+    team: "탁지훈, 방승재, 서호준"
+    tags: ["2023"]
+    duration: "2023년 3월 ~ 2023년 8월"
+    links:
+      github: "https://github.com/SeungJae928/2023ESWContest_free_1012"
 
+  - title: "족발2"
+    description: "후지 마비 동물을 위한 웨어러블 로봇"
+    team: "이상수, 김영찬, 안재영, 권인아, 오은지, 이준영"
+    tags: ["2023"]
+    duration: "2023년 7월 ~ 2023년 12월"
+    links:
+      youtube: "https://youtu.be/tqQg0wU-9ns?si=lssECIQScBdo7ebp"
+
+  - title: "반도체 공정장비용 Remote Plasma Source를 위한 RF 전원회로 설계"
+    description: "반도체 공정장비용 Remote Plasma Source를 위한 RF 전원회로 설계"
+    team: "신희성(총 4명)"
+    tags: ["2023", "2024"]
+    duration: "2023년 9월 ~ 2024년 6월"
+
+  - title: "Smart Clock"
+    description: "편리하고 효율적인 일상 생활을 위한 스마트 클락 제품 개발"
+    team: "석은혜, 김준재, 이승석"
+    tags: ["2023"]
+    duration: "2023년 9월 ~ 2023년 12월"
+
+############################################################################################
   - title: "드론을 이용한 잔불진화 시스템"
     description: "화재지시기를 통한 잔불 식별 및 자율 진화."
     team: "유종상, 유성환, 김지호, 이한얼, 김예지"
-    year: "2022"
+    tags: ["2022"]
+    duration: "2022년 3월 ~ 2022년 12월"
     links:
       github: "https://github.com/js4ngu/22_HanEum_Forest-Fire-Extinguishing-Assistance-System"
 
-  - title: "Valve 인덱스 컨트롤러"
-    description: "UR3 로봇암을 원격 조종하는 시스템."
+  - title: "동아리 웹사이트"
+    description: "동아리 홍보를 위한 정적 페이지, 커뮤니티, 클라우드 개발 | (이후 RATS회장단에서 관리)"
+    team: "김성현, 황규도"
+    tags: ["2022"]
+    duration: "2022년 ~"
+    links:
+      github: "https://github.com/RATS-make-robot/RATS-make-robot.github.io"
+
+  - title: "Valve 인덱스 컨트롤러를 이용한 UR3 매니퓰레이터 제어 "
+    description: "밸브사의 index VR 을 이용한 UR3 로봇암 원격 조종"
     team: "김성현"
-    year: "2022"
+    tags: ["2022"]
+    duration: "2022년 7월 ~ 2022년 9월"
     links:
       other: "https://community.mju-rats.com/t/valve-ur3/278"
 
+  - title: "족발"
+    description: "강아지 의족(ver 1)"
+    team: "이상수, 김영찬, 신희성, 정승주"
+    tags: ["2022"]
+    duration: "2022년 3월 ~ 2022년 12월"
+############################################################################################
   - title: "씨름 로봇"
     description: "상대 로봇 탐지 및 밀어내기 기능 구현."
     team: "김지호, 이한얼, 전성배"
-    year: "2021"
+    tags: ["2021"]
+    duration: "2021년 9월 ~ 2021년 10월"
     links:
       github: "https://github.com/Kestrel-omega/2021_Wrestling"
 
+  - title: "명지대 셔틀버스 어플"
+    description: "명지대 셔틀버스를 시간을 알려주는 어플리케이션. 안드로이드/아이폰 스토어에서 '명지대 셔틀버스'로 검색 할 수 있습니다."
+    team: "황규도"
+    tags: ["2021"]
+    duration: "2021년 9월 ~ 2022년 2월"
+    links:
+      other: "https://play.google.com/store/apps/details?id=com.mba.busapp"
+
+############################################################################################
   - title: "자이로스코프 드론"
     description: "자이로스코프 형태의 드론 가드 설계."
     team: "석은혜"
-    year: "2020"
+    tags: ["2020", "2021"]
+    duration: "2020년 ~ 2021년"
     links:
       github: "https://github.com/mokhwasomssi/drone_with_gyroscopic_guard"
-
+############################################################################################
   - title: "2자유도 공 균형 제어 시스템"
     description: "터치스크린 센서를 이용한 PID 균형 제어 로봇."
     team: "김성현"
-    year: "2019"
+    tags: ["2019"]
+    duration: "2019년 3월 ~ 2019년 7월"
     links:
       github: "https://github.com/Topasm/2DOF_Ball_Plate_System"
+  
+  - title: "6족 보행 로봇"
+    description: "6족 보행 로봇"
+    team: "김태수, 이인영, 유성환, 유종상"
+    tags: ["2018", "2019", "2020", "2021"]
+    duration: "2018년 1월 ~ 2021년 11월"
+    links:
+      youtube: "https://www.youtube.com/watch?v=2bNe_N_TTak"

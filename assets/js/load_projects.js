@@ -9,26 +9,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 projectsData.projects.forEach(project => {
                     const projectCard = document.createElement('div');
                     projectCard.className = 'project-card';
-                    projectCard.setAttribute('data-year', project.year);
 
                     // Create HTML elements for project card
                     const title = document.createElement('h3');
                     title.textContent = project.title;
 
-                    // 이미지 추가
+                    // 이미지 추가 (제목 바로 아래)
                     if (project.image) {
                         const projectImage = document.createElement('img');
                         projectImage.src = project.image;
                         projectImage.alt = `${project.title} 이미지`;
                         projectImage.className = 'project-image'; // CSS 스타일링을 위한 클래스
+                        projectCard.appendChild(title);
                         projectCard.appendChild(projectImage);
+                    } else {
+                        projectCard.appendChild(title);
                     }
-                    
+
                     const description = document.createElement('p');
                     description.textContent = project.description;
 
                     const team = document.createElement('p');
                     team.innerHTML = `<strong>[팀원]</strong> ${project.team}`;
+
+                    const duration = document.createElement('p');
+                    duration.innerHTML = `<strong>[기간]</strong> ${project.duration}`;
+
+                    const tags = document.createElement('p');
+                    tags.innerHTML = `<strong>[태그]</strong> ${project.tags.join(', ')}`;
 
                     const linksContainer = document.createElement('div');
                     linksContainer.className = 'links-container';
@@ -39,22 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             const otherLink = document.createElement('a');
                             otherLink.href = project.links.other;
                             otherLink.target = '_blank';
-
-                            if (project.links.other_logo) {
-                                // Use custom logo if provided
-                                otherLink.innerHTML = `<img src="${project.links.other_logo}" alt="Custom Link" style="width: 50px; height: auto;">&nbsp;`;
-                            } else {
-                                // Default to "링크" button if no logo
-                                otherLink.textContent = "링크";
-                                otherLink.style.display = "inline-block";
-                                otherLink.style.padding = "10px 15px";
-                                otherLink.style.backgroundColor = "#007bff";
-                                otherLink.style.color = "#fff";
-                                otherLink.style.borderRadius = "5px";
-                                otherLink.style.textAlign = "center";
-                                otherLink.style.fontWeight = "bold";
-                                otherLink.style.textDecoration = "none";
-                            }
+                            otherLink.textContent = "기타 링크";
+                            otherLink.className = 'other-link';
                             linksContainer.appendChild(otherLink);
                         }
 
@@ -63,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             const youtubeLink = document.createElement('a');
                             youtubeLink.href = project.links.youtube;
                             youtubeLink.target = '_blank';
-                            youtubeLink.innerHTML = `<img src="assets/images/icons/youtubelogo.svg" alt="YouTube Link" style="width: 50px; height: auto;">&nbsp;`;
+                            youtubeLink.innerHTML = `<img src="assets/images/icons/youtubelogo.svg" alt="YouTube Link" style="width: 50px; height: auto;">`;
                             linksContainer.appendChild(youtubeLink);
                         }
 
@@ -75,13 +69,13 @@ document.addEventListener('DOMContentLoaded', () => {
                             githubLink.innerHTML = `<img src="assets/images/icons/githublogo.svg" alt="GitHub Link" style="width: 50px; height: auto;">`;
                             linksContainer.appendChild(githubLink);
                         }
-
                     }
 
                     // Append elements to project card
-                    projectCard.appendChild(title);
                     projectCard.appendChild(description);
                     projectCard.appendChild(team);
+                    projectCard.appendChild(duration);
+                    projectCard.appendChild(tags);
                     projectCard.appendChild(linksContainer);
 
                     projectContainer.appendChild(projectCard);

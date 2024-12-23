@@ -49,47 +49,59 @@
 
     .project-card {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* 세로 정렬 */
+    align-items: center;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
     margin: 10px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    max-width: 400px; /* 카드 폭 제한 */
-    }
+    max-width: 400px;
+}
 
-    .project-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
-    .project-card h3 {
-        text-align: center; /* 제목 가운데 정렬 */
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-        color: #333;
-    }
+.project-card h3 {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #333;
+}
 
-    .content-container {
-        display: flex;
-        align-items: flex-start; /* 상단 정렬 */
-        gap: 15px; /* 이미지와 내용 간격 */
-    }
+.project-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px; /* 이미지와 텍스트 간 간격 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-    .project-image {
-        width: 80px; /* 이미지 크기 */
-        height: auto; /* 비율 유지 */
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+.project-card p {
+    text-align: left;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
 
-    .links-container img {
-        margin-right: 10px;
-        transition: transform 0.3s;
-    }
+.links-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* 링크 간 간격 */
+    margin-top: 15px;
+}
 
-    .links-container img:hover {
-        transform: scale(1.2); /* 링크 아이콘 확대 효과 */
-    }
+.link-icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s;
+}
+
+.link-icon:hover {
+    transform: scale(1.2); /* 아이콘 확대 효과 */
+}
 </style>
