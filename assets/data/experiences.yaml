@@ -9,7 +9,7 @@ experiences:
         awards:
           - type: "입선"
             count: 1
-      - name: "명지대학교 전자공학과 캡스톤디자인 작품발표회"
+      - name: "2024 명지대학교 전자공학과 캡스톤디자인 작품발표회"
         awards:
           - type: "은상"
             count: 1
@@ -21,7 +21,7 @@ experiences:
         awards:
           - type: "우수상"
             count: 1
-      - name: "명지대학교 컴퓨터공학과 캡스톤디자인 경진대회"
+      - name: "2024 명지대학교 컴퓨터공학과 캡스톤디자인 경진대회"
         awards:
           - type: "장려상"
             count: 1
