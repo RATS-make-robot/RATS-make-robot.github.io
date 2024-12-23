@@ -44,6 +44,7 @@ projects:
   - title: "2024_A.RM.I"
     description: "ARM과 AI 모델을 활용한 분산형 저전력 객체인식 군용 경계 감시 시스템"
     team: "김영찬(총 5명)"
+    image: "/assets/images/site/inverted-logo.png"
     year: "2024"
     links:
       github: "https://github.com/KimTeddy/2024_A.RM.I_Public"

@@ -15,6 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     const title = document.createElement('h3');
                     title.textContent = project.title;
 
+                    // 이미지 추가
+                    if (project.image) {
+                        const projectImage = document.createElement('img');
+                        projectImage.src = project.image;
+                        projectImage.alt = `${project.title} 이미지`;
+                        projectImage.className = 'project-image'; // CSS 스타일링을 위한 클래스
+                        projectCard.appendChild(projectImage);
+                    }
+                    
                     const description = document.createElement('p');
                     description.textContent = project.description;
 
