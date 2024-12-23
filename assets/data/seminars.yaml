@@ -1,4 +1,25 @@
 seminars:
+  - title: "2024 ATmega128A Register"
+    description: "ATmega128A 레지스터 세미나(지능형센서응용 대비)"
+    organizer: "김영찬"
+    period: "2024년 11월"
+    image: "https://eciems.mju.ac.kr/sites/eciems/atchmnfl/bbs/1430/thumbnail/thumb_temp_1732861778109100.jpg"
+    
+  - title: "2024 리눅스 프로그래밍"
+    description: "리눅스 프로그래밍 기초"
+    organizer: "이승석"
+    period: "2024년 9월"
+
+  - title: "2024 회로이론"
+    description: "회로이론"
+    organizer: "김준하"
+    period: "2024년 4월"
+
+  - title: "2024 CubeIDE"
+    description: "STM32, CubeIDE"
+    organizer: "이준영"
+    period: "2024년 3월"
+
   - title: "2024 RATS 겨울 세미나"
     description: "리눅스 - 명령어, 컴파일, 디버깅 등"
     organizer: "김영찬"
