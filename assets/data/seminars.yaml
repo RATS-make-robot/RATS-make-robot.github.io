@@ -28,10 +28,34 @@ seminars:
     organizer: "김영찬"
     period: "2024년 1월"
 
+  - title: "2023 RATS 신입생 MCU, 알고리즘 세미나"
+    description: ""
+    organizer: "김영찬"
+    period: "2023년 3, 4월"
+    image: "assets/images/sections/seminars/2023/stm32.jpg"
+
   - title: "2023 RATS 여름 세미나"
     description: "ATmega128A - 지능형 센서 응용"
     organizer: "김영찬"
     period: "2023년 8월"
+
+  - title: "2023 RATS SOLIDWORKS 세미나"
+    description: "SOLIDWORKS 3D CAD 세미나"
+    organizer: "박찬혁"
+    period: "2023년 3월"
+    image: "assets/images/sections/seminars/2023/solidworks.jfif"
+
+  - title: "2023 RATS 신입생 회로도, 소자, 납땜 세미나"
+    description: ""
+    organizer: "김영찬"
+    period: "2023년 3월"
+    image: "assets/images/sections/seminars/2023/circuit.jfif"
+
+  - title: "2023 RATS 신입생 C언어, Arduino 세미나"
+    description: ""
+    organizer: "김영찬"
+    period: "2023년 3, 4월"
+    image: "assets/images/sections/seminars/2023/c.jfif"
 
   - title: "2023 RATS 겨울 세미나"
     description: "고급C언어, C++, 회로이론, PCB 설계(KiCAD)"
