@@ -52,7 +52,7 @@ projects:
       youtube: "https://youtu.be/RNpNJ6A_28k?si=IeHd7aC45Z5TKPu1"
 
   - title: "RAER"
-    description: "현장 탐사 및 구조 보조 로봇<br>Rescue Assistant Exploration Robot"
+    description: "현장 탐사 및 구조 보조 로봇\nRescue Assistant Exploration Robot"
     team: "우상민(총 4명)"
     image: "https://eciems.mju.ac.kr/sites/eciems/atchmnfl/bbs/1430/thumbnail/thumb_temp_1732667027122100.jpg"
     tags: ["2024"]
