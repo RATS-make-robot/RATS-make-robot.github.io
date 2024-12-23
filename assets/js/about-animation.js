@@ -1,10 +1,19 @@
-function initializeTypingAnimation() {
+document.addEventListener("DOMContentLoaded", function () {
+    // Ensure 'code-display' element exists before initializing
     const typingElement = document.getElementById("code-display");
-
     if (!typingElement) {
-        console.error('Error: Element with ID "code-display" not found.');
+        console.error("Element with ID 'code-display' not found. Typing animation cannot initialize.");
         return;
     }
+
+    // Sentences to display, shown sequentially
+    const sentences = [
+        "로봇을 개발합니다.",
+        "앱도 개발합니다.",
+        "임베디드 설계도 합니다.",
+        "게임도 합니다.",
+        "세미나도 합니다."
+    ];
 
     // Programming languages and their respective code output formats
     const languages = [
@@ -36,8 +45,6 @@ function initializeTypingAnimation() {
         }
     ];
 
-    // HTML element to display the typing effect
-    //const typingElement = document.getElementById("code-display");
     const cursor = `<span class="cursor"></span>`;
     let currentSentenceIndex = 0;
     let currentLanguage = "";
@@ -51,7 +58,6 @@ function initializeTypingAnimation() {
 
         const currentSentence = sentences[currentSentenceIndex];
         if (currentLanguage.language === "HTML") {
-            // Randomly select an output format for HTML
             const randomOutput = currentLanguage.outputs[Math.floor(Math.random() * currentLanguage.outputs.length)];
             currentOutput = randomOutput.replace("{sentence}", currentSentence);
         } else {
@@ -61,14 +67,14 @@ function initializeTypingAnimation() {
         if (!isDeleting && charIndex <= currentOutput.length) {
             // Typing forward
             typingElement.innerHTML =
-                `<span class="language-comment">${currentLanguage.comment}</span> <span class="language-comment">${currentLanguage.language}</span>\n` +
+                `<span class="language-comment">${currentLanguage.comment}</span> <span class="function">${currentLanguage.language}</span>\n` +
                 currentOutput.slice(0, charIndex) + cursor;
             charIndex++;
             setTimeout(typeEffect, 25); // Typing speed
         } else if (isDeleting && charIndex >= 0) {
             // Deleting backward
             typingElement.innerHTML =
-                `<span class="language-comment">${currentLanguage.comment}</span> <span class="language-comment">${currentLanguage.language}</span>\n` +
+                `<span class="language-comment">${currentLanguage.comment}</span> <span class="function">${currentLanguage.language}</span>\n` +
                 currentOutput.slice(0, charIndex) + cursor;
             charIndex--;
             setTimeout(typeEffect, 10); // Deleting speed
@@ -99,4 +105,4 @@ function initializeTypingAnimation() {
     }
     typingElement.innerHTML = `<span class="language-comment">${currentLanguage.comment}</span> <span class="function">${currentLanguage.language}</span>\n` + cursor;
     typeEffect();
-}
+});
