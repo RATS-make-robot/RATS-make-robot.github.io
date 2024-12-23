@@ -13,27 +13,27 @@ document.addEventListener("DOMContentLoaded", function () {
         { 
             language: "C", 
             comment: "//", 
-            output: `<span class='keyword'>printf</span>(<span class='string'>"{sentence}\\n"</span>);` 
+            output: `<span class='keyword'>printf</span>(<span class='string'>\"{sentence}\\n\"</span>);` 
         },
         { 
             language: "Python", 
             comment: "#", 
-            output: `<span class='keyword'>print</span>(<span class='string'>"{sentence}"</span>)` 
+            output: `<span class='keyword'>print</span>(<span class='string'>\"{sentence}\"</span>)` 
         },
         { 
             language: "Java", 
             comment: "//", 
-            output: `<span class='keyword'>System.out.println</span>(<span class='string'>"{sentence}"</span>);` 
+            output: `<span class='keyword'>System.out.println</span>(<span class='string'>\"{sentence}\"</span>);` 
         },
         { 
             language: "HTML", 
-            comment: "!--", 
+            comment: "&lt;!--", 
             outputs: [
-                "<span class='tag'>&lt;h1&gt;</span>{sentence}<span class='tag'>&lt;/h1&gt;</span> ",
-                "<span class='tag'>&lt;p&gt;</span>{sentence}<span class='tag'>&lt;/p&gt;</span> ",
-                "<span class='tag'>&lt;div&gt;</span>{sentence}<span class='tag'>&lt;/div&gt;</span> ",
-                "<span class='tag'>&lt;span&gt;</span>{sentence}<span class='tag'>&lt;/span&gt;</span> ",
-                "<span class='tag'>&lt;strong&gt;</span>{sentence}<span class='tag'>&lt;/strong&gt;</span> "
+                "<span class='tag'>&lt;h1&gt;</span>{sentence}<span class='tag'>&lt;/h1&gt;</span> <span class='language-comment'>--&gt;</span>",
+                "<span class='tag'>&lt;p&gt;</span>{sentence}<span class='tag'>&lt;/p&gt;</span> <span class='language-comment'>--&gt;</span>",
+                "<span class='tag'>&lt;div&gt;</span>{sentence}<span class='tag'>&lt;/div&gt;</span> <span class='language-comment'>--&gt;</span>",
+                "<span class='tag'>&lt;span&gt;</span>{sentence}<span class='tag'>&lt;/span&gt;</span> <span class='language-comment'>--&gt;</span>",
+                "<span class='tag'>&lt;strong&gt;</span>{sentence}<span class='tag'>&lt;/strong&gt;</span> <span class='language-comment'>--&gt;</span>"
             ]
         }
     ];
