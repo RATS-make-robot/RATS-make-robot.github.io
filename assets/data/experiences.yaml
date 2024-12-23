@@ -153,8 +153,7 @@ experiences:
         awards:
           - type: "장려상"
             count: 1
-          - type: "대상(캡스톤)"
-      - name: "2019 교내 캡스톤디자인 프로젝트 경진대회"
+      - name: "2019 교내 캡스톤디자인 프로젝트 경진대회(캡스톤)"
         awards:
           - type: "대상"
             count: 1
