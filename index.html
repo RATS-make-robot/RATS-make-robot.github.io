@@ -71,15 +71,15 @@ function initializeTypingAnimation(typingElement) {
         { language: "C", comment: "//", output: `<span class='keyword'>printf</span>(<span class='string'>\"{sentence}\\n\"</span>);` },
         { language: "Python", comment: "#", output: `<span class='keyword'>print</span>(<span class='string'>\"{sentence}\"</span>)` },
         { language: "Java", comment: "//", output: `<span class='keyword'>System.out.println</span>(<span class='string'>\"{sentence}\"</span>);` },
-        { language: "HTML", comment: "&lt;!--", outputs: [
-            "<span class='tag'>&lt;h1&gt;</span>{sentence}<span class='tag'>&lt;/h1&gt;</span> <span class='language-comment'>--&gt;</span>",
+        { language: "HTML<span class='language-comment'>--&gt;</span>", comment: "&lt;!--", outputs: [
+            "<span class='tag'>&lt;h1&gt;</span>{sentence}<span class='tag'>&lt;/h1&gt;</span> ",
             "<span class='tag'>&lt;p&gt;</span>{sentence}<span class='tag'>&lt;/p&gt;</span> <span class='language-comment'>--&gt;</span>"
         ]}
     ];
 
     let currentSentenceIndex = 0;
     let currentLanguage = languages[Math.floor(Math.random() * languages.length)];
-    const randomOutput = currentLanguage.outputs[Math.floor(Math.random() * currentLanguage.outputs.length)];
+    let randomOutput = currentLanguage.outputs[Math.floor(Math.random() * currentLanguage.outputs.length)];
     let charIndex = 0;
     let isDeleting = false;
     let currentOutput = "";
