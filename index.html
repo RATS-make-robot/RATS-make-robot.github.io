@@ -79,6 +79,7 @@ function initializeTypingAnimation(typingElement) {
 
     let currentSentenceIndex = 0;
     let currentLanguage = languages[Math.floor(Math.random() * languages.length)];
+    const randomOutput = currentLanguage.outputs[Math.floor(Math.random() * currentLanguage.outputs.length)];
     let charIndex = 0;
     let isDeleting = false;
     let currentOutput = "";
@@ -90,19 +91,19 @@ function initializeTypingAnimation(typingElement) {
 
         const currentSentence = sentences[currentSentenceIndex];
         if (currentLanguage.language === "HTML") {
-            const randomOutput = currentLanguage.outputs[Math.floor(Math.random() * currentLanguage.outputs.length)];
+            //const randomOutput = currentLanguage.outputs[Math.floor(Math.random() * currentLanguage.outputs.length)];
             currentOutput = randomOutput.replace("{sentence}", currentSentence);
         } else {
             currentOutput = currentLanguage.output.replace("{sentence}", currentSentence);
         }
 
         if (!isDeleting && charIndex <= currentOutput.length) {
-            typingElement.innerHTML = `<span class="language-comment">${currentLanguage.comment}</span> <span class="function">${currentLanguage.language}</span>\n` +
+            typingElement.innerHTML = `<span class="language-comment">${currentLanguage.comment}</span> <span class="language-comment">${currentLanguage.language}</span>\n` +
                 currentOutput.slice(0, charIndex) + cursor;
             charIndex++;
             setTimeout(typeEffect, 25);
         } else if (isDeleting && charIndex >= 0) {
-            typingElement.innerHTML = `<span class="language-comment">${currentLanguage.comment}</span> <span class="function">${currentLanguage.language}</span>\n` +
+            typingElement.innerHTML = `<span class="language-comment">${currentLanguage.comment}</span> <span class="language-comment">${currentLanguage.language}</span>\n` +
                 currentOutput.slice(0, charIndex) + cursor;
             charIndex--;
             setTimeout(typeEffect, 10);
