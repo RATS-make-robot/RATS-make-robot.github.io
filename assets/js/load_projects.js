@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             otherLink.href = project.links.other;
                             otherLink.target = '_blank';
                             otherLink.textContent = "기타 링크";
-                            otherLink.className = 'other-link';
+                            otherLink.className = 'project-btn';
                             linksContainer.appendChild(otherLink);
                         }
 
