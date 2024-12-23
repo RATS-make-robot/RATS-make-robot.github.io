@@ -1,134 +1,138 @@
 experiences:
   - year: "2024년도"
-    competition: "2024 한이음 ICT멘토링 공모전"
-    awards:
-      - type: "✨입선"
-        count: 2
+    competitions:
+      - name: "2024 한이음 ICT멘토링 공모전"
+        awards:
+          - type: "입선"
+            count: 2
 
   - year: "2023년도"
-    competition: "2023 한이음 ICT멘토링 학술대회"
-    awards:
-      - type: "🏆최우수상"
-        count: 1
-    competition: "2023 창의적 종합 설계 경진대회"
-    awards:
-      - type: "🥇금상"
-        count: 1
-    competition: "2023 SEP 융합 페스티벌"
-    awards:
-      - type: "🥇금상"
-        count: 1
-      - type: "🥈은상"
-        count: 1
-      - type: "🥉동상"
-        count: 1
-    competition: "2023 음성인식 어워드"
-    awards:
-      - type: "🥈은상"
-        count: 1
-    competition: "2023 프로보노 ICT멘토링 공모전"
-    awards:
-      - type: "🥉동상"
-        count: 1
-    competition: "2023 CDE학회(대학 연구소 부문)"
-    awards:
-      - type: "✨장려상"
-        count: 1
-    competition: "2023 캡스톤디자인 경진대회(2,3학년 부문)"
-    awards:
-      - type: "🥈은상"
-        count: 1
-    competition: "2023 캡스톤디자인 경진대회(기계공학과)"
-    awards:
-      - type: "🥇금상"
-        count: 1
-    competition: "2023 교내 캡스톤디자인 프로젝트 경진대회"
-    awards:
-      - type: "🏆대상"
-        count: 1
-      - type: "🥉동상"
-        count: 2
-      - type: "📜포스터상"
-        count: 1
+    competitions:
+      - name: "2023 한이음 ICT멘토링 학술대회"
+        awards:
+          - type: "최우수상"
+            count: 1
+      - name: "2023 창의적 종합 설계 경진대회"
+        awards:
+          - type: "금상"
+            count: 1
+      - name: "2023 SEP 융합 페스티벌"
+        awards:
+          - type: "금상"
+            count: 1
+          - type: "은상"
+            count: 1
+          - type: "동상"
+            count: 1
+      - name: "2023 음성인식 어워드"
+        awards:
+          - type: "은상"
+            count: 1
+      - name: "2023 프로보노 ICT멘토링 공모전"
+        awards:
+          - type: "동상"
+            count: 1
+      - name: "2023 CDE학회(대학 연구소 부문)"
+        awards:
+          - type: "장려상"
+            count: 1
+      - name: "2023 캡스톤디자인 경진대회(2,3학년 부문)"
+        awards:
+          - type: "은상"
+            count: 1
+      - name: "2023 캡스톤디자인 경진대회(기계공학과)"
+        awards:
+          - type: "금상"
+            count: 1
+      - name: "2023 교내 캡스톤디자인 프로젝트 경진대회"
+        awards:
+          - type: "대상"
+            count: 1
+          - type: "동상"
+            count: 2
+          - type: "포스터상"
+            count: 1
 
   - year: "2022년도"
-    competition: "Ne(o)rdinary Hackathon"
-    awards:
-      - type: "🏆대상"
-        count: 1
-    competition: "융합캡스톤 성과발표회/경진대회"
-    awards:
-      - type: "✨장려상"
-        count: 1
-    competition: "강소기업탐방공모전"
-    awards:
-      - type: "🥈우수상"
-        count: 1
-    competition: "Campus Convergence 공모전"
-    awards:
-      - type: "🥇최우수"
-        count: 1
-      - type: "🥈우수"
-        count: 1
-    competition: "SEP 융합 Festival"
-    awards:
-      - type: "🥇금상"
-        count: 1
-      - type: "🥈은상"
-        count: 2
-      - type: "🥉동상"
-        count: 1
-    competition: "캡스톤디자인 경진대회"
-    awards:
-      - type: "🏆대상"
-        count: 1
-      - type: "🥇금상"
-        count: 2
-    competition: "창의융합대회"
-    awards:
-      - type: "🏆최우수"
-        count: 1
-    competition: "한이음 ICT멘토링 공모전"
-    awards:
-      - type: "✨입선"
-        count: 1
-      - type: "✨장려상"
-        count: 1
-    competition: "창의적 종합설계 경진대회"
-    awards:
-      - type: "🥈우수"
-        count: 1
-    competition: "창의 융합캠프"
-    awards:
-      - type: "🥈우수"
-        count: 1
+    competitions:
+      - name: "Ne(o)rdinary Hackathon"
+        awards:
+          - type: "대상"
+            count: 1
+      - name: "융합캡스톤 성과발표회/경진대회"
+        awards:
+          - type: "장려상"
+            count: 1
+      - name: "강소기업탐방공모전"
+        awards:
+          - type: "우수상"
+            count: 1
+      - name: "Campus Convergence 공모전"
+        awards:
+          - type: "최우수"
+            count: 1
+          - type: "우수"
+            count: 1
+      - name: "SEP 융합 Festival"
+        awards:
+          - type: "금상"
+            count: 1
+          - type: "은상"
+            count: 2
+          - type: "동상"
+            count: 1
+      - name: "캡스톤디자인 경진대회"
+        awards:
+          - type: "대상"
+            count: 1
+          - type: "금상"
+            count: 2
+      - name: "창의융합대회"
+        awards:
+          - type: "최우수"
+            count: 1
+      - name: "한이음 ICT멘토링 공모전"
+        awards:
+          - type: "입선"
+            count: 1
+          - type: "장려상"
+            count: 1
+      - name: "창의적 종합설계 경진대회"
+        awards:
+          - type: "우수"
+            count: 1
+      - name: "창의 융합캠프"
+        awards:
+          - type: "우수"
+            count: 1
 
   - year: "2019-2020년도"
-    competition: "2019 임베디드 소프트웨어 경진대회"
-    awards:
-      - type: "🥈우수상"
-        count: 1
-    competition: "제20회 CDE 경진대회"
-    awards:
-      - type: "🥈은상"
-        count: 1
-    competition: "2019 서울과학기술대학교 공학교육거점센터 창의적 종합설계 경진대회"
-    awards:
-      - type: "✨장려상"
-        count: 1
-    competition: "2019 교내 캡스톤디자인 프로젝트 경진대회"
-    awards:
-      - type: "🏆대상"
-        count: 1
-      - type: "🥈은상"
-        count: 1
-      - type: "🥇금상"
-        count: 1
-      - type: "🥉동상"
-        count: 1
-      - type: "✨장려상"
-        count: 1
-    competition: "2020 서울과학기술대학교 공학교육 거점센터 창의적 종합설계 경진대회"
-    awards:
-      - type: "✨장려상"
-        count: 1
+    competitions:
+      - name: "2019 임베디드 소프트웨어 경진대회"
+        awards:
+          - type: "우수상"
+            count: 1
+      - name: "제20회 CDE 경진대회"
+        awards:
+          - type: "은상"
+            count: 1
+      - name: "2019 서울과학기술대학교 공학교육거점센터 창의적 종합설계 경진대회"
+        awards:
+          - type: "장려상"
+            count: 1
+      - name: "2019 교내 캡스톤디자인 프로젝트 경진대회"
+        awards:
+          - type: "대상"
+            count: 1
+          - type: "은상"
+            count: 1
+          - type: "금상"
+            count: 1
+          - type: "동상"
+            count: 1
+          - type: "장려상"
+            count: 1
+      - name: "2020 서울과학기술대학교 공학교육 거점센터 창의적 종합설계 경진대회"
+        awards:
+          - type: "장려상"
+            count: 1

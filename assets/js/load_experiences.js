@@ -26,37 +26,37 @@ document.addEventListener('DOMContentLoaded', () => {
                     const year = document.createElement('h3');
                     year.textContent = experience.year;
 
-                    // 수상 내역 목록 생성
-                    const competitionList = document.createElement('div');
-                    competitionList.className = 'competition-list';
-
-                    experience.competition.forEach(comp => {
-                        const compTitle = document.createElement('h4');
-                        compTitle.textContent = comp.title;
-
-                        const awardList = document.createElement('ul');
-                        comp.awards.forEach(award => {
-                            const listItem = document.createElement('li');
-
-                            // 상 종류에 따라 이모티콘 추가
-                            const icon = awardIcons[award.type] || "✨";
-                            icon.classname = 'emoji-sparkle';
-
-                            listItem.innerHTML = `${icon} ${award.type} (${award.count || 1})`; // 이모티콘과 텍스트 추가
-                            awardList.appendChild(listItem);
-                        });
-
-                        competitionList.appendChild(compTitle);
-                        competitionList.appendChild(awardList);
-                    });
-
                     experienceCard.appendChild(year);
-                    experienceCard.appendChild(competitionList);
+
+                    // 대회 및 수상 내역 처리
+                    if (experience.competitions) {
+                        experience.competitions.forEach(comp => {
+                            const compTitle = document.createElement('h4');
+                            compTitle.textContent = comp.competition;
+                            experienceCard.appendChild(compTitle);
+
+                            const awardList = document.createElement('ul');
+                            comp.awards.forEach(award => {
+                                const listItem = document.createElement('li');
+
+                                // 이모티콘과 텍스트 처리
+                                const icon = awardIcons[award.type.replace(/[^가-힣a-zA-Z]/g, "")] || "✨";
+                                icon.classname = 'emoji-sparkle';
+                                
+                                listItem.innerHTML = `${icon} ${award.type} (${award.count || 1})`;
+
+                                awardList.appendChild(listItem);
+                            });
+
+                            experienceCard.appendChild(awardList);
+                        });
+                    }
+
                     experienceContainer.appendChild(experienceCard);
                 });
             } else {
                 console.error('No experiences found in YAML data.');
             }
         })
-        .catch(error => console.error('Error loading YAML:', error));
+    .catch(error => console.error('Error loading YAML:', error));
 });
