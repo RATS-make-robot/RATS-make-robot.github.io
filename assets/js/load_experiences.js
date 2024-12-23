@@ -7,25 +7,38 @@ document.addEventListener('DOMContentLoaded', () => {
             const experienceContainer = document.querySelector('.experience-container');
             
             if (experiencesData.experiences) {
-                experiencesData.experiences.forEach(experience => {
-                    const experienceCard = document.createElement('div');
-                    experienceCard.className = 'experience-card';
+                experiencesData.experiences.forEach(experienceGroup => {
+                    experienceGroup.positions.forEach(position => {
+                        const experienceCard = document.createElement('div');
+                        experienceCard.className = 'experience-card';
 
-                    const year = document.createElement('h3');
-                    year.textContent = experience.year;
+                        const year = document.createElement('h3');
+                        year.textContent = position.designation;
 
-                    const awardList = document.createElement('ul');
-                    experience.awards.forEach(award => {
-                        const listItem = document.createElement('li');
-                        const codeElement = document.createElement('code');
-                        codeElement.textContent = award; // 수상 내역을 <code> 태그로 감싸기
-                        listItem.appendChild(codeElement);
-                        awardList.appendChild(listItem);
+                        const awardList = document.createElement('ul');
+                        position.responsibilities.forEach(responsibility => {
+                            const listItem = document.createElement('li');
+
+                            // 수상 내역 중 강조 부분만 <code>로 감싸기
+                            const match = responsibility.match(/(.*? - )(.*)/);
+                            if (match) {
+                                const textPart = document.createTextNode(match[1]);
+                                const codeElement = document.createElement('code');
+                                codeElement.textContent = match[2];
+                                
+                                listItem.appendChild(textPart);
+                                listItem.appendChild(codeElement);
+                            } else {
+                                listItem.textContent = responsibility; // 매칭 실패 시 전체 텍스트 출력
+                            }
+
+                            awardList.appendChild(listItem);
+                        });
+
+                        experienceCard.appendChild(year);
+                        experienceCard.appendChild(awardList);
+                        experienceContainer.appendChild(experienceCard);
                     });
-
-                    experienceCard.appendChild(year);
-                    experienceCard.appendChild(awardList);
-                    experienceContainer.appendChild(experienceCard);
                 });
             }
         })
