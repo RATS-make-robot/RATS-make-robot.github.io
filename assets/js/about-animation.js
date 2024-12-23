@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Sentences to display, shown sequentially
     const sentences = [
         "로봇을 개발합니다.",
         "앱도 개발합니다.",
@@ -7,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "세미나도 합니다."
     ];
 
+    // Programming languages and their respective code output formats
     const languages = [
         { 
             language: "C", 
@@ -24,38 +26,52 @@ document.addEventListener("DOMContentLoaded", function () {
             output: `<span class='keyword'>System.out.println</span>(<span class='string'>"{sentence}"</span>);` 
         },
         { 
-            language: "HTML<span class='language-comment'> --&gt;</span>", 
-            comment: "&lt;!--", 
-            output: `<span class='tag'>&lt;h1&gt;</span>{sentence}<span class='tag'>&lt;/h1&gt;</span>` 
+            language: "HTML", 
+            comment: "!--", 
+            outputs: [
+                "<span class='tag'>&lt;h1&gt;</span>{sentence}<span class='tag'>&lt;/h1&gt;</span> ",
+                "<span class='tag'>&lt;p&gt;</span>{sentence}<span class='tag'>&lt;/p&gt;</span> ",
+                "<span class='tag'>&lt;div&gt;</span>{sentence}<span class='tag'>&lt;/div&gt;</span> ",
+                "<span class='tag'>&lt;span&gt;</span>{sentence}<span class='tag'>&lt;/span&gt;</span> ",
+                "<span class='tag'>&lt;strong&gt;</span>{sentence}<span class='tag'>&lt;/strong&gt;</span> "
+            ]
         }
     ];
 
+    // HTML element to display the typing effect
     const typingElement = document.getElementById("code-display");
     const cursor = `<span class="cursor"></span>`;
     let currentSentenceIndex = 0;
     let currentLanguage = "";
     let charIndex = 0;
     let isDeleting = false;
+    let currentOutput = "";
 
     function typeEffect() {
-        // Remove and re-add the cursor to avoid duplication issues
+        // Ensure the cursor is correctly appended
         typingElement.innerHTML = typingElement.innerHTML.replace(cursor, "");
 
         const currentSentence = sentences[currentSentenceIndex];
-        const formattedOutput = currentLanguage.output.replace("{sentence}", currentSentence);
+        if (currentLanguage.language === "HTML") {
+            // Randomly select an output format for HTML
+            const randomOutput = currentLanguage.outputs[Math.floor(Math.random() * currentLanguage.outputs.length)];
+            currentOutput = randomOutput.replace("{sentence}", currentSentence);
+        } else {
+            currentOutput = currentLanguage.output.replace("{sentence}", currentSentence);
+        }
 
-        if (!isDeleting && charIndex <= formattedOutput.length) {
+        if (!isDeleting && charIndex <= currentOutput.length) {
             // Typing forward
             typingElement.innerHTML =
                 `<span class="language-comment">${currentLanguage.comment}</span> <span class="language-comment">${currentLanguage.language}</span>\n` +
-                formattedOutput.slice(0, charIndex) + cursor;
+                currentOutput.slice(0, charIndex) + cursor;
             charIndex++;
             setTimeout(typeEffect, 25); // Typing speed
         } else if (isDeleting && charIndex >= 0) {
             // Deleting backward
             typingElement.innerHTML =
                 `<span class="language-comment">${currentLanguage.comment}</span> <span class="language-comment">${currentLanguage.language}</span>\n` +
-                formattedOutput.slice(0, charIndex) + cursor;
+                currentOutput.slice(0, charIndex) + cursor;
             charIndex--;
             setTimeout(typeEffect, 10); // Deleting speed
         } else {
@@ -77,6 +93,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initialize the first sentence and language
     currentLanguage = languages[Math.floor(Math.random() * languages.length)];
     const firstSentence = sentences[currentSentenceIndex];
+    if (currentLanguage.language === "HTML") {
+        const randomOutput = currentLanguage.outputs[Math.floor(Math.random() * currentLanguage.outputs.length)];
+        currentOutput = randomOutput.replace("{sentence}", firstSentence);
+    } else {
+        currentOutput = currentLanguage.output.replace("{sentence}", firstSentence);
+    }
     typingElement.innerHTML = `<span class="language-comment">${currentLanguage.comment}</span> <span class="function">${currentLanguage.language}</span>\n` + cursor;
     typeEffect();
 });
