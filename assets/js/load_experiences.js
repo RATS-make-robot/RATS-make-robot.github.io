@@ -30,11 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     // 대회 및 수상 내역 처리
                     if (experience.competitions) {
                         experience.competitions.forEach(comp => {
-                            const compTitle = document.createElement('h4');
-                            compTitle.textContent = comp.name;
-                            experienceCard.appendChild(compTitle);
+                            const competitionRow = document.createElement('div');
+                            competitionRow.className = 'competition-row';
 
-                            const awardList = document.createElement('p');
+                            // 대회명 추가
+                            const compTitle = document.createElement('span');
+                            compTitle.className = 'competition-title';
+                            compTitle.textContent = comp.name;
+
+                            // 수상 내역 추가
+                            const awardList = document.createElement('span');
+                            awardList.className = 'award-list';
                             let awardText = '';
 
                             comp.awards.forEach(award => {
@@ -48,7 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             });
 
                             awardList.innerHTML = awardText.trim();
-                            experienceCard.appendChild(awardList);
+
+                            competitionRow.appendChild(compTitle);
+                            competitionRow.appendChild(awardList);
+                            experienceCard.appendChild(competitionRow);
                         });
                     }
 
