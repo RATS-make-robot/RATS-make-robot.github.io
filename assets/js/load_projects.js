@@ -25,24 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     linksContainer.className = 'links-container';
 
                     if (project.links) {
-                        // YouTube Link
-                        if (project.links.youtube) {
-                            const youtubeLink = document.createElement('a');
-                            youtubeLink.href = project.links.youtube;
-                            youtubeLink.target = '_blank';
-                            youtubeLink.innerHTML = `<img src="assets/images/icons/youtubelogo.svg" alt="YouTube Link" style="width: 50px; height: auto;">`;
-                            linksContainer.appendChild(youtubeLink);
-                        }
-
-                        // GitHub Link
-                        if (project.links.github) {
-                            const githubLink = document.createElement('a');
-                            githubLink.href = project.links.github;
-                            githubLink.target = '_blank';
-                            githubLink.innerHTML = `<img src="assets/images/icons/githublogo.svg" alt="GitHub Link" style="width: 50px; height: auto;">`;
-                            linksContainer.appendChild(githubLink);
-                        }
-
                         // Other Link
                         if (project.links.other) {
                             const otherLink = document.createElement('a');
@@ -51,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                             if (project.links.other_logo) {
                                 // Use custom logo if provided
-                                otherLink.innerHTML = `<img src="${project.links.other_logo}" alt="Custom Link" style="width: 50px; height: auto;">`;
+                                otherLink.innerHTML = `<img src="${project.links.other_logo}" alt="Custom Link" style="width: 50px; height: auto;">&nbsp;`;
                             } else {
                                 // Default to "링크" button if no logo
                                 otherLink.textContent = "링크";
@@ -66,6 +48,25 @@ document.addEventListener('DOMContentLoaded', () => {
                             }
                             linksContainer.appendChild(otherLink);
                         }
+
+                        // YouTube Link
+                        if (project.links.youtube) {
+                            const youtubeLink = document.createElement('a');
+                            youtubeLink.href = project.links.youtube;
+                            youtubeLink.target = '_blank';
+                            youtubeLink.innerHTML = `<img src="assets/images/icons/youtubelogo.svg" alt="YouTube Link" style="width: 50px; height: auto;">&nbsp;`;
+                            linksContainer.appendChild(youtubeLink);
+                        }
+
+                        // GitHub Link
+                        if (project.links.github) {
+                            const githubLink = document.createElement('a');
+                            githubLink.href = project.links.github;
+                            githubLink.target = '_blank';
+                            githubLink.innerHTML = `<img src="assets/images/icons/githublogo.svg" alt="GitHub Link" style="width: 50px; height: auto;">`;
+                            linksContainer.appendChild(githubLink);
+                        }
+
                     }
 
                     // Append elements to project card
