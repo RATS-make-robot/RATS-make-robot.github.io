@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(yamlText => {
             const experiencesData = jsyaml.load(yamlText); // YAML 파싱
             const experienceContainer = document.querySelector('.experience-container');
-            
+
             if (experiencesData.experiences) {
                 experiencesData.experiences.forEach(experienceGroup => {
                     experienceGroup.positions.forEach(position => {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         position.responsibilities.forEach(responsibility => {
                             const listItem = document.createElement('li');
 
-                            // 수상 내역 중 강조 부분만 <code>로 감싸기
+                            // 수상 내역에서 이모티콘과 텍스트 분리 및 처리
                             const match = responsibility.match(/(.*? - )(.*?)(🏆|🥇|🥈|🥉|🎖️|✨)(.*)/);
                             if (match) {
                                 const textPart1 = document.createTextNode(match[1]);
@@ -32,7 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                 listItem.appendChild(emoji);
                                 listItem.appendChild(textPart2);
                             } else {
-                                listItem.textContent = responsibility; // 매칭 실패 시 전체 텍스트 출력
+                                // 매칭 실패 시 전체 텍스트를 표시
+                                listItem.textContent = responsibility;
                             }
 
                             awardList.appendChild(listItem);
