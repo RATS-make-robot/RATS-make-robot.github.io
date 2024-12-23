@@ -21,29 +21,40 @@ document.addEventListener('DOMContentLoaded', () => {
                     const team = document.createElement('p');
                     team.innerHTML = `<strong>[팀원]</strong> ${project.team}`;
 
-                    const linkWrapper = document.createElement('a');
-                    if (project.link) {
-                        linkWrapper.href = project.link;
-                        linkWrapper.target = '_blank';
+                    const linksContainer = document.createElement('div');
+                    linksContainer.className = 'links-container';
 
-                        const linkIcon = document.createElement('img');
-                        linkIcon.src = project.link.includes('youtube.com')
-                            ? 'assets/images/icons/youtubelogo.svg'
-                            : 'assets/images/icons/githublogo.svg';
-                        linkIcon.alt = project.link.includes('youtube.com') ? 'YouTube Link' : 'GitHub Link';
-                        linkIcon.style.width = '50px';
-                        linkIcon.style.height = 'auto';
+                    if (project.links) {
+                        if (project.links.youtube) {
+                            const youtubeLink = document.createElement('a');
+                            youtubeLink.href = project.links.youtube;
+                            youtubeLink.target = '_blank';
+                            youtubeLink.innerHTML = `<img src="assets/images/icons/youtubelogo.svg" alt="YouTube Link" style="width: 50px; height: auto;">`;
+                            linksContainer.appendChild(youtubeLink);
+                        }
 
-                        linkWrapper.appendChild(linkIcon);
+                        if (project.links.github) {
+                            const githubLink = document.createElement('a');
+                            githubLink.href = project.links.github;
+                            githubLink.target = '_blank';
+                            githubLink.innerHTML = `<img src="assets/images/icons/githublogo.svg" alt="GitHub Link" style="width: 50px; height: auto;">`;
+                            linksContainer.appendChild(githubLink);
+                        }
+
+                        if (project.links.other) {
+                            const otherLink = document.createElement('a');
+                            otherLink.href = project.links.other;
+                            otherLink.target = '_blank';
+                            otherLink.innerHTML = `<img src="assets/images/icons/linklogo.svg" alt="Other Link" style="width: 50px; height: auto;">`;
+                            linksContainer.appendChild(otherLink);
+                        }
                     }
 
                     // Append elements to project card
                     projectCard.appendChild(title);
                     projectCard.appendChild(description);
                     projectCard.appendChild(team);
-                    if (project.link) {
-                        projectCard.appendChild(linkWrapper);
-                    }
+                    projectCard.appendChild(linksContainer);
 
                     projectContainer.appendChild(projectCard);
                 });
