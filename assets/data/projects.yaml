@@ -50,6 +50,34 @@ projects:
     links:
       github: "https://github.com/KimTeddy/2024_A.RM.I_Public"
       youtube: "https://youtu.be/RNpNJ6A_28k?si=IeHd7aC45Z5TKPu1"
+
+  - title: "RAER"
+    description: "현장 탐사 및 구조 보조 로봇<br>Rescue Assistant Exploration Robot"
+    team: "우상민(총 4명)"
+    image: "https://eciems.mju.ac.kr/sites/eciems/atchmnfl/bbs/1430/thumbnail/thumb_temp_1732667027122100.jpg"
+    tags: ["2024"]
+    duration: "2024년 3월 ~ 2024년 12월"
+    links:
+      youtube: "https://youtu.be/pdYLRzkepHQ?si=75ohAaabfY9YaunE"
+
+  - title: "강화학습 기반 반도체 공정 OHT 최적화 및 FAB할당"
+    description: ""
+    team: "이상수, 안재영(총 5명)"
+    image: ""
+    tags: ["2024"]
+    duration: "2024년 3월 ~ 2024년 12월"
+    links:
+      youtube: ""
+
+  - title: "꿈속새김"
+    description: "꿈 해석부터 악몽 탈출까지, 꿈을 새겨주는 서비스"
+    team: "이은규(총 5명)"
+    image: "https://eciems.mju.ac.kr/sites/eciems/atchmnfl/bbs/1430/thumbnail/thumb_temp_1732861778109100.jpg"
+    tags: ["2024"]
+    duration: "2024년 3월 ~ 2024년 12월"
+    links:
+      github: ""
+      youtube: ""
 ############################################################################################
   - title: "MJU ACI"
     description: "대규모 충전 인프라 확장이 가능한 전기자동차 자동 충전 시스템."
@@ -102,17 +130,29 @@ projects:
   - title: "Smart Clock"
     description: "편리하고 효율적인 일상 생활을 위한 스마트 클락 제품 개발"
     team: "석은혜, 김준재, 이승석"
+    image: "https://eciems.mju.ac.kr/sites/eciems/atchmnfl/bbs/1389/thumbnail/thumb_temp_1701387559786100.jpg"
     tags: ["2023"]
     duration: "2023년 9월 ~ 2023년 12월"
+    link:
+      github: ""
+      youtube: "https://youtu.be/s4tRLuAO4bw?si=xLsJ3MBQQGgOdRoq"
 
 ############################################################################################
   - title: "드론을 이용한 잔불진화 시스템"
     description: "화재지시기를 통한 잔불 식별 및 자율 진화."
     team: "유종상, 유성환, 김지호, 이한얼, 김예지"
+    image: "https://eciems.mju.a
     tags: ["2022"]
     duration: "2022년 3월 ~ 2022년 12월"
     links:
       github: "https://github.com/js4ngu/22_HanEum_Forest-Fire-Extinguishing-Assistance-System"
+
+  - title: "난청환자를 위한 방향알림 장치"
+    description: "난청환자를 위한 방향알림 장치."
+    team: "김태수(총 6명)"
+    image: "https://eciems.mju.ac.kr/sites/eciems/atchmnfl/bbs/1318/thumbnail/thumb_temp_1669683356637100.jpg"
+    tags: ["2022"]
+    duration: "2022년"
 
   - title: "동아리 웹사이트"
     description: "동아리 홍보를 위한 정적 페이지, 커뮤니티, 클라우드 개발 | (이후 RATS회장단에서 관리)"
@@ -156,14 +196,17 @@ projects:
   - title: "자이로스코프 드론"
     description: "자이로스코프 형태의 드론 가드 설계."
     team: "석은혜"
+    image: "https://user-images.githubusercontent.com/48342925/155873725-4337d101-3516-4256-a67a-2224b7e8d388.jpg"
     tags: ["2020", "2021"]
     duration: "2020년 ~ 2021년"
     links:
       github: "https://github.com/mokhwasomssi/drone_with_gyroscopic_guard"
+      youtube: "https://youtu.be/5MefZFfkZi4?si=7gLCpKSLM4FhJ0_J"
 ############################################################################################
   - title: "2자유도 공 균형 제어 시스템"
     description: "터치스크린 센서를 이용한 PID 균형 제어 로봇."
     team: "김성현"
+    image: "https://user-images.githubusercontent.com/24962064/123507466-8b996a80-d6a4-11eb-8924-91e980d115ab.jpg"
     tags: ["2019"]
     duration: "2019년 3월 ~ 2019년 7월"
     links:
@@ -176,3 +219,10 @@ projects:
     duration: "2018년 1월 ~ 2021년 11월"
     links:
       youtube: "https://www.youtube.com/watch?v=2bNe_N_TTak"
+
+  - title: "목화솜씨"
+    description: "2019 제 22회 전국 라인트레이서 경연대회 Expert-DC 부문"
+    team: "유성환, 석은혜(총 3명)"
+    image: "https://eciems.mju.ac.kr/sites/eciems/atchmnfl/bbs/1099/104868943_1_1620870770729.png"
+    tags: ["2019"]
+    duration: "2019년"
