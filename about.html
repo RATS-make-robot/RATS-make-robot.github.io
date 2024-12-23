@@ -1,66 +1,153 @@
-<section id="about">
-    <h2>About RATS</h2>
-    <div class="typing-container">
-        <p id="typing-text"></p>
+<!-- 코딩 애니메이션 화면 -->
+<section id="coding-animation">
+    <div class="code-container">
+        <pre id="code-display"><span class="cursor"></span></pre>
     </div>
 </section>
 
 <!-- CSS -->
 <style>
-.typing-container {
-    font-size: 1.2rem;
-    color: #333;
-    font-family: 'Arial', sans-serif;
-    margin-bottom: 1rem;
-    height: 3em; /* 고정 높이 설정 */
-    overflow: hidden;
-    border-right: 2px solid #333;
-    white-space: nowrap;
-}
+    #coding-animation {
+        background-color: #1e1e1e; /* 검정 배경 */
+        color: #dcdcdc; /* 기본 텍스트 색상 */
+        font-family: 'Courier New', Courier, monospace; /* 코딩 폰트 */
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 800px;
+        margin: 50px auto; /* 가운데 정렬 */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
 
-#typing-text {
-    display: inline-block;
-    min-height: 1.5em; /* 최소 높이를 지정하여 칸이 줄어들지 않도록 설정 */
-}
+    .code-container {
+        padding: 20px;
+        background-color: #252526; /* 다크 그레이 배경 */
+        border-radius: 8px;
+        overflow: hidden; /* 넘치는 텍스트 숨기기 */
+    }
+
+    pre {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.5;
+        white-space: pre-wrap;
+    }
+
+    .cursor {
+        display: inline-block;
+        width: 10px;
+        height: 18px;
+        background-color: #dcdcdc; /* 커서 색상 */
+        animation: blink 0.5s step-end infinite; /* 커서 깜박임 */
+    }
+
+    @keyframes blink {
+        50% {
+            opacity: 0;
+        }
+    }
+
+    /* 코드 색상 스타일 */
+    .keyword {
+        color: #569cd6;
+    }
+
+    .string {
+        color: #ce9178;
+    }
+
+    .function {
+        color: #dcdcaa;
+    }
+
+    .tag {
+        color: #569cd6;
+    }
+
+    .attribute {
+        color: #9cdcfe;
+    }
+
+    .value {
+        color: #ce9178;
+    }
+
+    /* 언어 주석 스타일 */
+    .language-comment {
+        color: #6a9955;
+        font-style: italic;
+    }
 </style>
-    
+
 <!-- JavaScript -->
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const sentences = [
-            "로봇을 개발합니다.",
-            "임베디드 설계도 합니다.",
-            "앱도 개발합니다.",
-            "게임도 합니다.",
-            "세미나도 합니다."
-        ];
+document.addEventListener("DOMContentLoaded", function () {
+    const codeLines = [
+        {
+            language: "C",
+            line: `<span class="keyword">printf</span>(<span class="string">"로봇을 개발합니다.\\n"</span>);`,
+        },
+        {
+            language: "Python",
+            line: `<span class="keyword">print</span>(<span class="string">"앱도 개발합니다."</span>)`,
+        },
+        {
+            language: "Java",
+            line: `<span class="keyword">System.out.println</span>(<span class="string">"임베디드 설계도 합니다."</span>);`,
+        },
+        {
+            language: "HTML",
+            line: `<span class="tag">&lt;h1&gt;</span>게임도 합니다<span class="tag">&lt;/h1&gt;</span>`,
+        },
+        {
+            language: "C",
+            line: `<span class="keyword">printf</span>(<span class="string">"세미나도 합니다.\\n"</span>);`,
+        },
+    ];
 
-        const typingElement = document.getElementById('typing-text');
-        let sentenceIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
+    const typingElement = document.getElementById("code-display");
+    const cursor = `<span class="cursor"></span>`;
+    let currentLine = "";
+    let charIndex = 0;
+    let currentLanguage = "";
+    let isDeleting = false;
 
-        function typeEffect() {
-            const currentSentence = sentences[sentenceIndex];
+    const typingSpeed = 25;
+    const deletingSpeed = 10;
+    const pauseTime = 500;
+
+    function typeEffect() {
+        if (!isDeleting && charIndex < currentLine.length) {
+            typingElement.innerHTML =
+                typingElement.innerHTML.replace(cursor, "") +
+                currentLine.slice(0, charIndex + 1) +
+                cursor;
+            charIndex++;
+            setTimeout(typeEffect, typingSpeed);
+        } else if (isDeleting && charIndex > 0) {
+            typingElement.innerHTML =
+                currentLanguage + currentLine.slice(0, charIndex - 1) + cursor;
+            charIndex--;
+            setTimeout(typeEffect, deletingSpeed);
+        } else {
             if (!isDeleting) {
-                typingElement.textContent += currentSentence[charIndex];
-                charIndex++;
-                if (charIndex === currentSentence.length) {
-                    isDeleting = true;
-                    setTimeout(typeEffect, 1000); // Pause before deleting
-                    return;
-                }
+                isDeleting = true;
+                setTimeout(typeEffect, pauseTime);
             } else {
-                typingElement.textContent = currentSentence.substring(0, charIndex - 1);
-                charIndex--;
-                if (charIndex === 0) {
-                    isDeleting = false;
-                    sentenceIndex = (sentenceIndex + 1) % sentences.length; // Move to next sentence
-                }
+                isDeleting = false;
+                const randomLine = codeLines[Math.floor(Math.random() * codeLines.length)];
+                currentLanguage = `<span class="function">// ${randomLine.language}</span>\n`;
+                currentLine = randomLine.line;
+                charIndex = 0;
+                typingElement.innerHTML = currentLanguage + cursor;
+                setTimeout(typeEffect, 500);
             }
-            setTimeout(typeEffect, isDeleting ? 50 : 100); // Typing speed
         }
+    }
 
-        typeEffect();
-    });
+    const initialLine = codeLines[Math.floor(Math.random() * codeLines.length)];
+    currentLanguage = `<span class="function">// ${initialLine.language}</span>\n`;
+    currentLine = initialLine.line;
+    typingElement.innerHTML = currentLanguage + cursor;
+    typeEffect();
+});
 </script>
