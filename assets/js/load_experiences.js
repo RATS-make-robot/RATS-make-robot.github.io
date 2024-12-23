@@ -17,7 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     const awardList = document.createElement('ul');
                     experience.awards.forEach(award => {
                         const listItem = document.createElement('li');
-                        listItem.textContent = award;
+                        const codeElement = document.createElement('code');
+                        codeElement.textContent = award; // 수상 내역을 <code> 태그로 감싸기
+                        listItem.appendChild(codeElement);
                         awardList.appendChild(listItem);
                     });
 
