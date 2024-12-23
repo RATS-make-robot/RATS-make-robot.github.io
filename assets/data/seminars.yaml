@@ -3,7 +3,7 @@ seminars:
     description: "ATmega128A 레지스터 세미나(지능형센서응용 대비)"
     organizer: "김영찬"
     period: "2024년 11월"
-    image: ""
+    image: "assets/images/sections/seminars/2024/register.jpg"
     
   - title: "2024 리눅스 프로그래밍"
     description: "리눅스 프로그래밍 기초"
@@ -17,6 +17,12 @@ seminars:
     period: "2024년 4월"
     image: "assets/images/sections/seminars/2024/circuit.jpg"
 
+  - title: "2024 신입생 C언어, CubeIDE 세미나"
+    description: ""
+    organizer: "곽 샘, 최수민, 이승준, 박인영, 정보근, 이준영"
+    period: "2024년 3/25, 3/26, 4/1, 4/2"
+    image: "assets/images/sections/seminars/2024/c.jpg"
+
   - title: "2024 CubeIDE"
     description: "STM32, CubeIDE"
     organizer: "이준영"
@@ -28,9 +34,9 @@ seminars:
     organizer: "김영찬"
     period: "2024년 1월"
 
-  - title: "2023 RATS 신입생 MCU, 알고리즘 세미나"
+  - title: "2023 신입생 MCU, 알고리즘 세미나"
     description: ""
-    organizer: "김영찬"
+    organizer: "김영찬, 오태현, 장혜정, 정지원, 오은지, 이승석, 이준영, 권인아"
     period: "2023년 3, 4월"
     image: "assets/images/sections/seminars/2023/stm32.jpg"
 
@@ -39,21 +45,21 @@ seminars:
     organizer: "김영찬"
     period: "2023년 8월"
 
-  - title: "2023 RATS SOLIDWORKS 세미나"
+  - title: "2023 SOLIDWORKS 세미나"
     description: "SOLIDWORKS 3D CAD 세미나"
     organizer: "박찬혁"
     period: "2023년 3월"
     image: "assets/images/sections/seminars/2023/solidworks.jfif"
 
-  - title: "2023 RATS 신입생 회로도, 소자, 납땜 세미나"
+  - title: "2023 신입생 회로도, 소자, 납땜 세미나"
     description: ""
     organizer: "김영찬"
     period: "2023년 3월"
     image: "assets/images/sections/seminars/2023/circuit.jfif"
 
-  - title: "2023 RATS 신입생 C언어, Arduino 세미나"
+  - title: "2023 신입생 C언어, Arduino 세미나"
     description: ""
-    organizer: "김영찬"
+    organizer: "안재영, 이상렬, 서호준, 권인아, 유다연, 이은규, 김진현"
     period: "2023년 3, 4월"
     image: "assets/images/sections/seminars/2023/c.jfif"
 

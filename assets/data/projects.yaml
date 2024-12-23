@@ -72,7 +72,7 @@ projects:
   - title: "꿈속새김"
     description: "꿈 해석부터 악몽 탈출까지, 꿈을 새겨주는 서비스"
     team: "이은규(총 5명)"
-    image: ""
+    image: "assets/images/sections/projects/2024/dream.jpg"
     tags: ["2024"]
     duration: "2024년 3월 ~ 2024년 12월"
     links:
