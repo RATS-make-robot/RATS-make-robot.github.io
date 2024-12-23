@@ -53,6 +53,7 @@ projects:
   - title: "MJU ACI"
     description: "대규모 충전 인프라 확장이 가능한 전기자동차 자동 충전 시스템."
     team: "탁지훈(총 5명)"
+    image: "https://eciems.mju.ac.kr/sites/eciems/atchmnfl/bbs/1389/thumbnail/thumb_temp_1701320911635100.jpg"
     year: "2023"
     links:
       youtube: "https://youtu.be/LbtAhwIs7Gw?si=Ekr9utt-6iYukdWk"
