@@ -5,6 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const experiencesData = jsyaml.load(yamlText); // YAML 파싱
             const experienceContainer = document.querySelector('.experience-container');
 
+            // 상별 이모티콘 매핑
+            const awardIcons = {
+                "대상": "🏆",
+                "최우수상": "🏆",
+                "금상": "🥇",
+                "은상": "🥈",
+                "동상": "🥉",
+                "입선": "✨",
+                "장려상": "✨",
+                "포스터상": "📜"
+            };
+
             if (experiencesData.experiences) {
                 experiencesData.experiences.forEach(experience => {
                     const experienceCard = document.createElement('div');
@@ -20,25 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         experience.awards.forEach(award => {
                             const listItem = document.createElement('li');
 
-                            // 수상 내역에서 이모티콘과 텍스트 분리 및 처리
-                            const match = award.match(/(.*? - )(.*?)([🏆🥇🥈🥉🎖️✨])(.*)/);
-                            if (match) {
-                                const textPart1 = document.createTextNode(match[1]);
-                                const emojiContainer = document.createElement('span');
-                                const emoji = document.createElement('span');
-                                emoji.textContent = match[3];
-                                emoji.className = 'emoji-sparkle'; // 반짝임 효과 클래스
-                                emojiContainer.appendChild(emoji);
-                                const textPart2 = document.createTextNode(match[2] + match[4]);
+                            // 상 종류에 따라 이모티콘 추가
+                            const match = award.match(/(.*?)(\((.*?)\))?/); // 상 이름과 개수 추출
+                            const awardName = match[1].trim();
+                            const awardCount = match[3] ? `(${match[3]})` : ""; // 개수가 있으면 추가
+                            const icon = awardIcons[awardName] || "✨"; // 매칭되는 이모티콘 없으면 기본값
+                            icon.classname = 'emoji-sparkle';
 
-                                listItem.appendChild(textPart1);
-                                listItem.appendChild(emojiContainer);
-                                listItem.appendChild(textPart2);
-                            } else {
-                                // 매칭 실패 시 전체 텍스트를 표시
-                                listItem.textContent = award;
-                            }
-
+                            listItem.innerHTML = `${icon} ${awardName} ${awardCount}`; // 이모티콘과 텍스트 추가
                             awardList.appendChild(listItem);
                         });
                     }
