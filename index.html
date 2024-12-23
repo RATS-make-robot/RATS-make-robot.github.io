@@ -53,7 +53,7 @@
                         document.getElementById('about').innerHTML = data;
 
                         // Animation 초기화 함수가 존재할 경우 실행
-                        if (typeof initializeTypingAnimation === 'function') {
+                        if (typeof typeEffect === 'function') {
                             typeEffect();
                         } else {
                             console.warn('typeEffect 함수가 정의되어 있지 않습니다.');
