@@ -3,22 +3,25 @@ seminars:
     description: "ATmega128A 레지스터 세미나(지능형센서응용 대비)"
     organizer: "김영찬"
     period: "2024년 11월"
-    image: "https://eciems.mju.ac.kr/sites/eciems/atchmnfl/bbs/1430/thumbnail/thumb_temp_1732861778109100.jpg"
+    image: ""
     
   - title: "2024 리눅스 프로그래밍"
     description: "리눅스 프로그래밍 기초"
     organizer: "이승석"
     period: "2024년 9월"
+    image: "assets/images/sections/seminars/2024/linux.jpg"
 
   - title: "2024 회로이론"
     description: "회로이론"
     organizer: "김준하"
     period: "2024년 4월"
+    image: "assets/images/sections/seminars/2024/circuit.jpg"
 
   - title: "2024 CubeIDE"
     description: "STM32, CubeIDE"
     organizer: "이준영"
     period: "2024년 3월"
+    image: "https://scontent-gmp1-1.cdninstagram.com/v/t51.29350-15/434080688_1030017162110658_2608334100226790614_n.heic?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE0NDAuc2RyLmYyOTM1MC5kZWZhdWx0X2ltYWdlIn0&_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=106&_nc_ohc=xUAp9rFBWG8Q7kNvgHkbg67&_nc_gid=03889aac3e004e34ab9839050bf7f4f5&edm=AP4sbd4BAAAA&ccb=7-5&ig_cache_key=MzMyNzU2Mzc2NDg5ODY0ODkzOQ%3D%3D.3-ccb7-5&oh=00_AYDc4FNFoAUZIhFfIu1ZTVC-bfb_U6jVeshPGAUGLJrKQQ&oe=676F3D0A&_nc_sid=7a9f4b"
 
   - title: "2024 RATS 겨울 세미나"
     description: "리눅스 - 명령어, 컴파일, 디버깅 등"

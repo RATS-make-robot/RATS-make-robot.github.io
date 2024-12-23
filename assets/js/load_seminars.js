@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h3>${seminar.title}</h3>
                         <img src="${seminar.image}" alt="image" class="seminar-card-image">
                         <p>${seminar.description}</p>
-                        <p><strong>강의의자:</strong> ${seminar.organizer}</p>
+                        <p><strong>강의자:</strong> ${seminar.organizer}</p>
                         <p><strong>기간:</strong> ${seminar.period}</p>
                         ${seminar.link ? `<a href="${seminar.link}" target="_blank">
                             <img src="/assets/images/icons/githublogo.svg" alt="GitHub Link" style="width:50px;height:auto;">
