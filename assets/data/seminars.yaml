@@ -96,13 +96,13 @@ seminars:
     description: ""
     organizer: "안재영, 이상렬, 서호준, 권인아, 유다연, 이은규, 김진현"
     period: "2023년 3, 4월"
-    image: "assets/images/sections/seminars/2023/c.jfif"
+    image: "assets/images/sections/seminars/2023/c.jpg"
 
   - title: "2023 SOLIDWORKS 세미나"
     description: "SOLIDWORKS 3D CAD 세미나"
     organizer: "박찬혁"
     period: "2023.03.28 ~ 2023.03.29"
-    image: "assets/images/sections/seminars/2023/solidworks.jfif"
+    image: "assets/images/sections/seminars/2023/solidworks.jpg"
 
   - title: "2023 RATS 겨울 세미나"
     description: "고급C언어, C++, 회로이론, PCB 설계(KiCAD)"
