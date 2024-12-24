@@ -22,50 +22,45 @@
 
 <!-- CSS -->
 <style>
-.skills-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3열 고정 */
-    gap: 20px; /* 카드 간격 */
-    justify-items: center; /* 카드 중앙 정렬 */
-    padding: 20px; /* 컨테이너 안쪽 여백 */
-    box-sizing: border-box; /* 여백 포함 크기 계산 */
-    max-width: 1200px; /* 컨테이너 최대 크기 */
-    margin: 0 auto; /* 중앙 정렬 */
-}
+    .skills-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
 
-.skills-card {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 100%;
-    max-width: 300px; /* 카드 최대 크기 제한 */
-    text-align: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
+    .skills-card {
+        display: flex;
+        flex-direction: column; /* 세로 정렬 */
+        align-items: center;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
 
-.skills-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+    .skills-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
 
-.skills-card img {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
-}
+    .skills-card img {
+        width: auto;
+        height: 50px;
+        margin-bottom: 10px;
+    }
 
-.skills-card h3 {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 10px;
-}
+    .skills-card h3 {
+        font-size: 1.2rem;
+        color: #333;
+        margin-bottom: 10px;
+    }
 
-.skills-card p {
-    font-size: 0.9rem;
-    color: #555;
-    word-break: keep-all; /* 한글 단어 끊어짐 방지 */
-    white-space: normal; /* 기본 줄바꿈 */
-    overflow-wrap: break-word; /* 긴 단어 줄바꿈 */
-}
+    .skills-card p {
+        font-size: 0.9rem;
+        color: #555;
+        word-break: keep-all; /* 한글 단어 끊어짐 방지 */
+        white-space: normal; /* 기본 줄바꿈 */
+        overflow-wrap: break-word; /* 긴 단어 줄바꿈 */
+    }
 </style>
