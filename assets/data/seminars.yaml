@@ -73,7 +73,8 @@ seminars:
   - title: "2024 RATS 겨울 세미나"
     description: "리눅스 - 명령어, 컴파일, 디버깅 등"
     organizer: "김영찬"
-    period: "2024년 1월"
+    period: "2023년 12월"
+    image: "assets/images/sections/seminars/2023/linux.jpg"
 
   - title: "2023 신입생 MCU, 알고리즘 세미나"
     description: ""
@@ -118,6 +119,7 @@ seminars:
     description: "ATmega328를 이용한 MCU 레지스터 제어"
     organizer: "RATS"
     period: "2022년"
+    image: "assets/images/sections/seminars/2022/mcu.jpg"
     link: "https://github.com/RATS-make-robot/2022-Freshman-MCUseminar"
 
   - title: "2022 신입생 라인트레이서 가이드"
