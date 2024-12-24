@@ -18,7 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         const projectGroupContainer = document.createElement('div');
                         projectGroupContainer.className = 'project-group';
 
-                        projectGroup.projects.forEach(project => {
+                        // Clone first and last project cards for seamless looping
+                        const clonedProjects = [...projectGroup.projects, ...projectGroup.projects.slice(0, 1)];
+
+                        clonedProjects.forEach(project => {
                             const projectCard = document.createElement('div');
                             projectCard.className = 'project-card';
 
