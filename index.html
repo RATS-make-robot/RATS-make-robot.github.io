@@ -1,6 +1,7 @@
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
     <title>RATS Website</title>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body>
     <!-- Include header -->
     <div id="header">
@@ -40,92 +42,94 @@
         <div id="about">
             <!-- About content will be dynamically included -->
             <script>
-fetch('about.html')
-    .then(res => res.text())
-    .then(data => {
-        // 'about'에 로드된 내용을 삽입
-        document.getElementById('about').innerHTML = data;
+                fetch('about.html')
+                    .then(res => res.text())
+                    .then(data => {
+                        // 'about'에 로드된 내용을 삽입
+                        document.getElementById('about').innerHTML = data;
 
-        // 로드된 후 'code-display' 요소를 가져와 애니메이션 초기화
-        const typingElement = document.getElementById("code-display");
-        if (!typingElement) {
-            console.error("Element with ID 'code-display' not found.");
-            return;
-        }
+                        // 로드된 후 'code-display' 요소를 가져와 애니메이션 초기화
+                        const typingElement = document.getElementById("code-display");
+                        if (!typingElement) {
+                            console.error("Element with ID 'code-display' not found.");
+                            return;
+                        }
 
-        // Initialize typing animation
-        initializeTypingAnimation(typingElement);
-    })
-    .catch(error => console.error('Error loading about.html:', error));
+                        // Initialize typing animation
+                        initializeTypingAnimation(typingElement);
+                    })
+                    .catch(error => console.error('Error loading about.html:', error));
 
-function initializeTypingAnimation(typingElement) {
-    const sentences = [
-        "로봇을 개발합니다.",
-        "앱도 개발합니다.",
-        "임베디드 설계도 합니다.",
-        "게임도 합니다.",
-        "세미나도 합니다."
-    ];
+                function initializeTypingAnimation(typingElement) {
+                    const sentences = [
+                        "로봇을 개발합니다.",
+                        "앱도 개발합니다.",
+                        "임베디드 설계도 합니다.",
+                        "게임도 합니다.",
+                        "세미나도 합니다."
+                    ];
 
-    const languages = [
-        { language: "C", comment: "//", output: `<span class='keyword'>printf</span>(<span class='string'>\"{sentence}\\n\"</span>);` },
-        { language: "Python", comment: "#", output: `<span class='keyword'>print</span>(<span class='string'>\"{sentence}\"</span>)` },
-        { language: "Java", comment: "//", output: `<span class='keyword'>System.out.println</span>(<span class='string'>\"{sentence}\"</span>);` },
-        { language: "HTML<span class='language-comment'>--&gt;</span>", comment: "&lt;!--", outputs: [
-            "<span class='tag'>&lt;h1&gt;</span>{sentence}<span class='tag'>&lt;/h1&gt;</span>",
-            "<span class='tag'>&lt;h2&gt;</span>{sentence}<span class='tag'>&lt;/h2&gt;</span> <span class='language-comment'>--&gt;</span>",
-            "<span class='tag'>&lt;h3&gt;</span>{sentence}<span class='tag'>&lt;/h3&gt;</span> <span class='language-comment'>--&gt;</span>",
-            "<span class='tag'>&lt;h4&gt;</span>{sentence}<span class='tag'>&lt;/h4&gt;</span> <span class='language-comment'>--&gt;</span>",
-            "<span class='tag'>&lt;h5&gt;</span>{sentence}<span class='tag'>&lt;/h5&gt;</span> <span class='language-comment'>--&gt;</span>",
-            "<span class='tag'>&lt;h6&gt;</span>{sentence}<span class='tag'>&lt;/h6&gt;</span> <span class='language-comment'>--&gt;</span>"
-        ]}
-    ];
+                    const languages = [
+                        { language: "C", comment: "//", output: `<span class='keyword'>printf</span>(<span class='string'>\"{sentence}\\n\"</span>);` },
+                        { language: "Python", comment: "#", output: `<span class='keyword'>print</span>(<span class='string'>\"{sentence}\"</span>)` },
+                        { language: "Java", comment: "//", output: `<span class='keyword'>System.out.println</span>(<span class='string'>\"{sentence}\"</span>);` },
+                        {
+                            language: "HTML<span class='language-comment'>--&gt;</span>", comment: "&lt;!--", outputs: [
+                                "<span class='tag'>&lt;h1&gt;</span>{sentence}<span class='tag'>&lt;/h1&gt;</span>",
+                                "<span class='tag'>&lt;h2&gt;</span>{sentence}<span class='tag'>&lt;/h2&gt;</span> <span class='language-comment'>--&gt;</span>",
+                                "<span class='tag'>&lt;h3&gt;</span>{sentence}<span class='tag'>&lt;/h3&gt;</span> <span class='language-comment'>--&gt;</span>",
+                                "<span class='tag'>&lt;h4&gt;</span>{sentence}<span class='tag'>&lt;/h4&gt;</span> <span class='language-comment'>--&gt;</span>",
+                                "<span class='tag'>&lt;h5&gt;</span>{sentence}<span class='tag'>&lt;/h5&gt;</span> <span class='language-comment'>--&gt;</span>",
+                                "<span class='tag'>&lt;h6&gt;</span>{sentence}<span class='tag'>&lt;/h6&gt;</span> <span class='language-comment'>--&gt;</span>"
+                            ]
+                        }
+                    ];
 
-    let currentSentenceIndex = 0;
-    let currentLanguage = languages[Math.floor(Math.random() * languages.length)];
-    let charIndex = 0;
-    let isDeleting = false;
-    let currentOutput = "";
+                    let currentSentenceIndex = 0;
+                    let currentLanguage = languages[Math.floor(Math.random() * languages.length)];
+                    let charIndex = 0;
+                    let isDeleting = false;
+                    let currentOutput = "";
 
-    const cursor = `<span class="cursor"></span>`;
+                    const cursor = `<span class="cursor"></span>`;
 
-    function typeEffect() {
-        typingElement.innerHTML = typingElement.innerHTML.replace(cursor, "");
+                    function typeEffect() {
+                        typingElement.innerHTML = typingElement.innerHTML.replace(cursor, "");
 
-        const currentSentence = sentences[currentSentenceIndex];
-        if (currentLanguage.language === "HTML<span class='language-comment'>--&gt;</span>") {
-            const randomOutput = currentLanguage.outputs[Math.floor(Math.random() * currentLanguage.outputs.length)];
-            currentOutput = randomOutput.replace("{sentence}", currentSentence);
-        } else {
-            currentOutput = currentLanguage.output.replace("{sentence}", currentSentence);
-        }
+                        const currentSentence = sentences[currentSentenceIndex];
+                        if (currentLanguage.language === "HTML<span class='language-comment'>--&gt;</span>") {
+                            const randomOutput = currentLanguage.outputs[Math.floor(Math.random() * currentLanguage.outputs.length)];
+                            currentOutput = randomOutput.replace("{sentence}", currentSentence);
+                        } else {
+                            currentOutput = currentLanguage.output.replace("{sentence}", currentSentence);
+                        }
 
-        if (!isDeleting && charIndex <= currentOutput.length) {
-            typingElement.innerHTML = `<span class="language-comment">${currentLanguage.comment}</span> <span class="language-comment">${currentLanguage.language}</span>\n` +
-                currentOutput.slice(0, charIndex) + cursor;
-            charIndex++;
-            setTimeout(typeEffect, 25);
-        } else if (isDeleting && charIndex >= 0) {
-            typingElement.innerHTML = `<span class="language-comment">${currentLanguage.comment}</span> <span class="language-comment">${currentLanguage.language}</span>\n` +
-                currentOutput.slice(0, charIndex) + cursor;
-            charIndex--;
-            setTimeout(typeEffect, 10);
-        } else {
-            isDeleting = !isDeleting;
+                        if (!isDeleting && charIndex <= currentOutput.length) {
+                            typingElement.innerHTML = `<span class="language-comment">${currentLanguage.comment}</span> <span class="language-comment">${currentLanguage.language}</span>\n` +
+                                currentOutput.slice(0, charIndex) + cursor;
+                            charIndex++;
+                            setTimeout(typeEffect, 25);
+                        } else if (isDeleting && charIndex >= 0) {
+                            typingElement.innerHTML = `<span class="language-comment">${currentLanguage.comment}</span> <span class="language-comment">${currentLanguage.language}</span>\n` +
+                                currentOutput.slice(0, charIndex) + cursor;
+                            charIndex--;
+                            setTimeout(typeEffect, 10);
+                        } else {
+                            isDeleting = !isDeleting;
 
-            if (!isDeleting) {
-                currentSentenceIndex = (currentSentenceIndex + 1) % sentences.length;
-                currentLanguage = languages[Math.floor(Math.random() * languages.length)];
-                charIndex = 0;
-                setTimeout(typeEffect, 250);
-            } else {
-                setTimeout(typeEffect, 1000);
-            }
-        }
-    }
+                            if (!isDeleting) {
+                                currentSentenceIndex = (currentSentenceIndex + 1) % sentences.length;
+                                currentLanguage = languages[Math.floor(Math.random() * languages.length)];
+                                charIndex = 0;
+                                setTimeout(typeEffect, 250);
+                            } else {
+                                setTimeout(typeEffect, 1000);
+                            }
+                        }
+                    }
 
-    typeEffect();
-}
+                    typeEffect();
+                }
 
 
             </script>
@@ -138,100 +142,99 @@ function initializeTypingAnimation(typingElement) {
             </script>
         </div>
 
-        <!-- Include experiences -->
         <div id="experiences">
-            <section>
-                <h2>Experiences</h2>
-                <p>동아리 활동 중 수상 내역을 확인하세요!</p>
-                <div class="experience-container">
-                    <div class="experience-card">
-                        <h3>2024년도</h3>
-                        <div class="competition-row"><span class="competition-title">2024 한이음 ICT멘토링 공모전</span><span
-                                class="award-list"><code>✨입선(2)</code></span></div>
-                        <div class="competition-row"><span class="competition-title">제22회 임베디드 SW 경진대회</span><span
-                                class="award-list"><code>✨입선</code></span></div>
-                        <div class="competition-row"><span class="competition-title">2024 명지대학교 전자공학과 캡스톤디자인 작품발표회</span><span
-                                class="award-list"><code>🥈은상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">2024 SEP 융합 Festival</span><span
-                                class="award-list"><code>🥉동상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">KCSDT 2024 GUMI 학술대회 포스터상</span><span
-                                class="award-list"><code>🏅우수상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">2024 명지대학교 컴퓨터공학과 캡스톤디자인 경진대회</span><span
-                                class="award-list"><code>✨장려상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">제 3회 명지대학교 창의적SW프로그램 경진대회</span><span
-                                class="award-list"><code>🏆대상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">2024학년도 ChatGPT 기반 AI 실전 활용 경진대회</span><span
-                                class="award-list"><code>✨장려상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">제 11회 전국ICT융합공모전</span><span
-                                class="award-list"><code>✨특별상</code></span></div>
-                    </div>
-                    <div class="experience-card">
-                        <h3>2023년도</h3>
-                        <div class="competition-row"><span class="competition-title">2023 한이음 ICT멘토링 학술대회</span><span
-                                class="award-list"><code>🏆최우수상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">2023 창의적 종합 설계 경진대회</span><span
-                                class="award-list"><code>🥇금상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">2023 SEP 융합 페스티벌</span><span
-                                class="award-list"><code>🥇금상</code> <code>🥈은상</code> <code>🥉동상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">2023 음성인식 어워드</span><span
-                                class="award-list"><code>🥈은상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">2023 프로보노 ICT멘토링 공모전</span><span
-                                class="award-list"><code>🥉동상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">2023 CDE학회(대학 연구소 부문)</span><span
-                                class="award-list"><code>✨장려상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">2023 캡스톤디자인 경진대회(2,3학년 부문)</span><span
-                                class="award-list"><code>🥈은상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">2023 캡스톤디자인 경진대회(기계공학과)</span><span
-                                class="award-list"><code>🥇금상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">2023 교내 캡스톤디자인 프로젝트 경진대회</span><span
-                                class="award-list"><code>🏆대상</code> <code>🥉동상(2)</code> <code>📜포스터상</code></span></div>
-                    </div>
-                    <div class="experience-card">
-                        <h3>2022년도</h3>
-                        <div class="competition-row"><span class="competition-title">Ne(o)rdinary Hackathon</span><span
-                                class="award-list"><code>🏆대상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">융합캡스톤 성과발표회/경진대회</span><span
-                                class="award-list"><code>✨장려상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">강소기업탐방공모전</span><span
-                                class="award-list"><code>🏅우수상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">Campus Convergence 공모전</span><span
-                                class="award-list"><code>✨최우수</code> <code>✨우수</code></span></div>
-                        <div class="competition-row"><span class="competition-title">SEP 융합 Festival</span><span
-                                class="award-list"><code>🥇금상</code> <code>🥈은상(2)</code> <code>🥉동상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">캡스톤디자인 경진대회</span><span
-                                class="award-list"><code>🏆대상</code> <code>🥇금상(2)</code></span></div>
-                        <div class="competition-row"><span class="competition-title">창의융합대회</span><span
-                                class="award-list"><code>✨최우수</code></span></div>
-                        <div class="competition-row"><span class="competition-title">한이음 ICT멘토링 공모전</span><span
-                                class="award-list"><code>✨장려상</code> <code>✨입선</code></span></div>
-                        <div class="competition-row"><span class="competition-title">창의적 종합설계 경진대회</span><span
-                                class="award-list"><code>✨우수</code></span></div>
-                        <div class="competition-row"><span class="competition-title">창의 융합캠프</span><span
-                                class="award-list"><code>✨우수</code></span></div>
-                    </div>
-                    <div class="experience-card">
-                        <h3>2019-2020년도</h3>
-                        <div class="competition-row"><span class="competition-title">2019 임베디드 소프트웨어 경진대회</span><span
-                                class="award-list"><code>🏅우수상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">제20회 CDE 경진대회</span><span
-                                class="award-list"><code>🥈은상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">2019 서울과학기술대학교 공학교육거점센터 창의적 종합설계
-                                경진대회</span><span class="award-list"><code>✨장려상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">2019 교내 캡스톤디자인 프로젝트 경진대회(캡스톤)</span><span
-                                class="award-list"><code>🏆대상</code> <code>🥈은상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">2019 교내 캡스톤디자인 프로젝트 경진대회(다학제)</span><span
-                                class="award-list"><code>🥇금상</code> <code>🥉동상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">2019 교내 캡스톤디자인 프로젝트 경진대회(융합과제)</span><span
-                                class="award-list"><code>✨장려상</code></span></div>
-                        <div class="competition-row"><span class="competition-title">2020 서울과학기술대학교 공학교육 거점센터 창의적 종합설계
-                                경진대회</span><span class="award-list"><code>✨장려상</code></span></div>
-                    </div>
+            <h2>Experiences</h2>
+            <p>동아리 활동 중 수상 내역을 확인하세요!</p>
+            <div class="experience-container">
+                <div class="experience-card">
+                    <h3>2024년도</h3>
+                    <div class="competition-row"><span class="competition-title">2024 한이음 ICT멘토링 공모전</span><span
+                            class="award-list"><code>✨입선(2)</code></span></div>
+                    <div class="competition-row"><span class="competition-title">제22회 임베디드 SW 경진대회</span><span
+                            class="award-list"><code>✨입선</code></span></div>
+                    <div class="competition-row"><span class="competition-title">2024 명지대학교 전자공학과 캡스톤디자인
+                            작품발표회</span><span class="award-list"><code>🥈은상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">2024 SEP 융합 Festival</span><span
+                            class="award-list"><code>🥉동상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">KCSDT 2024 GUMI 학술대회 포스터상</span><span
+                            class="award-list"><code>🏅우수상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">2024 명지대학교 컴퓨터공학과 캡스톤디자인
+                            경진대회</span><span class="award-list"><code>✨장려상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">제 3회 명지대학교 창의적SW프로그램 경진대회</span><span
+                            class="award-list"><code>🏆대상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">2024학년도 ChatGPT 기반 AI 실전 활용
+                            경진대회</span><span class="award-list"><code>✨장려상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">제 11회 전국ICT융합공모전</span><span
+                            class="award-list"><code>✨특별상</code></span></div>
                 </div>
-            </section>
-            <!-- Experiences content will be dynamically included -->
+                <div class="experience-card">
+                    <h3>2023년도</h3>
+                    <div class="competition-row"><span class="competition-title">2023 한이음 ICT멘토링 학술대회</span><span
+                            class="award-list"><code>🏆최우수상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">2023 창의적 종합 설계 경진대회</span><span
+                            class="award-list"><code>🥇금상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">2023 SEP 융합 페스티벌</span><span
+                            class="award-list"><code>🥇금상</code> <code>🥈은상</code> <code>🥉동상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">2023 음성인식 어워드</span><span
+                            class="award-list"><code>🥈은상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">2023 프로보노 ICT멘토링 공모전</span><span
+                            class="award-list"><code>🥉동상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">2023 CDE학회(대학 연구소 부문)</span><span
+                            class="award-list"><code>✨장려상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">2023 캡스톤디자인 경진대회(2,3학년 부문)</span><span
+                            class="award-list"><code>🥈은상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">2023 캡스톤디자인 경진대회(기계공학과)</span><span
+                            class="award-list"><code>🥇금상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">2023 교내 캡스톤디자인 프로젝트 경진대회</span><span
+                            class="award-list"><code>🏆대상</code> <code>🥉동상(2)</code> <code>📜포스터상</code></span></div>
+                </div>
+                <div class="experience-card">
+                    <h3>2022년도</h3>
+                    <div class="competition-row"><span class="competition-title">Ne(o)rdinary Hackathon</span><span
+                            class="award-list"><code>🏆대상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">융합캡스톤 성과발표회/경진대회</span><span
+                            class="award-list"><code>✨장려상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">강소기업탐방공모전</span><span
+                            class="award-list"><code>🏅우수상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">Campus Convergence 공모전</span><span
+                            class="award-list"><code>✨최우수</code> <code>✨우수</code></span></div>
+                    <div class="competition-row"><span class="competition-title">SEP 융합 Festival</span><span
+                            class="award-list"><code>🥇금상</code> <code>🥈은상(2)</code> <code>🥉동상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">캡스톤디자인 경진대회</span><span
+                            class="award-list"><code>🏆대상</code> <code>🥇금상(2)</code></span></div>
+                    <div class="competition-row"><span class="competition-title">창의융합대회</span><span
+                            class="award-list"><code>✨최우수</code></span></div>
+                    <div class="competition-row"><span class="competition-title">한이음 ICT멘토링 공모전</span><span
+                            class="award-list"><code>✨장려상</code> <code>✨입선</code></span></div>
+                    <div class="competition-row"><span class="competition-title">창의적 종합설계 경진대회</span><span
+                            class="award-list"><code>✨우수</code></span></div>
+                    <div class="competition-row"><span class="competition-title">창의 융합캠프</span><span
+                            class="award-list"><code>✨우수</code></span></div>
+                </div>
+                <div class="experience-card">
+                    <h3>2019-2020년도</h3>
+                    <div class="competition-row"><span class="competition-title">2019 임베디드 소프트웨어 경진대회</span><span
+                            class="award-list"><code>🏅우수상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">제20회 CDE 경진대회</span><span
+                            class="award-list"><code>🥈은상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">2019 서울과학기술대학교 공학교육거점센터 창의적 종합설계
+                            경진대회</span><span class="award-list"><code>✨장려상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">2019 교내 캡스톤디자인 프로젝트
+                            경진대회(캡스톤)</span><span class="award-list"><code>🏆대상</code> <code>🥈은상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">2019 교내 캡스톤디자인 프로젝트
+                            경진대회(다학제)</span><span class="award-list"><code>🥇금상</code> <code>🥉동상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">2019 교내 캡스톤디자인 프로젝트
+                            경진대회(융합과제)</span><span class="award-list"><code>✨장려상</code></span></div>
+                    <div class="competition-row"><span class="competition-title">2020 서울과학기술대학교 공학교육 거점센터 창의적 종합설계
+                            경진대회</span><span class="award-list"><code>✨장려상</code></span></div>
+                </div>
+            </div>
+            <!-- Include experiences -->
+            <!--<div id="experiences">
+             Experiences content will be dynamically included
             <script>
                 fetch('experiences.html').then(res => res.text()).then(data => document.getElementById('experiences').innerHTML = data);
-            </script>
+            </script>-->
         </div>
 
         <!-- Include projects -->
@@ -267,7 +270,7 @@ function initializeTypingAnimation(typingElement) {
         </script>
     </div>
 
-<!--<script src="assets/js/about-animation.js"></script> -->
+    <!--<script src="assets/js/about-animation.js"></script> -->
     <!-- Include the JS-YAML library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <!-- Include the script -->
@@ -277,4 +280,5 @@ function initializeTypingAnimation(typingElement) {
     <script src="assets/js/load_seminars.js"></script>
     <script src="assets/js/filter_projects.js"></script>
 </body>
+
 </html>
