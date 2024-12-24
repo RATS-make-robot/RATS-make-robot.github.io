@@ -63,5 +63,15 @@
         border-radius: 5px;
         margin-bottom: 15px; /* 이미지와 텍스트 간 간격 */
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: block; /* 이미지가 없는 경우 숨김 처리 */
+    }
+
+    .seminar-card img[src=""], /* src 속성이 빈 문자열일 경우 */
+    .seminar-card img:not([src]) /* src 속성이 아예 없을 경우 */ {
+        display: none;
+    }
+    /* 부모 요소도 숨기고 싶을 경우 */
+    .experience-card:not(:has(img[src])) {
+        display: none;
     }
 </style>
