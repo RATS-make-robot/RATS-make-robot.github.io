@@ -41,21 +41,35 @@
         background-color: #0056b3;
     }
 
+    .project-scroll-container {
+        overflow: hidden; /* 스크롤바 숨김 */
+        position: relative;
+        width: 100%;
+        background: #f4f4f4;
+    }
+
     .project-container {
+        display: flex;
+        animation: scroll-left 20s linear infinite; /* 자동 스크롤 애니메이션 */
+    }
+
+    .project-group {
+        flex: 0 0 100%; /* 한 번에 하나의 그룹만 보이게 */
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 20px;
+        padding: 20px;
     }
 
     .project-card {
-    display: flex;
-    flex-direction: column; /* 세로 정렬 */
-    align-items: center;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column; /* 세로 정렬 */
+        align-items: center;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     }
 
     .project-card:hover {
@@ -64,15 +78,15 @@
     }
 
     .project-btn {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
 
     .project-card h3 {
         text-align: center;
@@ -117,5 +131,14 @@
 
     .link-icon:hover {
         transform: scale(1.2); /* 아이콘 확대 효과 */
+    }
+
+    @keyframes scroll-left {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
     }
 </style>
