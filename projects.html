@@ -54,23 +54,34 @@
         animation: scroll-left 20s linear infinite; /* 자동 스크롤 애니메이션 */
     }
 
-    .project-group {
-        flex: 0 0 100%; /* 한 번에 하나의 그룹만 보이게 */
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    .project-scroll-container {
+        display: flex;
+        flex-direction: column; /* 연도별로 세로 배치 */
         gap: 20px;
-        padding: 20px;
+        overflow-y: hidden; /* 세로 스크롤 비활성화 */
+        overflow-x: auto; /* 가로 스크롤 활성화 */
+        padding: 10px;
+    }  
+    
+    .project-group {
+        display: flex;
+        flex-wrap: nowrap; /* 한 줄에 모든 카드 배치 */
+        overflow-x: auto; /* 가로 스크롤 활성화 */
+        gap: 20px;
+        padding: 10px;
+        scrollbar-width: thin; /* 간소화된 스크롤바 */
+        -ms-overflow-style: none; /* IE에서 스크롤 숨김 */
+    }
+
+    .project-group::-webkit-scrollbar {
+        display: none; /* 크롬, 사파리 스크롤 숨김 */
     }
 
     .project-card {
-        display: flex;
-        flex-direction: column; /* 세로 정렬 */
-        align-items: center;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 10px;
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        flex: 0 0 auto; /* 카드 크기 고정 */
+        width: 300px;
+        min-height: 250px; /* 최소 높이 */
+        transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .project-card:hover {

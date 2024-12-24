@@ -10,14 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(yamlText => {
                 const projectsData = jsyaml.load(yamlText); // YAML 파싱
                 const projectScrollContainer = document.querySelector('.project-scroll-container');
-                
-                if (!projectScrollContainer) {
-                    throw new Error('Container element .project-scroll-container is missing.');
-                }
-
-                // Clear existing content to prevent duplication during retries
-                projectScrollContainer.innerHTML = '';
-
                 const projectContainer = document.createElement('div');
                 projectContainer.className = 'project-container';
 
@@ -39,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 const projectImage = document.createElement('img');
                                 projectImage.src = project.image;
                                 projectImage.alt = `${project.title} 이미지`;
-                                projectImage.className = 'project-image';
+                                projectImage.className = 'project-image'; // CSS 스타일링을 위한 클래스
                                 projectCard.appendChild(title);
                                 projectCard.appendChild(projectImage);
                             } else {
@@ -136,15 +128,12 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => {
                 console.error(`Error loading YAML (Attempt ${attempt}):`, error);
-
                 if (attempt < 3) {
                     console.log('Retrying fetch...');
                     setTimeout(() => fetchProjects(attempt + 1), 2000); // 재시도
                 } else {
                     const projectScrollContainer = document.querySelector('.project-scroll-container');
-                    if (projectScrollContainer) {
-                        projectScrollContainer.innerHTML = '<p>프로젝트 데이터를 불러오지 못했습니다. 나중에 다시 시도해주세요.</p>';
-                    }
+                    projectScrollContainer.innerHTML = '<p>프로젝트 데이터를 불러오지 못했습니다. 나중에 다시 시도해주세요.</p>';
                 }
             });
     };
