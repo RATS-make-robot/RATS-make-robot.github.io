@@ -34,21 +34,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         // 대회 및 수상 내역 처리
                         if (experience.competitions) {
-                            experience.competitions.forEach(competitions => {
+                            experience.competitions.forEach(comp => {
                                 const competitionRow = document.createElement('div');
                                 competitionRow.className = 'competition-row';
 
                                 // 대회명 추가
                                 const compTitle = document.createElement('span');
                                 compTitle.className = 'competition-title';
-                                compTitle.textContent = competitions.name;
+                                compTitle.textContent = comp.name;
 
                                 // 수상 내역 추가
                                 const awardList = document.createElement('span');
                                 awardList.className = 'award-list';
                                 let awardText = '';
 
-                                competitions.awards.forEach(award => {
+                                comp.awards.forEach(award => {
                                     const icon = awardIcons[award.type] || "✨"; // 기본 이모티콘 설정
 
                                     if (award.count && award.count > 1) {
