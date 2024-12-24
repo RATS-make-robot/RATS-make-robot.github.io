@@ -61,7 +61,7 @@
         padding: 10px;
         scrollbar-width: thin; /* 간소화된 스크롤바 */
         -ms-overflow-style: none; /* IE에서 스크롤 숨김 */
-        animation: scroll-loop 20s linear infinite;
+        /*animation: scroll-loop 20s linear infinite;*/
     }
     .project-group:hover {
     animation-play-state: paused; /* hover 시 애니메이션 일시 중지 */
@@ -107,6 +107,8 @@
     }
 
     .project-image {
+        display: block; /* 이미지를 블록 요소로 설정 */
+        margin: 0 auto; /* 좌우 여백을 자동으로 설정해 가운데 정렬 */
         width: auto;
         max-width: 300px;
         height: 10em;
