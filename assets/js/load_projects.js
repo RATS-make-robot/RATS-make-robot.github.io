@@ -47,8 +47,33 @@ document.addEventListener('DOMContentLoaded', () => {
                             const otherLink = document.createElement('a');
                             otherLink.href = project.links.other;
                             otherLink.target = '_blank';
-                            otherLink.textContent = "기타 링크";
-                            otherLink.className = 'project-btn';
+                        
+                            // `other_logo`가 존재하면 이미지 추가, 없으면 버튼 표시
+                            if (project.links.other_logo) {
+                                const logo = document.createElement('img');
+                                logo.src = project.links.other_logo;
+                                logo.alt = "Other Link Logo";
+                                logo.className = 'link-icon';
+                                otherLink.appendChild(logo);
+                            } else {
+                                otherLink.textContent = "기타 링크";
+                                otherLink.style.display = "inline-block";
+                                otherLink.style.padding = "10px 15px";
+                                otherLink.style.backgroundColor = "#007bff";
+                                otherLink.style.color = "#fff";
+                                otherLink.style.borderRadius = "5px";
+                                otherLink.style.textAlign = "center";
+                                otherLink.style.fontWeight = "bold";
+                                otherLink.style.textDecoration = "none"; // 밑줄 제거
+                            }
+                        
+                            otherLink.addEventListener('mouseover', () => {
+                                otherLink.style.backgroundColor = "#0056b3"; // 버튼 hover 효과
+                            });
+                            otherLink.addEventListener('mouseout', () => {
+                                otherLink.style.backgroundColor = "#007bff"; // 기본 색상 복원
+                            });
+                        
                             linksContainer.appendChild(otherLink);
                         }
 
