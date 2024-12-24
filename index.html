@@ -290,27 +290,17 @@
     /* 경험 카드 컨테이너 */
     .experience-container {
         display: grid;
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 20px;
-        /* 카드 간 간격 */
-        padding: 10px;
-        margin: 0 auto;
-        /* 가운데 정렬 */
     }
 
     /* 경험 카드 */
     .experience-card {
         background: #fff;
-        border-radius: 10px;
+        border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        /* 그림자 */
-        padding: 20px;
-        max-width: 800px;
-        text-align: left;
-        /* 텍스트 왼쪽 정렬 */
+        padding: 10px;
         transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        /* 애니메이션 */
     }
 
     /* Hover 효과 */
@@ -321,18 +311,16 @@
 
     /* 연도 텍스트 스타일 */
     .experience-card h3 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         color: #333;
         margin-bottom: 10px;
     }
 
     /* 대회명 및 수상 리스트 */
     .competition-row {
-        display: flex;
-        justify-content: space-between;
-        /* 대회명과 수상 내역 양쪽 정렬 */
-        margin: 10px 0;
-        /* 간격 */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
     }
 
     .competition-title {
