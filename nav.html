@@ -8,15 +8,35 @@
         <li><a href="#seminars">Seminars</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const stickyNav = document.getElementById('sticky-nav');
+        const showAfter = 100; // 스크롤이 100px 이상일 때 나타남
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > showAfter) {
+                stickyNav.style.display = 'block';
+            } else {
+                stickyNav.style.display = 'none';
+            }
+        });
+    });
+    </script>
 </nav>
 
 <style>
 nav {
+    position: fixed; /* 스크롤 시 상단에 고정 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(51, 51, 51, 0.9); /* 약간 투명한 배경 */
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+    z-index: 1000; /* 다른 요소 위에 표시 */
     display: flex;
     justify-content: center; /* 가운데 정렬 */
-    align-items: center;    /* 세로 정렬 */
-    background-color: #333;
-    padding: 10px 20px;
+    align-items: center;
 }
 
 nav ul {
@@ -34,29 +54,34 @@ nav li {
 }
 
 nav a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 1rem;
+    text-decoration: none; /* 밑줄 제거 */
+    color: #fff; /* 기본 텍스트 색상 */
+    font-size: 1rem; /* 기본 글꼴 크기 */
     font-weight: bold;
-    transition: color 0.3s ease;
+    padding: 5px 10px; /* 클릭 영역 확대 */
+    border-radius: 5px; /* 약간의 둥근 모서리 */
+    transition: color 0.3s ease, background-color 0.3s ease; /* 부드러운 전환 */
 }
 
 nav a:hover {
-    color: #007bff; /* 링크 호버 시 색상 변경 */
+    color: #fff; /* 텍스트 색상 유지 */
+    background-color: #007bff; /* 배경색 변경 */
 }
 
 @media (max-width: 768px) {
     nav ul {
-        /*flex-direction: column; *//* 작은 화면에서 세로 정렬 */
-        gap: 10px; /* 간격 조정 */
+        flex-direction: column; /* 작은 화면에서 세로 정렬 */
+        gap: 15px; /* 간격 조정 */
     }
 
     nav {
-        padding: 10px;
+        padding: 15px; /* 패딩 조정 */
     }
 
     nav a {
         font-size: 0.9rem; /* 작은 화면에서 글자 크기 축소 */
+        padding: 8px 12px; /* 클릭 영역 조정 */
     }
 }
+
 </style>
