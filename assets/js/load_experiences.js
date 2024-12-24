@@ -4,10 +4,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const loadExperiences = () => {
         fetch('assets/data/experiences.yaml')
-            .then(response => response.text())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.text();
+            })
             .then(yamlText => {
                 const experiencesData = jsyaml.load(yamlText); // YAML 파싱
                 const experienceContainer = document.querySelector('.experience-container');
+
+                if (!experienceContainer) {
+                    throw new Error('Container element .experience-container is missing.');
+                }
+
+                // Clear existing content to prevent duplication during retries
+                experienceContainer.innerHTML = '';
 
                 // 상별 이모티콘 매핑
                 const awardIcons = {
@@ -73,14 +85,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
             .catch(error => {
-                console.error('Error loading YAML:', error);
+                console.error(`Error loading YAML (Attempt ${retryCount + 1}):`, error);
                 if (retryCount < MAX_RETRIES) {
                     retryCount++;
                     console.log(`Retrying... (${retryCount}/${MAX_RETRIES})`);
-                    loadExperiences();
+                    setTimeout(loadExperiences, 2000); // 재시도
                 } else {
                     const experienceContainer = document.querySelector('.experience-container');
-                    experienceContainer.innerHTML = '<p>Error loading experiences. Please try again later.</p>';
+                    if (experienceContainer) {
+                        experienceContainer.innerHTML = '<p>Error loading experiences. Please try again later.</p>';
+                    }
                 }
             });
     };
