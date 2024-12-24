@@ -11,6 +11,7 @@ body {
 }
 
 /* Navigation styles */
+/*
 nav {
     background: #444;
     color: #fff;
@@ -38,7 +39,7 @@ nav ul li a {
 nav ul li a:hover {
     text-decoration: underline;
 }
-
+*/
 /* Section styles */
 section {
     margin: 2rem auto;
@@ -69,3 +70,8 @@ footer p {
     font-size: 0.9rem;
 }
 
+@media (max-width: 768px) {
+    section {
+        max-width: 100%;
+    }
+}
