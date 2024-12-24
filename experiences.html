@@ -9,31 +9,9 @@
 
 <!-- CSS for experiences -->
 <style>
-    .experience-card code {
-        background-color: #f5f5f5; /* 밝은 회색 배경 */
-        color: #333; /* 텍스트 색상 */
-        padding: 2px 6px; /* 내부 여백 */
-        border-radius: 6px; /* 둥근 모서리 */
-        font-family: 'Courier New', Courier, monospace; /* 코딩 폰트 */
-        font-size: 0.9rem; /* 적당한 크기 */
-        border: 1px solid #ddd; /* 외곽선 */
-            
-        word-break: keep-all; /* 한글 단어 끊어짐 방지 */
-        white-space: normal; /* 기본 줄바꿈 */
-        overflow-wrap: break-word; /* 긴 단어 줄바꿈 */
-    }
-    @keyframes sparkle {
-        0%, 100% {
-            filter: brightness(0.8);
-        }
-        50% {
-            filter: brightness(1.5);
-        }
-    }
 
     .emoji-sparkle {
         display: inline-block;
-        animation: sparkle 1.5s infinite;
     }
 
     .experience-container {
@@ -75,9 +53,11 @@
 
     .award-list code {
         background-color: #f5f5f5; /* 밝은 회색 배경 */
+        font-size: 0.9rem; /* 적당한 크기 */
         padding: 2px 6px; /* 내부 여백 */
         border-radius: 4px; /* 둥근 모서리 */
         font-family: 'Courier New', Courier, monospace; /* 코딩 폰트 */
+        animation: sparkle 1.5s infinite;
     }
 
     .experience-card h3 {
@@ -102,8 +82,16 @@
     .experience-card ul li:hover {
         color: #007bff;
     }
+    @keyframes sparkle {
+        0%, 100% {
+            filter: brightness(0.8);
+        }
+        50% {
+            filter: brightness(1.5);
+        }
+    }
 </style>
-
+<!--
 <script>
 // Add hover effect for experience cards
 document.querySelectorAll('.experience-card').forEach(card => {
@@ -114,4 +102,4 @@ document.querySelectorAll('.experience-card').forEach(card => {
         card.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
     });
 });
-</script>
+</script>-->
