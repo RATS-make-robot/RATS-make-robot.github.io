@@ -63,7 +63,9 @@
         -ms-overflow-style: none; /* IE에서 스크롤 숨김 */
         animation: scroll-left 20s linear infinite; /* 자동 스크롤 애니메이션 */
     }
-
+    .project-group:hover {
+    animation-play-state: paused; /* hover 시 애니메이션 일시 중지 */
+}
     .project-group::-webkit-scrollbar {
         display: none; /* 크롬, 사파리 스크롤 숨김 */
     }
