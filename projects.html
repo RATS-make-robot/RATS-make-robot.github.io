@@ -43,13 +43,11 @@
     }
 
     .project-container {
-        display: flex;
-        animation: scroll-left 20s linear infinite; /* 자동 스크롤 애니메이션 */
+        flex-direction: column; /* 연도별로 세로 배치 */
     }
 
     .project-scroll-container {
         display: flex;
-        flex-direction: column; /* 연도별로 세로 배치 */
         gap: 20px;
         overflow-y: hidden; /* 세로 스크롤 비활성화 */
         padding: 10px;
@@ -63,6 +61,7 @@
         padding: 10px;
         scrollbar-width: thin; /* 간소화된 스크롤바 */
         -ms-overflow-style: none; /* IE에서 스크롤 숨김 */
+        animation: scroll-left 20s linear infinite; /* 자동 스크롤 애니메이션 */
     }
 
     .project-group::-webkit-scrollbar {
