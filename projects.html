@@ -59,7 +59,6 @@
         flex-direction: column; /* 연도별로 세로 배치 */
         gap: 20px;
         overflow-y: hidden; /* 세로 스크롤 비활성화 */
-        overflow-x: auto; /* 가로 스크롤 활성화 */
         padding: 10px;
     }  
     
@@ -76,7 +75,13 @@
     .project-group::-webkit-scrollbar {
         display: none; /* 크롬, 사파리 스크롤 숨김 */
     }
-
+    .project-group::-webkit-scrollbar-thumb {
+    background: #888; /* 스크롤바 색상 */
+    border-radius: 4px;
+}
+.project-group::-webkit-scrollbar-thumb:hover {
+    background: #555; /* 스크롤바 호버 색상 */
+}
     .project-card {
         flex: 0 0 auto; /* 카드 크기 고정 */
         width: 300px;
