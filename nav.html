@@ -44,7 +44,7 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex; /* 가로 배열 */
-    gap: 20px; /* 메뉴 간 간격 추가 */
+    gap: 1em; /* 메뉴 간 간격 추가 */
     flex-wrap: wrap; /* 작은 화면에서 줄바꿈 */
     justify-content: center; /* 중앙 정렬 유지 */
 }
@@ -70,12 +70,11 @@ nav a:hover {
 
 @media (max-width: 768px) {
     nav ul {
-        flex-direction: column; /* 작은 화면에서 세로 정렬 */
-        gap: 15px; /* 간격 조정 */
+        gap: 10px; /* 간격 조정 */
     }
 
     nav {
-        padding: 15px; /* 패딩 조정 */
+        padding: 10px; /* 패딩 조정 */
     }
 
     nav a {
