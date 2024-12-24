@@ -65,7 +65,7 @@ seminars:
     image: "assets/images/sections/seminars/2024/c.jpg"
 
   - title: "2024 CubeIDE"
-    description: "STM32, CubeIDE"
+    description: "신입생 교육 준비를 위해 재학생을 대상으로 교육부장이 진행한 STM32CubeIDE 및 STM32 사용 방법에 대한 세미나입니다."
     organizer: "이준영"
     period: "2024년 3월"
     image: "assets/images/sections/seminars/2024/stm32.jpg"
@@ -78,7 +78,7 @@ seminars:
   - title: "2023 신입생 MCU, 알고리즘 세미나"
     description: ""
     organizer: "김영찬, 오태현, 장혜정, 정지원, 오은지, 이승석, 이준영, 권인아"
-    period: "2023년 3, 4월"
+    period: "2023년 9월"
     image: "assets/images/sections/seminars/2023/mcu.jpg"
 
   - title: "2023 RATS 여름 세미나"
@@ -86,23 +86,23 @@ seminars:
     organizer: "김영찬"
     period: "2023년 8월"
 
-  - title: "2023 SOLIDWORKS 세미나"
-    description: "SOLIDWORKS 3D CAD 세미나"
-    organizer: "박찬혁"
-    period: "2023년 3월"
-    image: "assets/images/sections/seminars/2023/solidworks.jfif"
-
   - title: "2023 신입생 회로도, 소자, 납땜 세미나"
     description: ""
     organizer: "김영찬"
-    period: "2023년 3월"
-    image: "assets/images/sections/seminars/2023/circuit.jfif"
+    period: "2023.04.03, 04, 05, 06"
+    image: "assets/images/sections/seminars/2023/soldering.jpg"
 
   - title: "2023 신입생 C언어, Arduino 세미나"
     description: ""
     organizer: "안재영, 이상렬, 서호준, 권인아, 유다연, 이은규, 김진현"
     period: "2023년 3, 4월"
     image: "assets/images/sections/seminars/2023/c.jfif"
+
+  - title: "2023 SOLIDWORKS 세미나"
+    description: "SOLIDWORKS 3D CAD 세미나"
+    organizer: "박찬혁"
+    period: "2023.03.28 ~ 2023.03.29"
+    image: "assets/images/sections/seminars/2023/solidworks.jfif"
 
   - title: "2023 RATS 겨울 세미나"
     description: "고급C언어, C++, 회로이론, PCB 설계(KiCAD)"
