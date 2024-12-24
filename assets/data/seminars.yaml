@@ -79,7 +79,7 @@ seminars:
     description: ""
     organizer: "김영찬, 오태현, 장혜정, 정지원, 오은지, 이승석, 이준영, 권인아"
     period: "2023년 3, 4월"
-    image: "assets/images/sections/seminars/2023/stm32.jpg"
+    image: "assets/images/sections/seminars/2023/mcu.jpg"
 
   - title: "2023 RATS 여름 세미나"
     description: "ATmega128A - 지능형 센서 응용"
@@ -124,4 +124,5 @@ seminars:
     description: "라인트레이서 로봇을 제작하며 임베디드 기초를 다집니다"
     organizer: "RATS"
     period: "2022년"
+    image: "assets/images/sections/seminars/2022/linetracer.gif"
     link: "https://github.com/RATS-make-robot/2022-freshman-linetracer"
