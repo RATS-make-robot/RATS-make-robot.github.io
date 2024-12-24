@@ -61,7 +61,7 @@
         padding: 10px;
         scrollbar-width: thin; /* 간소화된 스크롤바 */
         -ms-overflow-style: none; /* IE에서 스크롤 숨김 */
-        animation: scroll-left 20s ease infinite; /* 자동 스크롤 애니메이션 */
+        animation: scroll-loop 20s linear infinite;
     }
     .project-group:hover {
     animation-play-state: paused; /* hover 시 애니메이션 일시 중지 */
@@ -152,4 +152,13 @@
             transform: translateX(-100%);
         }
     }
+
+    @keyframes scroll-loop {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
 </style>
