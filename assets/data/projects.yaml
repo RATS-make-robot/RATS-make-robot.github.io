@@ -62,8 +62,6 @@ projects:
         links:
           github: "https://github.com/KimTeddy/2024_A.RM.I_Public"
           youtube: "https://youtu.be/RNpNJ6A_28k?si=IeHd7aC45Z5TKPu1"
-          other: "https://youtu.be/RNpNJ6A_28k?si=IeHd7aC45Z5TKPu1"
-          other_logo: "assets/images/site/main-logo.png"
 
       - title: "RAER"
         description: "현장 탐사 및 구조 보조 로봇 Rescue Assistant Exploration Robot"
