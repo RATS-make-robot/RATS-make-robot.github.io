@@ -41,15 +41,17 @@ section {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 더 부드럽고 깊이감 있는 그림자 */
     border: 1px solid #90caf9; /* 파란색 테두리 추가 */
     transition: background-color 0.3s ease, border-color 0.3s ease; /* 다크모드 전환 애니메이션 */
-    transition: max-width 2s ease;
+    /*transition: max-width 2s ease;*/
+    transition: border 0.5s ease;
 }
 section:hover{
-    max-width: 100%;
+    /*max-width: 100%;*/
+    border: 3px solid #2c4399;
 }
 section h2 {
     margin-top: 0;
-    color: #1e88e5; /* 밝은 파란색 제목 */
-    border-bottom: 3px solid #64b5f6; /* 하단선에 부드러운 파란색 추가 */
+    color: #2c4399; /* 1e88e5밝은 파란색 제목 */
+    border-bottom: 3px solid #2c4399; /* 64b5f6하단선에 부드러운 파란색 추가 */
     padding-bottom: 0.5rem;
     font-weight: bold;
 }
@@ -126,6 +128,7 @@ body.dark-mode section {
 }
 body.dark-mode section h2 {
     color: #90caf9; /* 다크모드 파란 제목 */
+    border-bottom: 3px solid #64b5f6; /* 64b5f6하단선에 부드러운 파란색 추가 */
 }
 body.dark-mode .cards {
     background: #161616; /* 다크모드 카드 배경 */
