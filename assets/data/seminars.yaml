@@ -40,6 +40,18 @@
 # ==============================================================================
 
 seminars:
+  - title: "2025 신입생 MCU"
+    description: "라인트레이서 임베디드 설계를 위한 MCU 세미나"
+    organizer: "재학생"
+    period: "2025년 5월 12일"
+    image: "assets/images/sections/seminars/2025/mcu.jpg"
+
+  - title: "2025 신입생 C언어"
+    description: "라인트레이서 프로그래밍을 위한 C언어 세미나"
+    organizer: "재학생"
+    period: "2025년 3월 24, 27, 31일"
+    image: "assets/images/sections/seminars/2025/c.jpg"
+
   - title: "2025 RATS 겨울 세미나 "
     description: "KiCad를 활용한 PCB 설계 세미나"
     organizer: "김영찬"
