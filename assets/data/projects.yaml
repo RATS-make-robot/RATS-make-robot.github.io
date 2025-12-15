@@ -51,6 +51,22 @@
 
 
 projects:
+  - year: "2025년도"
+    projects:
+      - title: "설몽"
+        description: "기계식 점자 디바이스"
+        team: "박민규, 이승주, 김민석, 이승현, 김현수(총 5명)"
+        image: "assets/images/sections/projects/2025/sulmong.jpg"
+        tags: ["2025"]
+        duration: "2025년 3월 ~ 2024년 12월"
+
+      - title: "DM(Driving Manager)"
+        description: "초보 운전자를 위한 운전 피드백 디바이스"
+        team: "안재원, 정연홍, 박수현, 박요한, 김유환(총 5명)"
+        image: ""
+        tags: ["2025"]
+        duration: "2025년 3월 ~ 2024년 12월"
+############################################################################################
   - year: "2024년도"
     projects:
       - title: "2024_A.RM.I"
