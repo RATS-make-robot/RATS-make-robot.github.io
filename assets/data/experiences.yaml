@@ -47,6 +47,25 @@
 experiences:
   - year: "2024년도"
     competitions:
+      - name: "2025 제 4회 명지대학교 창의적SW프로그램 경진대회"
+        awards:
+          - type: "대상"
+            count: 1
+      - name: "2025년 제 12회 전국 ICT 융합 공모전"
+        awards:
+          - type: "우수상"
+            count: 1
+      - name: "제 23회 임베디드 SW 경진대회 자유공모 부문"
+        awards:
+          - type: "금상"
+            count: 1
+          - type: "은상"
+            count: 1
+          - type: "창의상"
+            count: 1
+
+  - year: "2024년도"
+    competitions:
       - name: "2024 제 3회 명지대학교 창의적SW프로그램 경진대회"
         awards:
           - type: "대상"
@@ -79,7 +98,7 @@ experiences:
         awards:
           - type: "장려상"
             count: 1
-      - name: "제22회 임베디드 SW 경진대회"
+      - name: "제22회 임베디드 SW 경진대회 자유공모 부문"
         awards:
           - type: "입선"
             count: 1
