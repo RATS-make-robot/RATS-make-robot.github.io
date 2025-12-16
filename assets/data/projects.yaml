@@ -63,7 +63,7 @@ projects:
       - title: "DM(Driving Manager)"
         description: "초보 운전자를 위한 운전 피드백 디바이스"
         team: "안재원, 정연홍, 박수현, 박요한, 김유환(총 5명)"
-        image: ""
+        image: "assets/images/sections/projects/2025/dm.png"
         tags: ["2025"]
         duration: "2025년 3월 ~ 2025년 12월"
         links:
