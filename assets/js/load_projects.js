@@ -70,21 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                         otherLink.appendChild(logo);
                                     } else {
                                         otherLink.textContent = "기타 링크";
-                                        otherLink.style.display = "inline-block";
-                                        otherLink.style.padding = "10px 15px";
-                                        otherLink.style.backgroundColor = "#007bff";
-                                        otherLink.style.color = "#fff";
-                                        otherLink.style.borderRadius = "5px";
-                                        otherLink.style.textAlign = "center";
-                                        otherLink.style.fontWeight = "bold";
-                                        otherLink.style.textDecoration = "none"; // 밑줄 제거
-
-                                        otherLink.addEventListener('mouseover', () => {
-                                            otherLink.style.backgroundColor = "#0056b3"; // 버튼 hover 효과
-                                        });
-                                        otherLink.addEventListener('mouseout', () => {
-                                            otherLink.style.backgroundColor = "#007bff"; // 기본 색상 복원
-                                        });
+                                        otherLink.className = "project-link-btn";
                                     }
                                     linksContainer.appendChild(otherLink);
                                 }
@@ -93,9 +79,9 @@ document.addEventListener('DOMContentLoaded', () => {
                                 if (project.links.youtube) {
                                     const youtubeLink = document.createElement('a');
                                     youtubeLink.href = project.links.youtube;
-                                    youtubeLink.className = 'link-icon';
+                                    youtubeLink.className = 'link-icon youtube-link-btn';
                                     youtubeLink.target = '_blank';
-                                    youtubeLink.innerHTML = `<img src="assets/images/logos/youtubelogo.svg" alt="YouTube Link" style="width: 50px; height: auto;">`;
+                                    youtubeLink.innerHTML = `<img src="assets/images/logos/youtubelogo.svg" alt="YouTube Link" style="width: 60px; height: auto;">`;
                                     linksContainer.appendChild(youtubeLink);
                                 }
 
@@ -105,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                     githubLink.href = project.links.github;
                                     githubLink.className = 'link-icon';
                                     githubLink.target = '_blank';
-                                    githubLink.innerHTML = `<img src="assets/images/logos/githublogo.svg" alt="GitHub Link" style="width: 50px; height: auto;">`;
+                                    githubLink.innerHTML = `<img src="assets/images/logos/githublogo.svg" alt="GitHub Link" style="width: 60px; height: auto;">`;
                                     linksContainer.appendChild(githubLink);
                                 }
                             }

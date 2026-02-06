@@ -1,7 +1,6 @@
 <!-- nav.html -->
 <nav>
-    <div class="scroll-progress-bar">
-    </div>
+    <div class="scroll-progress-bar"></div>
     <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -11,83 +10,51 @@
         <li><a href="#join">Join</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
-    <script>
-        /*
-        document.addEventListener('DOMContentLoaded', () => {
-            const stickyNav = document.getElementById('sticky-nav');
-            const showAfter = 100; // 스크롤이 100px 이상일 때 나타남
-
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > showAfter) {
-                    stickyNav.style.display = 'block';
-                } else {
-                    stickyNav.style.display = 'none';
-                }
-            });
-
-
-
-            window.addEventListener('scroll', () => {
-                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-                const scrollPosition = window.scrollY;
-                const scrollPercentage = (scrollPosition / scrollHeight) * 100;
-
-                // 모든 선택된 요소에 대해 width를 업데이트
-                scrollProgressBars.forEach((bar) => {
-                    bar.style.width = `${scrollPercentage}%`;
-                });
-            });
-        });*/
-    </script>
 </nav>
 
 <style>
     .scroll-progress-bar {
-        filter: brightness(100);
-        backdrop-filter: blur(10px);
         position: fixed;
         top: 0;
         left: 0;
         height: 3px;
-        border-end-end-radius: 10px;
-        background-color: #ffffff71;
-        z-index: 10000;
-        width: 0.1%; /* 초기 너비 설정 */
+        background: linear-gradient(90deg, #00d4ff, #22d3ee, #a855f7);
+        box-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
+        z-index: 10001;
+        width: 0.1%;
+        transition: width 0.1s ease-out;
     }
+
     nav {
         position: fixed;
-        /* 스크롤 시 상단에 고정 */
-        top: 0;
+        top: 80px;
         left: 0;
         width: 100%;
-        background-color: rgba(51, 51, 51, 0.4);
-        /* 투명도 감소 */
-        backdrop-filter: blur(10px);
-        /* 배경에 블러 효과 추가 */
-        padding: 10px 20px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        /* 그림자 추가 */
-        z-index: 1000;
-        /* 다른 요소 위에 표시 */
+        z-index: 998;
+
+        background: rgba(17, 24, 39, 0.7);
+        backdrop-filter: blur(15px) saturate(180%);
+        -webkit-backdrop-filter: blur(15px) saturate(180%);
+
+        padding: 0.75rem 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
         display: flex;
         justify-content: center;
-        /* 가운데 정렬 */
         align-items: center;
+
+        transition: all 0.3s ease;
     }
 
     nav ul {
         list-style: none;
-        /* 기본 리스트 스타일 제거 */
         padding: 0;
         margin: 0;
         display: flex;
-        /* 가로 배열 */
-        gap: 1em;
-        /* 메뉴 간 간격 추가 */
+        gap: 1.5rem;
         flex-wrap: wrap;
-        /* 작은 화면에서 줄바꿈 */
         justify-content: center;
-        /* 중앙 정렬 유지 */
     }
 
     nav li {
@@ -96,43 +63,60 @@
 
     nav a {
         text-decoration: none;
-        /* 밑줄 제거 */
-        color: #fff;
-        /* 기본 텍스트 색상 */
-        font-size: 1rem;
-        /* 기본 글꼴 크기 */
-        font-weight: bold;
-        padding: 5px 10px;
-        /* 클릭 영역 확대 */
-        border-radius: 5px;
-        /* 약간의 둥근 모서리 */
-        transition: color 0.3s ease, background-color 0.3s ease;
-        /* 부드러운 전환 */
+        color: #cbd5e1;
+        font-size: 0.95rem;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+
+        position: relative;
+        overflow: hidden;
+
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    nav a::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #00d4ff, #22d3ee);
+        transform: translateX(-50%);
+        transition: width 0.3s ease;
     }
 
     nav a:hover {
-        color: #fff;
-        /* 텍스트 색상 유지 */
-        background-color: #007bff;
-        /* 배경색 변경 */
+        color: #00d4ff;
+        background-color: rgba(0, 212, 255, 0.1);
+        text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    }
+
+    nav a:hover::before {
+        width: 80%;
     }
 
     @media (max-width: 768px) {
-        nav ul {
-            gap: 0px;
-            /* 간격 조정 */
+        nav {
+            top: 60px;
+            padding: 0.5rem;
         }
 
-        nav {
-            padding: 5px;
-            /* 패딩 조정 */
+        nav ul {
+            gap: 0.5rem;
         }
 
         nav a {
-            font-size: 70%;
-            /* 작은 화면에서 글자 크기 축소 */
-            padding: 5px 10px;
-            /* 클릭 영역 조정 */
+            font-size: 0.8rem;
+            padding: 0.4rem 0.7rem;
+        }
+    }
+
+    @media (max-width: 440px) {
+        nav a {
+            font-size: 0.7rem;
+            padding: 0.3rem 0.5rem;
         }
     }
 </style>

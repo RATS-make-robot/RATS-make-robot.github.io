@@ -10,7 +10,8 @@
         </li>
         <li>
             <a href="https://github.com/RATS-make-robot" target="_blank">
-                <img class="link-icon-contact link-icon-contact-github" src="assets/images/logos/github-mark.svg" alt="GitHub" />
+                <img class="link-icon-contact link-icon-contact-github" src="assets/images/logos/github-mark.svg"
+                    alt="GitHub" />
                 <span class="link-text">RATS-make-robot</span>
             </a>
         </li>
@@ -24,62 +25,116 @@
 </section>
 
 <style>
-#contact {
-    text-align: center;
-    font-family: Arial, sans-serif;
-}
+    #contact {
+        text-align: center;
+        font-family: 'Inter', sans-serif;
+    }
 
-#contact h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
+    #contact h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
 
-#contact p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
+    #contact p {
+        font-size: 1.15rem;
+        margin-bottom: 3rem;
+        color: var(--color-text-secondary);
+    }
 
-.contact-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+    .contact-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
 
-.contact-list li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-}
+    .contact-list li {
+        width: 100%;
+        max-width: 500px;
+    }
 
-.contact-list a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #2C4399;
-    transition: color 0.3s ease;
-    transition: transform 0.3s ease;
-}
+    .contact-list a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
 
-.contact-list a:hover {
-    color: #0078d7;
-    transform: scale(1.05);
-}
+        padding: 1.25rem 2rem;
 
-.contact-list img.link-icon-contact {
-    width: 30px;
-    height: auto;
-    margin-right: 10px;
-    transition: transform 0.3s ease;
-}
+        text-decoration: none;
+        color: #00d4ff;
+        font-weight: 600;
+        font-size: 1.1rem;
 
-.contact-list img.link-icon-contact:hover {
-    transform: scale(1.1);
-}
+        background: rgba(31, 41, 55, 0.5);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        border-radius: 12px;
 
-.contact-list .link-text {
-    font-size: 1.1rem;
-    font-weight: 600;
-}
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+        overflow: hidden;
+    }
 
+    .contact-list a::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(0, 212, 255, 0.2), transparent);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s ease, height 0.6s ease;
+    }
+
+    .contact-list a:hover::before {
+        width: 500px;
+        height: 500px;
+    }
+
+    .contact-list a:hover {
+        color: #22d3ee;
+        border-color: rgba(0, 212, 255, 0.5);
+        transform: translateY(-5px) scale(1.02);
+        box-shadow:
+            0 12px 30px rgba(0, 0, 0, 0.4),
+            0 0 40px rgba(0, 212, 255, 0.3);
+        text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+    }
+
+    .contact-list img.link-icon-contact {
+        width: 32px;
+        height: auto;
+        transition: all 0.4s ease;
+        position: relative;
+        z-index: 1;
+    }
+
+    .contact-list a:hover img.link-icon-contact {
+        transform: scale(1.15) rotate(5deg);
+        filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.6));
+    }
+
+    .contact-list .link-text {
+        font-size: 1.1rem;
+        font-weight: 600;
+        position: relative;
+        z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+        .contact-list a {
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+        }
+
+        .contact-list img.link-icon-contact {
+            width: 28px;
+        }
+    }
 </style>

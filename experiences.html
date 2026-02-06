@@ -1,183 +1,320 @@
 <!-- experiences.html -->
 <section id="experiences">
-    <h2>Awards</h2>
-    <p>동아리 활동 중 수상 내역을 확인하세요!</p>
-    <div class="experience-container">
-        <!--
-        <div class="experience-card">
-            <h3>2024년도</h3>
-            <div class="competition-row"><span class="competition-title">2024 한이음 ICT멘토링 공모전</span><span
-                    class="award-list"><code>✨입선(2)</code></span></div>
-            <div class="competition-row"><span class="competition-title">제22회 임베디드 SW 경진대회</span><span
-                    class="award-list"><code>✨입선</code></span></div>
-            <div class="competition-row"><span class="competition-title">2024 명지대학교 전자공학과 캡스톤디자인 작품발표회</span><span
-                    class="award-list"><code>🥈은상</code></span></div>
-            <div class="competition-row"><span class="competition-title">2024 SEP 융합 Festival</span><span
-                    class="award-list"><code>🥉동상</code></span></div>
-            <div class="competition-row"><span class="competition-title">KCSDT 2024 GUMI 학술대회 포스터상</span><span
-                    class="award-list"><code>🏅우수상</code></span></div>
-            <div class="competition-row"><span class="competition-title">2024 명지대학교 컴퓨터공학과 캡스톤디자인 경진대회</span><span
-                    class="award-list"><code>✨장려상</code></span></div>
-            <div class="competition-row"><span class="competition-title">제 3회 명지대학교 창의적SW프로그램 경진대회</span><span
-                    class="award-list"><code>🏆대상</code></span></div>
-            <div class="competition-row"><span class="competition-title">2024학년도 ChatGPT 기반 AI 실전 활용 경진대회</span><span
-                    class="award-list"><code>✨장려상</code></span></div>
-            <div class="competition-row"><span class="competition-title">제 11회 전국ICT융합공모전</span><span
-                    class="award-list"><code>✨특별상</code></span></div>
+        <h2>Awards</h2>
+        <p>동아리 활동 중 수상 내역을 확인하세요!</p>
+
+        <div class="awards-counter-container">
+                <div class="counter-item">
+                        <div class="counter-number" data-target="0" id="external-counter">0</div>
+                        <div class="counter-label">External Awards</div>
+                </div>
+                <div class="counter-divider"></div>
+                <div class="counter-item">
+                        <div class="counter-number" data-target="0" id="school-counter">0</div>
+                        <div class="counter-label">School Awards</div>
+                </div>
         </div>
-        <div class="experience-card">
-            <h3>2023년도</h3>
-            <div class="competition-row"><span class="competition-title">2023 한이음 ICT멘토링 학술대회</span><span
-                    class="award-list"><code>🏆최우수상</code></span></div>
-            <div class="competition-row"><span class="competition-title">2023 창의적 종합 설계 경진대회</span><span
-                    class="award-list"><code>🥇금상</code></span></div>
-            <div class="competition-row"><span class="competition-title">2023 SEP 융합 페스티벌</span><span
-                    class="award-list"><code>🥇금상</code> <code>🥈은상</code> <code>🥉동상</code></span></div>
-            <div class="competition-row"><span class="competition-title">2023 음성인식 어워드</span><span
-                    class="award-list"><code>🥈은상</code></span></div>
-            <div class="competition-row"><span class="competition-title">2023 프로보노 ICT멘토링 공모전</span><span
-                    class="award-list"><code>🥉동상</code></span></div>
-            <div class="competition-row"><span class="competition-title">2023 CDE학회(대학 연구소 부문)</span><span
-                    class="award-list"><code>✨장려상</code></span></div>
-            <div class="competition-row"><span class="competition-title">2023 캡스톤디자인 경진대회(2,3학년 부문)</span><span
-                    class="award-list"><code>🥈은상</code></span></div>
-            <div class="competition-row"><span class="competition-title">2023 캡스톤디자인 경진대회(기계공학과)</span><span
-                    class="award-list"><code>🥇금상</code></span></div>
-            <div class="competition-row"><span class="competition-title">2023 교내 캡스톤디자인 프로젝트 경진대회</span><span
-                    class="award-list"><code>🏆대상</code> <code>🥉동상(2)</code> <code>📜포스터상</code></span></div>
+
+        <div class="experience-container">
+                <!-- 동적으로 로드됨 -->
         </div>
-        <div class="experience-card">
-            <h3>2022년도</h3>
-            <div class="competition-row"><span class="competition-title">Ne(o)rdinary Hackathon</span><span
-                    class="award-list"><code>🏆대상</code></span></div>
-            <div class="competition-row"><span class="competition-title">융합캡스톤 성과발표회/경진대회</span><span
-                    class="award-list"><code>✨장려상</code></span></div>
-            <div class="competition-row"><span class="competition-title">강소기업탐방공모전</span><span
-                    class="award-list"><code>🏅우수상</code></span></div>
-            <div class="competition-row"><span class="competition-title">Campus Convergence 공모전</span><span
-                    class="award-list"><code>✨최우수</code> <code>✨우수</code></span></div>
-            <div class="competition-row"><span class="competition-title">SEP 융합 Festival</span><span
-                    class="award-list"><code>🥇금상</code> <code>🥈은상(2)</code> <code>🥉동상</code></span></div>
-            <div class="competition-row"><span class="competition-title">캡스톤디자인 경진대회</span><span
-                    class="award-list"><code>🏆대상</code> <code>🥇금상(2)</code></span></div>
-            <div class="competition-row"><span class="competition-title">창의융합대회</span><span
-                    class="award-list"><code>✨최우수</code></span></div>
-            <div class="competition-row"><span class="competition-title">한이음 ICT멘토링 공모전</span><span
-                    class="award-list"><code>✨장려상</code> <code>✨입선</code></span></div>
-            <div class="competition-row"><span class="competition-title">창의적 종합설계 경진대회</span><span
-                    class="award-list"><code>✨우수</code></span></div>
-            <div class="competition-row"><span class="competition-title">창의 융합캠프</span><span
-                    class="award-list"><code>✨우수</code></span></div>
-        </div>
-        <div class="experience-card">
-            <h3>2019-2020년도</h3>
-            <div class="competition-row"><span class="competition-title">2019 임베디드 소프트웨어 경진대회</span><span
-                    class="award-list"><code>🏅우수상</code></span></div>
-            <div class="competition-row"><span class="competition-title">제20회 CDE 경진대회</span><span
-                    class="award-list"><code>🥈은상</code></span></div>
-            <div class="competition-row"><span class="competition-title">2019 서울과학기술대학교 공학교육거점센터 창의적 종합설계
-                    경진대회</span><span class="award-list"><code>✨장려상</code></span></div>
-            <div class="competition-row"><span class="competition-title">2019 교내 캡스톤디자인 프로젝트 경진대회(캡스톤)</span><span
-                    class="award-list"><code>🏆대상</code> <code>🥈은상</code></span></div>
-            <div class="competition-row"><span class="competition-title">2019 교내 캡스톤디자인 프로젝트 경진대회(다학제)</span><span
-                    class="award-list"><code>🥇금상</code> <code>🥉동상</code></span></div>
-            <div class="competition-row"><span class="competition-title">2019 교내 캡스톤디자인 프로젝트 경진대회(융합과제)</span><span
-                    class="award-list"><code>✨장려상</code></span></div>
-            <div class="competition-row"><span class="competition-title">2020 서울과학기술대학교 공학교육 거점센터 창의적 종합설계
-                    경진대회</span><span class="award-list"><code>✨장려상</code></span></div>
-        </div>-->
-    </div>
 </section>
 
 <!-- CSS for experiences -->
 <style>
-    /* 경험 카드 컨테이너 */
-    .experience-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        flex-direction: column;
-        /*align-items: center;*/
-        gap: 20px;
-        height: auto;
-        /* 카드 간 간격 */
-        margin: 0 auto;
-        /* 가운데 정렬 */
-    }
+        /* 카운터 섹션 스타일 */
+        .awards-counter-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 3rem;
+                margin-bottom: 3rem;
+                padding: 2rem;
 
-    /* 경험 카드 */
-    .experience-card {
-        display: block;
-        border-radius: 10px;
-        /* 그림자 */
-        grid: 0 0 auto;
-        /* 카드 크기 고정 */
-        padding: 0px 20px;
-        max-width: 800px;
-        text-align: left;
-        /* 텍스트 왼쪽 정렬 */
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        /* 애니메이션 */
-    }
+                background: rgba(10, 14, 26, 0.4);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(0, 212, 255, 0.2);
+                border-radius: 16px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
 
-    /* Hover 효과 */
-    .experience-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
+        .counter-item {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-width: 150px;
+        }
 
-    /* 연도 텍스트 스타일 */
-    .experience-card h3 {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
-    }
+        .counter-number {
+                font-size: 3.5rem;
+                font-weight: 800;
+                color: #fff;
+                margin-bottom: 0.5rem;
+                font-family: 'JetBrains Mono', monospace;
 
-    /* 대회명 및 수상 리스트 */
-    .competition-row {
-        display: flex;
-        justify-content: space-between;
-        /* 대회명과 수상 내역 양쪽 정렬 */
-        margin: 10px 0;
-        /* 간격 */
-    }
+                background: linear-gradient(135deg, #fff 0%, #00d4ff 100%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
 
-    .competition-title {
-        font-weight: bold;
-        /* 대회명 강조 */
-    }
+                text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
 
-    .award-list {
-        display: flex;
-        flex-direction: column;
-    }
+        .counter-label {
+                font-size: 1rem;
+                color: #94a3b8;
+                font-weight: 500;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+        }
 
-    .award-list code {
-        background-color: #f5f5f5;
-        /* 밝은 회색 배경 */
-        font-size: 0.9rem;
-        padding: 2px 6px;
-        border-radius: 4px;
-        /* 둥근 모서리 */
-        font-family: Arial, sans-serif;
-        /*font-family: 'Noto Sans KR', 'Courier New', Courier, monospace;
-         코딩 폰트 */
-        
-        word-break: keep-all;
-        white-space: nowrap;
-        overflow-wrap: normal;
+        .counter-divider {
+                width: 1px;
+                height: 60px;
+                background: linear-gradient(to bottom, transparent, rgba(0, 212, 255, 0.3), transparent);
+        }
 
-        transition: background-color 0.3s ease, color 0.3s ease; /* 부드러운 전환 */
-    }
+        /* 경험 카드 컨테이너 - 그리드 레이아웃 */
+        .experience-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 1.5rem;
+                margin-top: 2rem;
+        }
+
+        /* 경험 카드 */
+        .experience-card {
+                background: rgba(31, 41, 55, 0.7);
+                backdrop-filter: blur(12px);
+                border: 1px solid rgba(0, 212, 255, 0.25);
+                border-radius: 12px;
+                padding: 1.5rem;
+
+                position: relative;
+                overflow: hidden;
+
+                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* 그라데이션 배경 효과 */
+        .experience-card::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: conic-gradient(transparent,
+                                rgba(0, 212, 255, 0.1),
+                                transparent 30%);
+                opacity: 0;
+                transition: opacity 0.4s ease;
+        }
+
+        .experience-card:hover::before {
+                opacity: 1;
+                animation: rotate 4s linear infinite;
+        }
+
+        @keyframes rotate {
+                100% {
+                        transform: rotate(360deg);
+                }
+        }
+
+        /* Hover 효과 */
+        .experience-card:hover {
+                transform: translateY(-8px) scale(1.02);
+                border-color: rgba(0, 212, 255, 0.5);
+                box-shadow:
+                        0 15px 40px rgba(0, 0, 0, 0.5),
+                        0 0 60px rgba(0, 212, 255, 0.3);
+        }
+
+        /* 연도 제목 */
+        .experience-card h3 {
+                font-size: 1.75rem;
+                font-weight: 800;
+                margin-bottom: 1rem;
+                padding-bottom: 0.75rem;
+                color: #00d4ff;
+                text-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+                letter-spacing: -0.02em;
+                position: relative;
+                z-index: 1;
+
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+
+                border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .experience-card h3::before {
+                content: '🏆';
+                font-size: 1.5rem;
+                animation: trophy-float 2s ease-in-out infinite;
+        }
+
+        @keyframes trophy-float {
+
+                0%,
+                100% {
+                        transform: translateY(0);
+                }
+
+                50% {
+                        transform: translateY(-4px);
+                }
+        }
+
+        /* 대회명 및 수상 리스트 */
+        .competition-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 0.75rem;
+                margin: 0.6rem 0;
+                padding: 0.5rem;
+                border-radius: 6px;
+                background: rgba(0, 0, 0, 0.15);
+                border-left: 2px solid transparent;
+                transition: all 0.3s ease;
+                position: relative;
+                z-index: 1;
+        }
+
+        .competition-row:hover {
+                background: rgba(0, 212, 255, 0.1);
+                border-left-color: #00d4ff;
+                transform: translateX(6px);
+                box-shadow: 0 2px 12px rgba(0, 212, 255, 0.2);
+        }
+
+        .competition-title {
+                font-weight: 600;
+                color: #e2e8f0;
+                flex: 1;
+                line-height: 1.5;
+                font-size: 0.9rem;
+        }
+
+        .award-list {
+                display: flex;
+                flex-direction: column;
+                gap: 0.3rem;
+                align-items: flex-end;
+        }
+
+        .award-list code {
+                background: linear-gradient(135deg,
+                                rgba(0, 212, 255, 0.2),
+                                rgba(34, 211, 238, 0.15));
+                border: 1px solid rgba(0, 212, 255, 0.35);
+                color: #22d3ee;
+
+                font-size: 0.75rem;
+                font-weight: 700;
+                padding: 0.3rem 0.7rem;
+                border-radius: 12px;
+
+                font-family: 'Inter', sans-serif;
+                white-space: nowrap;
+
+                box-shadow: 0 2px 8px rgba(0, 212, 255, 0.2);
+                transition: all 0.3s ease;
+                display: inline-block;
+        }
+
+        .award-list code:hover {
+                background: linear-gradient(135deg,
+                                rgba(0, 212, 255, 0.3),
+                                rgba(34, 211, 238, 0.25));
+                border-color: rgba(0, 212, 255, 0.6);
+                box-shadow:
+                        0 4px 15px rgba(0, 212, 255, 0.4),
+                        0 0 20px rgba(0, 212, 255, 0.3);
+                transform: translateY(-2px) scale(1.05);
+        }
+
+        /* 반응형 - 태블릿 */
+        @media (max-width: 1024px) {
+                .experience-container {
+                        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                }
+        }
+
+        /* 반응형 - 모바일 */
+        @media (max-width: 768px) {
+                .awards-counter-container {
+                        flex-direction: column;
+                        gap: 1.5rem;
+                        padding: 1.5rem;
+                }
+
+                .counter-divider {
+                        width: 80%;
+                        height: 1px;
+                        background: linear-gradient(to right, transparent, rgba(0, 212, 255, 0.3), transparent);
+                }
+
+                .experience-container {
+                        grid-template-columns: 1fr;
+                }
+
+                .experience-card h3 {
+                        font-size: 1.5rem;
+                }
+
+                .competition-row {
+                        flex-direction: column;
+                        gap: 0.5rem;
+                }
+
+                .award-list {
+                        align-items: flex-start;
+                }
+        }
+
+        /* 등장 애니메이션 */
+        @keyframes fadeInUp {
+                from {
+                        opacity: 0;
+                        transform: translateY(20px);
+                }
+
+                to {
+                        opacity: 1;
+                        transform: translateY(0);
+                }
+        }
+
+        .experience-card {
+                animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .experience-card:nth-child(1) {
+                animation-delay: 0.05s;
+        }
+
+        .experience-card:nth-child(2) {
+                animation-delay: 0.1s;
+        }
+
+        .experience-card:nth-child(3) {
+                animation-delay: 0.15s;
+        }
+
+        .experience-card:nth-child(4) {
+                animation-delay: 0.2s;
+        }
+
+        .experience-card:nth-child(5) {
+                animation-delay: 0.25s;
+        }
+
+        .experience-card:nth-child(6) {
+                animation-delay: 0.3s;
+        }
 </style>
-
-<!--
-<script>
-// Add hover effect for experience cards
-document.querySelectorAll('.experience-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.2)';
-    });
-    card.addEventListener('mouseleave', () => {
-        card.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
-    });
-});
-</script>-->

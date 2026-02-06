@@ -3,19 +3,25 @@
     <p>동아리 활동 중 습득 가능한 기술들을 확인하세요.</p>
     <div class="skills-container">
         <div class="skills-card cards">
-            <img src="assets/images/sections/skills/c++.png" alt="프로그래밍 아이콘">
+            <div class="skill-icon-wrapper">
+                <img src="assets/images/sections/skills/c++.png" alt="프로그래밍 아이콘">
+            </div>
             <h3>프로그래밍</h3>
             <p>C /C++ /Java /Python 등 다양한 언어에 대한 스터디/세미나가 진행되고 있습니다.</p>
             <p>단, 신입생은 C언어 프로그래밍을 필수적으로 학습하여야 합니다.</p>
         </div>
         <div class="skills-card cards">
-            <img src="assets/images/sections/skills/cad.png" alt="CAD/기구 설계 아이콘">
+            <div class="skill-icon-wrapper">
+                <img src="assets/images/sections/skills/cad.png" alt="CAD/기구 설계 아이콘">
+            </div>
             <h3>CAD/기구 설계</h3>
             <p>CAD를 이용한 기구 설계를 동아리 원끼리 스터디 및 세미나를 통하여 학습합니다.</p>
             <p>또한 동아리 자체적으로 보유하고 있는 3D 프린터로 제작을 할 수 있습니다.</p>
         </div>
         <div class="skills-card cards">
-            <img src="assets/images/sections/skills/pcb.png" alt="전자 회로/소자 아이콘">
+            <div class="skill-icon-wrapper">
+                <img src="assets/images/sections/skills/pcb.png" alt="전자 회로/소자 아이콘">
+            </div>
             <h3>전자 회로/소자</h3>
             <p>다양한 소자의 역할을 알고, 이를 이용한 회로를 해석하고 설계할 수 있도록 스터디와 세미나가 진행되고 있습니다.</p>
         </div>
@@ -26,38 +32,104 @@
 <style>
     .skills-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
     }
 
     .skills-card {
         display: flex;
-        flex-direction: column; /* 세로 정렬 */
+        flex-direction: column;
         align-items: center;
-        padding: 10px;
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        padding: 2rem 1.5rem;
+        text-align: center;
+
+        position: relative;
+        overflow: hidden;
+
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .skills-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    .skills-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .skills-card:hover::after {
+        opacity: 1;
+    }
+
+    .skill-icon-wrapper {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(168, 85, 247, 0.1));
+        border-radius: 50%;
+        border: 2px solid rgba(0, 212, 255, 0.2);
+
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .skills-card:hover .skill-icon-wrapper {
+        transform: rotateY(360deg) scale(1.1);
+        border-color: #00d4ff;
+        box-shadow:
+            0 0 30px rgba(0, 212, 255, 0.4),
+            inset 0 0 20px rgba(0, 212, 255, 0.1);
     }
 
     .skills-card img {
-        width: auto;
+        width: 50px;
         height: 50px;
-        margin-bottom: 10px;
+        object-fit: contain;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        transition: all 0.4s ease;
+    }
+
+    .skills-card:hover img {
+        filter: drop-shadow(0 4px 12px rgba(0, 212, 255, 0.6));
     }
 
     .skills-card h3 {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: #00d4ff;
+        letter-spacing: -0.01em;
+        transition: all 0.3s ease;
+    }
+
+    .skills-card:hover h3 {
+        text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+        transform: translateY(-3px);
     }
 
     .skills-card p {
-        font-size: 0.9rem;
-        margin-top: 10px;
-        margin-bottom: 1px;
-        color: #555;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: #cbd5e1;
+        margin-top: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+        .skills-container {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .skills-card {
+            padding: 1.5rem 1rem;
+        }
     }
 </style>

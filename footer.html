@@ -1,125 +1,119 @@
 <!-- footer.html -->
 <footer>
-    <div class="footer-container">
-        <!-- Logo and Introduction -->
+    <div class="footer-content">
         <div class="footer-logo">
-            <img src="/assets/images/logos/RATS-white.svg" alt="명지대학교 로봇, 임베디드 중앙동아리">
+            <img src="assets/images/logos/RATS-white.svg" alt="RATS">
+            <p>Robotic Automatic Technology Society</p>
+            <p style="font-size: 0.8rem; margin-top: 0.2rem; color: #64748b;">명지대학교 로봇, 임베디드 중앙동아리</p>
         </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2025 RATS. All rights reserved.</p>
-            <p>동아리 홍보용 사이트입니다. 무단 도용 금지</p>
-        </div>
-
-        <!-- Links and Social Media -->
-        <div class="footer-social">
-            <div class="social-icons">
-                <a href="https://github.com/RATS-make-robot" target="_blank">
-                    <img src="assets/images/logos/github-mark-white.svg" alt="GitHub" />
+        <div class="footer-links">
+            <div class="footer-social">
+                <a href="https://github.com/MJU-RATS" target="_blank" aria-label="GitHub">
+                    <img src="assets/images/logos/github-mark-white.svg" alt="GitHub">
                 </a>
-                <a href="https://www.instagram.com/mjurats" target="_blank">
-                    <img src="assets/images/logos/instagram.svg" alt="Instagram" />
+                <a href="mailto:mjurats.official@gmail.com" aria-label="Gmail">
+                    <img src="assets/images/logos/gmail.svg" alt="Gmail">
                 </a>
-                <a href="mailto:mjurats.official@gmail.com">
-                    <img src="assets/images/logos/gmail.svg" alt="Gmail" />
+                <a href="https://instagram.com/mju_rats" target="_blank" aria-label="Instagram">
+                    <img src="assets/images/logos/instagram.svg" alt="Instagram">
                 </a>
             </div>
         </div>
     </div>
-
+    <div class="footer-bottom">
+        <p>&copy; 2026 RATS. All rights reserved.</p>
+        <p>Designed & Developed by RATS Team</p>
+    </div>
 </footer>
+
 <style>
-    /* Footer Base */
     footer {
-        text-align: center;
-        background: #222;
-        color: #fff;
-        padding: 1rem 0rem;
-        font-family: 'Arial', sans-serif;
+        background: #0a0e1a;
+        border-top: 1px solid rgba(0, 212, 255, 0.1);
+        padding: 4rem 2rem 2rem;
+        margin-top: 4rem;
+        position: relative;
+        z-index: 10;
     }
 
-    .footer-container {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        width: 90%;
+    .footer-content {
+        max-width: 1200px;
         margin: 0 auto;
-        gap: 2rem;
+        display: flex;
+        justify-content: space-between;
         align-items: center;
-        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-bottom: 2rem;
     }
 
     .footer-logo img {
-        width: 100px;
+        height: 40px;
         margin-bottom: 0.5rem;
     }
 
-    .footer-gotop {
-        color: #bbb;
-        text-decoration: none;
-        font-size: 1rem;
-        transition: color 0.3s;
-        padding: 0;
+    .footer-logo p {
+        color: #94a3b8;
+        font-size: 0.9rem;
         margin: 0;
     }
 
-    .footer-links ul li a:hover {
-        color: #1e88e5;
-    }
-
-    .footer-social .social-icons {
+    .footer-social {
         display: flex;
+        gap: 1.5rem;
+    }
+
+    .footer-social a {
+        display: flex;
+        align-items: center;
         justify-content: center;
-        gap: 1rem;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
     }
 
-    .footer-social .social-icons img {
-        width: 30px;
-        transition: transform 0.3s;
+    .footer-social img {
+        width: 20px;
+        height: 20px;
+        /* filter: invert(1) brightness(2); 제거 - 원본 아이콘 사용 */
     }
 
-    .footer-social .social-icons img:hover {
-        transform: scale(1.1);
+    .footer-social .social-icon {
+        font-size: 1.2rem;
+        filter: grayscale(1);
+    }
+
+    .footer-social a:hover {
+        background: rgba(0, 212, 255, 0.1);
+        transform: translateY(-3px);
+    }
+
+    .footer-social a:hover img {
+        filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.8));
+    }
+
+    .footer-social a:hover .social-icon {
+        filter: grayscale(0);
     }
 
     .footer-bottom {
-        font-size: 0.9rem;
-        color: #bbb;
-        justify-content: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 2rem;
+        text-align: center;
+        color: #64748b;
+        font-size: 0.85rem;
     }
 
-    /* Responsive Styles */
+    .footer-bottom p {
+        margin: 0.25rem 0;
+    }
+
     @media (max-width: 768px) {
-        .footer-container {
+        .footer-content {
             flex-direction: column;
-            align-items: center;
             text-align: center;
-        }
-
-        .footer-logo img {
-            width: 80px;
-        }
-
-        .footer-links ul li a {
-            font-size: 0.9rem;
-        }
-    }
-
-    @media (max-width: 400px) {
-        .footer-container {
-            flex-wrap: wrap-reverse;
-        }
-
-        .footer-logo img {
-            width: 60px;
-        }
-
-        .footer-links ul li a {
-            font-size: 0.8rem;
-        }
-
-        .footer-bottom {
-            font-size: 0.8rem;
         }
     }
 </style>

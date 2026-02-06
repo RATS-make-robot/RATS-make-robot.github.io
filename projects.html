@@ -2,16 +2,6 @@
 <section id="projects">
     <h2>Projects</h2>
     <p>좌우로 스크롤 가능합니다! (PC: Shift키 누른 상태로 마우스 휠)</p>
-    <!--
-    <div class="filter-buttons">
-        <button data-filter="all" class="filter-btn active">All</button>
-        <button data-filter="2024" class="filter-btn">2024</button>
-        <button data-filter="2023" class="filter-btn">2023</button>
-        <button data-filter="2022" class="filter-btn">2022</button>
-        <button data-filter="2021" class="filter-btn">2021</button>
-        <button data-filter="2020" class="filter-btn">2020</button>
-        <button data-filter="2019" class="filter-btn">2019</button>
-    </div>-->
     <div class="project-scroll-container">
         <!-- Projects will be dynamically added here -->
     </div>
@@ -21,209 +11,238 @@
 <style>
     .project-scroll-container {
         display: flex;
-        gap: 20px;
-        /* padding: 10px;*/
+        gap: 1.5rem;
+        margin-top: 2rem;
     }
+
     .project-container {
         flex-direction: column;
-        /* 연도별로 세로 배치 */
-        overflow-x: auto !important
+        overflow-x: auto !important;
     }
 
     .project-group {
         display: flex;
         flex-wrap: nowrap;
-        /* 한 줄에 모든 카드 배치 */
+        gap: 1.5rem;
+        padding: 3rem 1rem;
+        /* 상하 여백을 늘려 호버 효과 공간 확보 */
 
-        gap: 20px;
-        padding: 10px;
-
-        overflow-y: hidden;
-        /* 세로 스크롤 비활성화 */
+        overflow-y: visible;
+        /* 세로 방향 클리핑 방지 */
         overflow-x: auto;
-        /* 가로 스크롤 활성화 */
         scrollbar-width: thin;
-        /* 간소화된 스크롤바 */
         -ms-overflow-style: none;
-        /* IE에서 스크롤 숨김 */
-        /*animation: scroll-loop 20s linear infinite;*/
 
-        /*width: max-content;*/
         width: auto !important;
     }
 
     .project-group:hover {
         animation-play-state: paused;
-        /* hover 시 애니메이션 일시 중지 */
     }
 
-
+    /* 커스텀 스크롤바 */
     .project-group::-webkit-scrollbar {
-        height: 6px;
-        /* 스크롤바 높이 */
-        background: #f1f1f1;
-        /* 스크롤바 배경색 */
-        /*display: none;  크롬, 사파리 스크롤 숨김 */
+        height: 8px;
+        background: rgba(31, 41, 55, 0.5);
+        border-radius: 4px;
     }
 
     .project-group::-webkit-scrollbar-thumb {
-        background: #888;
-        /* 스크롤바 색상 */
+        background: linear-gradient(90deg, #00d4ff, #a855f7);
         border-radius: 4px;
-        /* 둥근 모서리 */
+        transition: all 0.3s ease;
     }
 
     .project-group::-webkit-scrollbar-thumb:hover {
-        background: #555;
-        /* 스크롤바 호버 색상 */
+        background: linear-gradient(90deg, #22d3ee, #00d4ff);
+        box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
     }
 
-
     .project-card {
-       /* padding: 10px;*/
         flex: 0 0 auto;
-        /* 카드 크기 고정 */
-        max-width: 300px;
+        max-width: 340px;
         width: 40%;
-        min-height: 250px;
-        /* 최소 높이 */
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        min-height: 280px;
 
-        /*animation: scroll-loop 20s linear infinite;*/
+        background: rgba(31, 41, 55, 0.6);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 212, 255, 0.15);
+        border-radius: 12px;
+        padding: 1.5rem;
+
+        position: relative;
+        overflow: hidden;
+
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .project-card::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 60%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .project-card:hover::after {
+        opacity: 1;
     }
 
     .project-card:hover {
-        transform: translateY(-10px) scale(1.05);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        
+        transform: translateY(-12px) scale(1.05);
+        border-color: rgba(0, 212, 255, 0.4);
+        box-shadow:
+            0 15px 40px rgba(0, 0, 0, 0.4),
+            0 0 50px rgba(0, 212, 255, 0.3);
         animation-play-state: paused;
     }
 
     .project-card h3 {
         text-align: center;
-        font-size: 1.4rem;
-        margin-bottom: 10px;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: #00d4ff;
+        letter-spacing: -0.01em;
+        text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+        position: relative;
+        z-index: 1;
     }
 
     .project-image {
         display: block;
-        /* 이미지를 블록 요소로 설정 */
-        margin: 0 auto;
-        /* 좌우 여백을 자동으로 설정해 가운데 정렬 */
+        margin: 0 auto 1.5rem;
         width: auto;
-        max-height: 10rem;
-        /*max-width: 300px;*/
+        max-height: 11rem;
         max-width: 90%;
-        /*height: 10em;*/
-        border-radius: 5px;
-        margin-bottom: 15px;
-        /* 이미지와 텍스트 간 간격 */
+        border-radius: 8px;
 
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(0, 212, 255, 0.2);
 
-        object-fit: cover; /* 이미지가 영역에 맞게 늘어남 */
-        transition: transform 0.3s ease-out;
+        object-fit: cover;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+        z-index: 1;
     }
-    .project-image:hover{
-        position: sticky;
-        transform: scale(1.5);
-    }
-    
-    @keyframes image-scale {
-        0% {}
 
-        100% {
-        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 1) 100%);
-        }
+    .project-image:hover {
+        transform: scale(1.1);
+        box-shadow:
+            0 8px 25px rgba(0, 0, 0, 0.4),
+            0 0 30px rgba(0, 212, 255, 0.4);
+        border-color: rgba(0, 212, 255, 0.5);
     }
+
     .project-card p {
         text-align: center;
         font-size: 1rem;
-        color: #555;
-        margin-bottom: 10px;
-        margin: 5px 0;
-        /* 텍스트 간의 상하 간격 설정 */
-        line-height: 1.2;
-        /* 줄 높이 설정 */
+        color: #cbd5e1;
+        margin: 0.5rem 0;
+        line-height: 1.5;
+        position: relative;
+        z-index: 1;
     }
 
     .links-container {
         display: flex;
         justify-content: center;
-        gap: 30px;
-        /* 링크 간 간격 */
-        margin-top: 15px;
+        gap: 2rem;
+        margin-top: 1.5rem;
+        position: relative;
+        z-index: 1;
     }
 
-    .project-btn {
-        background-color: #007bff;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        margin: 5px;
-        border-radius: 5px;
+    .project-btn,
+    .project-link-btn {
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(0, 212, 255, 0.5);
+        color: #0f172a;
+        /* 밝은 배경에 어울리는 어두운 텍스트 */
+        padding: 0.4rem 1.4rem;
+        /* 더 짧고 넓게 */
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-decoration: none;
         cursor: pointer;
-        transition: background-color 0.3s;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        backdrop-filter: blur(5px);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
-    @keyframes scroll-left {
-        0% {
-            transform: translateX(0);
+
+    .project-btn:hover,
+    .project-link-btn:hover {
+        background: #ffffff;
+        border-color: #00d4ff;
+        box-shadow:
+            0 4px 15px rgba(0, 212, 255, 0.4),
+            0 0 20px rgba(0, 212, 255, 0.2);
+        transform: translateY(-2px) scale(1.03);
+        color: #000;
+    }
+
+    @media (max-width: 768px) {
+        .project-card {
+            min-width: 280px;
         }
-
-        100% {
-            transform: translateX(-100%);
-        }
     }
 
-    @keyframes scroll-loop {
-        0% {
-            transform: translateX(0);
-        }
-
-        50% {
-            transform: translateX(-50%);
-        }
-
-        100% {
-            transform: translateX(0);
-        }
-    }
-    .filter-buttons {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .filter-btn {
-        background-color: #007bff;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        margin: 5px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
+    /* 링크 아이콘 스타일 */
+    .link-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+        /* 가로로 더 길게 */
+        height: 35px;
+        /* 세로는 줄임 */
+        background: rgba(255, 255, 255, 0.95);
+        /* 로고 색상이 잘 보이도록 밝게 */
+        border: 1px solid rgba(0, 212, 255, 0.5);
+        border-radius: 8px;
+        padding: 5px 10px;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
 
-    .filter-btn.active {
-        background-color: #0056b3;
+    .link-icon img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        transition: all 0.3s ease;
     }
 
-    .filter-btn:hover {
-        background-color: #0056b3;
+    .link-icon:hover {
+        background: #ffffff;
+        border-color: #00d4ff;
+        box-shadow:
+            0 4px 15px rgba(0, 212, 255, 0.4),
+            0 0 20px rgba(0, 212, 255, 0.2);
+        transform: translateY(-3px) scale(1.05);
+    }
+
+    .link-icon:hover img {
+        filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.6));
+    }
+
+    .youtube-link-btn {
+        background: #181818 !important;
+        /* 어두운 배경으로 흰색 글씨 시인성 확보 */
+        border-color: rgba(255, 0, 0, 0.3);
+    }
+
+    .youtube-link-btn:hover {
+        background: #282828 !important;
+        border-color: #ff0000;
+        box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
     }
 </style>
-
-<!--
-.project-group::-webkit-scrollbar {
-    height: 6px; /* 스크롤바 높이 */
-    background: #f1f1f1; /* 스크롤바 배경색 */
-    /*display: none;  크롬, 사파리 스크롤 숨김 */
-}
-.project-group::-webkit-scrollbar-thumb {
-    background: #888; /* 스크롤바 색상 */
-    border-radius: 4px; /* 둥근 모서리 */
-}
-.project-group::-webkit-scrollbar-thumb:hover {
-    background: #555; /* 스크롤바 호버 색상 */
-}-->

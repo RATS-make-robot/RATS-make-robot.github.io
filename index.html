@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -14,286 +13,434 @@
     <title>RATS 홍보페이지 - 명지대학교 로봇, 임베디드 중앙동아리</title>
     <link rel="RATS icon" type="image/x-icon" href="/assets/images/site/RATS.ico">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/layout-desktop.css">
 </head>
 
 <body>
-    <script>
-        // 시스템 설정에 따라 다크모드 설정
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.body.classList.add('dark-mode');
-        }
-    </script>
-    <!--
-    <div class="box">
-        <img src="assets/images/site/logo.png" alt="RATS Logo">
-    </div>-->
-    <!-- Include header -->
-    <div class="site-header" id="header">
-        <!-- Header content will be dynamically included 
-        <img src="assets/images/site/logo.png" alt="RATS Logo">-->
-        <script>
-            fetch('header.html').then(res => res.text()).then(data => document.getElementById('header').innerHTML = data);
+    <!-- 3D 배경 컨테이너 -->
+    <div id="canvas-container"></div>
 
-            // 시스템 설정에 따라 다크모드 설정
+
+
+    <!-- 사이드바 네비게이션 (PC) -->
+    <div id="sidebar-container"></div>
+
+    <!-- 모바일 햄버거 메뉴 -->
+    <div id="mobile-menu-container"></div>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <main class="main-content">
+
+        <!-- STL 업로더 (내용 영역 최상단 우측) -->
+        <div class="uploader">
+            <label class="file-btn" title=".stl 파일을 선택하여 3D 모델 교체">
+                <span>Load STL</span>
+                <input id="modelFile" type="file" accept=".stl,model/stl" />
+            </label>
+        </div>
+
+        <!-- Hero 섹션 (3D 모델 감상용 빈 공간) -->
+        <section id="hero" class="hero-spacer">
+            <div class="hero-content">
+                <img src="assets/images/logos/RATS-white.svg" alt="RATS Logo" class="hero-logo">
+                <p>Robotic Automatic Technology Society</p>
+                <div class="scroll-down">
+                    <span>Scroll Down</span>
+                    <i class="arrow-down">↓</i>
+                </div>
+            </div>
+        </section>
+
+        <!-- About 섹션 -->
+        <div id="about-container"></div>
+
+        <!-- Skills 섹션 -->
+        <div id="skills-container"></div>
+
+        <!-- Experiences 섹션 -->
+        <div id="experiences-container"></div>
+
+        <!-- Projects 섹션 -->
+        <div id="projects-container"></div>
+
+        <!-- Seminars 섹션 -->
+        <div id="seminars-container"></div>
+
+        <!-- Join 섹션 -->
+        <div id="join-container"></div>
+
+        <!-- Contact 섹션 -->
+        <div id="contact-container"></div>
+
+        <!-- Footer -->
+        <div id="footer-container"></div>
+        </div>
+
+        <!-- 맨 위로 버튼 -->
+        <button id="scroll-to-top" class="scroll-to-top" aria-label="맨 위로">
+            <span>↑</span>
+        </button>
+
+        <!-- YAML 파서 -->
+        <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+
+        <!-- 메인 스크립트 -->
+        <script>
+            // 다크모드 초기화
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 document.body.classList.add('dark-mode');
             }
-        </script>
-    </div>
 
-    <!-- Include navigation -->
-    <div id="navigation">
-        <!-- Navigation content will be dynamically included -->
-        <script>
-            fetch('nav.html').then(res => res.text()).then(data => document.getElementById('navigation').innerHTML = data);
-        </script>
-    </div>
+            // 구글 폼 링크 함수
+            function goToGoogleForm() {
+                const googleFormLink = "https://forms.gle/XKPrFaa9jzYfDeA28";
+                window.open(googleFormLink, "_blank");
+            }
 
-    <main>
-        <!-- Include about -->
-        <div id="about">
-            <!-- About content will be dynamically included -->
-            <script>
-                fetch('about.html')
-                    .then(res => res.text())
-                    .then(data => {
-                        // 'about'에 로드된 내용을 삽입
-                        document.getElementById('about').innerHTML = data;
+            // 컴포넌트 로드 함수 (재시도 로직 포함)
+            async function loadComponent(file, containerId, retries = 3) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    const html = await response.text();
+                    document.getElementById(containerId).innerHTML = html;
+                } catch (error) {
+                    console.error(`Error loading ${file}:`, error);
+                    if (retries > 0) {
+                        console.log(`Retrying ${file}... (${retries} attempts left)`);
+                        await new Promise(resolve => setTimeout(resolve, 1000));
+                        return loadComponent(file, containerId, retries - 1);
+                    } else {
+                        document.getElementById(containerId).innerHTML = `<div class="error-msg">Failed to load content. Please refresh the page.</div>`;
+                    }
+                }
+            }
 
-                        // 로드된 후 'code-display' 요소를 가져와 애니메이션 초기화
-                        const typingElement = document.getElementById("code-display");
-                        if (!typingElement) {
-                            console.error("Element with ID 'code-display' not found.");
-                            return;
-                        }
+            // 모든 컴포넌트 로드 및 초기화
+            document.addEventListener('DOMContentLoaded', async () => {
+                // 1. 모든 HTML 컴포넌트 병렬 로드
+                await Promise.all([
+                    loadComponent('sidebar-nav.html', 'sidebar-container'),
+                    loadComponent('mobile-menu.html', 'mobile-menu-container'),
+                    loadComponent('about.html', 'about-container'),
+                    loadComponent('skills.html', 'skills-container'),
+                    loadComponent('experiences.html', 'experiences-container'),
+                    loadComponent('projects.html', 'projects-container'),
+                    loadComponent('seminars.html', 'seminars-container'),
+                    loadComponent('join.html', 'join-container'),
+                    loadComponent('contact.html', 'contact-container'),
+                    loadComponent('footer.html', 'footer-container')
+                ]);
 
-                        // Initialize typing animation
-                        initializeTypingAnimation(typingElement);
-                    })
-                    .catch(error => console.error('Error loading about.html:', error));
+                // 2. HTML 로드 완료 후 기능 초기화
 
-                // 시스템 설정에 따라 다크모드 설정
-                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    document.body.classList.add('dark-mode');
+                // About 섹션 타이핑 애니메이션
+                const typingElement = document.getElementById("code-display");
+                if (typingElement) {
+                    initializeTypingAnimation(typingElement);
                 }
 
-                function initializeTypingAnimation(typingElement) {
-                    const sentences = [
-                        "로봇을 개발합니다.",
-                        "앱도 개발합니다.",
-                        "임베디드 설계도 합니다.",
-                        "게임도 합니다.",
-                        "세미나도 합니다."
-                    ];
+                // 데이터 로딩 (YAML -> HTML)
+                if (window.loadProjects) window.loadProjects();
+                if (window.loadExperiences) window.loadExperiences();
+                if (window.loadSeminars) window.loadSeminars();
 
-                    const languages = [
-                        { language: "C", comment: "//", output: `<span class='keyword'>printf</span>(<span class='string'>\"{sentence}\\n\"</span>);` },
-                        { language: "Python", comment: "#", output: `<span class='keyword'>print</span>(<span class='string'>\"{sentence}\"</span>)` },
-                        { language: "Java", comment: "//", output: `<span class='keyword'>System.out.println</span>(<span class='string'>\"{sentence}\"</span>);` },
-                        {
-                            language: "HTML<span class='language-comment'>--&gt;</span>", comment: "&lt;!--", outputs: [
-                                "<span class='tag'>&lt;h1&gt;</span>{sentence}<span class='tag'>&lt;/h1&gt;</span>",
-                                "<span class='tag'>&lt;h2&gt;</span>{sentence}<span class='tag'>&lt;/h2&gt;</span> <span class='language-comment'>--&gt;</span>",
-                                "<span class='tag'>&lt;h3&gt;</span>{sentence}<span class='tag'>&lt;/h3&gt;</span> <span class='language-comment'>--&gt;</span>",
-                                "<span class='tag'>&lt;h4&gt;</span>{sentence}<span class='tag'>&lt;/h4&gt;</span> <span class='language-comment'>--&gt;</span>",
-                                "<span class='tag'>&lt;h5&gt;</span>{sentence}<span class='tag'>&lt;/h5&gt;</span> <span class='language-comment'>--&gt;</span>",
-                                "<span class='tag'>&lt;h6&gt;</span>{sentence}<span class='tag'>&lt;/h6&gt;</span> <span class='language-comment'>--&gt;</span>"
-                            ]
+                // 섹션 감지 및 네비게이션 하이라이트
+                setupSectionObserver();
+
+                // 스크롤 투 탑 버튼
+                setupScrollToTop();
+
+                // 스크롤 애니메이션 초기화 (콘텐츠 로드 후)
+                if (window.setupSectionAnimations) {
+                    window.setupSectionAnimations();
+                } else {
+                    setTimeout(() => {
+                        if (window.setupSectionAnimations) window.setupSectionAnimations();
+                    }, 500);
+                }
+
+
+                // [NEW] 모바일 네비게이션 로직
+                setupMobileNav();
+
+                // [NEW] PC 사이드바 로직 (로드 후)
+                setupSidebarNav();
+            });
+
+            // PC 사이드바 네비게이션 설정
+            function setupSidebarNav() {
+                const sidebarLinks = document.querySelectorAll('.sidebar-menu .nav-item');
+                const progressFill = document.getElementById('sidebar-scroll-progress');
+                const sections = document.querySelectorAll('section');
+
+                // 1. 링크 클릭
+                sidebarLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        // 모든 링크 active 제거
+                        sidebarLinks.forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
+
+                        const targetId = link.getAttribute('href').substring(1);
+                        const targetSection = document.getElementById(targetId);
+
+                        if (targetSection) {
+                            targetSection.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
                         }
-                    ];
+                    });
+                });
 
-                    let currentSentenceIndex = 0;
-                    let currentLanguage = languages[Math.floor(Math.random() * languages.length)];
-                    let charIndex = 0;
-                    let isDeleting = false;
-                    let currentOutput = "";
+                // 2. 통합 스크롤 이벤트 (모바일+PC)
+                // 기존 onScroll 함수에 PC 로직 통합하는 게 좋음, 위 setupMobileNav의 onScroll을 밖으로 꺼내는 게 맞지만
+                // 일단 별도로 붙여도 됨. 성능상 하나로 합치는 게 좋으므로 합치기 시도.
+            }
 
-                    const cursor = `<span class="cursor"></span>`;
+            // 전역 스크롤 핸들러 (모바일 & PC 공용)
+            window.addEventListener('scroll', () => {
+                const progressBar = document.getElementById('mobile-progress-bar');
+                const sidebarProgress = document.getElementById('sidebar-scroll-progress');
+                const sections = document.querySelectorAll('section');
+                const navLinks = document.querySelectorAll('.mobile-top-nav .nav-link, .sidebar-menu .nav-item');
 
-                    function typeEffect() {
-                        typingElement.innerHTML = typingElement.innerHTML.replace(cursor, "");
+                // 공통 변수
+                const scrollY = window.pageYOffset;
+                const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollPercent = (scrollY / docHeight) * 100;
 
-                        const currentSentence = sentences[currentSentenceIndex];
-                        if (currentLanguage.language === "HTML<span class='language-comment'>--&gt;</span>") {
-                            const randomOutput = currentLanguage.outputs[Math.floor(Math.random() * currentLanguage.outputs.length)];
-                            currentOutput = randomOutput.replace("{sentence}", currentSentence);
-                        } else {
-                            currentOutput = currentLanguage.output.replace("{sentence}", currentSentence);
-                        }
+                // 1. 프로그레스 바 업데이트
+                if (progressBar) progressBar.style.width = scrollPercent + "%"; // 모바일
+                if (sidebarProgress) sidebarProgress.style.width = scrollPercent + "%"; // PC
 
-                        if (!isDeleting && charIndex <= currentOutput.length) {
-                            typingElement.innerHTML = `<span class="language-comment">${currentLanguage.comment}</span> <span class="language-comment">${currentLanguage.language}</span>\n` +
-                                currentOutput.slice(0, charIndex) + cursor;
-                            charIndex++;
-                            setTimeout(typeEffect, 25);
-                        } else if (isDeleting && charIndex >= 0) {
-                            typingElement.innerHTML = `<span class="language-comment">${currentLanguage.comment}</span> <span class="language-comment">${currentLanguage.language}</span>\n` +
-                                currentOutput.slice(0, charIndex) + cursor;
-                            charIndex--;
-                            setTimeout(typeEffect, 10);
-                        } else {
-                            isDeleting = !isDeleting;
+                // 추가: 클래스로 지정된 모든 프로그레스 바 업데이트 (e.g. nav.html)
+                document.querySelectorAll('.scroll-progress-bar').forEach(bar => {
+                    bar.style.width = scrollPercent + "%";
+                });
 
-                            if (!isDeleting) {
-                                currentSentenceIndex = (currentSentenceIndex + 1) % sentences.length;
-                                currentLanguage = languages[Math.floor(Math.random() * languages.length)];
-                                charIndex = 0;
-                                setTimeout(typeEffect, 250);
-                            } else {
-                                setTimeout(typeEffect, 1000);
-                            }
+                // 2. 섹션 감지 및 활성 링크 업데이트
+                let current = '';
+                const headerHeight = window.innerWidth <= 1024 ? 80 : 50; // 모바일/PC 분기
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= sectionTop - headerHeight - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+
+                        // 모바일 네비게이션 자동 스크롤
+                        if (link.closest('.mobile-top-nav')) {
+                            link.scrollIntoView({
+                                behavior: 'smooth',
+                                inline: 'center',
+                                block: 'nearest'
+                            });
                         }
                     }
-                    typeEffect();
-                }
-            </script>
-        </div>
-
-        <!-- Include skills -->
-        <div id="skills">
-            <!-- Skills content will be dynamically included -->
-            <script>
-                fetch('skills.html').then(res => res.text()).then(data => document.getElementById('skills').innerHTML = data);
-            </script>
-        </div>
-
-        <!-- Include experiences -->
-        <div id="experiences">
-            <!--Experiences content will be dynamically included-->
-            <script>
-                fetch('experiences.html').then(res => res.text()).then(data => document.getElementById('experiences').innerHTML = data);
-                /*fetch('experiences.html')
-                    .then(res => res.text())
-                    .then(data => {
-                        console.log('HTML 로드 완료:', data);
-                        document.getElementById('experiences').innerHTML = data;
-                        console.log('콘텐츠 삽입 완료');
-                        // 콘텐츠 로드 후 클래스 추가
-                        experiencesElement.classList.add('visible');
-                        // 리렌더링 강제 트리거 (선택 사항)
-                        experiencesElement.style.display = 'none';
-                        experiencesElement.offsetHeight; // 강제 Reflow
-                        experiencesElement.style.display = 'block';
-                    })
-                    .catch(error => console.error('Error loading experiences.html:', error));*/
-            </script>
-        </div>
-
-        <!-- Include projects -->
-        <div id="projects">
-            <!-- Projects content will be dynamically included -->
-            <script>
-                fetch('projects.html').then(res => res.text()).then(data => document.getElementById('projects').innerHTML = data);
-            </script>
-        </div>
-
-
-        <!-- Include seminars -->
-        <div id="seminars">
-            <!-- Seminars content will be dynamically included -->
-            <script>
-                fetch('seminars.html').then(res => res.text()).then(data => document.getElementById('seminars').innerHTML = data);
-            </script>
-        </div>
-
-        <!-- Include join -->
-        <div id="join">
-            <!-- join content will be dynamically included -->
-            <script>
-                fetch('join.html').then(res => res.text()).then(data => document.getElementById('join').innerHTML = data);
-            </script>
-        </div>
-
-        <!-- Include contact -->
-        <div id="contact">
-            <!-- Contact content will be dynamically included -->
-            <script>
-                fetch('contact.html').then(res => res.text()).then(data => document.getElementById('contact').innerHTML = data);
-            </script>
-        </div>
-
-        <button id="back-to-top" title="Go to top">⇪</button>
-        <button id="dark-mode-toggle">🌙</button>
-
-        </div>
-    </main>
-    <!-- Include footer -->
-    <div id="footer">
-        <!-- Footer content will be dynamically included -->
-        <script>
-            fetch('footer.html').then(res => res.text()).then(data => document.getElementById('footer').innerHTML = data);
-        </script>
-    </div>
-
-    <!--<script src="assets/js/about-animation.js"></script> -->
-    <!-- Include the script -->
-    <!-- Include the JS-YAML library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
-    <!-- Include loading script -->
-    <script src="assets/js/load_experiences.js"></script>
-    <script src="assets/js/load_projects.js"></script>
-    <script src="assets/js/load_seminars.js"></script>
-    <script>
-        // Wait for the animation to finish, then show the content
-        /*
-        setTimeout(() => {
-            document.querySelector('.content').classList.add('show');
-        }, 10); // 3s fadeOut starts after 1.5s slideIn
-*/
-        function goToGoogleForm() {
-            const googleFormLink = "https://forms.gle/XKPrFaa9jzYfDeA28"; // Replace with your Google Form link
-            window.open(googleFormLink, "_blank");
-        }
-        document.addEventListener("DOMContentLoaded", function () {
-            // class로 선택된 모든 요소를 가져옴
-
-            window.addEventListener('scroll', () => {
-            const scrollProgressBars = document.querySelectorAll('.scroll-progress-bar');
-                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-                const scrollPosition = window.scrollY;
-                const scrollPercentage = (scrollPosition / scrollHeight) * 100;
-
-                // 모든 선택된 요소에 대해 width를 업데이트
-                scrollProgressBars.forEach((bar) => {
-                    bar.style.width = `${scrollPercentage}%`;
                 });
             });
-        });
 
-        // Back-to-top button functionality
-        document.addEventListener("DOMContentLoaded", function () {
-            const backToTopButton = document.getElementById("back-to-top");
+            // 타이핑 애니메이션 초기화
+            function initializeTypingAnimation(typingElement) {
+                const sentences = [
+                    "로봇을 개발합니다.",
+                    "앱도 개발합니다.",
+                    "임베디드 설계도 합니다.",
+                    "게임도 합니다.",
+                    "세미나도 합니다."
+                ];
 
-            // Show/hide button on scroll
-            window.addEventListener("scroll", function () {
-                if (window.scrollY > 300) {
-                    backToTopButton.classList.add("visible");
-                } else {
-                    backToTopButton.classList.remove("visible");
-                }
-            });
-
-            // Scroll to top on click
-            backToTopButton.addEventListener("click", function () {
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
-            });
-            /*
-                        // 시스템 설정에 따라 다크모드 설정
-                        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                            document.body.classList.add('dark-mode');
+                const languages = [
+                    {
+                        name: "C",
+                        commentSym: "//",
+                        template: (s) => ({
+                            plain: `printf("${s}\\n");`,
+                            highlighted: `<span class='keyword'>printf</span>(<span class='string'>"${s}\\n"</span>);`
+                        })
+                    },
+                    {
+                        name: "Python",
+                        commentSym: "#",
+                        template: (s) => ({
+                            plain: `print("${s}")`,
+                            highlighted: `<span class='keyword'>print</span>(<span class='string'>"${s}"</span>)`
+                        })
+                    },
+                    {
+                        name: "Java",
+                        commentSym: "//",
+                        template: (s) => ({
+                            plain: `System.out.println("${s}");`,
+                            highlighted: `<span class='keyword'>System.out.println</span>(<span class='string'>"${s}"</span>);`
+                        })
+                    },
+                    {
+                        name: "HTML",
+                        commentSym: "&lt;!--",
+                        commentEnd: "--&gt;",
+                        template: (s) => {
+                            const tag = ["h1", "h2", "h3", "h4", "div", "p"][Math.floor(Math.random() * 6)];
+                            return {
+                                plain: `<${tag}>${s}</${tag}>`,
+                                highlighted: `<span class='tag'>&lt;${tag}&gt;</span>${s}<span class='tag'>&lt;/${tag}&gt;</span>`
+                            };
                         }
-            */
-            // 다크모드 토글 버튼 기능 추가
-            document.getElementById('dark-mode-toggle').addEventListener('click', () => {
-                document.body.classList.toggle('dark-mode');
-            });
+                    },
+                    {
+                        name: "Go",
+                        commentSym: "//",
+                        template: (s) => ({
+                            plain: `fmt.Println("${s}")`,
+                            highlighted: `<span class='keyword'>fmt.Println</span>(<span class='string'>"${s}"</span>)`
+                        })
+                    }
+                ];
 
-        });
+                let sentenceIdx = 0;
+                let langIdx = 0;
+                let charIdx = 0;
+                let isDeleting = false;
+                let currentTextObj = null;
+                let typeSpeed = 100;
+
+                function type() {
+                    // 현재 문장 및 언어 설정
+                    const sentence = sentences[sentenceIdx];
+                    const lang = languages[langIdx];
+
+                    // 텍스트 객체 생성 (한 번만)
+                    if (!currentTextObj) {
+                        currentTextObj = lang.template(sentence);
+                    }
+
+                    const fullText = currentTextObj.plain;
+                    const commentPart = lang.name === "HTML"
+                        ? `<span class="language-comment">${lang.commentSym} ${lang.name} ${lang.commentEnd}</span>`
+                        : `<span class="language-comment">${lang.commentSym} ${lang.name}</span>`;
+
+                    // 타이핑/삭제 로직
+                    let displayText = "";
+                    if (isDeleting) {
+                        charIdx--;
+                        displayText = fullText.substring(0, charIdx);
+                    } else {
+                        charIdx++;
+                        displayText = fullText.substring(0, charIdx);
+                    }
+
+                    // 화면 출력 (주석은 고정, 코드는 타이핑)
+                    // 내용이 HTML 태그일 경우(HTML 언어), plain 텍스트로 보여주기 위해 escape 필요할 수도 있으나
+                    // 여기서는 innerHTML로 넣으므로 plain 텍스트가 태그로 해석될 수 있음.
+                    // HTML 언어의 경우 plain이 `<Tag>...` 형태이므로 innerHTML에 넣으면 태그로 보임.
+                    // 하지만 우리는 '소스코드'를 보여주는 것이므로 태그 자체가 텍스트로 나와야 함.
+                    // 따라서 plain 텍스트를 escape 처리해서 넣어야 함.
+
+                    let escapedText = displayText
+                        .replace(/&/g, "&amp;")
+                        .replace(/</g, "&lt;")
+                        .replace(/>/g, "&gt;");
+
+                    typingElement.innerHTML = `${commentPart}<br>${escapedText}<span class="cursor"></span>`;
+
+                    // 속도 조절
+                    typeSpeed = isDeleting ? 40 : 100;
+
+                    // 상황별 상태 변경
+                    if (!isDeleting && charIdx === fullText.length) {
+                        // 타이핑 완료 -> 구문 강조 적용 및 대기
+                        typingElement.innerHTML = `${commentPart}<br>${currentTextObj.highlighted}<span class="cursor"></span>`;
+                        typeSpeed = 2000; // 2초 대기
+                        isDeleting = true;
+                    } else if (isDeleting && charIdx === 0) {
+                        // 삭제 완료 -> 다음 문장/언어로 변경
+                        isDeleting = false;
+                        currentTextObj = null;
+                        sentenceIdx = (sentenceIdx + 1) % sentences.length;
+                        langIdx = (langIdx + 1) % languages.length; // 언어도 같이 순환
+                        typeSpeed = 500;
+                    }
+
+                    setTimeout(type, typeSpeed);
+                }
+
+                type();
+            }
+
+            // 섹션 감지 및 네비게이션 하이라이트
+            function setupSectionObserver() {
+                const sections = document.querySelectorAll('section[id]');
+                const navItems = document.querySelectorAll('.nav-item');
+
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-50% 0px -50% 0px',
+                    threshold: 0
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const sectionId = entry.target.getAttribute('id');
+                            navItems.forEach(item => {
+                                item.classList.remove('active');
+                                if (item.getAttribute('data-section') === sectionId) {
+                                    item.classList.add('active');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                sections.forEach(section => observer.observe(section));
+            }
+
+            // 스크롤 투 탑 버튼
+            function setupScrollToTop() {
+                const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        scrollToTopBtn.classList.add('visible');
+                    } else {
+                        scrollToTopBtn.classList.remove('visible');
+                    }
+                });
+
+                scrollToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        </script>
+
+        <!-- 데이터 로딩 스크립트 -->
+        <script src="assets/js/load_projects.js"></script>
+        <script src="assets/js/load_experiences.js"></script>
+        <script src="assets/js/load_seminars.js"></script>
+
+        <!-- 스크롤 애니메이션 -->
+        <script src="assets/js/scroll-animations.js"></script>
+        <!-- Three.js & STLLoader -->
+        <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
     </script>
-    <!--<script src="assets/js/filter_projects.js"></script>-->
+        <script type="module" src="assets/js/bg-3d-model.js"></script>
 </body>
 
 </html>

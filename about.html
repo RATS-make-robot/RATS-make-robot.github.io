@@ -1,53 +1,40 @@
 <!-- 코딩 애니메이션 화면 -->
 <section id="about" class="content">
-    <!--
     <div id="about-rats" align="center">
         <h3>명지대학교 로봇, 임베디드 중앙동아리</h3>
         <p><i>Since 1993</i></p>
-        <ul id="why-join">
-            <li>🤖 <b>개발의 즐거움</b>: 하드웨어와 소프트웨어를 직접 설계하고 제작합니다.</li>
-            <li>🛠️ <b>실질적인 임베디드 경험</b>: 마이크로컨트롤러와 임베디드 시스템 설계 능력을 배양합니다.</li>
-            <li>🌟 <b>다양한 수상 경력</b>: 교내외 로봇/임베디드 대회에서 다수의 상을 수상하며 동아리의 실력을 증명해왔습니다.</li>
-            <li>🎯 <b>미래를 위한 준비</b>: 실제 산업에서 요구하는 프로젝트/대회 경험을 쌓을 수 있습니다.</li>
-            <li>🌐 <b>협업과 네트워킹</b>: 다양한 전공과 학년이 함께 프로젝트를 진행하며, 졸업생을 포함하여 탄탄한 네트워크를 형성하고 있습니다.</li>
-        </ul>
-    </div>-->
-    <div id="about-rats" align="center">
-        <h3>명지대학교 로봇, 임베디드 중앙동아리</h3>
-        <p><i>Since 1993</i></p>
-        <table id="why-join-table" style="">
+        <table id="why-join-table">
             <tbody>
                 <tr>
                     <td style="text-align: center;">🤖</td>
-                    <td style=""><b>개발의 즐거움</b></td>
-                    <td style="width: 1px; ">:</td>
-                    <td style="">하드웨어와 소프트웨어를 직접 설계하고 제작합니다.</td>
+                    <td><b>개발의 즐거움</b></td>
+                    <td style="width: 1px;">:</td>
+                    <td>하드웨어와 소프트웨어를 직접 설계하고 제작합니다.</td>
                 </tr>
                 <tr>
                     <td style="text-align: center;">🛠️</td>
-                    <td style=""><b>실질적인 융합 설계 경험</b></td>
+                    <td><b>실질적인 융합 설계 경험</b></td>
                     <td style="width: 1px;">:</td>
-                    <td style="">SW 프로그래밍뿐만 아니라 HW 설계에 해당하는 3D / PCB 설계, 납땜 등도 같이 진행하며 종합적인 임베디드 시스템 설계 능력을 배양합니다.</td>
+                    <td>SW 프로그래밍뿐만 아니라 HW 설계에 해당하는 3D / PCB 설계, 납땜 등도 같이 진행하며 종합적인 임베디드 시스템 설계 능력을 배양합니다.</td>
                 </tr>
                 <tr>
-                    <td style=" text-align: center;">🌟</td>
-                    <td style=""><b>다양한 수상 경력</b></td>
+                    <td style="text-align: center;">🌟</td>
+                    <td><b>다양한 수상 경력</b></td>
                     <td style="width: 1px;">:</td>
-                    <td style="">교내외 로봇/임베디드 대회에서 다수의 상을 수상하며 동아리의 실력을 증명해왔습니다.
-                    </td>
+                    <td>교내외 로봇/임베디드 대회에서 다수의 상을 수상하며 동아리의 실력을 증명해왔습니다.</td>
                 </tr>
                 <tr>
-                    <td style=" text-align: center;">🎯</td>
-                    <td style=""><b>미래를 위한 준비</b></td>
+                    <td style="text-align: center;">🎯</td>
+                    <td><b>미래를 위한 준비</b></td>
                     <td style="width: 1px;">:</td>
-                    <td style="">실제 산업에서 요구하는 프로젝트/대회 경험을 쌓을 수 있습니다.</td>
+                    <td>실제 산업에서 요구하는 프로젝트/대회 경험을 쌓을 수 있습니다.</td>
                 </tr>
                 <tr>
-                    <td style=" text-align: center;">🌐</td>
-                    <td style=""><b>협업과 네트워킹</b></td>
+                    <td style="text-align: center;">🌐</td>
+                    <td><b>협업과 네트워킹</b></td>
                     <td style="width: 1px;">:</td>
-                    <td style="">다양한 전공과 학년이 함께 프로젝트를 진행하며, 졸업생을 포함하여 탄탄한 네트워크를
-                        형성하고 있습니다.</td>
+                    <td>다양한 전공과 학년이 함께 프로젝트를 진행하며, 졸업생을 포함하여 탄탄한 네트워크를 형성하고 있습니다.</td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -58,22 +45,22 @@
         </div>
     </div>
 </section>
-<!--<script src="assets/js/about-animation.js"></script> -->
 
 <!-- CSS -->
 <style>
     #about {
-        border: 0px solid #90caf9;
-        animation: slideIn 0.8s ease forwards;
-        background-color: #e3f2fd;
-        box-shadow: 0 4px 15px #e3f2fd;
-        margin-top: 0px;
-        margin-bottom: 0px;
+        border: 0;
+        animation: slideInFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        background: linear-gradient(135deg, rgba(17, 24, 39, 0.8) 0%, rgba(31, 41, 55, 0.6) 100%);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        margin-top: 2rem;
+        margin-bottom: 2rem;
     }
 
-    @keyframes slideIn {
+    @keyframes slideInFade {
         0% {
-            transform: translateY(50px);
+            transform: translateY(60px);
             opacity: 0;
         }
 
@@ -84,15 +71,21 @@
     }
 
     #about-rats h3 {
-        font-size: 1.8rem;
-        color: #2c4399;/*1e88e5*/
-        margin-bottom: 5px;
+        font-size: 2rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #00d4ff, #22d3ee);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.02em;
     }
 
     #about-rats p {
         font-size: 1.2rem;
-        color: #555;
-        margin-bottom: 20px;
+        color: #94a3b8;
+        margin-bottom: 2rem;
+        font-style: italic;
     }
 
     #why-join-table {
@@ -100,145 +93,106 @@
         overflow: hidden;
         border-collapse: collapse;
         margin: auto;
-        border: none; /* 테이블 외곽선을 제거 */
-        padding: 1px;
+        border: none;
+        padding: 1rem;
+        max-width: 900px;
     }
 
     #why-join-table th,
     #why-join-table td {
-        padding: 5px;
+        padding: 0.75rem;
         border: none;
         text-align: left;
     }
 
+    #why-join-table tr {
+        transition: all 0.3s ease;
+        border-radius: 8px;
+    }
+
+    #why-join-table tr:hover {
+        background: rgba(0, 212, 255, 0.05);
+        transform: translateX(5px);
+    }
+
     #why-join-table th {
-        background-color: #90caf9;
-        color: #333;
+        background-color: transparent;
+        color: #cbd5e1;
         font-size: 1rem;
     }
 
     #why-join-table td {
         font-size: 0.95rem;
-        color: #555;
+        color: #cbd5e1;
     }
 
     #why-join-table td b {
-        color: #2c4399;/*1e88e5*/
+        color: #00d4ff;
+        font-weight: 600;
     }
 
-    /*
-    #about {
-        word-break: keep-all;
-        white-space: normal;
-        overflow-wrap: break-word;
-
-        background-color: #e3f2fd;
-        box-shadow: 0 4px 15px #e3f2fd;
-        border: 0px solid #90caf9;
-        /*padding: 20px 40px;*/
-    /*
-        animation: slideIn 0.8s ease forwards;
+    /* 코딩 애니메이션 섹션 */
+    #coding-animation {
+        background: linear-gradient(135deg, #0a0e1a 0%, #1f2937 100%);
+        color: #dcdcdc;
+        font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+        padding: 2rem;
+        border-radius: 12px;
+        max-width: 900px;
+        margin: 3rem auto 0;
+        box-shadow:
+            0 4px 20px rgba(0, 0, 0, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        position: relative;
+        overflow: hidden;
     }
 
-    @keyframes slideIn {
+    #coding-animation::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+        animation: scanline 3s linear infinite;
+    }
+
+    @keyframes scanline {
         0% {
-            transform: translateY(50px);
-            opacity: 0;
+            left: -100%;
         }
 
         100% {
-            transform: translateY(0);
-            opacity: 1;
+            left: 100%;
         }
     }
 
-    #about-rats {
-        margin-bottom: 30px;
-    }
-
-    #about-rats h3 {
-        font-size: 1.8rem;
-        color: #1e88e5;
-        margin-bottom: 5px;
-    }
-
-    #about-rats p {
-        font-size: 1.2rem;
-        color: #555;
-        margin-bottom: 20px;
-    }
-
-    #why-join {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        font-size: 1rem;
-        line-height: 1.8;
-        color: #333;
-        text-align: left;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    #why-join li {
-        margin-bottom: 10px;
-        display: flex;
-        align-items: flex-start;
-    }
-
-    #why-join li b {
-        color: #1e88e5;
-        margin-left: 5px;
-        margin-right: 10px;
-    }
-*/
-    #coding-animation {
-        background-color: #1e1e1e;
-        /* 검정 배경 */
-        color: #dcdcdc;
-        /* 기본 텍스트 색상 */
-        font-family: 'Courier New', Courier, monospace;
-        /* 코딩 폰트 */
-        padding: 20px;
-        border-radius: 10px;
-        max-width: 800px;
-        margin: 50px auto;
-        /* 가운데 정렬 */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    }
-
     .code-container {
-        height: 50px;
-        /* 고정 높이 설정 */
-        padding: 20px;
-        background-color: #252526;
-        /* 다크 그레이 배경 */
+        min-height: 60px;
+        padding: 1.5rem;
+        background: rgba(0, 0, 0, 0.4);
         border-radius: 8px;
+        border: 1px solid rgba(0, 212, 255, 0.15);
         overflow: hidden;
-        /* 넘치는 텍스트 숨기기 */
+        position: relative;
     }
 
     pre {
         margin: 0;
-        font-size: 1rem;
-        line-height: 1.5;
+        font-size: 1.05rem;
+        line-height: 1.6;
         white-space: pre-wrap;
     }
 
     .cursor {
         display: inline-block;
         width: 10px;
-        height: 18px;
-        background-color: #dcdcdc;
-        /* 커서 색상 */
-        animation: blink 0.5s step-end infinite;
-        /* 커서 깜박임 */
-    }
-
-    @media (max-width: 500px) {
-        .content {
-            max-width: 100%;
-        }
+        height: 20px;
+        background-color: #00d4ff;
+        box-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+        animation: blink 0.7s step-end infinite;
     }
 
     @keyframes blink {
@@ -250,6 +204,7 @@
     /* 코드 색상 스타일 */
     .keyword {
         color: #569cd6;
+        font-weight: 500;
     }
 
     .string {
@@ -272,9 +227,26 @@
         color: #ce9178;
     }
 
-    /* 언어 주석 스타일 */
     .language-comment {
         color: #6a9955;
         font-style: italic;
+    }
+
+    @media (max-width: 500px) {
+        #about-rats h3 {
+            font-size: 1.5rem;
+        }
+
+        #why-join-table td {
+            font-size: 0.85rem;
+        }
+
+        #coding-animation {
+            padding: 1rem;
+        }
+
+        pre {
+            font-size: 0.9rem;
+        }
     }
 </style>

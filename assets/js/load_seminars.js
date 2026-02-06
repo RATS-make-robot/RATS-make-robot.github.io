@@ -1,5 +1,5 @@
-// YAML 파싱 라이브러리 사용 (js-yaml)
-document.addEventListener('DOMContentLoaded', () => {
+// load_seminars.js
+window.loadSeminars = function () {
     const fetchSeminars = (retryCount = 3) => {
         fetch('assets/data/seminars.yaml')
             .then(response => {
@@ -9,14 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 return response.text();
             })
             .then(yamlText => {
-                const seminarsData = jsyaml.load(yamlText); // YAML 파싱
+                const seminarsData = jsyaml.load(yamlText);
                 const seminarContainer = document.querySelector('.seminar-container');
 
+                if (!seminarContainer) return;
+
                 if (seminarsData.seminars) {
+                    seminarContainer.innerHTML = ''; // 초기화
                     seminarsData.seminars.forEach(seminar => {
                         const seminarCard = document.createElement('div');
                         seminarCard.className = 'seminar-card';
-                        seminarCard.classList.add('cards');  // 클래스 추가
 
                         seminarCard.innerHTML = `
                             <h3>${seminar.title}</h3>
@@ -25,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <p><strong>강의자:</strong> ${seminar.organizer}</p>
                             <p><strong>기간:</strong> ${seminar.period}</p>
                             ${seminar.link ? `<a href="${seminar.link}" target="_blank">
-                                <img src="/assets/images/logos/githublogo.svg" alt="GitHub Link" class="link-icon">
+                                <img src="assets/images/logos/githublogo.svg" alt="GitHub Link" class="link-icon">
                             </a>` : ''}
                         `;
 
@@ -36,14 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => {
                 console.error('Error loading YAML:', error);
                 if (retryCount > 0) {
-                    console.log(`Retrying... (${3 - retryCount + 1})`);
-                    setTimeout(() => fetchSeminars(retryCount - 1), 1000); // 1초 후 재시도
+                    setTimeout(() => fetchSeminars(retryCount - 1), 1000);
                 } else {
                     const seminarContainer = document.querySelector('.seminar-container');
-                    seminarContainer.innerHTML = '<p>Error loading seminars. Please try again later.</p>';
+                    if (seminarContainer) {
+                        seminarContainer.innerHTML = '<p>Error loading seminars. Please try again later.</p>';
+                    }
                 }
             });
     };
 
     fetchSeminars();
-});
+};

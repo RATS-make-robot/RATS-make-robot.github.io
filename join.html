@@ -9,7 +9,7 @@
         <div class="appeal" align="center">
             <h2 class="appeal-title">Why Join RATS?</h2>
             <ul class="appeal-list">
-                <li>🏆 Award-winning clup with proven success in robotics/embedded competitions.</li>
+                <li>🏆 Award-winning club with proven success in robotics/embedded competitions.</li>
                 <li>🤖 Hands-on experience in building and programming robots.</li>
                 <li>📚 Learn advanced technologies like AI, machine learning, and automation.</li>
                 <li>🌐 Collaborate with passionate members on exciting projects.</li>
@@ -19,146 +19,181 @@
         </div>
     </div>
 </section>
-<script>
-</script>
 
 <style>
-    #join{
-        animation: fadeIn 1.5s ease-in-out;
-        margin: 0 auto;
+    #join {
+        animation: fadeInScale 1s cubic-bezier(0.16, 1, 0.3, 1);
+        margin: 3rem auto;
         padding: 0;
-        font-family: Arial, sans-serif;
+        font-family: 'Inter', sans-serif;
         display: block;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-
         max-width: 100%;
-        border-radius: 0px;
-        border: 0px solid #90caf9; /* 파란색 테두리 추가 */
-
+        border-radius: 16px;
+        border: 1px solid rgba(0, 212, 255, 0.3);
         color: white;
         text-align: center;
-    }
-    .join-div {
-        background: linear-gradient(135deg, #6a11cb, #2575fc);
-        padding: 0;
-        padding: 20px;
+        overflow: hidden;
+
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.4),
+            0 0 60px rgba(168, 85, 247, 0.3);
     }
 
-    @keyframes fadeIn {
+    @keyframes fadeInScale {
         from {
             opacity: 0;
-            transform: translateY(-20px);
+            transform: scale(0.95);
         }
 
         to {
             opacity: 1;
-            transform: translateY(0);
+            transform: scale(1);
         }
+    }
+
+    .join-div {
+        background: linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #3b82f6 100%);
+        padding: 3rem 2rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .join-div::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: repeating-conic-gradient(from 0deg,
+                transparent 0deg 30deg,
+                rgba(255, 255, 255, 0.03) 30deg 60deg);
+        animation: rotateBackground 20s linear infinite;
+    }
+
+    @keyframes rotateBackground {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .join-div h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 2rem;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        letter-spacing: -0.02em;
+        position: relative;
+        z-index: 1;
     }
 
     .recruit-button {
-        padding: 15px 30px;
+        padding: 1.5rem 3rem;
         font-size: 1.5rem;
-        font-weight: bold;
+        font-weight: 700;
         color: #fff;
-        background: linear-gradient(90deg, #ff519a, #fe3658);
+        background: linear-gradient(135deg, #ef4444, #dc2626);
         border: none;
-        border-radius: 30px;
+        border-radius: 50px;
         cursor: pointer;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+        box-shadow:
+            0 10px 30px rgba(239, 68, 68, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
         outline: none;
         position: relative;
         overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
         width: 90%;
-        max-width: 300px;
+        max-width: 400px;
+        z-index: 1;
     }
 
-    .recruit-button::after {
+    .recruit-button::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: -100%;
-        width: 300%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.2);
-        transform: skewX(-45deg);
-        transition: left 0.5s ease;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s ease, height 0.6s ease;
+    }
+
+    .recruit-button:hover::before {
+        width: 500px;
+        height: 500px;
     }
 
     .recruit-button:hover {
-        transform: scale(1.1);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    .recruit-button:hover::after {
-        left: 110%;
+        transform: scale(1.1) translateY(-5px);
+        box-shadow:
+            0 15px 40px rgba(239, 68, 68, 0.6),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
     }
 
     .recruit-button:active {
-        transform: scale(1);
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05) translateY(-2px);
     }
 
-    .appeal h2{
-    color: #ffffff; /* 밝은 파란색 제목 */
-    border-bottom: 0px solid #64b5f6; /* 하단선에 부드러운 파란색 추가 */
-    padding-top: 1rem;
+    .appeal {
+        margin-top: 3rem;
+        position: relative;
+        z-index: 1;
     }
+
+    .appeal h2 {
+        color: #ffffff;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        letter-spacing: -0.01em;
+    }
+
     .appeal-list {
-        margin: 20px 0;
+        margin: 2rem auto;
         padding: 0;
         list-style-type: none;
-        font-size: 1.2rem;
-        line-height: 1.8;
+        font-size: 1.1rem;
+        line-height: 2;
         text-align: left;
         width: 90%;
         max-width: 768px;
-        align: center;
     }
 
     .appeal-list li {
-        margin: 10px 0;
+        margin: 1rem 0;
+        padding-left: 0.5rem;
+        position: relative;
+        transition: all 0.3s ease;
     }
 
-    .appeal-title {
-        font-size: 1.8rem;
-        font-weight: bold;
-        margin-bottom: 10px;
+    .appeal-list li:hover {
+        transform: translateX(10px);
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     }
-/*
+
     @media (max-width: 768px) {
-
-        .appeal-title {
-            font-size: 1.5rem;
-        }
-
-        .appeal-list {
-            font-size: 1rem;
-            line-height: 1.5;
+        .join-div h1 {
+            font-size: 2rem;
         }
 
         .recruit-button {
             font-size: 1.2rem;
-            padding: 10px 20px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .recruit-button {
-            font-size: 1rem;
-            padding: 8px 15px;
+            padding: 1.2rem 2rem;
         }
 
-        .appeal-title {
-            font-size: 1.2rem;
+        .appeal h2 {
+            font-size: 1.6rem;
         }
 
         .appeal-list {
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
     }
-        */
 </style>
