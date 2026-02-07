@@ -60,13 +60,16 @@ class Background3D {
 
         // 2. Camera 설정
         // window.innerWidth 대신 container 크기 사용
-        this.camera = new THREE.PerspectiveCamera(75, this.container.clientWidth / this.container.clientHeight, 0.1, 1000);
+        const width = this.container.clientWidth || window.innerWidth;
+        const height = this.container.clientHeight || window.innerHeight;
+
+        this.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
         // 초기 위치 (이후 animate에서 갱신됨)
         this.camera.position.z = 5;
 
         // 3. Renderer 설정
-        this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+        this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
+        this.renderer.setSize(width, height);
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         this.container.appendChild(this.renderer.domElement);
 
@@ -312,10 +315,12 @@ class Background3D {
     }
 }
 
-// 초기화
-document.addEventListener('DOMContentLoaded', () => {
-    // 약간의 딜레이 후 로드 (페이지 렌더링 우선)
-    setTimeout(() => {
-        new Background3D();
-    }, 100);
-});
+// 전역 초기화 함수로 변경 (index.html에서 제어 가능하도록)
+window.initBackground3D = function () {
+    if (window.background3DInstance) return window.background3DInstance;
+    window.background3DInstance = new Background3D();
+    return window.background3DInstance;
+};
+
+// 기존 자동 실행 코드 제거 또는 주석 처리 (index.html에서 명시적 호출 권장)
+// document.addEventListener('DOMContentLoaded', () => { ... });

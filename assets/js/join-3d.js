@@ -19,12 +19,16 @@ class JoinBackground3D {
     init() {
         // 1. Scene & Camera
         this.scene = new THREE.Scene();
-        this.camera = new THREE.PerspectiveCamera(75, this.container.clientWidth / this.container.clientHeight, 0.1, 1000);
+
+        const width = this.container.clientWidth || window.innerWidth;
+        const height = this.container.clientHeight || (window.innerWidth <= 1024 ? 400 : 800); // 모바일/PC 기본값
+
+        this.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
         this.camera.position.z = 5;
 
         // 2. Renderer
-        this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+        this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
+        this.renderer.setSize(width, height);
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         this.container.appendChild(this.renderer.domElement);
 
@@ -175,5 +179,7 @@ class JoinBackground3D {
 }
 
 window.initJoin3D = function () {
-    new JoinBackground3D();
+    if (window.join3DInstance) return window.join3DInstance;
+    window.join3DInstance = new JoinBackground3D();
+    return window.join3DInstance;
 };

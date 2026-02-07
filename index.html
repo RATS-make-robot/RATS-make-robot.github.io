@@ -170,7 +170,8 @@
                 // [NEW] PC 사이드바 로직 (로드 후)
                 setupSidebarNav();
 
-                // [NEW] Join 섹션 3D 배경 초기화
+                // [NEW] 배경 3D 모델 및 Join 섹션 3D 배경 초기화 (레이아웃 안정화 후)
+                if (window.initBackground3D) window.initBackground3D();
                 if (window.initJoin3D) window.initJoin3D();
             });
 
