@@ -178,7 +178,11 @@
     }
 
     .code-container {
-        min-height: 60px;
+        min-height: 140px;
+        /* 3-4줄 높이 확보 */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         padding: 1.5rem;
         background: rgba(0, 0, 0, 0.4);
         border-radius: 8px;
@@ -201,6 +205,9 @@
         background-color: #00d4ff;
         box-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
         animation: blink 0.7s step-end infinite;
+        vertical-align: middle;
+        /*transform: translateY(0px);
+        아주 살짝 아래로 조정 */
     }
 
     @keyframes blink {
