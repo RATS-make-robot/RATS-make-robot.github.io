@@ -26,9 +26,11 @@ window.loadSeminars = function () {
                             <p>${seminar.description}</p>
                             <p><strong>강의자:</strong> ${seminar.organizer}</p>
                             <p><strong>기간:</strong> ${seminar.period}</p>
-                            ${seminar.link ? `<a href="${seminar.link}" target="_blank">
-                                <img src="assets/images/logos/githublogo.svg" alt="GitHub Link" class="link-icon">
-                            </a>` : ''}
+                            <div class="links-container">
+                                ${seminar.link ? `<a href="${seminar.link}" target="_blank" class="link-icon">
+                                    <img src="assets/images/logos/githublogo.svg" alt="GitHub Link" style="width: 60px; height: auto;">
+                                </a>` : ''}
+                            </div>
                         `;
 
                         seminarContainer.appendChild(seminarCard);

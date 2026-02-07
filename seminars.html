@@ -67,27 +67,51 @@
         line-height: 1.6;
     }
 
-    .seminar-card a {
-        display: inline-flex;
+    .links-container {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 1.5rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* 링크 아이콘 스타일 */
+    .link-icon {
+        display: flex;
         align-items: center;
-        gap: 0.5rem;
-        margin-top: 1rem;
-        text-decoration: none;
-        color: #22d3ee;
-        font-weight: 600;
+        justify-content: center;
+        width: 70px;
+        /* 가로로 더 길게 */
+        height: 35px;
+        /* 세로는 줄임 */
+        background: rgba(255, 255, 255, 0.95);
+        /* 로고 색상이 잘 보이도록 밝게 */
+        border: 1px solid rgba(0, 212, 255, 0.5);
+        border-radius: 8px;
+        padding: 5px 10px;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .link-icon img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
         transition: all 0.3s ease;
     }
 
-    .seminar-card a:hover {
-        color: #00d4ff;
-        text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
-        transform: translateX(5px);
+    .link-icon:hover {
+        background: #ffffff;
+        border-color: #00d4ff;
+        box-shadow:
+            0 4px 15px rgba(0, 212, 255, 0.4),
+            0 0 20px rgba(0, 212, 255, 0.2);
+        transform: translateY(-3px) scale(1.05);
     }
 
-    .seminar-card a img {
-        width: 24px;
-        height: auto;
-        filter: drop-shadow(0 2px 4px rgba(0, 212, 255, 0.3));
+    .link-icon:hover img {
+        filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.6));
     }
 
     .seminar-card-image {

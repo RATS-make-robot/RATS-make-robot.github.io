@@ -19,8 +19,10 @@ window.loadExperiences = function () {
                     throw new Error('Container element .experience-container is missing.');
                 }
 
-                // Clear existing content
-                experienceContainer.innerHTML = '';
+                // Clear existing content if container exists
+                if (experienceContainer) {
+                    experienceContainer.innerHTML = '';
+                }
 
                 // 상별 이모티콘 매핑
                 const awardIcons = {
@@ -41,28 +43,38 @@ window.loadExperiences = function () {
 
                 if (experiencesData.experiences) {
                     experiencesData.experiences.forEach(experience => {
-                        const experienceCard = document.createElement('div');
-                        experienceCard.className = 'experience-card';
+                        let experienceCard = null;
+                        if (experienceContainer) {
+                            experienceCard = document.createElement('div');
+                            experienceCard.className = 'experience-card';
 
-                        // 연도 추가
-                        const year = document.createElement('h3');
-                        year.textContent = experience.year;
-                        experienceCard.appendChild(year);
+                            // 연도 추가
+                            const year = document.createElement('h3');
+                            year.textContent = experience.year;
+                            experienceCard.appendChild(year);
+                        }
 
                         // 대회 및 수상 내역 처리
                         if (experience.competitions) {
                             experience.competitions.forEach(comp => {
-                                const competitionRow = document.createElement('div');
-                                competitionRow.className = 'competition-row';
+                                let competitionRow = null;
+                                let awardList = null;
 
-                                // 대회명 추가
-                                const compTitle = document.createElement('span');
-                                compTitle.className = 'competition-title';
-                                compTitle.textContent = comp.name;
+                                if (experienceCard) {
+                                    competitionRow = document.createElement('div');
+                                    competitionRow.className = 'competition-row';
 
-                                // 수상 내역 추가
-                                const awardList = document.createElement('span');
-                                awardList.className = 'award-list';
+                                    // 대회명 추가
+                                    const compTitle = document.createElement('span');
+                                    compTitle.className = 'competition-title';
+                                    compTitle.textContent = comp.name;
+                                    competitionRow.appendChild(compTitle);
+
+                                    // 수상 내역 추가
+                                    awardList = document.createElement('span');
+                                    awardList.className = 'award-list';
+                                }
+
                                 let awardText = '';
 
                                 comp.awards.forEach(award => {
@@ -79,41 +91,46 @@ window.loadExperiences = function () {
                                         externalCount += count;
                                     }
 
-                                    if (count > 1) {
-                                        awardText += `<code>${icon}${award.type}(${count})</code> `;
-                                    } else {
-                                        awardText += `<code>${icon}${award.type}</code> `;
+                                    if (awardList) {
+                                        if (count > 1) {
+                                            awardText += `<code>${icon}${award.type}(${count})</code> `;
+                                        } else {
+                                            awardText += `<code>${icon}${award.type}</code> `;
+                                        }
                                     }
                                 });
 
-                                awardList.innerHTML = awardText.trim();
-
-                                competitionRow.appendChild(compTitle);
-                                competitionRow.appendChild(awardList);
-                                experienceCard.appendChild(competitionRow);
+                                if (awardList && competitionRow) {
+                                    awardList.innerHTML = awardText.trim();
+                                    competitionRow.appendChild(awardList);
+                                    experienceCard.appendChild(competitionRow);
+                                }
                             });
                         }
 
-                        experienceContainer.appendChild(experienceCard);
+                        if (experienceContainer && experienceCard) {
+                            experienceContainer.appendChild(experienceCard);
+                        }
                     });
 
-                    // 카운터 업데이트
-                    const schoolCounterEl = document.getElementById('school-counter');
-                    const externalCounterEl = document.getElementById('external-counter');
+                    // 카운터 업데이트 (모든 인스턴스 업데이트를 위해 querySelectorAll 사용)
+                    const schoolCounterEls = document.querySelectorAll('.school-counter');
+                    const externalCounterEls = document.querySelectorAll('.external-counter');
 
-                    if (schoolCounterEl) schoolCounterEl.setAttribute('data-target', schoolCount);
-                    if (externalCounterEl) externalCounterEl.setAttribute('data-target', externalCount);
+                    schoolCounterEls.forEach(el => el.setAttribute('data-target', schoolCount));
+                    externalCounterEls.forEach(el => el.setAttribute('data-target', externalCount));
 
                     // IntersectionObserver로 스크롤 시 애니메이션 트리거
-                    const counterContainer = document.querySelector('.awards-counter-container');
-                    if (counterContainer) {
+                    const counterContainers = document.querySelectorAll('.counter-animate-trigger');
+                    if (counterContainers.length > 0) {
                         const observer = new IntersectionObserver((entries) => {
                             entries.forEach(entry => {
                                 if (entry.isIntersecting) {
-                                    animateCounters();
+                                    // 해당 컨테이너 내부의 카운터들만 애니메이션 실행
+                                    animateCounters(entry.target);
                                 } else {
-                                    // 화면에서 벗어나면 초기화 및 애니메이션 중지
-                                    const counters = document.querySelectorAll('.counter-number');
+                                    // 화면에서 벗어나면 초기화
+                                    const counters = entry.target.querySelectorAll('.counter-number');
                                     counters.forEach(counter => {
                                         counter.innerText = '0';
                                         counter.removeAttribute('data-animating');
@@ -122,7 +139,7 @@ window.loadExperiences = function () {
                             });
                         }, { threshold: 0.1 });
 
-                        observer.observe(counterContainer);
+                        counterContainers.forEach(container => observer.observe(container));
                     }
 
                 } else {
@@ -135,7 +152,6 @@ window.loadExperiences = function () {
                     retryCount++;
                     setTimeout(load, 2000); // 재시도
                 } else {
-                    const experienceContainer = document.querySelector('.experience-container');
                     if (experienceContainer) {
                         experienceContainer.innerHTML = '<p>Error loading experiences. Please try again later.</p>';
                     }
@@ -144,8 +160,8 @@ window.loadExperiences = function () {
     };
 
     // 숫자 카운트 애니메이션 함수
-    function animateCounters() {
-        const counters = document.querySelectorAll('.counter-number');
+    function animateCounters(container) {
+        const counters = container.querySelectorAll('.counter-number');
         const speed = 200; // 숫자가 클수록 느림 (프레임 수)
 
         counters.forEach(counter => {

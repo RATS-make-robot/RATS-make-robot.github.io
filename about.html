@@ -1,39 +1,38 @@
 <!-- 코딩 애니메이션 화면 -->
 <section id="about" class="content">
     <div id="about-rats" align="center">
-        <h3>명지대학교 로봇, 임베디드 중앙동아리</h3>
+        <h3>명지대학교 로봇·임베디드 중앙동아리</h3>
         <p><i>Since 1993</i></p>
         <table id="why-join-table">
             <tbody>
                 <tr>
-                    <td style="text-align: center;">🤖</td>
-                    <td><b>개발의 즐거움</b></td>
-                    <td style="width: 1px;">:</td>
-                    <td>하드웨어와 소프트웨어를 직접 설계하고 제작합니다.</td>
-                </tr>
-                <tr>
                     <td style="text-align: center;">🛠️</td>
-                    <td><b>실질적인 융합 설계 경험</b></td>
+                    <td><b>융합 설계 경험</b></td>
                     <td style="width: 1px;">:</td>
-                    <td>SW 프로그래밍뿐만 아니라 HW 설계에 해당하는 3D / PCB 설계, 납땜 등도 같이 진행하며 종합적인 임베디드 시스템 설계 능력을 배양합니다.</td>
+                    <td><b>소프트웨어</b> 개발뿐만 아니라 <b>3D 설계, PCB 설계, 제작 및 조립</b> 등 <br>
+                        <b>하드웨어</b> 개발 과정까지 함께 수행하며, <br>
+                        <b>임베디드 시스템</b> 통합 설계 역량을 기를 수 있습니다.
+                    </td>
                 </tr>
-                <tr>
-                    <td style="text-align: center;">🌟</td>
+                <tr class="counter-animate-trigger">
+                    <td style="text-align: center;">🏆</td>
                     <td><b>다양한 수상 경력</b></td>
                     <td style="width: 1px;">:</td>
-                    <td>교내외 로봇/임베디드 대회에서 다수의 상을 수상하며 동아리의 실력을 증명해왔습니다.</td>
+                    <td>교내 <span class="counter-number school-counter" data-target="0">0</span>회,
+                        외부 <span class="counter-number external-counter" data-target="0">0</span>회(2019~)의 AI/로봇/임베디드
+                        대회에서 수상하며 동아리의 실력을 증명해왔습니다.</td>
                 </tr>
                 <tr>
                     <td style="text-align: center;">🎯</td>
                     <td><b>미래를 위한 준비</b></td>
                     <td style="width: 1px;">:</td>
-                    <td>실제 산업에서 요구하는 프로젝트/대회 경험을 쌓을 수 있습니다.</td>
+                    <td>실무에서 요구되는 문제 해결 역량을 <b>프로젝트 및 대회 경험</b>을 통해 체계적으로 쌓을 수 있습니다.</td>
                 </tr>
                 <tr>
                     <td style="text-align: center;">🌐</td>
                     <td><b>협업과 네트워킹</b></td>
                     <td style="width: 1px;">:</td>
-                    <td>다양한 전공과 학년이 함께 프로젝트를 진행하며, 졸업생을 포함하여 탄탄한 네트워크를 형성하고 있습니다.</td>
+                    <td><b>다양한 전공과 학년</b>의 구성원이 함께 프로젝트를 수행하며, 정기 행사를 통해 재학생과 졸업생간 교류와 네트워크를 이어가고 있습니다.</td>
                 </tr>
             </tbody>
         </table>
@@ -129,6 +128,15 @@
     #why-join-table td b {
         color: #00d4ff;
         font-weight: 600;
+    }
+
+    #why-join-table .counter-number {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 0;
+        text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+        display: inline-block;
+        vertical-align: baseline;
     }
 
     /* 코딩 애니메이션 섹션 */

@@ -39,6 +39,8 @@ class Background3D {
         this.scroll = 0;                              // 현재 스크롤 값 (보간됨)
 
         this.clock = new THREE.Clock();
+        this.lastMouseMoveTime = 0; // 마지막 마우스 움직임 시간
+        this.isMouseMoving = false; // 마우스 움직임 활성화 여부
 
         this.init();
         this.animate();
@@ -50,6 +52,7 @@ class Background3D {
     }
 
     init() {
+        // ... (기존 코드 생략)
         // 1. Scene 설정
         this.scene = new THREE.Scene();
         // 안개 효과 (배경색과 자연스럽게 섞이도록)
@@ -87,6 +90,11 @@ class Background3D {
         window.addEventListener('resize', () => this.onWindowResize());
         window.addEventListener('scroll', () => this.onScroll(), { passive: true });
         window.addEventListener('mousemove', (e) => this.onMouseMove(e), { passive: true });
+
+        // 터치 디바이스 대응 (터치 시작 시 마우스 모드 강제 종료)
+        window.addEventListener('touchstart', () => {
+            this.isMouseMoving = false;
+        }, { passive: true });
 
         // 7. 파일 업로드 리스너
         const fileInput = document.getElementById('modelFile');
@@ -217,12 +225,13 @@ class Background3D {
     }
 
     onMouseMove(event) {
-        // 컨테이너 기준 마우스 좌표 계산 (사이드바 등으로 밀려났을 때 대응)
+        this.isMouseMoving = true;
+        this.lastMouseMoveTime = Date.now();
+
         const rect = this.container.getBoundingClientRect();
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
 
-        // 컨테이너 중심 기준 -1 ~ 1 정규화
         this.pointerTarget.x = (x / rect.width) * 2 - 1;
         this.pointerTarget.y = -(y / rect.height) * 2 + 1;
     }
@@ -230,13 +239,28 @@ class Background3D {
     animate() {
         requestAnimationFrame(() => this.animate());
 
-        const dt = Math.min(0.05, this.clock.getDelta()); // 너무 큰 델타 방지
-
-        // 1. 값 보간 (Lerp) - 부드러운 움직임 구현
-        // 감속 계수 (높을수록 느리게 따라옴)
+        const dt = Math.min(0.05, this.clock.getDelta());
+        const currentTime = Date.now();
         const smoothFactor = 1 - Math.pow(0.001, dt);
 
         this.scroll = this.lerp(this.scroll, this.scrollTarget, smoothFactor);
+
+        // 2. 스마트 호버 디텍션 (Activity-based Detection)
+        // 마우스 움직임이 2초 이상 없거나 터치 기기일 경우 Idle 애니메이션 활성화
+        const inactivityDuration = currentTime - this.lastMouseMoveTime;
+        const shouldShowIdle = !this.isMouseMoving || inactivityDuration > 2000;
+
+        if (shouldShowIdle) {
+            const time = this.clock.getElapsedTime();
+            // 부드러운 8자 형태 움직임 시뮬레이션
+            const idleX = Math.sin(time * 0.5) * 0.15;
+            const idleY = Math.cos(time * 0.7) * 0.1;
+
+            // 현재 타겟을 Idle 위치로 서서히 보정
+            this.pointerTarget.x = this.lerp(this.pointerTarget.x, idleX, smoothFactor);
+            this.pointerTarget.y = this.lerp(this.pointerTarget.y, idleY, smoothFactor);
+        }
+
         this.pointer.x = this.lerp(this.pointer.x, this.pointerTarget.x, smoothFactor);
         this.pointer.y = this.lerp(this.pointer.y, this.pointerTarget.y, smoothFactor);
 
