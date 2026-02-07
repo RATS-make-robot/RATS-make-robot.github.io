@@ -91,10 +91,10 @@ projects:
         links:
           youtube: "https://youtu.be/pdYLRzkepHQ?si=75ohAaabfY9YaunE"
 
-      - title: "강화학습 기반 반도체 공정 OHT 최적화 및 FAB할당"
-        description: ""
-        team: "이상수, 안재영(총 5명)"
-        image: ""
+      - title: "Hestia"
+        description: "생성 AI를 이용한 대화형 인공지능 디바이스"
+        team: "이승석, 신범식, 김준하, 우상민, 정지원(총 5명)"
+        image: "assets/images/sections/projects/2024/hestia.jpg"
         tags: ["2024"]
         duration: "2024년 3월 ~ 2024년 12월"
         links:
@@ -107,7 +107,16 @@ projects:
         tags: ["2024"]
         duration: "2024년 3월 ~ 2024년 12월"
         links:
-          github: ""
+          github: "https://github.com/Carve-dream"
+          youtube: ""
+
+      - title: "강화학습 기반 반도체 공정 OHT 최적화 및 FAB할당"
+        description: ""
+        team: "이상수, 안재영(총 5명)"
+        image: ""
+        tags: ["2024"]
+        duration: "2024년 3월 ~ 2024년 12월"
+        links:
           youtube: ""
 ############################################################################################
   - year: "2023년도"
@@ -256,16 +265,9 @@ projects:
         duration: "2022년 3월 ~ 2022년 12월"
 ############################################################################################
 
+
   - year: "2021년도"
     projects:
-      - title: "씨름 로봇"
-        description: "상대 로봇 탐지 및 밀어내기 기능 구현."
-        team: "김지호, 이한얼, 전성배"
-        tags: ["2021"]
-        duration: "2021년 9월 ~ 2021년 10월"
-        links:
-          github: "https://github.com/Kestrel-omega/2021_Wrestling"
-
       - title: "명지대 셔틀버스 어플"
         description: "명지대 셔틀버스를 시간을 알려주는 어플리케이션. 안드로이드/아이폰 스토어에서 '명지대 셔틀버스'로 검색 할 수 있습니다."
         team: "황규도"
@@ -275,11 +277,8 @@ projects:
         links:
           other: "https://play.google.com/store/apps/details?id=com.mba.busapp"
 
-##############################################
-#  - year: "2020년도"
-#    projects:
       - title: "자이로스코프 드론"
-        description: "자이로스코프 형태의 드론 가드 설계."
+        description: "드론 및 자이로스코프 형태의 가드 설계."
         team: "석은혜"
         image: "https://user-images.githubusercontent.com/48342925/155873725-4337d101-3516-4256-a67a-2224b7e8d388.jpg"
         tags: ["2020", "2021"]
@@ -287,6 +286,18 @@ projects:
         links:
           github: "https://github.com/mokhwasomssi/drone_with_gyroscopic_guard"
           youtube: "https://youtu.be/5MefZFfkZi4?si=7gLCpKSLM4FhJ0_J"
+
+      - title: "씨름 로봇"
+        description: "상대 로봇 탐지 및 밀어내기 기능 구현."
+        team: "김지호, 이한얼, 전성배"
+        tags: ["2021"]
+        duration: "2021년 9월 ~ 2021년 10월"
+        links:
+          github: "https://github.com/Kestrel-omega/2021_Wrestling"
+
+##############################################
+#  - year: "2020년도"
+#    projects:
 ############################################################################################
 
   - year: "2019년도"
@@ -294,7 +305,7 @@ projects:
       - title: "2자유도 공 균형 제어 시스템"
         description: "터치스크린 센서를 이용한 PID 균형 제어 로봇."
         team: "김성현"
-        image: "assets/images/sections/projects/2019/ball.jpg"
+        image: "assets/images/sections/projects/2019/ball.gif"
         tags: ["2019"]
         duration: "2019년 3월 ~ 2019년 7월"
         links:
