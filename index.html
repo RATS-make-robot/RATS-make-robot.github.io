@@ -169,7 +169,20 @@
 
                 // [NEW] PC 사이드바 로직 (로드 후)
                 setupSidebarNav();
+
+                // [NEW] Join 섹션 3D 배경 초기화
+                if (window.initJoin3D) window.initJoin3D();
             });
+
+            // [NEW] 모바일 네비게이션 설정 (링크 클릭 시 CSS scroll-margin-top 활용)
+            function setupMobileNav() {
+                const mobileLinks = document.querySelectorAll('.mobile-top-nav .nav-link');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        // href를 통해 네이티브 smooth scroll과 scroll-margin-top이 작동함
+                    });
+                });
+            }
 
             // PC 사이드바 네비게이션 설정
             function setupSidebarNav() {
@@ -180,26 +193,12 @@
                 // 1. 링크 클릭
                 sidebarLinks.forEach(link => {
                     link.addEventListener('click', (e) => {
-                        e.preventDefault();
                         // 모든 링크 active 제거
                         sidebarLinks.forEach(l => l.classList.remove('active'));
                         link.classList.add('active');
-
-                        const targetId = link.getAttribute('href').substring(1);
-                        const targetSection = document.getElementById(targetId);
-
-                        if (targetSection) {
-                            targetSection.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }
+                        // href 이동은 브라우저 기본 동작(smooth scroll)과 CSS scroll-margin-top에 맡김
                     });
                 });
-
-                // 2. 통합 스크롤 이벤트 (모바일+PC)
-                // 기존 onScroll 함수에 PC 로직 통합하는 게 좋음, 위 setupMobileNav의 onScroll을 밖으로 꺼내는 게 맞지만
-                // 일단 별도로 붙여도 됨. 성능상 하나로 합치는 게 좋으므로 합치기 시도.
             }
 
             // 전역 스크롤 핸들러 (모바일 & PC 공용)
@@ -225,11 +224,12 @@
 
                 // 2. 섹션 감지 및 활성 링크 업데이트
                 let current = '';
-                const headerHeight = window.innerWidth <= 1024 ? 80 : 50; // 모바일/PC 분기
+                // [MODIFY] 헤더 높이 및 감지 오차 조정 (70px 기준)
+                const headerHeight = window.innerWidth <= 1024 ? 70 : 20;
 
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
-                    if (scrollY >= sectionTop - headerHeight - 150) {
+                    if (scrollY >= sectionTop - headerHeight - 100) {
                         current = section.getAttribute('id');
                     }
                 });
@@ -444,6 +444,7 @@
         }
     </script>
         <script type="module" src="assets/js/bg-3d-model.js"></script>
+        <script type="module" src="assets/js/join-3d.js"></script>
 </body>
 
 </html>

@@ -55,6 +55,10 @@
     --transition-slow: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* === 전역 리셋 === */
 * {
     margin: 0;
@@ -266,6 +270,11 @@ body::before {
         display: block;
         /* 모바일에서 표시 */
     }
+
+    section {
+        scroll-margin-top: 70px;
+        /* 모바일 헤더(60px) + 여유분 */
+    }
 }
 
 /* 모바일 대응 */
@@ -292,6 +301,9 @@ section {
     /* 85% -> 90% */
     position: relative;
     z-index: 1;
+
+    /* 네비게이션 헤더 고려 (기본 PC: 20px, 모바일: 70px) */
+    scroll-margin-top: 20px;
 
     /* Glassmorphism 효과 */
     background: var(--glass-bg);

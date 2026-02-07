@@ -1,22 +1,29 @@
 <section id="join">
-    <div class="join-div">
-        <h1>Join Our Club!</h1>
-        <button class="recruit-button" onclick="goToGoogleForm()">
-            <span class="btn-main-text">가입하기</span>
-            <span class="btn-sub-text">[사전모집기간(재학생)]<br>[25.12.16 ~ 26.01.15]</span>
-        </button>
-        <br>
-        <br>
-        <div class="appeal" align="center">
-            <h2 class="appeal-title">Why Join RATS?</h2>
-            <ul class="appeal-list">
-                <li>🏆 Award-winning club with proven success in robotics/embedded competitions.</li>
-                <li>🤖 Hands-on experience in building and programming robots.</li>
-                <li>📚 Learn advanced technologies like AI, machine learning, and automation.</li>
-                <li>🌐 Collaborate with passionate members on exciting projects.</li>
-                <li>🎯 Develop problem-solving and teamwork skills in a fun environment.</li>
-                <li>🔗 Access to mentorship and networking opportunities with industry experts.</li>
-            </ul>
+    <!-- 3D 배경 캔버스 (JS에서 초기화) -->
+    <div id="join-3d-canvas"></div>
+
+    <h1>Join Our Club!</h1>
+    <button class="recruit-button" onclick="goToGoogleForm()">
+        <span class="btn-main-text">가입하기</span>
+        <span class="btn-sub-text">[사전모집기간(재학생)]<br>[25.12.16 ~ 26.01.15]</span>
+    </button>
+    <br>
+    <br>
+    <div class="recruitment-section">
+        <div class="recruitment-grid">
+            <div class="recruit-card">
+                <div class="card-icon">🌱</div>
+                <h3>신입생 모집</h3>
+                <p>1학기 초 신입생 모집 기간에<br>지원 가능합니다.</p>
+            </div>
+            <div class="recruit-card">
+                <div class="card-icon">🧑‍💻</div>
+                <h3>재학생 모집</h3>
+                <p>재학생 모집 기간에 지원 가능하며,<br><b>프로젝트 계획서 제출</b>은 필수입니다.</p>
+            </div>
+        </div>
+        <div class="contact-hint">
+            <p>추가 문의는 하단 연락처를 통해 안내받으실 수 있습니다.</p>
         </div>
     </div>
 </section>
@@ -25,19 +32,23 @@
     #join {
         animation: fadeInScale 1s cubic-bezier(0.16, 1, 0.3, 1);
         margin: 3rem auto;
-        padding: 0;
         font-family: 'Inter', sans-serif;
-        display: block;
-        max-width: 100%;
         border-radius: 16px;
         border: 1px solid rgba(0, 212, 255, 0.3);
         color: white;
         text-align: center;
+        position: relative;
         overflow: hidden;
+
+        /* 배경 및 Glassmorphism 통합 */
+        background: linear-gradient(135deg, rgba(88, 28, 135, 0.45) 0%, rgba(49, 46, 129, 0.45) 50%, rgba(15, 23, 42, 0.45) 100%);
+        padding: 5rem 2rem;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
 
         box-shadow:
             0 8px 32px rgba(0, 0, 0, 0.4),
-            0 0 60px rgba(168, 85, 247, 0.3);
+            0 0 60px rgba(168, 85, 247, 0.2);
     }
 
     @keyframes fadeInScale {
@@ -52,33 +63,19 @@
         }
     }
 
-    .join-div {
-        background: linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #3b82f6 100%);
-        padding: 3rem 2rem;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .join-div::before {
-        content: '';
+    #join-3d-canvas {
         position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: repeating-conic-gradient(from 0deg,
-                transparent 0deg 30deg,
-                rgba(255, 255, 255, 0.03) 30deg 60deg);
-        animation: rotateBackground 20s linear infinite;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0.7;
+        /* 3D 요소 선명도 조절 */
     }
 
-    @keyframes rotateBackground {
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
-    .join-div h1 {
+    #join h1 {
         font-size: 2.5rem;
         font-weight: 800;
         margin-bottom: 2rem;
@@ -161,46 +158,76 @@
         transform: scale(1.05) translateY(-2px);
     }
 
-    .appeal {
+    .recruitment-section {
         margin-top: 3rem;
+        padding: 0 1rem;
         position: relative;
         z-index: 1;
     }
 
-    .appeal h2 {
-        color: #ffffff;
-        font-size: 2rem;
-        font-weight: 700;
+    .recruitment-grid {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
         margin-bottom: 2rem;
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .recruit-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 2.5rem 2rem;
+        width: 320px;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .recruit-card:hover {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.08);
+        border-color: #00d4ff;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 212, 255, 0.2);
+    }
+
+    .card-icon {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        display: block;
+        filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
+    }
+
+    .recruit-card h3 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: white;
+    }
+
+    .recruit-card p {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.85);
+        margin: 0;
+    }
+
+    .recruit-card b {
+        color: #00d4ff;
+    }
+
+    .contact-hint {
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 0.95rem;
+        margin-top: 2rem;
         letter-spacing: -0.01em;
     }
 
-    .appeal-list {
-        margin: 2rem auto;
-        padding: 0;
-        list-style-type: none;
-        font-size: 1.1rem;
-        line-height: 2;
-        text-align: left;
-        width: 90%;
-        max-width: 768px;
-    }
-
-    .appeal-list li {
-        margin: 1rem 0;
-        padding-left: 0.5rem;
-        position: relative;
-        transition: all 0.3s ease;
-    }
-
-    .appeal-list li:hover {
-        transform: translateX(10px);
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-    }
-
     @media (max-width: 768px) {
-        .join-div h1 {
+        #join h1 {
             font-size: 2rem;
         }
 
@@ -217,12 +244,13 @@
             font-size: 0.8rem;
         }
 
-        .appeal h2 {
-            font-size: 1.6rem;
+        .recruit-card {
+            width: 100%;
+            max-width: 340px;
         }
 
-        .appeal-list {
-            font-size: 1rem;
+        .card-icon {
+            font-size: 3rem;
         }
     }
 </style>
