@@ -86,10 +86,14 @@ class Background3D {
         this.scene.add(this.modelGroup);
         this.loadModel();
 
-        // 6. 이벤트 리스너
+        // 6. 이벤트 리스너 및 관찰자
         window.addEventListener('resize', () => this.onWindowResize());
         window.addEventListener('scroll', () => this.onScroll(), { passive: true });
         window.addEventListener('mousemove', (e) => this.onMouseMove(e), { passive: true });
+
+        // 컨테이너 크기 변화 정밀 감지 (사이드바 토글 등 대응)
+        this.resizeObserver = new ResizeObserver(() => this.onWindowResize());
+        this.resizeObserver.observe(this.container);
 
         // 터치 디바이스 대응 (터치 시작 시 마우스 모드 강제 종료)
         window.addEventListener('touchstart', () => {
@@ -206,13 +210,20 @@ class Background3D {
 
     onWindowResize() {
         if (!this.camera || !this.renderer) return;
+
         // 컨테이너가 변경된 크기에 맞춰짐 (CSS) -> 그 크기를 읽어서 리사이징
         const width = this.container.clientWidth;
         const height = this.container.clientHeight;
 
+        if (width === 0 || height === 0) return;
+
         this.camera.aspect = width / height;
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(width, height);
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // 레이아웃 변경 시 스크롤 가능 범위가 바뀌므로 재계산
+        this.onScroll();
     }
 
     onScroll() {
