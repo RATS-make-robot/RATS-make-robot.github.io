@@ -228,7 +228,7 @@ projects:
         description: "동아리 홍보를 위한 정적 페이지, 커뮤니티, 클라우드 개발 | (이후 RATS회장단에서 관리)"
         team: "김성현, 황규도"
         tags: ["2022"]
-        duration: "2022년 ~"
+        duration: "2022년 ~ 2023년"
         links:
           github: "https://github.com/RATS-make-robot/RATS-make-robot.github.io"
 
@@ -269,6 +269,7 @@ projects:
       - title: "명지대 셔틀버스 어플"
         description: "명지대 셔틀버스를 시간을 알려주는 어플리케이션. 안드로이드/아이폰 스토어에서 '명지대 셔틀버스'로 검색 할 수 있습니다."
         team: "황규도"
+        image: "assets/images/sections/projects/2021/bus.jpg"
         tags: ["2021"]
         duration: "2021년 9월 ~ 2022년 2월"
         links:

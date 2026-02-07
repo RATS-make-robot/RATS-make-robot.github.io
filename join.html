@@ -2,7 +2,8 @@
     <div class="join-div">
         <h1>Join Our Club!</h1>
         <button class="recruit-button" onclick="goToGoogleForm()">
-            가입하기<br>[사전모집기간]<br>[25.12.16 ~ 26.01.15]
+            <span class="btn-main-text">가입하기</span>
+            <span class="btn-sub-text">[사전모집기간(재학생)]<br>[25.12.16 ~ 26.01.15]</span>
         </button>
         <br>
         <br>
@@ -88,14 +89,19 @@
     }
 
     .recruit-button {
-        padding: 1.5rem 3rem;
-        font-size: 1.5rem;
-        font-weight: 700;
+        padding: 1.2rem 2.5rem;
+        font-family: inherit;
         color: #fff;
         background: linear-gradient(135deg, #ef4444, #dc2626);
         border: none;
-        border-radius: 50px;
+        border-radius: 24px;
         cursor: pointer;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0 auto;
 
         box-shadow:
             0 10px 30px rgba(239, 68, 68, 0.4),
@@ -106,9 +112,24 @@
         overflow: hidden;
         transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 
-        width: 90%;
-        max-width: 400px;
+        width: fit-content;
+        min-width: 280px;
         z-index: 1;
+    }
+
+    .btn-main-text {
+        font-size: 1.8rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+    }
+
+    .btn-sub-text {
+        font-size: 0.9rem;
+        font-weight: 500;
+        opacity: 0.9;
+        line-height: 1.4;
+        letter-spacing: 0.05em;
     }
 
     .recruit-button::before {
@@ -184,8 +205,16 @@
         }
 
         .recruit-button {
-            font-size: 1.2rem;
-            padding: 1.2rem 2rem;
+            padding: 1rem 1.5rem;
+            min-width: 240px;
+        }
+
+        .btn-main-text {
+            font-size: 1.4rem;
+        }
+
+        .btn-sub-text {
+            font-size: 0.8rem;
         }
 
         .appeal h2 {
