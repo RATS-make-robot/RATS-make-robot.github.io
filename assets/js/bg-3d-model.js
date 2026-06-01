@@ -1,5 +1,4 @@
-import * as THREE from 'three';
-import { STLLoader } from 'three/addons/loaders/STLLoader.js';
+/* Global THREE is loaded via CDN in index.html */
 
 /* =========================================================================
    [사용자 설정 가이드]
@@ -128,7 +127,7 @@ class Background3D {
     }
 
     loadSTLFromURL(url) {
-        const loader = new STLLoader();
+        const loader = new THREE.STLLoader();
 
         // 기존 모델 제거 (fallback 포함)
         if (this.model) {

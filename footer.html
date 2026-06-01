@@ -1,23 +1,25 @@
 <!-- footer.html -->
-<footer>
+<footer class="rats-footer">
+    <div class="footer-glow-line"></div>
     <div class="footer-content">
-        <div class="footer-logo">
-            <img src="assets/images/logos/RATS-white.svg" alt="RATS">
-            <p>Robotic Automatic Technology Society</p>
-            <p style="font-size: 0.8rem; margin-top: 0.2rem; color: #64748b;">명지대학교 로봇·임베디드 중앙동아리</p>
-        </div>
-        <div class="footer-links">
-            <div class="footer-social">
-                <a href="https://github.com/RATS-make-robot" target="_blank" aria-label="GitHub">
-                    <img src="assets/images/logos/github-mark-white.svg" alt="GitHub">
-                </a>
-                <a href="mailto:mjurats.official@gmail.com" aria-label="Gmail">
-                    <img src="assets/images/logos/gmail.svg" alt="Gmail">
-                </a>
-                <a href="https://www.instagram.com/mjurats" target="_blank" aria-label="Instagram">
-                    <img src="assets/images/logos/instagram.svg" alt="Instagram">
-                </a>
+        <div class="footer-brand">
+            <div class="footer-logo-wrap">
+                <img src="assets/images/logos/RATS-white.svg" alt="RATS Logo">
             </div>
+            <h3 class="footer-title">Robotic Automatic Technology Society</h3>
+            <p class="footer-subtitle">명지대학교 로봇·임베디드 중앙동아리</p>
+        </div>
+        
+        <div class="footer-social">
+            <a href="https://github.com/RATS-make-robot" target="_blank" aria-label="GitHub" class="social-btn github">
+                <i class="ph-fill ph-github-logo"></i>
+            </a>
+            <a href="mailto:mjurats.official@gmail.com" aria-label="Email" class="social-btn email">
+                <i class="ph-fill ph-envelope-simple"></i>
+            </a>
+            <a href="https://www.instagram.com/mjurats" target="_blank" aria-label="Instagram" class="social-btn instagram">
+                <i class="ph-fill ph-instagram-logo"></i>
+            </a>
         </div>
     </div>
     <div class="footer-bottom">
@@ -27,93 +29,147 @@
 </footer>
 
 <style>
-    footer {
-        background: #0a0e1a;
-        border-top: 1px solid rgba(0, 212, 255, 0.1);
-        padding: 4rem 2rem 2rem;
-        margin-top: 4rem;
+    .rats-footer {
+        background: rgba(10, 14, 26, 0.85);
+        backdrop-filter: blur(20px);
         position: relative;
         z-index: 10;
+        padding-top: 4rem;
+        padding-bottom: 2rem; /* iOS 스타일 플로팅 네비게이션 공간 고려 */
+        margin-top: 6rem;
+    }
+
+    /* 상단 그라데이션 빛나는 라인 */
+    .footer-glow-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.5), rgba(168, 85, 247, 0.5), transparent);
+        box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
     }
 
     .footer-content {
         max-width: 1200px;
         margin: 0 auto;
+        padding: 0 2rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
-        gap: 2rem;
-        margin-bottom: 2rem;
+        gap: 3rem;
+        margin-bottom: 3rem;
     }
 
-    .footer-logo img {
-        height: 40px;
+    .footer-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .footer-logo-wrap {
+        display: flex;
+        align-items: center;
         margin-bottom: 0.5rem;
     }
 
-    .footer-logo p {
+    .footer-logo-wrap img {
+        height: 45px;
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+    }
+
+    .footer-title {
+        color: #e2e8f0;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin: 0;
+        letter-spacing: 0.5px;
+    }
+
+    .footer-subtitle {
         color: #94a3b8;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         margin: 0;
     }
 
     .footer-social {
         display: flex;
-        gap: 1.5rem;
+        gap: 1.2rem;
     }
 
-    .footer-social a {
+    .social-btn {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 40px;
-        height: 40px;
+        width: 48px;
+        height: 48px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.05);
-        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #cbd5e1;
+        font-size: 1.5rem;
+        text-decoration: none;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .footer-social img {
-        width: 20px;
-        height: 20px;
-        /* filter: invert(1) brightness(2); 제거 - 원본 아이콘 사용 */
+    .social-btn.github:hover {
+        background: #fff;
+        color: #000;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        transform: translateY(-5px) scale(1.1);
     }
 
-    .footer-social .social-icon {
-        font-size: 1.2rem;
-        filter: grayscale(1);
+    .social-btn.email:hover {
+        background: #ea4335;
+        color: #fff;
+        border-color: #ea4335;
+        box-shadow: 0 0 20px rgba(234, 67, 53, 0.5);
+        transform: translateY(-5px) scale(1.1);
     }
 
-    .footer-social a:hover {
-        background: rgba(0, 212, 255, 0.1);
-        transform: translateY(-3px);
-    }
-
-    .footer-social a:hover img {
-        filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.8));
-    }
-
-    .footer-social a:hover .social-icon {
-        filter: grayscale(0);
+    .social-btn.instagram:hover {
+        background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        color: #fff;
+        border-color: transparent;
+        box-shadow: 0 0 20px rgba(220, 39, 67, 0.5);
+        transform: translateY(-5px) scale(1.1);
     }
 
     .footer-bottom {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
         border-top: 1px solid rgba(255, 255, 255, 0.05);
-        padding-top: 2rem;
         text-align: center;
         color: #64748b;
         font-size: 0.85rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
     }
 
     .footer-bottom p {
-        margin: 0.25rem 0;
+        margin: 0;
     }
 
     @media (max-width: 768px) {
         .footer-content {
             flex-direction: column;
             text-align: center;
+            gap: 2rem;
+        }
+
+        .footer-logo-wrap {
+            justify-content: center;
+        }
+
+        .footer-social {
+            justify-content: center;
+        }
+        
+        .rats-footer {
+            padding-bottom: 6rem; /* 모바일 하단 플로팅 네비게이션 여백 추가 */
         }
     }
 </style>

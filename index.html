@@ -5,447 +5,360 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="명지대학교 로봇·임베디드 중앙동아리 RATS since 1993">
-    <meta property="og:title" content="RATS 홍보페이지">
-    <meta property="og:type" content="website">
-    <meta property="og:description" content="명지대학교 로봇·임베디드 중앙동아리 RATS since 1993">
-    <meta property="og:image" content="/assets/images/site/RATS-preview.png">
-    <meta property="og:url" content="https://join.mju-rats.com/">
-    <title>RATS 홍보페이지 - 명지대학교 로봇·임베디드 중앙동아리</title>
-    <link rel="RATS icon" type="image/x-icon" href="/assets/images/site/RATS.ico">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/layout-desktop.css">
+    <title>RATS 홍보페이지</title>
+    <!-- 폰트 적용 (Pretendard) -->
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <link rel="stylesheet" href="assets/css/styles.css?v=4">
+    <!-- Phosphor Icons for iOS style icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 
 <body>
-    <!-- 3D 배경 컨테이너 -->
+    <!-- 네온 오라 배경 -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <!-- 3D 로봇 로고 배경 -->
     <div id="canvas-container"></div>
 
+    <!-- 하단 플로팅 알약 네비게이션 (iOS Glass Style) -->
+    <nav class="floating-nav">
+        <div class="floating-nav-container">
+            <div class="nav-indicator"></div>
+            <a href="#" class="nav-item active" data-target="home">
+                <i class="ph-fill ph-house"></i>
+                <span>Home</span>
+            </a>
+            <a href="#about" class="nav-item" data-target="about">
+                <i class="ph-fill ph-info"></i>
+                <span>About</span>
+            </a>
+            <a href="#experiences" class="nav-item" data-target="experiences">
+                <i class="ph-fill ph-trophy"></i>
+                <span>Awards</span>
+            </a>
+            <a href="#seminar" class="nav-item" data-target="seminar">
+                <i class="ph-fill ph-presentation-chart"></i>
+                <span>Seminars</span>
+            </a>
+            <a href="#projects" class="nav-item" data-target="projects">
+                <i class="ph-fill ph-rocket"></i>
+                <span>Projects</span>
+            </a>
+            <a href="#join" class="nav-item" data-target="join">
+                <i class="ph-fill ph-user-plus"></i>
+                <span>Join</span>
+            </a>
+        </div>
+    </nav>
 
+    <!-- 3D Canvas Background -->
+    <div id="canvas-container"></div>
 
-    <!-- 사이드바 네비게이션 (PC) -->
-    <div id="sidebar-container"></div>
-
-    <!-- 모바일 햄버거 메뉴 -->
-    <div id="mobile-menu-container"></div>
-
-    <!-- 메인 컨텐츠 영역 -->
-    <main class="main-content">
-
-        <!-- STL 업로더 (내용 영역 최상단 우측) -->
+    <main>
+        <!-- STL 업로더 (우측 최상단) -->
         <div class="uploader">
             <div class="uploader-hint">
                 <span>배경 3D 모델 변경 가능</span>
             </div>
             <label class="file-btn" title=".stl 파일을 선택하여 3D 모델 교체">
-                <span>Load STL</span>
+                <span><i class="ph-bold ph-upload-simple"></i> Load STL</span>
                 <input id="modelFile" type="file" accept=".stl,model/stl" />
             </label>
         </div>
 
-        <!-- Hero 섹션 (3D 모델 감상용 빈 공간) -->
-        <section id="hero" class="hero-spacer">
-            <div class="hero-content">
-                <img src="assets/images/logos/RATS-white.svg" alt="RATS Logo" class="hero-logo">
-                <p>Robotic Automatic Technology Society</p>
-                <div class="scroll-down">
-                    <span>Scroll Down<!-- <br>26년 신입생 모집중! --></span>
-                    <i class="arrow-down">↓</i>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <!-- 흩뿌려진 이미지 배경 갤러리 -->
+            <div id="hero-floating-gallery"></div>
+
+            <div class="container hero-content">
+                <div class="hero-brand-intro">
+                    <img src="assets/images/logos/RATS-white.svg" alt="RATS Logo" class="hero-logo-small">
+                    <p class="hero-initials">Robotic Automatic Technology Society</p>
+                </div>
+
+                <h1 class="hero-title">미래를 조립하는<br><span class="highlight">로봇 엔지니어링 동아리</span></h1>
+
+                <div class="hero-tags">
+                    <span class="hero-tag"><i class="ph-fill ph-code"></i> Software</span>
+                    <span class="hero-tag"><i class="ph-fill ph-cpu"></i> Hardware</span>
+                    <span class="hero-tag"><i class="ph-fill ph-cube"></i> 3D Printing</span>
+                </div>
+
+                <p class="hero-subtitle">명지대학교 로봇·임베디드 중앙동아리 <strong>RATS</strong>에서<br>당신의 상상을 현실로 만들어보세요.</p>
+
+                <div class="hero-buttons">
+                    <a href="#join" class="btn-primary large">지원하기</a>
+                    <a href="#projects" class="btn-secondary large">프로젝트 보기</a>
                 </div>
             </div>
         </section>
 
-        <!-- About 섹션 -->
-        <div id="about-container"></div>
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container reveal-up">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h2 class="section-title text-left">우리가 하는 일</h2>
+                        <p class="about-desc">단순한 코딩 동아리가 아닙니다. 우리는 <strong>기구 설계, 회로 제작, 소프트웨어 프로그래밍</strong>까지 로봇 공학의
+                            A to Z를 직접 경험합니다.</p>
+                        <div class="skills-list">
+                            <span class="skill-badge">C / C++</span>
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">ROS</span>
+                            <span class="skill-badge">3D CAD</span>
+                            <span class="skill-badge">PCB Design</span>
+                            <span class="skill-badge">Embedded</span>
+                        </div>
+                    </div>
+                    <div class="about-image hologram-container">
+                        <!-- 세미나 활동 사진 콜라주 -->
+                        <div class="about-collage">
+                            <img src="assets/images/sections/seminars/2023/soldering.jpg" class="img-workshop"
+                                alt="2023 신입생 납땜 세미나 (작업실)">
+                            <img src="assets/images/sections/seminars/2024/stm32.jpg" class="img-meeting"
+                                alt="2024 CubeIDE 세미나 (회의실)">
+                        </div>
 
-        <!-- Skills 섹션 -->
-        <div id="skills-container"></div>
+                        <!-- 홀로그램 HUD UI -->
+                        <div class="holo-badge holo-1">
+                            <i class="ph-fill ph-cpu"></i>
+                            <div class="holo-text">
+                                <span class="holo-label">Hardware Sys</span>
+                                <span class="holo-val">Online</span>
+                            </div>
+                        </div>
 
-        <!-- Experiences 섹션 -->
-        <div id="experiences-container"></div>
+                        <div class="holo-badge holo-2">
+                            <i class="ph-fill ph-code"></i>
+                            <div class="holo-text">
+                                <span class="holo-label">Compile Status</span>
+                                <span class="holo-val">Success 100%</span>
+                            </div>
+                        </div>
 
-        <!-- Projects 섹션 -->
-        <div id="projects-container"></div>
+                        <div class="holo-badge holo-3">
+                            <i class="ph-fill ph-scan"></i>
+                            <div class="holo-text">
+                                <span class="holo-label">Sensor Array</span>
+                                <span class="holo-val">Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Seminars 섹션 -->
-        <div id="seminars-container"></div>
+        <!-- Awards Section -->
+        <section id="experiences" class="experiences-section">
+            <div class="container reveal-up">
+                <h2 class="section-title">Awards</h2>
+                <p style="text-align:center; color:rgba(255,255,255,0.7); margin-bottom:2rem;">수상 내역(2019~)은 아래에서 확인하실 수
+                    있습니다.</p>
 
-        <!-- Join 섹션 -->
-        <div id="join-container"></div>
+                <div class="awards-counter-container counter-animate-trigger">
+                    <div class="counter-item">
+                        <div class="counter-number external-counter" data-target="0">0</div>
+                        <div class="counter-label">External Awards</div>
+                    </div>
+                    <div class="counter-divider"></div>
+                    <div class="counter-item">
+                        <div class="counter-number school-counter" data-target="0">0</div>
+                        <div class="counter-label">School Awards</div>
+                    </div>
+                </div>
 
-        <!-- Contact 섹션 -->
-        <div id="contact-container"></div>
+                <div class="experience-container">
+                    <!-- 동적으로 로드됨 -->
+                </div>
+            </div>
+        </section>
 
-        <!-- Footer -->
-        <div id="footer-container"></div>
-        </div>
+        <!-- Seminars Section -->
+        <section id="seminar" class="seminar-section">
+            <div class="container">
+                <h2 class="section-title text-left">SEMINARS</h2>
+                <div class="seminar-intro reveal-up" style="margin-bottom: 3rem;">
+                    <h3
+                        style="font-size: 2.2rem; margin-bottom: 0.8rem; color: #fff; font-weight: 800; text-align: center;">
+                        함께 성장하는 지식 공유</h3>
+                    <p
+                        style="text-align: center; color: rgba(255,255,255,0.45); font-size: 1rem; margin-bottom: 2.5rem; word-break: keep-all;">
+                        선배가 후배에게, 기초부터 실무까지 — RATS만의 세미나 문화</p>
 
-        <!-- 맨 위로 버튼 -->
-        <button id="scroll-to-top" class="scroll-to-top" aria-label="맨 위로">
-            <span>↑</span>
-        </button>
+                    <!-- Skill Showcase Cards -->
+                    <div class="skill-showcase-grid">
+                        <!-- Card 1: 프로그래밍 -->
+                        <div class="skill-showcase-card">
+                            <div class="skill-showcase-icon">💻</div>
+                            <h4>프로그래밍</h4>
+                            <p>C, C++, Java, Python 등 다양한 언어에 대한 스터디/세미나가 진행되고 있습니다.</p>
+                            <p class="skill-highlight"><i class="ph-bold ph-star"></i> 신입 구성원은 <strong>C 언어 기반 기초
+                                    프로그래밍</strong>을 필수로 학습합니다.</p>
+                            <div class="skill-chips">
+                                <span class="skill-chip">C</span>
+                                <span class="skill-chip">C++</span>
+                                <span class="skill-chip">Java</span>
+                                <span class="skill-chip">Python</span>
+                            </div>
+                        </div>
 
-        <!-- YAML 파서 -->
-        <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+                        <!-- Card 2: CAD / 기구 설계 -->
+                        <div class="skill-showcase-card">
+                            <div class="skill-showcase-icon">🛠️</div>
+                            <h4>CAD / 기구 설계</h4>
+                            <p>CAD를 활용한 기구 설계는 스터디 및 세미나를 통해 학습할 수 있습니다.</p>
+                            <p class="skill-highlight"><i class="ph-bold ph-cube"></i> 동아리 보유 3D 프린터(<strong>P1S
+                                    Combo</strong>)로 시제품 제작 가능!</p>
+                            <div class="skill-chips">
+                                <span class="skill-chip">3D CAD</span>
+                                <span class="skill-chip">3D Printing</span>
+                                <span class="skill-chip">Fusion 360</span>
+                            </div>
+                        </div>
 
-        <!-- 메인 스크립트 -->
-        <script>
-            // 다크모드 초기화
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                document.body.classList.add('dark-mode');
+                        <!-- Card 3: 전자 회로 / 소자 -->
+                        <div class="skill-showcase-card">
+                            <div class="skill-showcase-icon">⚡</div>
+                            <h4>전자 회로 / 소자</h4>
+                            <p>전자 부품의 역할을 이해하고 회로 해석 및 설계를 수행할 수 있도록 스터디/세미나를 진행하고 있습니다.</p>
+                            <p class="skill-highlight"><i class="ph-bold ph-wrench"></i> 오실로스코프, 펑션 제너레이터, 파워서플라이, 인두기 등
+                                <strong>장비 완비</strong>
+                            </p>
+                            <div class="skill-chips">
+                                <span class="skill-chip">회로 설계</span>
+                                <span class="skill-chip">납땜</span>
+                                <span class="skill-chip">PCB</span>
+                                <span class="skill-chip">오실로스코프</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="seminar-container">
+                    <!-- YAML 데이터를 통해 카드가 동적으로 추가됩니다 -->
+                </div>
+
+                <div class="view-more-container" style="text-align: center; margin-top: 3rem;">
+                    <a href="seminars.html" class="btn-view-more"
+                        style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; color: #fff; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s; backdrop-filter: blur(10px);">
+                        세미나 더보기 <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="container reveal-up reveal-delay-1">
+                <h2 class="section-title">Projects</h2>
+                <div class="project-scroll-container">
+                    <!-- load_projects.js loads here -->
+                </div>
+
+                <div class="view-more-container" style="text-align: center; margin-top: 3rem;">
+                    <a href="projects.html" class="btn-view-more"
+                        style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; color: #fff; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s; backdrop-filter: blur(10px);">
+                        프로젝트 더보기 <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join Section -->
+        <section id="join" class="join-section">
+            <div class="container reveal-up reveal-delay-1">
+                <div id="join-container"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer-container"></footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+
+    <script src="assets/js/bg-3d-model.js"></script>
+    <script src="assets/js/load_experiences.js"></script>
+    <script src="assets/js/load_projects.js"></script>
+    <script src="assets/js/load_seminars.js"></script>
+    <script src="assets/js/scroll-animations.js"></script>
+    <script src="assets/js/floating-gallery.js"></script>
+
+    <script>
+        // 전역변수 설정 (상세페이지 구분을 위함)
+        window.isSeminarDetailPage = false;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // 3D 배경 초기화
+            if (typeof window.initBackground3D === 'function') {
+                window.initBackground3D();
             }
 
-            // 구글 폼 링크 함수
-            function goToGoogleForm() {
-                const googleFormLink = "https://docs.google.com/forms/d/e/1FAIpQLSd4Rkak0xaQN-viuDshFsGwdiD3EXXiwNRuNq7dSu4258CtLw/viewform";
-                window.open(googleFormLink, "_blank");
-            }<!--//forms.gle/XKPrFaa9jzYfDeA28-->
-
-            // 컴포넌트 로드 함수 (재시도 로직 포함)
-            async function loadComponent(file, containerId, retries = 3) {
-                try {
-                    const response = await fetch(file);
-                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                    const html = await response.text();
-                    document.getElementById(containerId).innerHTML = html;
-                } catch (error) {
-                    console.error(`Error loading ${file}:`, error);
-                    if (retries > 0) {
-                        console.log(`Retrying ${file}... (${retries} attempts left)`);
-                        await new Promise(resolve => setTimeout(resolve, 1000));
-                        return loadComponent(file, containerId, retries - 1);
-                    } else {
-                        document.getElementById(containerId).innerHTML = `<div class="error-msg">Failed to load content. Please refresh the page.</div>`;
-                    }
-                }
-            }
-
-            // 모든 컴포넌트 로드 및 초기화
-            document.addEventListener('DOMContentLoaded', async () => {
-                // 1. 모든 HTML 컴포넌트 병렬 로드
-                await Promise.all([
-                    loadComponent('sidebar-nav.html', 'sidebar-container'),
-                    loadComponent('mobile-menu.html', 'mobile-menu-container'),
-                    loadComponent('about.html', 'about-container'),
-                    loadComponent('skills.html', 'skills-container'),
-                    loadComponent('experiences.html', 'experiences-container'),
-                    loadComponent('projects.html', 'projects-container'),
-                    loadComponent('seminars.html', 'seminars-container'),
-                    loadComponent('join.html', 'join-container'),
-                    loadComponent('contact.html', 'contact-container'),
-                    loadComponent('footer.html', 'footer-container')
-                ]);
-
-                // 2. HTML 로드 완료 후 기능 초기화
-
-                // About 섹션 타이핑 애니메이션
-                const typingElement = document.getElementById("code-display");
-                if (typingElement) {
-                    initializeTypingAnimation(typingElement);
-                }
-
-                // 데이터 로딩 (YAML -> HTML)
-                if (window.loadProjects) window.loadProjects();
-                if (window.loadExperiences) window.loadExperiences();
-                if (window.loadSeminars) window.loadSeminars();
-
-                // 섹션 감지 및 네비게이션 하이라이트
-                setupSectionObserver();
-
-                // 스크롤 투 탑 버튼
-                setupScrollToTop();
-
-                // 스크롤 애니메이션 초기화 (콘텐츠 로드 후)
-                if (window.setupSectionAnimations) {
-                    window.setupSectionAnimations();
-                } else {
-                    setTimeout(() => {
-                        if (window.setupSectionAnimations) window.setupSectionAnimations();
-                    }, 500);
-                }
-
-
-                // [NEW] 모바일 네비게이션 로직
-                setupMobileNav();
-
-                // [NEW] PC 사이드바 로직 (로드 후)
-                setupSidebarNav();
-
-                // [NEW] 배경 3D 모델 및 Join 섹션 3D 배경 초기화 (레이아웃 안정화 후)
-                if (window.initBackground3D) window.initBackground3D();
-                if (window.initJoin3D) window.initJoin3D();
+            Promise.all([
+                loadComponent('join.html', 'join-container'),
+                loadComponent('footer.html', 'footer-container')
+            ]).then(() => {
+                // 컴포넌트 로드가 완료된 후 옵저버 초기화
+                setTimeout(initScrollObserver, 100);
             });
+        });
 
-            // [NEW] 모바일 네비게이션 설정 (링크 클릭 시 CSS scroll-margin-top 활용)
-            function setupMobileNav() {
-                const mobileLinks = document.querySelectorAll('.mobile-top-nav .nav-link');
-                mobileLinks.forEach(link => {
-                    link.addEventListener('click', (e) => {
-                        // href를 통해 네이티브 smooth scroll과 scroll-margin-top이 작동함
-                    });
-                });
-            }
-
-            // PC 사이드바 네비게이션 설정
-            function setupSidebarNav() {
-                const sidebarLinks = document.querySelectorAll('.sidebar-menu .nav-item');
-                const progressFill = document.getElementById('sidebar-scroll-progress');
-                const sections = document.querySelectorAll('section');
-
-                // 1. 링크 클릭
-                sidebarLinks.forEach(link => {
-                    link.addEventListener('click', (e) => {
-                        // 모든 링크 active 제거
-                        sidebarLinks.forEach(l => l.classList.remove('active'));
-                        link.classList.add('active');
-                        // href 이동은 브라우저 기본 동작(smooth scroll)과 CSS scroll-margin-top에 맡김
-                    });
-                });
-            }
-
-            // 전역 스크롤 핸들러 (모바일 & PC 공용)
-            window.addEventListener('scroll', () => {
-                const progressBar = document.getElementById('mobile-progress-bar');
-                const sidebarProgress = document.getElementById('sidebar-scroll-progress');
-                const sections = document.querySelectorAll('section');
-                const navLinks = document.querySelectorAll('.mobile-top-nav .nav-link, .sidebar-menu .nav-item');
-
-                // 공통 변수
-                const scrollY = window.pageYOffset;
-                const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrollPercent = (scrollY / docHeight) * 100;
-
-                // 1. 프로그레스 바 업데이트
-                if (progressBar) progressBar.style.width = scrollPercent + "%"; // 모바일
-                if (sidebarProgress) sidebarProgress.style.width = scrollPercent + "%"; // PC
-
-                // 추가: 클래스로 지정된 모든 프로그레스 바 업데이트 (e.g. nav.html)
-                document.querySelectorAll('.scroll-progress-bar').forEach(bar => {
-                    bar.style.width = scrollPercent + "%";
-                });
-
-                // 2. 섹션 감지 및 활성 링크 업데이트
-                let current = '';
-                // [MODIFY] 헤더 높이 및 감지 오차 조정 (70px 기준)
-                const headerHeight = window.innerWidth <= 1024 ? 70 : 20;
-
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (scrollY >= sectionTop - headerHeight - 100) {
-                        current = section.getAttribute('id');
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href').substring(1) === current) {
-                        link.classList.add('active');
-
-                        // 모바일 네비게이션 자동 스크롤
-                        if (link.closest('.mobile-top-nav')) {
-                            link.scrollIntoView({
-                                behavior: 'smooth',
-                                inline: 'center',
-                                block: 'nearest'
-                            });
-                        }
-                    }
-                });
-            });
-
-            // 타이핑 애니메이션 초기화
-            function initializeTypingAnimation(typingElement) {
-                const sentences = [
-                    "로봇을 개발합니다.",
-                    "앱도 개발합니다.",
-                    "임베디드 설계도 합니다.",
-                    "게임도 합니다.",
-                    "세미나도 합니다."
-                ];
-
-                const languages = [
-                    {
-                        name: "C",
-                        commentSym: "//",
-                        template: (s) => ({
-                            plain: `printf("${s}\\n");`,
-                            highlighted: `<span class='keyword'>printf</span>(<span class='string'>"${s}\\n"</span>);`
-                        })
-                    },
-                    {
-                        name: "Python",
-                        commentSym: "#",
-                        template: (s) => ({
-                            plain: `print("${s}")`,
-                            highlighted: `<span class='keyword'>print</span>(<span class='string'>"${s}"</span>)`
-                        })
-                    },
-                    {
-                        name: "Java",
-                        commentSym: "//",
-                        template: (s) => ({
-                            plain: `System.out.println("${s}");`,
-                            highlighted: `<span class='keyword'>System.out.println</span>(<span class='string'>"${s}"</span>);`
-                        })
-                    },
-                    {
-                        name: "HTML",
-                        commentSym: "&lt;!--",
-                        commentEnd: "--&gt;",
-                        template: (s) => {
-                            const tag = ["h1", "h2", "h3", "h4", "div", "p"][Math.floor(Math.random() * 6)];
-                            return {
-                                plain: `<${tag}>${s}</${tag}>`,
-                                highlighted: `<span class='tag'>&lt;${tag}&gt;</span>${s}<span class='tag'>&lt;/${tag}&gt;</span>`
-                            };
-                        }
-                    },
-                    {
-                        name: "Go",
-                        commentSym: "//",
-                        template: (s) => ({
-                            plain: `fmt.Println("${s}")`,
-                            highlighted: `<span class='keyword'>fmt.Println</span>(<span class='string'>"${s}"</span>)`
-                        })
-                    }
-                ];
-
-                let sentenceIdx = 0;
-                let langIdx = 0;
-                let charIdx = 0;
-                let isDeleting = false;
-                let currentTextObj = null;
-                let typeSpeed = 100;
-
-                function type() {
-                    // 현재 문장 및 언어 설정
-                    const sentence = sentences[sentenceIdx];
-                    const lang = languages[langIdx];
-
-                    // 텍스트 객체 생성 (한 번만)
-                    if (!currentTextObj) {
-                        currentTextObj = lang.template(sentence);
-                    }
-
-                    const fullText = currentTextObj.plain;
-                    const commentPart = lang.name === "HTML"
-                        ? `<span class="language-comment">${lang.commentSym} ${lang.name} ${lang.commentEnd}</span>`
-                        : `<span class="language-comment">${lang.commentSym} ${lang.name}</span>`;
-
-                    // 타이핑/삭제 로직
-                    let displayText = "";
-                    if (isDeleting) {
-                        charIdx--;
-                        displayText = fullText.substring(0, charIdx);
-                    } else {
-                        charIdx++;
-                        displayText = fullText.substring(0, charIdx);
-                    }
-
-                    // 화면 출력 (주석은 고정, 코드는 타이핑)
-                    // 내용이 HTML 태그일 경우(HTML 언어), plain 텍스트로 보여주기 위해 escape 필요할 수도 있으나
-                    // 여기서는 innerHTML로 넣으므로 plain 텍스트가 태그로 해석될 수 있음.
-                    // HTML 언어의 경우 plain이 `<Tag>...` 형태이므로 innerHTML에 넣으면 태그로 보임.
-                    // 하지만 우리는 '소스코드'를 보여주는 것이므로 태그 자체가 텍스트로 나와야 함.
-                    // 따라서 plain 텍스트를 escape 처리해서 넣어야 함.
-
-                    let escapedText = displayText
-                        .replace(/&/g, "&amp;")
-                        .replace(/</g, "&lt;")
-                        .replace(/>/g, "&gt;");
-
-                    typingElement.innerHTML = `${commentPart}<br>${escapedText}<span class="cursor"></span>`;
-
-                    // 속도 조절
-                    typeSpeed = isDeleting ? 40 : 100;
-
-                    // 상황별 상태 변경
-                    if (!isDeleting && charIdx === fullText.length) {
-                        // 타이핑 완료 -> 구문 강조 적용 및 대기
-                        typingElement.innerHTML = `${commentPart}<br>${currentTextObj.highlighted}<span class="cursor"></span>`;
-                        typeSpeed = 2000; // 2초 대기
-                        isDeleting = true;
-                    } else if (isDeleting && charIdx === 0) {
-                        // 삭제 완료 -> 다음 문장/언어로 변경
-                        isDeleting = false;
-                        currentTextObj = null;
-                        sentenceIdx = (sentenceIdx + 1) % sentences.length;
-                        langIdx = (langIdx + 1) % languages.length; // 언어도 같이 순환
-                        typeSpeed = 500;
-                    }
-
-                    setTimeout(type, typeSpeed);
+        async function loadComponent(url, containerId) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`Failed to load ${url}`);
+                const html = await response.text();
+                const container = document.getElementById(containerId);
+                if (container) {
+                    container.innerHTML = html;
                 }
-
-                type();
-            }
-
-            // 섹션 감지 및 네비게이션 하이라이트
-            function setupSectionObserver() {
-                const sections = document.querySelectorAll('section[id]');
-                const navItems = document.querySelectorAll('.nav-item');
-
-                const observerOptions = {
-                    root: null,
-                    rootMargin: '-50% 0px -50% 0px',
-                    threshold: 0
-                };
-
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const sectionId = entry.target.getAttribute('id');
-                            navItems.forEach(item => {
-                                item.classList.remove('active');
-                                if (item.getAttribute('data-section') === sectionId) {
-                                    item.classList.add('active');
-                                }
-                            });
-                        }
-                    });
-                }, observerOptions);
-
-                sections.forEach(section => observer.observe(section));
-            }
-
-            // 스크롤 투 탑 버튼
-            function setupScrollToTop() {
-                const scrollToTopBtn = document.getElementById('scroll-to-top');
-
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY > 300) {
-                        scrollToTopBtn.classList.add('visible');
-                    } else {
-                        scrollToTopBtn.classList.remove('visible');
-                    }
-                });
-
-                scrollToTopBtn.addEventListener('click', () => {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-            }
-        </script>
-
-        <!-- 데이터 로딩 스크립트 -->
-        <script src="assets/js/load_projects.js"></script>
-        <script src="assets/js/load_experiences.js"></script>
-        <script src="assets/js/load_seminars.js"></script>
-
-        <!-- 스크롤 애니메이션 -->
-        <script src="assets/js/scroll-animations.js"></script>
-        <!-- Three.js & STLLoader -->
-        <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            } catch (error) {
+                console.error(error);
             }
         }
+
+        // 스크롤 등장 애니메이션 (Reveal) 옵저버 설정
+        function initScrollObserver() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // 한 번 나타나면 계속 유지할지 여부 결정 (여기선 계속 유지)
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal-up');
+            revealElements.forEach(el => observer.observe(el));
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // 3D 배경 초기화
+            if (typeof window.initBackground3D === 'function') {
+                window.initBackground3D();
+            }
+
+            Promise.all([
+                loadComponent('join.html', 'join-container'),
+                loadComponent('footer.html', 'footer-container')
+            ]).then(() => {
+                // 컴포넌트 로드가 완료된 후 옵저버 초기화
+                setTimeout(initScrollObserver, 100);
+            });
+        });
     </script>
-        <script type="module" src="assets/js/bg-3d-model.js"></script>
-        <script type="module" src="assets/js/join-3d.js"></script>
 </body>
 
 </html>

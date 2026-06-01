@@ -1,5 +1,5 @@
 // load_seminars.js
-window.loadSeminars = function () {
+document.addEventListener('DOMContentLoaded', () => {
     const fetchSeminars = (retryCount = 3) => {
         fetch('assets/data/seminars.yaml')
             .then(response => {
@@ -14,27 +14,67 @@ window.loadSeminars = function () {
 
                 if (!seminarContainer) return;
 
+                seminarContainer.innerHTML = '';
+
                 if (seminarsData.seminars) {
-                    seminarContainer.innerHTML = ''; // 초기화
-                    seminarsData.seminars.forEach(seminar => {
-                        const seminarCard = document.createElement('div');
-                        seminarCard.className = 'seminar-card';
+                    // 상세 페이지 모드
+                    if (window.isSeminarDetailPage) {
+                        seminarsData.seminars.forEach(seminar => {
+                            const seminarCard = document.createElement('div');
+                            seminarCard.className = 'seminar-card';
 
-                        seminarCard.innerHTML = `
-                            <h3>${seminar.title}</h3>
-                            <img src="${seminar.image}" alt="image" class="seminar-card-image">
-                            <p>${seminar.description}</p>
-                            <p><strong>강의자:</strong> ${seminar.organizer}</p>
-                            <p><strong>기간:</strong> ${seminar.period}</p>
-                            <div class="links-container">
-                                ${seminar.link ? `<a href="${seminar.link}" target="_blank" class="link-icon">
-                                    <img src="assets/images/logos/githublogo.svg" alt="GitHub Link" style="width: 60px; height: auto;">
-                                </a>` : ''}
-                            </div>
-                        `;
+                            seminarCard.innerHTML = `
+                                <h3>${seminar.title}</h3>
+                                <div class="seminar-card-body">
+                                    ${seminar.image ? `<img src="${seminar.image}" alt="image" class="seminar-card-image">` : ''}
+                                    <div class="seminar-card-info">
+                                        <p>${seminar.description}</p>
+                                        <p class="seminar-meta"><strong>강의자:</strong> ${seminar.organizer} <br> <strong>기간:</strong> ${seminar.period}</p>
+                                        <div class="links-container">
+                                            ${seminar.link ? `<a href="${seminar.link}" target="_blank" class="link-icon">
+                                                <i class="ph-fill ph-github-logo"></i>
+                                            </a>` : ''}
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
 
-                        seminarContainer.appendChild(seminarCard);
-                    });
+                            seminarContainer.appendChild(seminarCard);
+                        });
+                    } 
+                    // 메인 화면 모드 (그리드)
+                    else {
+                        // 최근 6개만
+                        const recentSeminars = seminarsData.seminars.slice(0, 6);
+
+                        recentSeminars.forEach((seminar, index) => {
+                            const seminarCard = document.createElement('div');
+                            const delayClass = `reveal-delay-${(index % 3) + 1}`; 
+                            seminarCard.className = `seminar-card cards reveal-up ${delayClass}`;
+                            
+                            setTimeout(() => {
+                                seminarCard.classList.add('visible');
+                            }, 100 * (index + 1));
+
+                            seminarCard.innerHTML = `
+                                <h3>${seminar.title}</h3>
+                                <div class="seminar-card-body">
+                                    ${seminar.image ? `<img src="${seminar.image}" alt="image" class="seminar-card-image">` : ''}
+                                    <div class="seminar-card-info">
+                                        <p>${seminar.description}</p>
+                                        <p class="seminar-meta"><strong>강의자:</strong> ${seminar.organizer} <br> <strong>기간:</strong> ${seminar.period}</p>
+                                        <div class="links-container">
+                                            ${seminar.link ? `<a href="${seminar.link}" target="_blank" class="link-icon">
+                                                <i class="ph-fill ph-github-logo"></i>
+                                            </a>` : ''}
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+
+                            seminarContainer.appendChild(seminarCard);
+                        });
+                    }
                 }
             })
             .catch(error => {
@@ -51,4 +91,4 @@ window.loadSeminars = function () {
     };
 
     fetchSeminars();
-};
+});

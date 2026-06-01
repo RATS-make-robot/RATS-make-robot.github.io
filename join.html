@@ -1,265 +1,37 @@
-<section id="join">
-    <!-- 3D 배경 캔버스 (JS에서 초기화) -->
-    <div id="join-3d-canvas"></div>
+<div class="join-container-inner reveal-up">
+    <div class="join-header">
+        <h2 class="join-title">JOIN US.</h2>
+        <p class="join-subtitle">미래를 함께 조립할 동료를 찾습니다.<br>망설이지 말고 도전하세요.</p>
+    </div>
 
-    <h1>Join Our Club!</h1>
-    <button class="recruit-button" onclick="goToGoogleForm()"><!---->
-        <span class="btn-main-text">지원하기</span>
-        <span class="btn-sub-text">1학기 모집 종료<br>[.. ~ ..]</span>
-    </button>
-    <br>
-    [재학생 1차 사전모집: 종료] 25.12.16 ~ 26.01.15
-    <br>
-    <br>
-    <b>[신입생 1차: 종료] 26.02.09(월) ~ 26.02.27(금)</b>
-    <br>
-    [신입생 2차: 종료] 26.03.02(금) ~ 26년 1학기 동아리박람회
-    <br>
-    <br>
-    자세한 사항은 에브리타임 게시판을 확인해주세요!
-    <br>
-    <div class="recruitment-section">
-        <div class="recruitment-grid">
-            <div class="recruit-card">
-                <div class="card-icon">🌱</div>
-                <h3>신입생 모집(40명 예정)</h3>
-                <p>1학기 시작 전후<br>신입생 모집 기간에<br>지원 가능합니다.</p>
-            </div>
-            <div class="recruit-card">
-                <div class="card-icon">🧑‍💻</div>
-                <h3>재학생 모집</h3>
-                <p>재학생 모집 기간에 지원 가능하며,<br><b>프로젝트 계획서 제출</b>은 필수입니다.</p>
-            </div>
+    <div class="join-cards-wrapper">
+        <div class="join-card">
+            <div class="join-card-icon"><i class="ph-fill ph-plant"></i></div>
+            <h3>신입생 모집</h3>
+            <p class="join-card-desc">1학기 시작 전후<br>신입생 모집 기간에<br>지원 가능합니다.</p>
+            <ul class="join-schedule">
+                <li><span class="status closed">1차: 종료</span> 26.02.09(월) ~ 26.02.27(금)</li>
+                <li><span class="status closed">2차: 종료</span> 26.03.02(금) ~ 1학기 동아리박람회</li>
+            </ul>
         </div>
-        <div class="contact-hint">
-            <p>추가 문의는 하단 연락처를 통해 안내받으실 수 있습니다.</p>
+        <div class="join-card">
+            <div class="join-card-icon"><i class="ph-fill ph-user-focus"></i></div>
+            <h3>재학생 모집</h3>
+            <p class="join-card-desc">재학생 모집 기간에 지원 가능하며,<br>프로젝트 계획서 제출은 필수입니다.</p>
+            <ul class="join-schedule">
+                <li><span class="status closed">사전모집: 종료</span> 25.12.16 ~ 26.01.15</li>
+            </ul>
         </div>
     </div>
-</section>
 
-<style>
-    #join {
-        animation: fadeInScale 1s cubic-bezier(0.16, 1, 0.3, 1);
-        margin: 3rem auto;
-        font-family: 'Inter', sans-serif;
-        border-radius: 16px;
-        border: 1px solid rgba(0, 212, 255, 0.3);
-        color: white;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
+    <div class="join-action">
+        <a href="https://forms.gle/q54xT9b457gKCHX6A" target="_blank" class="btn-primary join-btn-large">
+            지원서 작성하기 <i class="ph-bold ph-arrow-right"></i>
+        </a>
+    </div>
 
-        /* 배경 및 Glassmorphism 통합 */
-        background: linear-gradient(135deg, rgba(88, 28, 135, 0.45) 0%, rgba(49, 46, 129, 0.45) 50%, rgba(15, 23, 42, 0.45) 100%);
-        padding: 5rem 2rem;
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-
-        box-shadow:
-            0 8px 32px rgba(0, 0, 0, 0.4),
-            0 0 60px rgba(168, 85, 247, 0.2);
-    }
-
-    @keyframes fadeInScale {
-        from {
-            opacity: 0;
-            transform: scale(0.95);
-        }
-
-        to {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-
-    #join-3d-canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-        pointer-events: none;
-        opacity: 0.7;
-        /* 3D 요소 선명도 조절 */
-    }
-
-    #join h1 {
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-bottom: 2rem;
-        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        letter-spacing: -0.02em;
-        position: relative;
-        z-index: 1;
-    }
-
-    .recruit-button {
-        padding: 1.2rem 2.5rem;
-        font-family: inherit;
-        color: #fff;
-        background: linear-gradient(135deg, #ef4444, #dc2626);
-        border: none;
-        border-radius: 24px;
-        cursor: pointer;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-        margin: 0 auto;
-
-        box-shadow:
-            0 10px 30px rgba(239, 68, 68, 0.4),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
-
-        outline: none;
-        position: relative;
-        overflow: hidden;
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-
-        width: fit-content;
-        min-width: 280px;
-        z-index: 1;
-    }
-
-    .btn-main-text {
-        font-size: 1.8rem;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        line-height: 1.2;
-    }
-
-    .btn-sub-text {
-        font-size: 0.9rem;
-        font-weight: 500;
-        opacity: 0.9;
-        line-height: 1.4;
-        letter-spacing: 0.05em;
-    }
-
-    .recruit-button::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.3);
-        transform: translate(-50%, -50%);
-        transition: width 0.6s ease, height 0.6s ease;
-    }
-
-    .recruit-button:hover::before {
-        width: 500px;
-        height: 500px;
-    }
-
-    .recruit-button:hover {
-        transform: scale(1.1) translateY(-5px);
-        box-shadow:
-            0 15px 40px rgba(239, 68, 68, 0.6),
-            inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    }
-
-    .recruit-button:active {
-        transform: scale(1.05) translateY(-2px);
-    }
-
-    .recruitment-section {
-        margin-top: 3rem;
-        padding: 0 1rem;
-        position: relative;
-        z-index: 1;
-    }
-
-    .recruitment-grid {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        flex-wrap: wrap;
-        margin-bottom: 2rem;
-    }
-
-    .recruit-card {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        padding: 2.5rem 2rem;
-        width: 320px;
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .recruit-card:hover {
-        transform: translateY(-10px);
-        background: rgba(255, 255, 255, 0.08);
-        border-color: #00d4ff;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 212, 255, 0.2);
-    }
-
-    .card-icon {
-        font-size: 3.5rem;
-        margin-bottom: 1.5rem;
-        display: block;
-        filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
-    }
-
-    .recruit-card h3 {
-        font-size: 1.6rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        color: white;
-    }
-
-    .recruit-card p {
-        font-size: 1.05rem;
-        line-height: 1.6;
-        color: rgba(255, 255, 255, 0.85);
-        margin: 0;
-    }
-
-    .recruit-card b {
-        color: #00d4ff;
-    }
-
-    .contact-hint {
-        color: rgba(255, 255, 255, 0.65);
-        font-size: 0.95rem;
-        margin-top: 2rem;
-        letter-spacing: -0.01em;
-    }
-
-    @media (max-width: 768px) {
-        #join h1 {
-            font-size: 2rem;
-        }
-
-        .recruit-button {
-            padding: 1rem 1.5rem;
-            min-width: 240px;
-        }
-
-        .btn-main-text {
-            font-size: 1.4rem;
-        }
-
-        .btn-sub-text {
-            font-size: 0.8rem;
-        }
-
-        .recruit-card {
-            width: 100%;
-            max-width: 340px;
-        }
-
-        .card-icon {
-            font-size: 3rem;
-        }
-    }
-</style>
+    <div class="join-footer">
+        <p><i class="ph-bold ph-info"></i> 자세한 사항은 에브리타임 게시판을 확인해주세요!</p>
+        <p><i class="ph-bold ph-chat-circle"></i> 추가 문의는 하단 연락처를 통해 안내받으실 수 있습니다.</p>
+    </div>
+</div>

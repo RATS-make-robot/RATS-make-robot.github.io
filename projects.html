@@ -1,248 +1,128 @@
-<!-- projects.html -->
-<section id="projects">
-    <h2>Projects</h2>
-    <p>프로젝트 목록은 좌우로 스크롤(Shift+마우스 휠)하여 확인하실 수 있습니다.</p>
-    <div class="project-scroll-container">
-        <!-- Projects will be dynamically added here -->
-    </div>
-</section>
-
-<!-- CSS -->
-<style>
-    .project-scroll-container {
-        display: flex;
-        gap: 1.5rem;
-        margin-top: 2rem;
-    }
-
-    .project-container {
-        flex-direction: column;
-        overflow-x: auto !important;
-    }
-
-    .project-group {
-        display: flex;
-        flex-wrap: nowrap;
-        gap: 1.5rem;
-        padding: 3rem 1rem;
-        /* 상하 여백을 늘려 호버 효과 공간 확보 */
-
-        overflow-y: visible;
-        /* 세로 방향 클리핑 방지 */
-        overflow-x: auto;
-        scrollbar-width: thin;
-        -ms-overflow-style: none;
-
-        width: auto !important;
-    }
-
-    .project-group:hover {
-        animation-play-state: paused;
-    }
-
-    /* 커스텀 스크롤바 */
-    .project-group::-webkit-scrollbar {
-        height: 8px;
-        background: rgba(31, 41, 55, 0.5);
-        border-radius: 4px;
-    }
-
-    .project-group::-webkit-scrollbar-thumb {
-        background: linear-gradient(90deg, #00d4ff, #a855f7);
-        border-radius: 4px;
-        transition: all 0.3s ease;
-    }
-
-    .project-group::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(90deg, #22d3ee, #00d4ff);
-        box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
-    }
-
-    .project-card {
-        flex: 0 0 auto;
-        max-width: 340px;
-        width: 40%;
-        min-height: 280px;
-
-        background: rgba(31, 41, 55, 0.6);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(0, 212, 255, 0.15);
-        border-radius: 12px;
-        padding: 1.5rem;
-
-        position: relative;
-        overflow: hidden;
-
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .project-card::after {
-        content: '';
-        position: absolute;
-        top: -50%;
-        right: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 60%);
-        opacity: 0;
-        transition: opacity 0.4s ease;
-    }
-
-    .project-card:hover::after {
-        opacity: 1;
-    }
-
-    .project-card:hover {
-        transform: translateY(-12px) scale(1.05);
-        border-color: rgba(0, 212, 255, 0.4);
-        box-shadow:
-            0 15px 40px rgba(0, 0, 0, 0.4),
-            0 0 50px rgba(0, 212, 255, 0.3);
-        animation-play-state: paused;
-    }
-
-    .project-card h3 {
-        text-align: center;
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        color: #00d4ff;
-        letter-spacing: -0.01em;
-        text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
-        position: relative;
-        z-index: 1;
-    }
-
-    .project-image {
-        display: block;
-        margin: 0 auto 1.5rem;
-        width: auto;
-        max-height: 11rem;
-        max-width: 90%;
-        border-radius: 8px;
-
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        border: 1px solid rgba(0, 212, 255, 0.2);
-
-        object-fit: cover;
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        position: relative;
-        z-index: 1;
-    }
-
-    .project-image:hover {
-        transform: scale(1.1);
-        box-shadow:
-            0 8px 25px rgba(0, 0, 0, 0.4),
-            0 0 30px rgba(0, 212, 255, 0.4);
-        border-color: rgba(0, 212, 255, 0.5);
-    }
-
-    .project-card p {
-        text-align: center;
-        font-size: 1rem;
-        color: #cbd5e1;
-        margin: 0.5rem 0;
-        line-height: 1.5;
-        position: relative;
-        z-index: 1;
-    }
-
-    .links-container {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        margin-top: 1.5rem;
-        position: relative;
-        z-index: 1;
-    }
-
-    .project-btn,
-    .project-link-btn {
-        background: rgba(255, 255, 255, 0.95);
-        border: 1px solid rgba(0, 212, 255, 0.5);
-        color: #0f172a;
-        /* 밝은 배경에 어울리는 어두운 텍스트 */
-        padding: 0.4rem 1.4rem;
-        /* 더 짧고 넓게 */
-        border-radius: 10px;
-        font-weight: 700;
-        font-size: 0.85rem;
-        text-decoration: none;
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        backdrop-filter: blur(5px);
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .project-btn:hover,
-    .project-link-btn:hover {
-        background: #ffffff;
-        border-color: #00d4ff;
-        box-shadow:
-            0 4px 15px rgba(0, 212, 255, 0.4),
-            0 0 20px rgba(0, 212, 255, 0.2);
-        transform: translateY(-2px) scale(1.03);
-        color: #000;
-    }
-
-    @media (max-width: 768px) {
-        .project-card {
-            min-width: 280px;
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="명지대학교 로봇·임베디드 중앙동아리 RATS 프로젝트">
+    <title>Projects - RATS</title>
+    <!-- 폰트 적용 (Pretendard) -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=4">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .detail-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(10, 14, 26, 0.9) 0%, transparent 100%);
+            backdrop-filter: blur(10px);
         }
-    }
+        
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .btn-back:hover {
+            color: #00d4ff;
+        }
+        
+        .detail-title {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #00d4ff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .detail-main {
+            padding-top: 100px;
+            min-height: 100vh;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* 상세 페이지에서는 가로 스크롤 대신 2xN 그리드 사용 */
+        .projects-section .project-scroll-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .projects-section .project-scroll-container {
+                grid-template-columns: 1fr;
+            }
+            .detail-title {
+                display: none; /* 좁은 화면에서는 뒤로가기 버튼 확보를 위해 숨김 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 네온 오라 배경 -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div id="canvas-container"></div>
 
-    /* 링크 아이콘 스타일 */
-    .link-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 70px;
-        /* 가로로 더 길게 */
-        height: 35px;
-        /* 세로는 줄임 */
-        background: rgba(255, 255, 255, 0.95);
-        /* 로고 색상이 잘 보이도록 밝게 */
-        border: 1px solid rgba(0, 212, 255, 0.5);
-        border-radius: 8px;
-        padding: 5px 10px;
-        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    }
+    <!-- 상단 헤더 -->
+    <header class="detail-header">
+        <a href="index.html" class="btn-back"><i class="ph-bold ph-arrow-left"></i> 홈으로 돌아가기</a>
+        <h1 class="detail-title">RATS PROJECTS</h1>
+    </header>
 
-    .link-icon img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-        transition: all 0.3s ease;
-    }
+    <main class="detail-main">
+        <section class="projects-section">
+            <div class="container">
+                <p style="text-align: center; color: rgba(255,255,255,0.6); margin-bottom: 3rem;">RATS 크루원들이 땀 흘려 만들어낸 프로젝트의 모든 기록입니다.</p>
+                <div class="project-scroll-container">
+                    <!-- load_projects.js loads here as grid -->
+                </div>
+            </div>
+        </section>
+    </main>
 
-    .link-icon:hover {
-        background: #ffffff;
-        border-color: #00d4ff;
-        box-shadow:
-            0 4px 15px rgba(0, 212, 255, 0.4),
-            0 0 20px rgba(0, 212, 255, 0.2);
-        transform: translateY(-3px) scale(1.05);
-    }
+    <div id="footer-container"></div>
 
-    .link-icon:hover img {
-        filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.6));
-    }
-
-    .link-icon.youtube-link-btn {
-        background: #181818 !important;
-        /* 어두운 배경으로 흰색 글씨 시인성 확보 */
-        border: 1px solid #ff0000 !important;
-    }
-
-    .link-icon.youtube-link-btn:hover {
-        background: #282828 !important;
-        border-color: #ff0000 !important;
-        box-shadow: 0 0 25px rgba(255, 0, 0, 0.6) !important;
-    }
-</style>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    
+    <script src="assets/js/bg-3d-model.js"></script>
+    <script>
+        window.isProjectDetailPage = true;
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof window.initBackground3D === 'function') {
+                window.initBackground3D();
+            }
+            // 푸터 로드
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                })
+                .catch(err => console.error('Error loading footer:', err));
+        });
+    </script>
+    <script src="assets/js/load_projects.js"></script>
+</body>
+</html>
