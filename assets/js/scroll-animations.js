@@ -45,12 +45,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateIndicator(activeItem) {
         if (!activeItem) return;
-        // offsetLeft returns position relative to the container
         const left = activeItem.offsetLeft;
         const width = activeItem.offsetWidth;
+        const top = activeItem.offsetTop;
+        const height = activeItem.offsetHeight;
         indicator.style.opacity = '1';
         indicator.style.transform = `translateX(${left}px)`;
         indicator.style.width = `${width}px`;
+        indicator.style.top = `${top}px`;
+        indicator.style.height = `${height}px`;
     }
 
     const navObserverOptions = {
@@ -90,11 +93,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // 클릭 시 파란색 색상만 즉시 변경하고 알약 배경은 스크롤에 따라 이동하도록 처리
     let scrollTimeout = null;
     navItems.forEach(item => {
-        item.addEventListener('click', () => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+
             // 모든 아이템에서 강제 파란색 클래스 제거
             navItems.forEach(n => n.classList.remove('clicked-target'));
             // 누른 버튼 즉시 파란색 적용
             item.classList.add('clicked-target');
+
+            // 클릭한 메뉴의 target 섹션으로 부드럽게 스크롤
+            const target = item.getAttribute('data-target');
+            let targetSection;
+            if (target === 'home') {
+                targetSection = document.getElementById('hero');
+            } else {
+                targetSection = document.getElementById(target);
+            }
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
             
             // 스크롤 이동이 완료될 즈음(1.2초 후) 강제 클래스를 지워 자연스럽게 옵저버에 맡김
             clearTimeout(scrollTimeout);

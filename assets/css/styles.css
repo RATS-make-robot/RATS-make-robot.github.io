@@ -1890,8 +1890,7 @@ body.dark-mode #why-join-table td b {
 
 .nav-indicator {
     position: absolute;
-    top: 0.4rem;
-    bottom: 0.4rem;
+    top: 0;
     left: 0;
     border-radius: 50px;
     background: rgba(0, 212, 255, 0.1);
