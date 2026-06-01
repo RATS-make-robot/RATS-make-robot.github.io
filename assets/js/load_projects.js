@@ -14,6 +14,63 @@ document.addEventListener('DOMContentLoaded', () => {
                 container.innerHTML = ''; // 기존 내용 비우기
                 
                 if (!window.isProjectDetailPage) {
+                    let navWrapper = document.querySelector(".project-nav-wrapper");
+                    if (!navWrapper) {
+                        navWrapper = document.createElement("div");
+                        navWrapper.className = "project-nav-wrapper";
+                        navWrapper.style.position = "relative";
+                        navWrapper.style.display = "flex";
+                        navWrapper.style.alignItems = "center";
+                        container.parentNode.insertBefore(navWrapper, container);
+                        navWrapper.appendChild(container);
+                        
+                        // Left Arrow
+                        const leftBtn = document.createElement("button");
+                        leftBtn.className = "project-nav-btn left-btn";
+                        leftBtn.innerHTML = '<i class="ph-bold ph-caret-left"></i>';
+                        Object.assign(leftBtn.style, {
+                            position: "absolute", left: "-20px", zIndex: "10",
+                            background: "rgba(10, 14, 26, 0.8)", border: "1px solid rgba(0, 212, 255, 0.3)",
+                            color: "#00d4ff", width: "40px", height: "40px", borderRadius: "50%",
+                            display: "flex", justifyContent: "center", alignItems: "center",
+                            cursor: "pointer", fontSize: "1.2rem", backdropFilter: "blur(4px)",
+                            transition: "all 0.3s", opacity: "0", pointerEvents: "none"
+                        });
+                        leftBtn.onmouseover = () => { leftBtn.style.background = "#00d4ff"; leftBtn.style.color = "#fff"; leftBtn.style.transform = "scale(1.1)"; };
+                        leftBtn.onmouseout = () => { leftBtn.style.background = "rgba(10, 14, 26, 0.8)"; leftBtn.style.color = "#00d4ff"; leftBtn.style.transform = "scale(1)"; };
+                        leftBtn.onclick = () => container.scrollBy({ left: -350, behavior: 'smooth' });
+                        navWrapper.appendChild(leftBtn);
+                        
+                        // Right Arrow
+                        const rightBtn = document.createElement("button");
+                        rightBtn.className = "project-nav-btn right-btn";
+                        rightBtn.innerHTML = '<i class="ph-bold ph-caret-right"></i>';
+                        Object.assign(rightBtn.style, {
+                            position: "absolute", right: "-20px", zIndex: "10",
+                            background: "rgba(10, 14, 26, 0.8)", border: "1px solid rgba(0, 212, 255, 0.3)",
+                            color: "#00d4ff", width: "40px", height: "40px", borderRadius: "50%",
+                            display: "flex", justifyContent: "center", alignItems: "center",
+                            cursor: "pointer", fontSize: "1.2rem", backdropFilter: "blur(4px)",
+                            transition: "all 0.3s"
+                        });
+                        rightBtn.onmouseover = () => { rightBtn.style.background = "#00d4ff"; rightBtn.style.color = "#fff"; rightBtn.style.transform = "scale(1.1)"; };
+                        rightBtn.onmouseout = () => { rightBtn.style.background = "rgba(10, 14, 26, 0.8)"; rightBtn.style.color = "#00d4ff"; rightBtn.style.transform = "scale(1)"; };
+                        rightBtn.onclick = () => container.scrollBy({ left: 350, behavior: 'smooth' });
+                        navWrapper.appendChild(rightBtn);
+                    }
+
+                    // 수평 스크롤 컨테이너 속성 강제
+                    container.style.display = "flex";
+                    container.style.overflowX = "auto";
+                    container.style.scrollSnapType = "x mandatory";
+                    container.style.scrollBehavior = "smooth";
+                    container.style.overscrollBehaviorX = "contain";
+                    container.style.gap = "1.5rem";
+                    container.style.padding = "1rem 0 2rem 0";
+                    container.style.msOverflowStyle = "none"; 
+                    container.style.scrollbarWidth = "none";
+                    container.classList.add('no-scrollbar');
+
                     if (!paginationContainer) {
                         paginationContainer = document.createElement("div");
                         paginationContainer.className = "project-pagination";
@@ -21,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         paginationContainer.style.justifyContent = "center";
                         paginationContainer.style.gap = "0.8rem";
                         paginationContainer.style.marginTop = "0.5rem";
-                        container.parentNode.insertBefore(paginationContainer, container.nextSibling);
+                        navWrapper.parentNode.insertBefore(paginationContainer, navWrapper.nextSibling);
                     } else {
                         paginationContainer.innerHTML = "";
                     }
@@ -49,6 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         projectCard.style.flex = "0 0 auto";
                         projectCard.style.width = "350px";
                         projectCard.style.scrollSnapAlign = "start";
+                        projectCard.style.scrollSnapStop = "always";
                     }
                     setTimeout(() => { projectCard.classList.add('visible'); }, 100 * (index + 1));
 
@@ -419,6 +477,28 @@ document.addEventListener('DOMContentLoaded', () => {
                                 dot.style.transform = "scale(1)";
                             }
                         });
+
+                        // Toggle arrow visibility
+                        const leftBtn = document.querySelector(".project-nav-btn.left-btn");
+                        const rightBtn = document.querySelector(".project-nav-btn.right-btn");
+
+                        if (leftBtn && rightBtn) {
+                            if (container.scrollLeft <= 10) {
+                                leftBtn.style.opacity = "0";
+                                leftBtn.style.pointerEvents = "none";
+                            } else {
+                                leftBtn.style.opacity = "1";
+                                leftBtn.style.pointerEvents = "auto";
+                            }
+
+                            if (Math.ceil(container.scrollLeft + container.clientWidth) >= container.scrollWidth - 10) {
+                                rightBtn.style.opacity = "0";
+                                rightBtn.style.pointerEvents = "none";
+                            } else {
+                                rightBtn.style.opacity = "1";
+                                rightBtn.style.pointerEvents = "auto";
+                            }
+                        }
                     });
                 }
             })

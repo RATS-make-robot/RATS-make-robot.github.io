@@ -15,17 +15,70 @@ document.addEventListener('DOMContentLoaded', () => {
                 const experienceContainer = document.querySelector('.experience-container');
 
                 let paginationContainer = document.querySelector(".experience-pagination");
+                let navWrapper = document.querySelector(".experience-nav-wrapper");
+
                 if (experienceContainer) {
                     experienceContainer.innerHTML = "";
+                    
+                    // Add a wrapper for arrows if not exists
+                    if (!navWrapper) {
+                        navWrapper = document.createElement("div");
+                        navWrapper.className = "experience-nav-wrapper";
+                        navWrapper.style.position = "relative";
+                        navWrapper.style.display = "flex";
+                        navWrapper.style.alignItems = "center";
+                        experienceContainer.parentNode.insertBefore(navWrapper, experienceContainer);
+                        navWrapper.appendChild(experienceContainer);
+                        
+                        // Left Arrow
+                        const leftBtn = document.createElement("button");
+                        leftBtn.className = "experience-nav-btn left-btn";
+                        leftBtn.innerHTML = '<i class="ph-bold ph-caret-left"></i>';
+                        Object.assign(leftBtn.style, {
+                            position: "absolute", left: "-20px", zIndex: "10",
+                            background: "rgba(10, 14, 26, 0.8)", border: "1px solid rgba(0, 212, 255, 0.3)",
+                            color: "#00d4ff", width: "40px", height: "40px", borderRadius: "50%",
+                            display: "flex", justifyContent: "center", alignItems: "center",
+                            cursor: "pointer", fontSize: "1.2rem", backdropFilter: "blur(4px)",
+                            transition: "all 0.3s",
+                            opacity: "0", pointerEvents: "none" // Initially hide left arrow
+                        });
+                        leftBtn.onmouseover = () => { leftBtn.style.background = "#00d4ff"; leftBtn.style.color = "#fff"; leftBtn.style.transform = "scale(1.1)"; };
+                        leftBtn.onmouseout = () => { leftBtn.style.background = "rgba(10, 14, 26, 0.8)"; leftBtn.style.color = "#00d4ff"; leftBtn.style.transform = "scale(1)"; };
+                        leftBtn.onclick = () => experienceContainer.scrollBy({ left: -350, behavior: 'smooth' });
+                        navWrapper.appendChild(leftBtn);
+                        
+                        // Right Arrow
+                        const rightBtn = document.createElement("button");
+                        rightBtn.className = "experience-nav-btn right-btn";
+                        rightBtn.innerHTML = '<i class="ph-bold ph-caret-right"></i>';
+                        Object.assign(rightBtn.style, {
+                            position: "absolute", right: "-20px", zIndex: "10",
+                            background: "rgba(10, 14, 26, 0.8)", border: "1px solid rgba(0, 212, 255, 0.3)",
+                            color: "#00d4ff", width: "40px", height: "40px", borderRadius: "50%",
+                            display: "flex", justifyContent: "center", alignItems: "center",
+                            cursor: "pointer", fontSize: "1.2rem", backdropFilter: "blur(4px)",
+                            transition: "all 0.3s"
+                        });
+                        rightBtn.onmouseover = () => { rightBtn.style.background = "#00d4ff"; rightBtn.style.color = "#fff"; rightBtn.style.transform = "scale(1.1)"; };
+                        rightBtn.onmouseout = () => { rightBtn.style.background = "rgba(10, 14, 26, 0.8)"; rightBtn.style.color = "#00d4ff"; rightBtn.style.transform = "scale(1)"; };
+                        rightBtn.onclick = () => experienceContainer.scrollBy({ left: 350, behavior: 'smooth' });
+                        navWrapper.appendChild(rightBtn);
+                    }
                     
                     // Make it scrollable left-to-right
                     experienceContainer.style.display = "flex";
                     experienceContainer.style.overflowX = "auto";
                     experienceContainer.style.scrollSnapType = "x mandatory";
+                    experienceContainer.style.scrollBehavior = "smooth";
+                    // 모바일 스크롤 관성 줄이기: 터치 시 멈춤, 부드러운 여운 제거
+                    experienceContainer.style.overscrollBehaviorX = "contain"; 
                     experienceContainer.style.gap = "1.5rem";
                     experienceContainer.style.padding = "1rem 0 2rem 0";
                     experienceContainer.style.msOverflowStyle = "none"; // IE/Edge
                     experienceContainer.style.scrollbarWidth = "none"; // Firefox
+                    // 스크롤바 숨기기 CSS 클래스 추가 가능
+                    experienceContainer.classList.add('no-scrollbar');
 
                     if (!paginationContainer) {
                         paginationContainer = document.createElement("div");
@@ -34,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         paginationContainer.style.justifyContent = "center";
                         paginationContainer.style.gap = "0.8rem";
                         paginationContainer.style.marginTop = "1rem";
-                        experienceContainer.parentNode.insertBefore(paginationContainer, experienceContainer.nextSibling);
+                        navWrapper.parentNode.insertBefore(paginationContainer, navWrapper.nextSibling);
                     } else {
                         paginationContainer.innerHTML = "";
                     }
@@ -59,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         card.style.flex = "0 0 auto"; // Prevent shrinking
                         card.style.width = "350px";
                         card.style.scrollSnapAlign = "start";
+                        card.style.scrollSnapStop = "always"; // 모바일에서 확 넘어가지 않고 하나씩 멈추도록 설정
                         
                         let cardHTML = `<h3>${experience.year}</h3>`;
 
@@ -148,6 +202,28 @@ document.addEventListener('DOMContentLoaded', () => {
                                     dot.style.transform = "scale(1)";
                                 }
                             });
+                            
+                            // Toggle arrow visibility
+                            const leftBtn = document.querySelector(".experience-nav-btn.left-btn");
+                            const rightBtn = document.querySelector(".experience-nav-btn.right-btn");
+
+                            if (leftBtn && rightBtn) {
+                                if (experienceContainer.scrollLeft <= 10) {
+                                    leftBtn.style.opacity = "0";
+                                    leftBtn.style.pointerEvents = "none";
+                                } else {
+                                    leftBtn.style.opacity = "1";
+                                    leftBtn.style.pointerEvents = "auto";
+                                }
+
+                                if (Math.ceil(experienceContainer.scrollLeft + experienceContainer.clientWidth) >= experienceContainer.scrollWidth - 10) {
+                                    rightBtn.style.opacity = "0";
+                                    rightBtn.style.pointerEvents = "none";
+                                } else {
+                                    rightBtn.style.opacity = "1";
+                                    rightBtn.style.pointerEvents = "auto";
+                                }
+                            }
                         });
                     }
 

@@ -334,3 +334,10 @@ window.initBackground3D = function () {
 
 // 기존 자동 실행 코드 제거 또는 주석 처리 (index.html에서 명시적 호출 권장)
 // document.addEventListener('DOMContentLoaded', () => { ... });
+
+// 전역 이미지 우클릭(컨텍스트 메뉴) 방지
+document.addEventListener('contextmenu', function(e) {
+    if (e.target && e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});

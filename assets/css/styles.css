@@ -154,7 +154,6 @@ body::before {
 .hero-content {
     text-align: center;
     z-index: 2;
-    pointer-events: none;
     /* 마우스가 3D 모델과 상호작용하도록 통과 */
 }
 
@@ -167,6 +166,20 @@ body::before {
     filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.6));
     /* 네온 글로우 효과 */
     animation: fadeInUp 1s ease-out, floatLogo 6s ease-in-out infinite;
+}
+
+/* 페이지 내 모든 이미지 선택 및 모바일 롱프레스(꾹 누르기) 다운로드 방지 */
+img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+}
+
+#hero img {
+    pointer-events: none;
 }
 
 .scroll-down {
