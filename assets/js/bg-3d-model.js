@@ -306,8 +306,19 @@ class Background3D {
             this.modelGroup.rotation.x = this.lerp(this.modelGroup.rotation.x, targetRotX, smoothFactor);
             this.modelGroup.rotation.z = this.lerp(this.modelGroup.rotation.z, targetRotZ, smoothFactor);
 
-            // 스크롤에 따라 모델 위치 이동 (카메라가 따라가지만 모델도 움직여서 역동감)
-            this.modelGroup.position.y = this.scroll * 1.5; // 위로 살짝 올라감 (또는 아래로)
+            // PC/태블릿(너비 768px 이상)일 때: 
+            // 홈(메인) 페이지에서는 우측(2.0)에서 중앙(0)으로 부드럽게 이동,
+            // 더보기(상세) 페이지에서는 스크롤 상관없이 처음부터 중앙(0) 유지
+            let targetModelX = 0;
+            if (window.innerWidth >= 768 && !window.isProjectDetailPage && !window.isSeminarDetailPage) {
+                // 스크롤 0~20% 구간에서 2.0 -> 0으로 보간
+                const scrollProgress = Math.min(1.0, this.scroll * 5.0); 
+                targetModelX = this.lerp(2.0, 0, scrollProgress);
+            }
+
+            // 스크롤에 따라 모델 위치 이동
+            this.modelGroup.position.x = targetModelX;
+            this.modelGroup.position.y = this.scroll * 1.5; // 위로 살짝 올라감
         }
 
         this.renderer.render(this.scene, this.camera);

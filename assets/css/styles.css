@@ -66,6 +66,18 @@ html {
     box-sizing: border-box;
 }
 
+/* === 통합 버튼 호버 효과 (모든 링크/버튼이 명확히 인식되도록) === */
+.btn-primary, .btn-secondary, .btn-view-more, .btn-back, .join-btn-large, .file-btn {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn-primary:hover, .btn-secondary:hover, .btn-view-more:hover, .btn-back:hover, .join-btn-large:hover, .file-btn:hover {
+    transform: translateY(-4px) scale(1.05) !important;
+    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4), 0 0 15px rgba(168, 85, 247, 0.3) !important;
+    filter: brightness(1.2) !important;
+    border-color: #00d4ff !important;
+}
+
 /* === Body 스타일 === */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -104,18 +116,12 @@ body::before {
 #canvas-container {
     position: fixed;
     top: 0;
-    left: 280px;
-    /* PC: 사이드바 너비만큼 밀기 */
-    width: calc(100% - 280px);
-    /* PC: 사이드바 제외한 너비 */
+    left: 0;
+    width: 100%;
     height: 100%;
     z-index: -1;
-    /* 회로 패턴(0)보다 뒤로 갈지 앞으로 갈지 결정. 회로 뒤(-1) 또는 내용 뒤(0) */
     pointer-events: none;
-    /* 마우스 이벤트 통과 */
     opacity: 0.85;
-    /* 0.6 -> 0.85 배경 잘 보이게 상향 */
-    transition: left 0.3s ease, width 0.3s ease;
     /* 사이드바 토글 시 부드럽게 */
 }
 
@@ -289,6 +295,15 @@ section:hover {
         0 8px 32px rgba(0, 0, 0, 0.4),
         0 0 60px rgba(0, 212, 255, 0.15);
     transform: translateY(-2px);
+}
+
+/* 홈(히어로) 섹션: 호버 효과 및 그림자 제거 */
+section.hero-section,
+section.hero-section:hover {
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+    background: transparent !important;
 }
 
 section h2 {
@@ -852,6 +867,32 @@ body.dark-mode #why-join-table td b {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 212, 255, 0.2);
 }
 
+.project-card.more-card {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.project-card.more-card:hover {
+    transform: none !important;
+}
+
+.project-card.more-card i, .project-card.more-card h3 {
+    transition: all 0.3s ease;
+}
+
+.project-card.more-card:hover i {
+    transform: scale(1.2) translateY(-5px);
+    color: #1d4ed8 !important;
+    text-shadow: 0 0 15px rgba(29, 78, 216, 0.8);
+}
+
+.project-card.more-card:hover h3 {
+    color: #1d4ed8 !important;
+    text-shadow: 0 0 10px rgba(29, 78, 216, 0.8);
+}
+
 .project-card h3, .seminar-card h3 {
     text-align: center;
     font-size: 1.5rem;
@@ -861,20 +902,30 @@ body.dark-mode #why-join-table td b {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
-.project-image {
-    display: block;
-    margin: 0 auto 1.5rem;
-    width: 100%;
-    max-height: 200px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    object-fit: cover;
-    transition: transform 0.4s ease;
+/* 공통 배경 이미지 속성 (프로젝트, 세미나 카드) */
+.card-bg-image {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.25;
+    z-index: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-.project-card:hover .project-image {
-    transform: scale(1.05);
+.project-card:hover .card-bg-image, .seminar-card:hover .card-bg-image {
+    transform: scale(1.1);
+    opacity: 0.4;
+}
+
+/* 카드 텍스트 래퍼 */
+.card-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 200px;
 }
 
 .project-card p, .seminar-card p {
@@ -896,15 +947,20 @@ body.dark-mode #why-join-table td b {
 .links-container .link-icon {
     color: rgba(255, 255, 255, 0.8);
     font-size: 1.5rem;
-    transition: color 0.3s;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: inline-flex;
 }
 
 .links-container .link-icon:hover {
     color: #00d4ff;
+    transform: scale(1.25) translateY(-3px);
+    filter: drop-shadow(0 5px 15px rgba(0, 212, 255, 0.5));
 }
 
-/* 세미나 카드 가로 배치 레이아웃 */
+/* 세미나 카드 세로 배치 레이아웃 (반응형 최적화) */
 .seminar-card {
+    display: flex;
+    flex-direction: column;
     justify-content: flex-start;
 }
 
@@ -915,47 +971,38 @@ body.dark-mode #why-join-table td b {
 .seminar-card-body {
     display: flex;
     flex-direction: row;
+    flex-direction: column;
     gap: 1.5rem;
     align-items: stretch;
     flex: 1;
 }
 
-.seminar-card-image {
-    width: 45%;
-    max-height: 180px;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.4s ease;
-}
-
-.seminar-card:hover .seminar-card-image {
-    transform: scale(1.05);
-}
+/* 세미나 카드의 개별 이미지 속성은 공통 .card-bg-image 로 대체됨 */
 
 .seminar-card-info {
-    width: 55%;
     display: flex;
     flex-direction: column;
-    text-align: left;
-    justify-content: space-between;
+    text-align: center;
+    flex-grow: 1;
 }
 
 .seminar-card-info p {
-    text-align: left;
-    margin: 0 0 0.8rem 0;
+    text-align: center;
+    margin: 0.5rem 0;
+    line-height: 1.6;
 }
 
 .seminar-meta {
     font-size: 0.85rem !important;
     color: rgba(255, 255, 255, 0.5) !important;
-    line-height: 1.4 !important;
+    line-height: 1.6 !important;
+    margin-top: auto !important;
+    padding-top: 1rem;
 }
 
 .seminar-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 1.5rem;
     width: 100%;
     padding-bottom: 2rem;
@@ -995,7 +1042,8 @@ body.dark-mode #why-join-table td b {
 .project-scroll-container {
     display: flex;
     gap: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    padding-top: 1.5rem; /* 호버 시 카드가 위로 올라가도 잘리지 않도록 공간 확보 */
     overflow-x: auto;
     padding-bottom: 1rem;
     scrollbar-width: none; /* Firefox */
@@ -1121,7 +1169,22 @@ body.dark-mode #why-join-table td b {
     border: 1px solid rgba(255, 255, 255, 0.15);
     object-fit: cover;
     opacity: 0.6;
-    transition: transform 0.1s linear; /* 마우스 무브 패럴랙스용 */
+    pointer-events: auto; /* 개별 이미지에 호버 가능 */
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.4s ease,
+                box-shadow 0.4s ease,
+                border-color 0.4s ease,
+                filter 0.4s ease;
+}
+
+.gallery-img:hover {
+    opacity: 0.85 !important;
+    border-color: rgba(0, 212, 255, 0.4);
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.5),
+        0 0 15px rgba(0, 212, 255, 0.15);
+    filter: brightness(1.1);
 }
 
 /* 텍스트 콘텐츠 컨테이너 */
@@ -1146,7 +1209,7 @@ body.dark-mode #why-join-table td b {
 }
 
 .hero-logo-small {
-    height: 35px;
+    height: 55px;
     filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
 }
 
@@ -1235,9 +1298,10 @@ body.dark-mode #why-join-table td b {
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
+    pointer-events: auto; /* 버튼 영역은 클릭 가능하도록 활성화 */
 }
 
-.hero-buttons .btn-primary {
+.btn-primary {
     background: linear-gradient(90deg, #00d4ff, #a855f7);
     color: #fff;
     padding: 0.8rem 2rem;
@@ -1249,12 +1313,12 @@ body.dark-mode #why-join-table td b {
     box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
 }
 
-.hero-buttons .btn-primary:hover {
+.btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 30px rgba(0, 212, 255, 0.5);
 }
 
-.hero-buttons .btn-secondary {
+.btn-secondary {
     background: rgba(255, 255, 255, 0.1);
     color: #fff;
     padding: 0.8rem 2rem;
@@ -1266,7 +1330,7 @@ body.dark-mode #why-join-table td b {
     transition: all 0.3s;
 }
 
-.hero-buttons .btn-secondary:hover {
+.btn-secondary:hover {
     background: rgba(255, 255, 255, 0.2);
     border-color: #00d4ff;
     transform: translateY(-3px);
@@ -1346,14 +1410,24 @@ body.dark-mode #why-join-table td b {
     filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5));
 }
 
-.floating-nav .nav-item.active {
+.floating-nav .nav-item.clicked {
     background: rgba(255, 255, 255, 0.95);
     color: #000;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
-.floating-nav .nav-item.active span {
+.floating-nav .nav-item.clicked span {
     opacity: 1;
+}
+
+.floating-nav .nav-item.clicked i {
+    color: #000;
+    filter: none;
+}
+
+.floating-nav .nav-item.active i {
+    color: #00d4ff;
+    filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5));
 }
 
 /* 모바일 화면 조정 */

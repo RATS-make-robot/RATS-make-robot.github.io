@@ -56,6 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
         indicator.style.height = `${height}px`;
     }
 
+    let isAutoScrolling = false;
+    let autoScrollTimeout = null;
+
     const navObserverOptions = {
         root: null,
         threshold: 0.1, // 섹션이 조금이라도 보일 때 계산을 위해 낮춤
@@ -77,7 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
             let target = mostVisible;
             if (target === 'hero') target = 'home';
             
-            navItems.forEach(item => item.classList.remove('active'));
+            // 자동 스크롤(클릭으로 인한 이동) 중일 때는 중간 섹션 활성화를 무시함
+            if (isAutoScrolling) return;
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                item.classList.remove('clicked');
+            });
+
             const activeItem = document.querySelector(`.nav-item[data-target="${target}"]`);
             if (activeItem) {
                 activeItem.classList.add('active');
@@ -90,16 +100,23 @@ document.addEventListener('DOMContentLoaded', () => {
         navObserver.observe(section);
     });
 
-    // 클릭 시 파란색 색상만 즉시 변경하고 알약 배경은 스크롤에 따라 이동하도록 처리
-    let scrollTimeout = null;
+    // 클릭 이벤트: 클릭한 대상에 즉시 인디케이터 이동 후 스크롤
     navItems.forEach(item => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
 
-            // 모든 아이템에서 강제 파란색 클래스 제거
-            navItems.forEach(n => n.classList.remove('clicked-target'));
-            // 누른 버튼 즉시 파란색 적용
-            item.classList.add('clicked-target');
+            isAutoScrolling = true;
+
+            // 모든 아이템 상태 초기화 후 클릭 요소 즉시 활성화
+            navItems.forEach(n => {
+                n.classList.remove('active');
+                n.classList.remove('clicked');
+            });
+            item.classList.add('active');
+            item.classList.add('clicked');
+            
+            // 자동 스크롤 중 중간 섹션을 거쳐도 인디케이터는 여기 고정됨
+            updateIndicator(item);
 
             // 클릭한 메뉴의 target 섹션으로 부드럽게 스크롤
             const target = item.getAttribute('data-target');
@@ -109,21 +126,39 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 targetSection = document.getElementById(target);
             }
+            
             if (targetSection) {
                 targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                // 스크롤 종료 감지 로직
+                const detectScrollEnd = () => {
+                    clearTimeout(autoScrollTimeout);
+                    autoScrollTimeout = setTimeout(() => {
+                        isAutoScrolling = false;
+                        window.removeEventListener('scroll', detectScrollEnd);
+                    }, 150); // 스크롤 이벤트가 150ms 멈추면 스크롤 끝난 것으로 간주
+                };
+                window.addEventListener('scroll', detectScrollEnd);
+            } else {
+                // 타겟을 못 찾은 경우 즉시 해제
+                isAutoScrolling = false;
             }
-            
-            // 스크롤 이동이 완료될 즈음(1.2초 후) 강제 클래스를 지워 자연스럽게 옵저버에 맡김
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
-                navItems.forEach(n => n.classList.remove('clicked-target'));
-            }, 1200);
         });
     });
 
-    // 초기 인디케이터 위치 설정
+    // 초기 활성화 상태 지정 (URL 해시가 있거나 기본으로 첫번째 항목)
     setTimeout(() => {
-        const initialActive = document.querySelector('.nav-item.active');
-        if (initialActive) updateIndicator(initialActive);
+        let initialTarget = window.location.hash ? window.location.hash.substring(1) : 'home';
+        let initialActive = document.querySelector(`.nav-item[data-target="${initialTarget}"]`);
+        
+        if (!initialActive) {
+            initialActive = document.querySelector('.nav-item'); // fallback
+        }
+        
+        if (initialActive) {
+            initialActive.classList.add('clicked');
+            initialActive.classList.add('active');
+            updateIndicator(initialActive);
+        }
     }, 150);
 });

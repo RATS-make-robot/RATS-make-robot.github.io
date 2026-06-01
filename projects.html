@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="명지대학교 로봇·임베디드 중앙동아리 RATS 프로젝트">
     <title>Projects - RATS</title>
+    <!-- 파비콘 적용 -->
+    <link rel="icon" href="assets/images/site/RATS.ico" type="image/x-icon">
     <!-- 폰트 적용 (Pretendard) -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="assets/css/styles.css?v=4">
@@ -59,12 +61,13 @@
             z-index: 10;
         }
         
-        /* 상세 페이지에서는 가로 스크롤 대신 2xN 그리드 사용 */
+        /* 상세 페이지에서는 가로 스크롤 대신 반응형 자동 배열 그리드 사용 */
         .projects-section .project-scroll-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 2rem;
             padding: 2rem 0;
+            overflow: visible;
         }
         
         @media (max-width: 768px) {
@@ -124,5 +127,6 @@
         });
     </script>
     <script src="assets/js/load_projects.js"></script>
+    <script src="assets/js/cursor-3d.js"></script>
 </body>
 </html>

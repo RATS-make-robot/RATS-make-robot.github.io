@@ -36,12 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
         imageUrls = [...new Set(imageUrls)];
         if (imageUrls.length === 0) return;
 
-        // 랜덤하게 12~16개 선택 (부족하면 반복)
+        // 랜덤하게 최대 15개 선택 (중복 불가 — 셔플 후 슬라이스)
         const targetCount = 15;
-        const selectedImages = [];
-        for (let i = 0; i < targetCount; i++) {
-            selectedImages.push(imageUrls[Math.floor(Math.random() * imageUrls.length)]);
+        // Fisher-Yates 셔플
+        for (let i = imageUrls.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [imageUrls[i], imageUrls[j]] = [imageUrls[j], imageUrls[i]];
         }
+        const selectedImages = imageUrls.slice(0, Math.min(targetCount, imageUrls.length));
 
         const images = [];
 
