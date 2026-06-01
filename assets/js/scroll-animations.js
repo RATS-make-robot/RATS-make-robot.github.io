@@ -58,21 +58,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let isAutoScrolling = false;
     let autoScrollTimeout = null;
+    let scrollSpyTicking = false;
 
-    const navObserverOptions = {
-        root: null,
-        threshold: 0.1, // 섹션이 조금이라도 보일 때 계산을 위해 낮춤
-        rootMargin: '-30% 0px -50% 0px' // 화면 중앙 근처를 기준으로 판정
-    };
+    function updateNavOnScroll() {
+        if (isAutoScrolling) {
+            scrollSpyTicking = false;
+            return;
+        }
 
-    const navObserver = new IntersectionObserver((entries) => {
         let mostVisible = null;
-        let maxRatio = 0;
-        
-        entries.forEach(entry => {
-            if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
-                maxRatio = entry.intersectionRatio;
-                mostVisible = entry.target.id;
+        let maxVisibleHeight = 0;
+        // 네비게이션 바 높이나 화면 중앙을 고려하여 계산 범위를 설정
+        const viewportHeight = window.innerHeight;
+        const viewTop = viewportHeight * 0.2; // 화면 상단 20%
+        const viewBottom = viewportHeight * 0.8; // 화면 하단 80%
+
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            // 화면에 보이는 부분의 높이 계산
+            const visibleTop = Math.max(viewTop, rect.top);
+            const visibleBottom = Math.min(viewBottom, rect.bottom);
+            const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+
+            if (visibleHeight > maxVisibleHeight) {
+                maxVisibleHeight = visibleHeight;
+                mostVisible = section.id;
             }
         });
 
@@ -80,24 +90,29 @@ document.addEventListener('DOMContentLoaded', () => {
             let target = mostVisible;
             if (target === 'hero') target = 'home';
             
-            // 자동 스크롤(클릭으로 인한 이동) 중일 때는 중간 섹션 활성화를 무시함
-            if (isAutoScrolling) return;
+            // 현재 active 상태인 메뉴 확인 (불필요한 DOM 업데이트 방지)
+            const currentActive = document.querySelector('.nav-item.active');
+            if (!currentActive || currentActive.getAttribute('data-target') !== target) {
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    item.classList.remove('clicked');
+                });
 
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                item.classList.remove('clicked');
-            });
-
-            const activeItem = document.querySelector(`.nav-item[data-target="${target}"]`);
-            if (activeItem) {
-                activeItem.classList.add('active');
-                updateIndicator(activeItem);
+                const activeItem = document.querySelector(`.nav-item[data-target="${target}"]`);
+                if (activeItem) {
+                    activeItem.classList.add('active');
+                    updateIndicator(activeItem);
+                }
             }
         }
-    }, navObserverOptions);
+        scrollSpyTicking = false;
+    }
 
-    sections.forEach(section => {
-        navObserver.observe(section);
+    window.addEventListener('scroll', () => {
+        if (!scrollSpyTicking) {
+            window.requestAnimationFrame(updateNavOnScroll);
+            scrollSpyTicking = true;
+        }
     });
 
     // 클릭 이벤트: 클릭한 대상에 즉시 인디케이터 이동 후 스크롤
@@ -146,19 +161,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 초기 활성화 상태 지정 (URL 해시가 있거나 기본으로 첫번째 항목)
+    // 초기 활성화 상태 지정
     setTimeout(() => {
-        let initialTarget = window.location.hash ? window.location.hash.substring(1) : 'home';
-        let initialActive = document.querySelector(`.nav-item[data-target="${initialTarget}"]`);
-        
-        if (!initialActive) {
-            initialActive = document.querySelector('.nav-item'); // fallback
+        if (window.location.hash) {
+            let initialTarget = window.location.hash.substring(1);
+            let initialActive = document.querySelector(`.nav-item[data-target="${initialTarget}"]`);
+            if (initialActive) {
+                initialActive.classList.add('active');
+                updateIndicator(initialActive);
+            }
         }
         
-        if (initialActive) {
-            initialActive.classList.add('clicked');
-            initialActive.classList.add('active');
-            updateIndicator(initialActive);
-        }
+        // 현재 스크롤 위치 기준으로 네비게이션 상태 동기화
+        updateNavOnScroll();
     }, 150);
 });
+
