@@ -329,6 +329,7 @@ section h2 {
 
     background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-cyan));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 
@@ -1256,6 +1257,7 @@ body.dark-mode #why-join-table td b {
 .hero-title .highlight {
     background: linear-gradient(90deg, #00d4ff, #7dd3fc, #d8b4fe);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: none;
     filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.6));
@@ -1581,6 +1583,7 @@ body.dark-mode #why-join-table td b {
 
                 background: linear-gradient(135deg, #fff 0%, #00d4ff 100%);
                 -webkit-background-clip: text;
+    background-clip: text;
                 background-clip: text;
                 -webkit-text-fill-color: transparent;
 
@@ -1870,6 +1873,7 @@ body.dark-mode #why-join-table td b {
     color: #fff;
     background: linear-gradient(90deg, #00d4ff, #60a5fa);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.4));
 }
