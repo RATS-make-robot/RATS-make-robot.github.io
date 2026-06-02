@@ -1137,7 +1137,7 @@ body.dark-mode #why-join-table td b {
 }
 
 .topic-card h4 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #fff;
     margin-bottom: 0.5rem;
@@ -1362,7 +1362,7 @@ body.dark-mode #why-join-table td b {
         line-height: 1.3;
     }
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1.35rem;
     }
     .hero-tags {
         flex-wrap: nowrap;
@@ -1415,13 +1415,13 @@ body.dark-mode #why-join-table td b {
 }
 
 .floating-nav .nav-item i {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     margin-bottom: 0.2rem;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .floating-nav .nav-item span {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -1479,18 +1479,18 @@ body.dark-mode #why-join-table td b {
     }
     
     .floating-nav .nav-item i {
-        font-size: 1.1rem;
+        font-size: 1.35rem;
     }
     
     .floating-nav .nav-item span {
-        font-size: 0.45rem;
+        font-size: 0.65rem;
         letter-spacing: -0.5px;
         white-space: nowrap;
     }
 }
 
 .pill-label {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -1540,7 +1540,7 @@ body.dark-mode #why-join-table td b {
     }
     
     .pill-icon {
-        font-size: 1.1rem;
+        font-size: 1.35rem;
     }
     
     .pill-label {
@@ -1988,7 +1988,7 @@ body.dark-mode #why-join-table td b {
 
 .join-footer i {
     color: #00d4ff;
-    font-size: 1.1rem;
+    font-size: 1.35rem;
 }
 @media (max-width: 768px) {
     .join-title { font-size: 2.2rem; }
