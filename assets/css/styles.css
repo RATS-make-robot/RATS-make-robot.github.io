@@ -1937,9 +1937,15 @@ body.dark-mode #why-join-table td b {
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.8);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.8rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+}
+.join-schedule li .date-text {
+    flex: 1;
+    word-break: keep-all;
+    line-height: 1.4;
+    padding-top: 0.1rem;
 }
 
 .join-schedule .status {
