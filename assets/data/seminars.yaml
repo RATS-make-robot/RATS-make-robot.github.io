@@ -43,8 +43,14 @@ seminars:
   - title: "2026 신입생 MCU"
     description: "라인트레이서 임베디드 설계를 위한 MCU 세미나: 타이머 및 카운터, 타이머 인터럽트, 펄스 폭 변조까지"
     organizer: "재학생"
-    period: "~ 2026년 5월 13일(5일)"
+    period: "2026년 5월 11, 12, 13일"
     image: "assets/images/sections/seminars/2026/mcu.jpg"
+
+  - title: "2026 신입생 C언어"
+    description: "라인트레이서 프로그래밍을 위한 C언어 세미나"
+    organizer: "재학생"
+    period: "2026년 5월 7, 8일"
+    image: "assets/images/sections/seminars/2026/c.jpg"
 
   - title: "2025 신입생 MCU"
     description: "라인트레이서 임베디드 설계를 위한 MCU 세미나"
