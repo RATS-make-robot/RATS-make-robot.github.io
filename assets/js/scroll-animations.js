@@ -161,6 +161,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    
+    // 윈도우 크기 조절 시 인디케이터 위치 및 크기 재조정
+    window.addEventListener('resize', () => {
+        const currentActive = document.querySelector('.nav-item.active');
+        if (currentActive) {
+            updateIndicator(currentActive);
+        }
+    });
+
     // 초기 활성화 상태 지정
     setTimeout(() => {
         if (window.location.hash) {
