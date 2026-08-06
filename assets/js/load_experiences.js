@@ -309,19 +309,27 @@ document.addEventListener('DOMContentLoaded', () => {
                             }
 
                             dots.forEach((dot, index) => {
-                                if (index === activeIndex) {
+                                const isActive = (index === activeIndex);
+                                
+                                // Only apply style/class changes if the state actually needs to change.
+                                // Repeatedly assigning inline styles during a CSS transition causes flickering.
+                                if (isActive && !dot.classList.contains("active")) {
                                     dot.classList.add("active");
                                     dot.style.background = "#00d4ff";
                                     dot.style.transform = "scale(1.2)";
-                                } else {
+                                } else if (!isActive && dot.classList.contains("active")) {
                                     dot.classList.remove("active");
                                     dot.style.background = "rgba(255, 255, 255, 0.2)";
                                     dot.style.transform = "scale(1)";
                                 }
+                                
                                 // 모바일에서만 스크롤 위치에 따라 active 적용
-                                if (isMobile) {
-                                    if (index === activeIndex && cards[index]) cards[index].classList.add("active");
-                                    else if (cards[index]) cards[index].classList.remove("active");
+                                if (isMobile && cards[index]) {
+                                    if (isActive && !cards[index].classList.contains("active")) {
+                                        cards[index].classList.add("active");
+                                    } else if (!isActive && cards[index].classList.contains("active")) {
+                                        cards[index].classList.remove("active");
+                                    }
                                 }
                             });
                             
