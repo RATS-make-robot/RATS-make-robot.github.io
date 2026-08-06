@@ -27,6 +27,9 @@
     <div class="glow-orb orb-1"></div>
     <div class="glow-orb orb-2"></div>
 
+    <!-- 3D 로봇 로고 배경 -->
+    <div id="canvas-container"></div>
+
     <!-- 하단 플로팅 알약 네비게이션 (iOS Glass Style) -->
     <nav class="floating-nav">
         <div class="floating-nav-container">
@@ -192,7 +195,9 @@
                         함께 성장하는 지식 공유</h3>
                     <p
                         style="text-align: center; color: rgba(255,255,255,0.45); font-size: 1rem; margin-bottom: 2.5rem; word-break: keep-all;">
-                        <span style="display: inline-block;">선배가 후배에게, 기초부터 실무까지</span> <span style="display: inline-block;">— RATS만의 세미나 문화</span></p>
+                        <span style="display: inline-block;">선배가 후배에게, 기초부터 실무까지</span> <span
+                            style="display: inline-block;">— RATS만의 세미나 문화</span>
+                    </p>
 
                     <!-- Skill Showcase Cards -->
                     <div class="skill-showcase-grid">
@@ -350,6 +355,20 @@
             revealElements.forEach(el => observer.observe(el));
         }
 
+        document.addEventListener('DOMContentLoaded', () => {
+            // 3D 배경 초기화
+            if (typeof window.initBackground3D === 'function') {
+                window.initBackground3D();
+            }
+
+            Promise.all([
+                loadComponent('join.html', 'join-container'),
+                loadComponent('footer.html', 'footer-container')
+            ]).then(() => {
+                // 컴포넌트 로드가 완료된 후 옵저버 초기화
+                setTimeout(initScrollObserver, 100);
+            });
+        });
     </script>
 </body>
 

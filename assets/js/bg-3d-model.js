@@ -67,8 +67,7 @@ class Background3D {
         this.camera.position.z = 5;
 
         // 3. Renderer 설정
-        this.renderer = new THREE.WebGLRenderer({ alpha: false, antialias: true, powerPreference: "high-performance" });
-        this.renderer.setClearColor(0x0a0e1a, 1);
+        this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
         this.renderer.setSize(width, height);
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         this.container.appendChild(this.renderer.domElement);
@@ -313,7 +312,7 @@ class Background3D {
             let targetModelX = 0;
             if (window.innerWidth >= 768 && !window.isProjectDetailPage && !window.isSeminarDetailPage) {
                 // 스크롤 0~20% 구간에서 2.0 -> 0으로 보간
-                const scrollProgress = Math.min(1.0, this.scroll * 5.0); 
+                const scrollProgress = Math.min(1.0, this.scroll * 5.0);
                 targetModelX = this.lerp(2.0, 0, scrollProgress);
             }
 
@@ -337,7 +336,7 @@ window.initBackground3D = function () {
 // document.addEventListener('DOMContentLoaded', () => { ... });
 
 // 전역 이미지 우클릭(컨텍스트 메뉴) 방지
-document.addEventListener('contextmenu', function(e) {
+document.addEventListener('contextmenu', function (e) {
     if (e.target && e.target.tagName === 'IMG') {
         e.preventDefault();
     }

@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     // Make it scrollable left-to-right
                     experienceContainer.style.display = "flex";
+                    experienceContainer.style.position = "relative";
                     experienceContainer.style.overflowX = "auto";
                     experienceContainer.style.scrollSnapType = "x mandatory";
                     experienceContainer.style.scrollBehavior = "smooth";
@@ -91,9 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     const isMobile = window.innerWidth <= 768;
                     if (isMobile) {
                         experienceContainer.style.padding = "5rem max(0px, calc(50% - 175px)) 5rem max(0px, calc(50% - 175px))";
+                        experienceContainer.style.scrollPadding = "0 max(0px, calc(50% - 175px))";
                     } else {
-                        // Desktop: left-aligned cards to fit as many as possible
-                        experienceContainer.style.padding = "5rem 2rem";
+                        // Desktop: left-aligned cards to fit as many as possible, with 4rem padding to avoid UI overlap
+                        experienceContainer.style.padding = "5rem 4rem";
+                        experienceContainer.style.scrollPadding = "0 4rem";
                     }
                     experienceContainer.style.margin = "-2rem 0";
                     experienceContainer.style.msOverflowStyle = "none"; // IE/Edge
@@ -112,6 +115,55 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else {
                         paginationContainer.innerHTML = "";
                     }
+
+                    // Helper to update layout (center vs scrollable)
+                    
+                    if (!document.getElementById("exp-scroll-style")) {
+                        const style = document.createElement("style");
+                        style.id = "exp-scroll-style";
+                        style.innerHTML = ".experience-container.is-scrolling .experience-card { pointer-events: none !important; }";
+                        document.head.appendChild(style);
+                    }
+
+                    window.updateExperienceLayout = () => {
+                        if (!experienceContainer) return;
+                        const isMobile = window.innerWidth <= 768;
+                        const cardWidth = 350;
+                        const gap = 24; // 1.5rem
+                        const padding = 128; // 4rem * 2 (128px)
+                        
+                        const totalCardsWidth = cards.length * cardWidth + (cards.length > 0 ? (cards.length - 1) * gap : 0) + padding;
+                        const containerWidth = experienceContainer.parentElement.clientWidth;
+                        const isScrollable = totalCardsWidth > containerWidth;
+
+                        if (!isScrollable && !isMobile) {
+                            experienceContainer.style.justifyContent = "center";
+                            // 점 1개만 표시
+                            dots.forEach((dot, i) => {
+                                dot.style.display = i === 0 ? "block" : "none";
+                                if (i === 0) {
+                                    dot.style.background = "#00d4ff";
+                                    dot.style.transform = "scale(1.2)";
+                                }
+                            });
+                            // 화살표 숨기기
+                            const leftBtn = document.querySelector(".experience-nav-btn.left-btn");
+                            const rightBtn = document.querySelector(".experience-nav-btn.right-btn");
+                            if (leftBtn) leftBtn.style.display = "none";
+                            if (rightBtn) rightBtn.style.display = "none";
+                        } else {
+                            experienceContainer.style.justifyContent = "flex-start";
+                            // 점 모두 표시
+                            dots.forEach(dot => dot.style.display = "block");
+                            // 화살표 표시 설정은 scroll 이벤트가 처리하므로 display 복원
+                            const leftBtn = document.querySelector(".experience-nav-btn.left-btn");
+                            const rightBtn = document.querySelector(".experience-nav-btn.right-btn");
+                            if (leftBtn) leftBtn.style.display = "flex";
+                            if (rightBtn) rightBtn.style.display = "flex";
+                            
+                            experienceContainer.dispatchEvent(new Event("scroll"));
+                        }
+                    };
                 }
 
                 const awardIcons = {
@@ -167,7 +219,23 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                         
                         card.innerHTML = cardHTML;
-                        if (index === 0) card.classList.add("active");
+                        
+                        // 데스크톱: 호버링을 통해 active 부여 (카드가 2개 이상 보일 때 등)
+                        card.addEventListener("mouseenter", () => {
+                            if (window.innerWidth > 768) {
+                                cards.forEach(c => c.classList.remove("active"));
+                                card.classList.add("active");
+                            }
+                        });
+                        card.addEventListener("mouseleave", () => {
+                            if (window.innerWidth > 768) {
+                                card.classList.remove("active");
+                            }
+                        });
+
+                        // 모바일용 초기 active
+                        if (index === 0 && window.innerWidth <= 768) card.classList.add("active");
+                        
                         if (experienceContainer) {
                             experienceContainer.appendChild(card);
                             cards.push(card);
@@ -187,9 +255,9 @@ document.addEventListener('DOMContentLoaded', () => {
                                     if (isMobile) {
                                         card.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
                                     } else {
-                                        // On desktop, scroll left to align with the 2rem padding (32px)
+                                        // On desktop, scroll left to align with the 4rem padding (64px)
                                         experienceContainer.scrollTo({
-                                            left: card.offsetLeft - 32,
+                                            left: card.offsetLeft - 64,
                                             behavior: "smooth"
                                         });
                                     }
@@ -201,8 +269,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
 
                     // Scroll event listener for active dot
+                    let scrollTimeout;
                     if (experienceContainer && dots.length > 0) {
                         experienceContainer.addEventListener("scroll", () => {
+                            if (!experienceContainer.classList.contains("is-scrolling")) {
+                                experienceContainer.classList.add("is-scrolling");
+                            }
+                            clearTimeout(scrollTimeout);
+                            scrollTimeout = setTimeout(() => {
+                                experienceContainer.classList.remove("is-scrolling");
+                            }, 150);
+
                             let activeIndex = 0;
                             
                             const isMobile = window.innerWidth <= 768;
@@ -213,13 +290,14 @@ document.addEventListener('DOMContentLoaded', () => {
                                 activeIndex = cards.length - 1;
                             } else {
                                 let minDiff = Infinity;
+                                const paddingLeft = parseFloat(getComputedStyle(experienceContainer).paddingLeft) || 0;
                                 const targetPos = isMobile 
                                     ? experienceContainer.scrollLeft + experienceContainer.clientWidth / 2
-                                    : experienceContainer.scrollLeft + 32; // 32 is padding-left
+                                    : experienceContainer.scrollLeft + paddingLeft;
 
                                 cards.forEach((card, index) => {
                                     const cardPos = isMobile 
-                                        ? card.offsetLeft + card.clientWidth / 2
+                                        ? card.offsetLeft + card.clientWidth / 2 
                                         : card.offsetLeft;
                                     
                                     const diff = Math.abs(targetPos - cardPos);
@@ -235,12 +313,15 @@ document.addEventListener('DOMContentLoaded', () => {
                                     dot.classList.add("active");
                                     dot.style.background = "#00d4ff";
                                     dot.style.transform = "scale(1.2)";
-                                    if(cards[index]) cards[index].classList.add("active");
                                 } else {
                                     dot.classList.remove("active");
                                     dot.style.background = "rgba(255, 255, 255, 0.2)";
                                     dot.style.transform = "scale(1)";
-                                    if(cards[index]) cards[index].classList.remove("active");
+                                }
+                                // 모바일에서만 스크롤 위치에 따라 active 적용
+                                if (isMobile) {
+                                    if (index === activeIndex && cards[index]) cards[index].classList.add("active");
+                                    else if (cards[index]) cards[index].classList.remove("active");
                                 }
                             });
                             
@@ -273,12 +354,20 @@ document.addEventListener('DOMContentLoaded', () => {
                         const isMobile = window.innerWidth <= 768;
                         if (isMobile) {
                             experienceContainer.style.padding = "5rem max(0px, calc(50% - 175px)) 5rem max(0px, calc(50% - 175px))";
+                            experienceContainer.style.scrollPadding = "0 max(0px, calc(50% - 175px))";
                             cards.forEach(card => card.style.scrollSnapAlign = "center");
                         } else {
-                            experienceContainer.style.padding = "5rem 2rem";
+                            experienceContainer.style.padding = "5rem 4rem";
+                            experienceContainer.style.scrollPadding = "0 4rem";
                             cards.forEach(card => card.style.scrollSnapAlign = "start");
                         }
+                        if (window.updateExperienceLayout) window.updateExperienceLayout();
                     });
+                    
+                    // Initial layout setup
+                    setTimeout(() => {
+                        if (window.updateExperienceLayout) window.updateExperienceLayout();
+                    }, 100);
 
                     // Update Counters
                     const schoolCounterEls = document.querySelectorAll(".school-counter");
