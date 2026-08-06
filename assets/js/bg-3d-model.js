@@ -67,7 +67,8 @@ class Background3D {
         this.camera.position.z = 5;
 
         // 3. Renderer 설정
-        this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
+        this.renderer = new THREE.WebGLRenderer({ alpha: false, antialias: true, powerPreference: "high-performance" });
+        this.renderer.setClearColor(0x0a0e1a, 1);
         this.renderer.setSize(width, height);
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         this.container.appendChild(this.renderer.domElement);
