@@ -17,7 +17,7 @@
     <link rel="stylesheet" as="style" crossorigin
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
-    <link rel="stylesheet" href="assets/css/styles.css?v=4">
+    <link rel="stylesheet" href="assets/css/styles.css?v=5">
     <!-- Phosphor Icons for iOS style icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
@@ -55,6 +55,10 @@
             <a href="#join" class="nav-item" data-target="join">
                 <i class="ph-fill ph-user-plus"></i>
                 <span>Join</span>
+            </a>
+            <a href="#sponsors" class="nav-item" data-target="sponsors">
+                <i class="ph-fill ph-handshake"></i>
+                <span>Sponsors</span>
             </a>
         </div>
     </nav>
@@ -281,6 +285,23 @@
                 <div id="join-container"></div>
             </div>
         </section>
+
+        <!-- Sponsors Section -->
+        <section id="sponsors" class="sponsors-section">
+            <div class="container reveal-up">
+                <h2 class="section-title">Sponsors</h2>
+                <p class="sponsors-intro">RATS의 활동을 응원하고 후원해주시는 분들입니다.</p>
+
+                <div class="sponsor-container">
+                    <!-- sponsors.yaml 데이터를 통해 동적으로 추가됩니다 -->
+                </div>
+
+                <div class="sponsors-cta">
+                    <p><i class="ph-bold ph-handshake"></i> 후원 및 협력 문의는 아래 이메일로 연락 주세요.</p>
+                    <a href="mailto:mjurats.official@gmail.com" class="sponsors-cta-link">mjurats.official@gmail.com</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer id="footer-container"></footer>
@@ -294,6 +315,7 @@
     <script src="assets/js/load_experiences.js"></script>
     <script src="assets/js/load_projects.js"></script>
     <script src="assets/js/load_seminars.js"></script>
+    <script src="assets/js/load_sponsors.js"></script>
     <script src="assets/js/scroll-animations.js"></script>
     <script src="assets/js/floating-gallery.js"></script>
     <script src="assets/js/cursor-3d.js"></script>

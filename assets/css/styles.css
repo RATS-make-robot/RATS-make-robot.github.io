@@ -2569,3 +2569,250 @@ body.dark-mode #why-join-table td b {
         font-size: min(16px, 3.5vw) !important;
     }
 }
+
+/* ==========================================================================
+   SPONSORS SECTION (로고월)
+   데이터: assets/data/sponsors.yaml / 렌더러: assets/js/load_sponsors.js
+   ========================================================================== */
+.sponsors-intro {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 1rem;
+    margin-bottom: 3rem;
+    word-break: keep-all;
+}
+
+/* --- 등급(tier) 그룹 --- */
+.sponsor-tier {
+    margin-bottom: 3rem;
+}
+
+.sponsor-tier:last-child {
+    margin-bottom: 0;
+}
+
+.sponsor-tier-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+/* 그룹 제목 아래 그라데이션 구분선 */
+.sponsor-tier-head::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.5), transparent);
+}
+
+.sponsor-tier-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.02em;
+}
+
+.sponsor-tier-note {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
+    word-break: keep-all;
+    text-align: center;
+}
+
+/* --- 로고 그리드 --- */
+/* 카드 폭을 220px 로 묶고 가운데 정렬 — 스폰서가 1~2곳뿐일 때
+   카드가 가로로 늘어나거나 한쪽으로 쏠리는 것을 방지.
+   auto-fit 이 빈 트랙을 접어주므로 개수와 화면 폭에 관계없이 항상 가운데 정렬됨 */
+.sponsor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 220px));
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.sponsor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.6rem;
+
+    /* 글래스모피즘.
+       주의: 부모 section 이 backdrop-filter 를 가져 backdrop root 가 되므로
+       이 카드에 backdrop-filter 를 걸어도 blur 가 적용되지 않는다(무효).
+       그래서 blur 대신 (1) 어두운 반투명 농도로 배경 3D 모델과 분리하고,
+       (2) 상단 광택 그라데이션 + inset 하이라이트 + 그림자로 유리 엣지를 표현한다.
+       background 의 첫 번째 레이어가 광택, 두 번째가 유리 본체. */
+    background:
+        linear-gradient(150deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 42%),
+        linear-gradient(160deg, rgba(34, 45, 66, 0.78) 0%, rgba(10, 14, 26, 0.88) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 18px;
+    padding: 1.8rem 1.2rem 1.4rem;
+
+    text-decoration: none;
+    color: inherit;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.16);
+
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+/* <a> 로 렌더된 카드만 클릭 가능함을 알림 */
+a.sponsor-card {
+    cursor: pointer;
+}
+
+.sponsor-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 212, 255, 0.45);
+    background:
+        linear-gradient(150deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0) 42%),
+        linear-gradient(160deg, rgba(44, 58, 82, 0.82) 0%, rgba(12, 17, 32, 0.90) 100%);
+    box-shadow:
+        0 18px 44px rgba(0, 0, 0, 0.55),
+        0 0 30px rgba(0, 212, 255, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+/* --- 로고 --- */
+.sponsor-logo-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 0.4rem;
+}
+
+.sponsor-logo {
+    /* invert: true 인 항목만 1 로 덮어써서 어두운 로고를 흰색으로 반전 */
+    --logo-invert: 0;
+
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+
+    /* 평소에도 원래 색을 그대로 유지 (invert 지정 항목만 반전) */
+    filter: invert(var(--logo-invert));
+    transition: filter 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sponsor-logo.invert {
+    --logo-invert: 1;
+}
+
+/* 색은 그대로 두고, 호버 시 살짝 밝아지며 확대되는 것으로 반응 표현 */
+.sponsor-card:hover .sponsor-logo {
+    filter: invert(var(--logo-invert)) brightness(1.15);
+    transform: scale(1.05);
+}
+
+/* 로고가 없어 대체 텍스트가 표시된 카드는 아래 이름 줄을 숨김 (이름 중복 방지) */
+.sponsor-card.logo-missing .sponsor-name {
+    display: none;
+}
+
+/* 로고 파일을 못 찾았을 때 대신 표시되는 텍스트 */
+.sponsor-logo-fallback {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.75);
+    text-align: center;
+    line-height: 1.3;
+    word-break: keep-all;
+    padding: 0 0.5rem;
+}
+
+/* --- 텍스트 --- */
+.sponsor-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: center;
+    word-break: keep-all;
+    transition: color 0.3s ease;
+}
+
+.sponsor-card:hover .sponsor-name {
+    color: #fff;
+}
+
+.sponsor-desc {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.45);
+    text-align: center;
+    line-height: 1.5;
+    word-break: keep-all;
+}
+
+/* --- 하단 후원 문의 --- */
+.sponsors-cta {
+    text-align: center;
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sponsors-cta p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    margin: 0 0 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    word-break: keep-all;
+}
+
+.sponsors-cta i {
+    color: #00d4ff;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.sponsors-cta-link {
+    color: #00d4ff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+}
+
+.sponsors-cta-link:hover {
+    color: #fff;
+    border-bottom-color: #fff;
+    text-shadow: 0 0 12px rgba(0, 212, 255, 0.6);
+}
+
+@media (max-width: 768px) {
+    .sponsor-grid {
+        gap: 1rem;
+    }
+
+    .sponsor-card {
+        padding: 1.4rem 0.8rem 1.1rem;
+    }
+
+    .sponsor-logo-box {
+        height: 48px;
+    }
+}
