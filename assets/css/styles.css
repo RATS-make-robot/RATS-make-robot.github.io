@@ -1991,6 +1991,7 @@ body.dark-mode #why-join-table td b {
 .join-details-header {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1.2rem;
     margin-bottom: 2rem;
     margin-top: 1rem;
@@ -1998,6 +1999,7 @@ body.dark-mode #why-join-table td b {
 
 .join-details-header-line {
     flex: 1;
+    min-width: 15px;
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.4), transparent);
 }
@@ -2251,8 +2253,9 @@ body.dark-mode #why-join-table td b {
 @media (max-width: 768px) {
     .join-title { font-size: 2.2rem; }
 
-    .join-details-header-line {
-        display: none;
+    .join-details-header {
+        justify-content: center;
+        gap: 0.8rem;
     }
 
     .join-detail-card {
